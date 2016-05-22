@@ -1,5 +1,5 @@
 import { Component, provide, ViewEncapsulation } from '@angular/core';
-import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 import { HomeComponent } from './+home';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {Http} from '@angular/http'
@@ -9,7 +9,7 @@ import {FirebaseService} from './services/firebase.service';
 @Component({
   moduleId: module.id,
   selector: 'as-ngcli-app',
-  encapsulation: ViewEncapsulation.None,
+  //encapsulation: ViewEncapsulation.None,
   templateUrl: 'ngcli.component.html',
   styleUrls: ['ngcli.component.css'],
   directives: [ROUTER_DIRECTIVES],
@@ -26,7 +26,7 @@ import {FirebaseService} from './services/firebase.service';
   ],
 })
 @Routes([
-  {path: '/', component: HomeComponent}
+  {path: '/home', component: HomeComponent}
 ])
 export class NgcliAppComponent {
   title = 'ngcli works!';

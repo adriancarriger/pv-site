@@ -5,9 +5,9 @@ import {AuthService} from '../services/auth.service';
 import {FirebaseService} from '../services/firebase.service';
 
 @Component({
-  selector: 'as-starter-home',
-  templateUrl: 'starter-home.component.html',
-  styleUrls: ['starter-home.component.css'],
+  selector: 'as-home',
+  templateUrl: 'app/+home/home.component.html',
+  styleUrls: ['app/+home/home.component.css'],
   providers: [FirebaseService],
   directives: [
     ROUTER_DIRECTIVES,
@@ -19,8 +19,9 @@ export class HomeComponent implements OnInit {
   constructor(private auth: AuthService, private fb: FirebaseService) {}
   
   ngOnInit() {
+    console.log('meow');
     // Example of getting Firebase data
-    //this.fb.getMyTest();
+    this.fb.getMyTest();
   }
 
 }

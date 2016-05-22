@@ -1,0 +1,257 @@
+$pvGreen: #3db74b;
+@font-face{
+  font-family: BebasNeue;
+  font-weight: normal;
+  src: url("app/assets/BebasNeue.otf")
+}
+.fixed-nav-fix {
+  margin-top: 51px;
+}
+.quote {
+  padding: 5% 0;
+  font-style: italic;
+}
+.content {
+  line-height: 2;
+}
+.container, .container-fluid {
+  font-size: 20px;
+  font-family: Arial,Helvetica,sans-serif;
+  color: dimgray;
+  // Global Break Points
+  @media (min-width: 501px) and (max-width: 700px) {
+    font-size: 18px;
+  }
+  @media (max-width: 500px) {
+    font-size: 16px;
+  }
+}
+.container-image {
+  $image_large: 600px;
+  $image_medium: 400px;
+  $image_small: 300px;
+  //max-height: $image_large;
+  height: $image_large;
+  overflow: hidden;
+  position: relative;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: $image_large;
+  }
+  @media (min-width: 501px) and (max-width: 900px) {
+    height: $image_medium;
+    img {
+      height: $image_medium;
+    }
+  }
+  @media (max-width: 500px) {
+    height: $image_small;
+    img {
+      height: $image_small;
+    }
+  }
+}
+.cover {
+  object-fit: cover;
+  width: 50px;
+  height: 100px;
+}
+a {
+  color: $pvGreen;
+  &:hover {
+    color: $pvGreen;
+  }
+  cursor: pointer;
+}
+.play-button {
+  background-color: transparent;
+  font-size: 70px;
+}
+.page-nav {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 70px;
+  width: 450px;
+  margin: 0 auto;
+  .icon-container {
+    float: left;
+    border-right: 1px solid white;
+    color: white;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    &:last-of-type {
+      border-right: none;
+    }
+    .icon {
+      font-size: 60px;
+    }
+  }
+  @media (max-width: 500px) {
+    width: 300px;
+    .icon-container {
+      width: 100px;
+      .icon {
+        font-size: 40px;
+      }
+    }
+  }
+}
+.sermons {
+  
+  @media (max-width: 700px) {
+    margin: 20px 0;
+    &.container {
+      padding-right: initial;
+      padding-left: initial;
+      font-size: inherit;
+      font-family: inherit;
+    }
+  }
+  .sermon-container {
+    position: relative;
+    padding: 10px;
+    height: 150px;
+    border-radius: 5px;
+    clear: both;
+    
+    &:hover {
+      background-color: #f2f2f2;
+      .sermon-art .sermon-play-container {
+        display: block;
+      }
+    }
+    .sermon-art {
+      position: relative;
+      width: 100px;
+      height: 130px;
+      float: left;
+      padding: 15px 0;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+      .sermon-play-container {
+        position: absolute;
+        display: block;
+        margin: auto;
+        top: 0;
+        left: 7px;
+        right: 0;
+        bottom: 0;
+        width: 25px;
+        height: 54px;
+        display: none;
+        .sermon-play {
+          font-size: 40px;
+          color: $pvGreen;
+          width: 25px;
+          height: 54px;
+          transition: all 0.5s ease, color 0.5s ease;
+        }
+      }
+      &:hover {
+        .sermon-play-container {
+          .sermon-play {
+            $scale: 1.2;
+            -ms-transform: scale($scale,$scale);; /* IE 9 */
+            -webkit-transform: scale($scale,$scale);; /* Safari */
+            transform: scale($scale,$scale);
+          }
+        }
+      }
+    }
+    .sermon-info {
+      float: left;
+      padding: 24px 13px;
+      width: 71%;
+      .sermon-author {
+        color: gray;
+      }
+      .sermon-verse {
+        color: gray;
+        a {
+          color: gray;
+        }
+      }
+    }
+    .sermon-date {
+      position: absolute;
+      right: 10px;
+      top: 34px;
+      color: gray;
+    }
+    // Major Break Points
+    @media (max-width: 700px) {
+      &:hover {
+        background-color: initial;
+      }
+      border-bottom: solid 1px lightgray;
+      border-radius: 0;
+      &:last-of-type {
+        border-bottom: none;
+      }
+      .sermon-info {
+        width: 75%;
+        padding: 17px 13px;
+      }
+      .sermon-date {
+        position: static;
+      }
+      .sermon-art {
+        .sermon-play-container {
+          left: initial;
+          top: initial;
+          right: 7px;
+          bottom: 21px;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background-color: white;
+          display: block;
+          .sermon-play {
+            position: absolute;
+            font-size: 11px;
+            width: 7px;
+            height: 12px;
+            color: gray;
+            top: 6px;
+            left: 10px;
+            right: 0;
+            bottom: 0;
+          }
+        }
+      }
+    }
+    @media (max-width: 500px) {
+      height: 130px;
+      .sermon-info {
+        padding: 14px 0 7px 13px;
+        width: 79%;
+      }
+      .sermon-art {
+        width: 70px;
+        height: 100px;
+        padding: 20px 0;
+        .sermon-play-container {
+          right: 4px;
+          bottom: 14px;
+        }
+      }
+    }
+    @media (max-width: 400px) {
+      .sermon-info {
+        width: 70%;
+      }
+    }
+  }
+}
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: normal;
+}
