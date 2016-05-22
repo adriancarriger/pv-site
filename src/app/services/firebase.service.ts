@@ -9,12 +9,12 @@ declare let Firebase: any;
 export class FirebaseService {
   public rootRef;
   public testsRef;
-  
+
   constructor() {
       this.rootRef = new Firebase(FIREBASE_ROOT);
       this.testsRef = new Firebase(FIREBASE_TESTS);
   }
-  
+
   // Firebase Custom Authentication - https://www.firebase.com/docs/web/guide/login/custom.html
   auth(token) {
     this.rootRef.authWithCustomToken(token, (error, authData) => {
@@ -25,7 +25,7 @@ export class FirebaseService {
       }
     });
   }
-  
+
   // Test Examples
   getMyTest() {
       let meow = this.testsRef.child( localStorage.getItem('uid') );

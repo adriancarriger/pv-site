@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AuthHttp, tokenNotExpired} from 'angular2-jwt';
-import {Observable} from 'rxjs/Rx';
+import {tokenNotExpired} from 'angular2-jwt';
 import 'rxjs/Rx';
 import {Http} from '@angular/http';
 import {FirebaseService} from './firebase.service';
@@ -35,7 +34,7 @@ export class AuthService {
         api: 'firebase',
         'scope': 'openid profile'
       };
-      this.auth0.getDelegationToken(delOptions, (err, delegationResult) => {
+      this.auth0.getDelegationToken(delOptions, (delegationErr, delegationResult) => {
           localStorage.setItem('fbToken', delegationResult.id_token);
           // Call Firebase custom authentication
           this.fb.auth(delegationResult.id_token);
@@ -46,7 +45,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('profile');
     localStorage.removeItem('id_token');
-    
+
   }
 
   loggedIn() {
