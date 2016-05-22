@@ -9,12 +9,14 @@ import {FirebaseService} from './services/firebase.service';
 @Component({
   moduleId: module.id,
   selector: 'as-ngcli-app',
-  encapsulation: ViewEncapsulation.None,
+  //encapsulation: ViewEncapsulation.None,
   templateUrl: 'ngcli.component.html',
   styleUrls: ['ngcli.component.css'],
   directives: [ROUTER_DIRECTIVES],
   providers: [
-    ROUTER_PROVIDERS,
+    ROUTER_PROVIDERS
+    //,
+    /*
     provide(AuthHttp, {
       useFactory: (http) => {
         return new AuthHttp(new AuthConfig(), http);
@@ -23,10 +25,11 @@ import {FirebaseService} from './services/firebase.service';
     }),
     AuthService,
     FirebaseService
+    */
   ],
 })
 @Routes([
-  {path: '/', component: HomeComponent}
+  {path: '/home', component: HomeComponent}
 ])
 export class NgcliAppComponent {
   title = 'ngcli works!';
