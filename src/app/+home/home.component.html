@@ -1,3 +1,21 @@
-<p>
-  home works!
-</p>
+<div class="container fixed-nav-fix">
+
+  <div class="jumbotron text-center">
+    <h1>'Allo, 'Allo!</h1>
+     <h1>Welcome to Angular2 with Auth0</h1>
+    <button *ngIf="!auth.loggedIn()" (click)="auth.login()">Login</button>
+    <button *ngIf="auth.loggedIn()" (click)="auth.logout()">Logout</button>
+    <button (click)="fb.setMyWriteTest()">Test</button>
+    
+    
+    <p class="lead">
+      <br>
+      Always a pleasure scaffolding your apps.
+    </p>
+   
+    <p>
+      With ♥ thanks to the contributions of
+    </p>
+  </div>
+
+</div>

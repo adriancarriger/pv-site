@@ -7,6 +7,9 @@ const map: any = {
 
 /** User packages configuration. */
 const packages: any = {
+  '/angular2-jwt': {
+    'defaultExtension': 'js'
+  }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +28,6 @@ const barrels: string[] = [
 
   // Thirdparty barrels.
   'rxjs',
-  'angular2-jwt',
 
   // App specific barrels.
   'app',
