@@ -4,8 +4,13 @@
   <meta charset="utf-8">
   <title>Ngcli</title>
   <base href="/">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
   {{content-for 'head'}}
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
+  <script src="//cdn.auth0.com/w2/auth0-6.8.1.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Service worker support is disabled by default.
@@ -21,12 +26,16 @@
   -->
 </head>
 <body>
-  <ngcli-app>Loading...</ngcli-app>
+  <as-ngcli-app>Loading...</as-ngcli-app>
 
   <script src="vendor/es6-shim/es6-shim.js"></script>
   <script src="vendor/reflect-metadata/Reflect.js"></script>
   <script src="vendor/systemjs/dist/system.src.js"></script>
   <script src="vendor/zone.js/dist/zone.js"></script>
+  
+  <script src="vendor/ng2-bootstrap/bundles/ng2-bootstrap.min.js"></script>
+  <!--<script src='vendor/firebase.js'></script>-->
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 
   <script>
     System.import('system-config.js').then(function () {

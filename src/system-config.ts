@@ -25,10 +25,12 @@ const barrels: string[] = [
 
   // Thirdparty barrels.
   'rxjs',
+  'angular2-jwt',
 
   // App specific barrels.
   'app',
   'app/shared',
+  'app/+home',
   /** @cli-barrel */
 ];
 
@@ -45,7 +47,9 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
-    'main': 'main.js'
+    'main': 'main.js',
+    'moment': 'vendor/moment/moment.js',
+    'angular2-jwt': 'vendor/angular2-jwt/angular2-jwt.js'
   },
   packages: cliSystemConfigPackages
 });

@@ -11,7 +11,12 @@ module.exports = function(defaults) {
       'es6-shim/es6-shim.js',
       'reflect-metadata/*.js',
       'rxjs/**/*.js',
-      '@angular/**/*.js'
+      '@angular/**/*.js',
+      'moment/moment.js',
+      'bootstrap/dist/css/bootstrap.min.css',
+      'bootstrap/dist/fonts/*',
+      'ng2-bootstrap/bundles/ng2-bootstrap.min.js',
+      'angular2-jwt/angular2-jwt.js'
     ]
   });
 };
