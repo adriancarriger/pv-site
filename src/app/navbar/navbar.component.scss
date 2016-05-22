@@ -1,0 +1,77 @@
+/* Full width dropdown */
+.nav .dropdown {
+	position: static;
+	cursor: pointer;
+}
+.dropdown-menu {
+	width: 100%;
+}
+
+.menu-slides-shell {
+	width: 80%;
+	max-width: 900px;
+	margin: 0 auto;
+}
+.menu-slide {
+	float: left;
+	width: 29.33%;
+	margin: 20px 2%;
+	text-align: center;
+	> a {
+		// Apply some of Bootstrap's default styles
+		// after changing the HTML structure
+		display: block;
+    color: #333;
+	}
+	a {
+		position: relative;
+		.overlay {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: black;
+			opacity: 0.7;
+		}
+		.title {
+			position: absolute;
+			top: 50%;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			font-size: 32px;
+			font-family: BebasNeue;
+			color: white;
+			z-index: 1;
+			@media (min-width: 900px) {
+				font-size: 42px;
+			}
+			@media (min-width: 1200px) {
+				font-size: 58px;
+			}
+		}
+		img {
+			width: 100%;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	/* Show large menu on initialization
+	   `.collapse` is removed on init while large,
+		 but comes back after resizing window.
+	*/ 
+	.fix-on-init {
+		// Clone of `.collapse`
+		display: block!important;
+		height: auto!important;
+		padding-bottom: 0;
+		overflow: visible!important;
+		// Extend `.collapse` to remove remaining 
+		// `.collapsing` effects
+		position: static;
+	}
+}
+
+

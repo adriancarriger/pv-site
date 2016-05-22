@@ -1,0 +1,34 @@
+<nav class="navbar navbar-fixed-top navbar-default">
+	<div class="">
+		<div class="navbar-header">
+			<a [routerLink]="['/StarterHome']" class="navbar-brand">
+				<span class="glyphicon glyphicon-home"></span>
+			</a>
+			<button type="button" class="navbar-toggle" (click)="isCollapsed = !isCollapsed">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="navbar-collapse collapse fix-on-init" [collapse]="isCollapsed">
+			<ul *ngIf="pages" class="nav navbar-nav">
+        <li *ngFor="let page of pages; let i = index" dropdown>
+					<a *ngIf="hasX(page,'url')" [routerLink]="['/TestTemplate']" (click)="isCollapsed = !isCollapsed">{{page.name}}</a>
+					<a *ngIf="hasX(page,'sub')" id="simple-dropdown{{i}}" dropdownToggle>{{page.name}}</a>
+          <ul class="dropdown-menu">
+						<div class="menu-slides-shell">
+							<li *ngFor="let sub of page.sub" class="menu-slide">
+								<a [routerLink]="['/'+sub.template, { category: page.slug, slug: sub.slug }]" (click)="isCollapsed = !isCollapsed">
+									<img src="{{sub.image_small}}" srcset="{{sub.image_small}} 150w, {{sub.image_medium}} 300w, {{sub.image_large}} 600w" sizes="30vw" alt="">
+									<div class="title">{{sub.name}}</div>
+									<div class="overlay"></div>
+								</a>
+							</li>
+						</div>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

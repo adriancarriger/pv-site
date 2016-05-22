@@ -5,6 +5,8 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {Http} from '@angular/http';
 import {AuthService} from './services/auth.service';
 import {FirebaseService} from './services/firebase.service';
+import {NavbarComponent} from './navbar/index';
+import {FooterComponent} from './footer/index';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +14,11 @@ import {FirebaseService} from './services/firebase.service';
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'ngcli.component.html',
   styleUrls: ['ngcli.component.css'],
-  directives: [ROUTER_DIRECTIVES],
+  directives: [
+    ROUTER_DIRECTIVES,
+    NavbarComponent,
+    FooterComponent
+  ],
   providers: [
     ROUTER_PROVIDERS,
     provide(AuthHttp, {
