@@ -9,6 +9,7 @@ import {NavbarComponent} from './navbar/index';
 import {FooterComponent} from './footer/index';
 import { DefaultPageComponent } from './+default-page';
 import { TestTemplateComponent } from './+test-template';
+import { SearchParamsService} from './services/search-params.service';
 
 @Component({
   moduleId: module.id,
@@ -30,7 +31,8 @@ import { TestTemplateComponent } from './+test-template';
       deps: [Http]
     }),
     AuthService,
-    FirebaseService
+    FirebaseService,
+    SearchParamsService
   ],
 })
 @Routes([

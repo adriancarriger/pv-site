@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { SearchParamsService } from './search-params.service';
 
 /*
   Generated class for the PeopleService provider.
@@ -12,7 +13,7 @@ import 'rxjs/add/operator/map';
 export class AppApiService {
   data: any = null;
 
-  constructor(public http: Http) {}
+  constructor(public http: Http, public searchParamsService: SearchParamsService) {}
 
   get(paramsObj) {
     if (this.data) {
@@ -20,13 +21,10 @@ export class AppApiService {
       return Promise.resolve(this.data);
     }
     return new Promise(resolve => {
-      // Parameters obj-
-      let params: URLSearchParams = new URLSearchParams();
-      Object.keys(paramsObj).forEach(function(key) {
-        params.set(key, paramsObj[key]);
-      });
+      // Parameters object
+      let searchParams = this.searchParamsService.transform(paramsObj);
       this.http.get('http://pvbiblechurch.com/app-api/', {
-            search: params
+            search: searchParams
         })
         .map(res => res.json())
         .subscribe(data => {
@@ -35,4 +33,3 @@ export class AppApiService {
     });
   }
 }
-
