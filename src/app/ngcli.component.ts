@@ -7,6 +7,8 @@ import {AuthService} from './services/auth.service';
 import {FirebaseService} from './services/firebase.service';
 import {NavbarComponent} from './navbar/index';
 import {FooterComponent} from './footer/index';
+import { DefaultPageComponent } from './+default-page';
+import { TestTemplateComponent } from './+test-template';
 
 @Component({
   moduleId: module.id,
@@ -32,7 +34,9 @@ import {FooterComponent} from './footer/index';
   ],
 })
 @Routes([
-  {path: '/home', component: HomeComponent}
+  {path: '/', component: HomeComponent},
+  {path: '/default-page', component: DefaultPageComponent},
+  {path: '/test-template', component: TestTemplateComponent}
 ])
 export class NgcliAppComponent {
   title = 'ngcli works!';

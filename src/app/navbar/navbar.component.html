@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top navbar-default">
 	<div class="">
 		<div class="navbar-header">
-			<a [routerLink]="['/StarterHome']" class="navbar-brand">
+			<a [routerLink]="['/']" class="navbar-brand">
 				<span class="glyphicon glyphicon-home"></span>
 			</a>
 			<button type="button" class="navbar-toggle" (click)="isCollapsed = !isCollapsed">
@@ -14,7 +14,7 @@
 		<div class="navbar-collapse collapse fix-on-init" [collapse]="isCollapsed">
 			<ul *ngIf="pages" class="nav navbar-nav">
         <li *ngFor="let page of pages; let i = index" dropdown>
-					<a *ngIf="hasX(page,'url')" [routerLink]="['/TestTemplate']" (click)="isCollapsed = !isCollapsed">{{page.name}}</a>
+					<a *ngIf="hasX(page,'url')" [routerLink]="['/test-template']" (click)="isCollapsed = !isCollapsed">{{page.name}}</a>
 					<a *ngIf="hasX(page,'sub')" id="simple-dropdown{{i}}" dropdownToggle>{{page.name}}</a>
           <ul class="dropdown-menu">
 						<div class="menu-slides-shell">
