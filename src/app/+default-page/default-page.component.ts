@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {RouteSegment, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { Component } from '@angular/core';
+import {RouteSegment, ROUTER_DIRECTIVES} from '@angular/router';
 import {AppApiService} from '../services/app-api.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'default-page',
+  selector: 'as-default-page',
   templateUrl: 'default-page.component.html',
   styleUrls: ['default-page.component.css'],
   directives: [ROUTER_DIRECTIVES],
   providers: [AppApiService]
 })
-export class DefaultPageComponent implements OnInit {
-  private info;
-  private testStudies = [
+export class DefaultPageComponent {
+  public testStudies = [
     {
       name: 'Old Testimate',
       time : 'Wed at 3:30pm',
@@ -42,7 +41,7 @@ export class DefaultPageComponent implements OnInit {
       learn: false
     }
   ];
-  private testEvents = [
+  public testEvents = [
     {
       name: 'Old Testimate',
       time : 'Wed at 3:30pm',
@@ -65,7 +64,7 @@ export class DefaultPageComponent implements OnInit {
       learn: false
     }
   ];
-  private sermons = [
+  public sermons = [
     {
       title: 'The Best Is Yet To Come (Part 1 Of 2)',
       speaker: 'Pastor Paul Phillipps',
@@ -131,17 +130,15 @@ export class DefaultPageComponent implements OnInit {
     }
   ];
   private ready = false;
+  private info;
   constructor(curr: RouteSegment, public appApiService: AppApiService) {
-   appApiService.get({
-     type: 'defaultPage',
-     category: curr.getParam('category'),
-     slug: curr.getParam('slug')
-   }).then(data => {
-     this.info = data;
-     this.ready = true;
-   });
+    appApiService.get({
+      type: 'defaultPage',
+      category: curr.urlSegments[0].segment,
+      slug: curr.getParam('type')
+    }).then(data => {
+      this.info = data;
+      this.ready = true;
+    });
   }
-  
-  ngOnInit() {}
-
 }

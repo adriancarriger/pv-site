@@ -25,7 +25,7 @@ describe('Component: DefaultPage', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(DefaultPageComponentTestController)
+    return builder.createAsync(DefaultPageComponentTestComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(DefaultPageComponent));
         expect(query).toBeTruthy();
@@ -35,12 +35,12 @@ describe('Component: DefaultPage', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'as-test',
   template: `
-    <app-default-page></app-default-page>
+    <as-default-page></as-default-page>
   `,
   directives: [DefaultPageComponent]
 })
-class DefaultPageComponentTestController {
+class DefaultPageComponentTestComponent {
 }
 

@@ -19,7 +19,7 @@
           <ul class="dropdown-menu">
 						<div class="menu-slides-shell">
 							<li *ngFor="let sub of page.sub" class="menu-slide">
-								<a [routerLink]="['/'+sub.template, { category: page.slug, slug: sub.slug }]" (click)="isCollapsed = !isCollapsed">
+								<a [routerLink]="['/'+page.slug+'/'+sub.slug]" (click)="isCollapsed = !isCollapsed">
 									<img src="{{sub.image_small}}" srcset="{{sub.image_small}} 150w, {{sub.image_medium}} 300w, {{sub.image_large}} 600w" sizes="30vw" alt="">
 									<div class="title">{{sub.name}}</div>
 									<div class="overlay"></div>

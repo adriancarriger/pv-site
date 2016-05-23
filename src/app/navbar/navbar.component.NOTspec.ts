@@ -25,7 +25,7 @@ describe('Component: Navbar', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(NavbarComponentTestController)
+    return builder.createAsync(NavbarComponentTestComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(NavbarComponent));
         expect(query).toBeTruthy();
@@ -35,12 +35,12 @@ describe('Component: Navbar', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'as-test',
   template: `
-    <app-navbar></app-navbar>
+    <as-navbar></as-navbar>
   `,
   directives: [NavbarComponent]
 })
-class NavbarComponentTestController {
+class NavbarComponentTestComponent {
 }
 

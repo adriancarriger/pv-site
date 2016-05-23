@@ -25,7 +25,7 @@ describe('Component: TestTemplate', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(TestTemplateComponentTestController)
+    return builder.createAsync(TestTemplateComponentTestComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(TestTemplateComponent));
         expect(query).toBeTruthy();
@@ -35,12 +35,12 @@ describe('Component: TestTemplate', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'as-test',
   template: `
-    <app-test-template></app-test-template>
+    <as-test-template></as-test-template>
   `,
   directives: [TestTemplateComponent]
 })
-class TestTemplateComponentTestController {
+class TestTemplateComponentTestComponent {
 }
 

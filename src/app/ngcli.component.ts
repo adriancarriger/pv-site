@@ -35,7 +35,10 @@ import { TestTemplateComponent } from './+test-template';
 })
 @Routes([
   {path: '/', component: HomeComponent},
-  {path: '/default-page', component: DefaultPageComponent},
+  {path: '/resources/:type', component: DefaultPageComponent},
+  {path: '/ministries/:type', component: DefaultPageComponent},
+  {path: '/outreaches/:type', component: DefaultPageComponent},
+  {path: '/about/:type', component: DefaultPageComponent},
   {path: '/test-template', component: TestTemplateComponent}
 ])
 export class NgcliAppComponent {
