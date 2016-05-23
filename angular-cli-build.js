@@ -15,7 +15,7 @@ module.exports = function(defaults) {
       'moment/moment.js',
       'bootstrap/dist/css/bootstrap.min.css',
       'bootstrap/dist/fonts/*',
-      'ng2-bootstrap/bundles/ng2-bootstrap.min.js',
+      'ng2-bootstrap/**',
       'angular2-jwt/angular2-jwt.js'
     ]
   });

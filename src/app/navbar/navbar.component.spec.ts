@@ -18,12 +18,14 @@ describe('Component: Navbar', () => {
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
-
+/*
   it('should inject the component', inject([NavbarComponent],
       (component: NavbarComponent) => {
     expect(component).toBeTruthy();
   }));
-
+  //*/
+  
+/*
   it('should create the component', inject([], () => {
     return builder.createAsync(NavbarComponentTestComponent)
       .then((fixture: ComponentFixture<any>) => {
@@ -32,6 +34,7 @@ describe('Component: Navbar', () => {
         expect(query.componentInstance).toBeTruthy();
       });
   }));
+  //*/
 });
 
 @Component({

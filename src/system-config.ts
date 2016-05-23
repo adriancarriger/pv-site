@@ -3,12 +3,18 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'moment': 'vendor/moment/moment.js',
+  'angular2-jwt': 'vendor/angular2-jwt/angular2-jwt.js',
+  'ng2-bootstrap': 'vendor/ng2-bootstrap/ng2-bootstrap.js'
 };
 
 /** User packages configuration. */
 const packages: any = {
-  '/angular2-jwt': {
-    'defaultExtension': 'js'
+  'vendor/angular2-jwt': {
+    defaultExtension: 'js'
+  },
+  'vendor/ng2-bootstrap': {
+    defaultExtension: 'js',           
   }
 };
 
@@ -53,9 +59,7 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
-    'main': 'main.js',
-    'moment': 'vendor/moment/moment.js',
-    'angular2-jwt': 'vendor/angular2-jwt/angular2-jwt.js'
+    'main': 'main.js'
   },
   packages: cliSystemConfigPackages
 });
