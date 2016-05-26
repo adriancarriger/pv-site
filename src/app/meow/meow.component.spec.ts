@@ -9,25 +9,25 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { FooterComponent } from './footer.component';
+import { MeowComponent } from './meow.component';
 
-describe('Component: Footer', () => {
+describe('Component: Meow', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [FooterComponent]);
+  beforeEachProviders(() => [MeowComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([FooterComponent],
-      (component: FooterComponent) => {
+  it('should inject the component', inject([MeowComponent],
+      (component: MeowComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', done => {
-    return builder.createAsync(FooterComponentTestComponent)
+    return builder.createAsync(MeowComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(FooterComponent));
+        let query = fixture.debugElement.query(By.directive(MeowComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
         done();
@@ -36,12 +36,12 @@ describe('Component: Footer', () => {
 });
 
 @Component({
-  selector: 'as-test',
+  selector: 'test',
   template: `
-    <as-footer></as-footer>
+    <app-meow></app-meow>
   `,
-  directives: [FooterComponent]
+  directives: [MeowComponent]
 })
-class FooterComponentTestComponent {
+class MeowComponentTestController {
 }
 

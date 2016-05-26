@@ -24,14 +24,15 @@ describe('Component: TestTemplate', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should create the component', inject([], () => {
+  it('should create the component', done => {
     return builder.createAsync(TestTemplateComponentTestComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(TestTemplateComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
+        done();
       });
-  }));
+  });
 });
 
 @Component({

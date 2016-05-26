@@ -10,6 +10,8 @@ import {FooterComponent} from './footer/index';
 import { DefaultPageComponent } from './+default-page';
 import { TestTemplateComponent } from './+test-template';
 import { SearchParamsService} from './services/search-params.service';
+import { TestAreaComponent } from './+test-area';
+
 
 @Component({
   moduleId: module.id,
@@ -41,7 +43,8 @@ import { SearchParamsService} from './services/search-params.service';
   {path: '/ministries/:type', component: DefaultPageComponent},
   {path: '/outreaches/:type', component: DefaultPageComponent},
   {path: '/about/:type', component: DefaultPageComponent},
-  {path: '/test-template', component: TestTemplateComponent}
+  {path: '/test-template', component: TestTemplateComponent},
+  {path: '/test-area', component: TestAreaComponent}
 ])
 export class NgcliAppComponent {
   title = 'ngcli works!';

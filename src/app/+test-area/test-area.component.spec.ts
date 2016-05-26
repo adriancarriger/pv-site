@@ -9,25 +9,25 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { FooterComponent } from './footer.component';
+import { TestAreaComponent } from './test-area.component';
 
-describe('Component: Footer', () => {
+describe('Component: TestArea', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [FooterComponent]);
+  beforeEachProviders(() => [TestAreaComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([FooterComponent],
-      (component: FooterComponent) => {
+  it('should inject the component', inject([TestAreaComponent],
+      (component: TestAreaComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', done => {
-    return builder.createAsync(FooterComponentTestComponent)
+    return builder.createAsync(TestAreaComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(FooterComponent));
+        let query = fixture.debugElement.query(By.directive(TestAreaComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
         done();
@@ -36,12 +36,12 @@ describe('Component: Footer', () => {
 });
 
 @Component({
-  selector: 'as-test',
+  selector: 'test',
   template: `
-    <as-footer></as-footer>
+    <app-test-area></app-test-area>
   `,
-  directives: [FooterComponent]
+  directives: [TestAreaComponent]
 })
-class FooterComponentTestComponent {
+class TestAreaComponentTestController {
 }
 

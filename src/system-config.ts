@@ -43,6 +43,9 @@ const barrels: string[] = [
   'app/footer',
   'app/+default-page',
   'app/+test-template',
+  'app/test/test-nav',
+  'app/+test-area',
+  'app/meow',
   /** @cli-barrel */
 ];
 

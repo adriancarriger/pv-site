@@ -28,12 +28,17 @@ export class FirebaseService {
 
   // Test Examples
   getMyTest() {
-      let meow = this.testsRef.child( localStorage.getItem('uid') );
-      meow.on('value', function(snapshot) {
-        console.log(snapshot.val());
-      }, function (errorObject) {
-        console.log('The read failed: ' + errorObject.code);
-      });
+      if (localStorage.getItem('uid') !== null) {
+        let meow = this.testsRef.child( localStorage.getItem('uid') );
+        meow.on('value', function(snapshot) {
+          console.log(snapshot.val());
+        }, function (errorObject) {
+          console.log('The read failed: ' + errorObject.code);
+        });
+      }
+      else {
+        console.log('null localStorage');
+      }
   }
   setMyWriteTest() {
     let meow = this.testsRef.child( localStorage.getItem('uid') );
