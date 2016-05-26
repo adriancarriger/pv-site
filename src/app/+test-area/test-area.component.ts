@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MeowComponent } from '../meow';
+import { TestServiceService } from '../test-service.service';
 
 @Component({
   moduleId: module.id,

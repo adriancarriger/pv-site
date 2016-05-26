@@ -4,44 +4,33 @@ import {
   describe,
   expect,
   it,
-  inject,
+  inject
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MeowComponent } from './meow.component';
+import { TestServiceService } from '../test-service.service';
+import {Observable} from 'rxjs/Observable';
+
+class MockTestServiceService extends TestServiceService {
+  constructor() {
+    super(null);
+  }
+  bob() {
+    return Observable.of([
+      {
+        id: 26,
+        title: 'The title MOCK MOCK MOCK',
+        contentRendered: '<p><b>Hi there</b></p>',
+        contentMarkdown: '*Hi there*'
+      }
+    ]);
+  }
+}
 
 describe('Component: Meow', () => {
-  let builder: TestComponentBuilder;
-
-  beforeEachProviders(() => [MeowComponent]);
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
-
-  it('should inject the component', inject([MeowComponent],
-      (component: MeowComponent) => {
-    expect(component).toBeTruthy();
-  }));
-
-  it('should create the component', done => {
-    return builder.createAsync(MeowComponentTestController)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(MeowComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-        done();
-      });
-  });
+  // Starting over
+  
 });
-
-@Component({
-  selector: 'test',
-  template: `
-    <app-meow></app-meow>
-  `,
-  directives: [MeowComponent]
-})
-class MeowComponentTestController {
-}
 
