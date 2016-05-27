@@ -36,7 +36,7 @@ export class FirebaseService {
           console.log('The read failed: ' + errorObject.code);
         });
       } else {
-        console.log('null localStorage');
+        //console.log('null localStorage');
       }
   }
   setMyWriteTest() {

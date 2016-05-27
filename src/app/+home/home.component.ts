@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   constructor(private auth: AuthService, private fb: FirebaseService) {}
 
   ngOnInit() {
-    console.log('meow');
     // Example of getting Firebase data
     this.fb.getMyTest();
   }
