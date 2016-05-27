@@ -6,9 +6,9 @@ import {
   it,
   inject,
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component, provide } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { TestComponentBuilder } from '@angular/compiler/testing';
+import { provide } from '@angular/core';
+// import { By } from '@angular/platform-browser';
 import { NavbarComponent } from './navbar.component';
 import {AppApiService} from '../services/app-api.service';
 import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
@@ -23,10 +23,16 @@ describe('Component: Navbar', () => {
     NavbarComponent
   ]);
 
-  beforeEach(inject([TestComponentBuilder], tcb => { 
+  beforeEach(inject([TestComponentBuilder], tcb => {
     builder = tcb;
     mockAppApiService = new MockAppApiService();
   }));
+
+  it('should inject the component', inject([NavbarComponent],
+      (component: NavbarComponent) => {
+    expect(component).toBeTruthy();
+  }));
+
 
   it('should render work with other format', done => {
     return builder
@@ -38,11 +44,6 @@ describe('Component: Navbar', () => {
     })
     .catch(e => done.fail(e));
   });
-  
-  it('should inject the component', inject([NavbarComponent],
-      (component: NavbarComponent) => {
-    expect(component).toBeTruthy();
-  }));
 
 });
 

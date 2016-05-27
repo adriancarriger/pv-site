@@ -14,7 +14,7 @@ const packages: any = {
     defaultExtension: 'js'
   },
   'vendor/ng2-bootstrap': {
-    defaultExtension: 'js',           
+    defaultExtension: 'js',
   }
 };
 
