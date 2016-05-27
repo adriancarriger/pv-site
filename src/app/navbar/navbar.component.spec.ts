@@ -7,43 +7,55 @@ import {
   inject,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { NavbarComponent } from './navbar.component';
+import {AppApiService} from '../services/app-api.service';
+import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
 
 describe('Component: Navbar', () => {
-  let builder: TestComponentBuilder;
+  let builder;
+  let mockAppApiService;
 
-  beforeEachProviders(() => [NavbarComponent]);
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
+  beforeEachProviders(() => [
+    ROUTER_FAKE_PROVIDERS,
+    provide(AppApiService, {useValue: mockAppApiService}),
+    NavbarComponent
+  ]);
+
+  beforeEach(inject([TestComponentBuilder], tcb => { 
     builder = tcb;
+    mockAppApiService = new MockAppApiService();
   }));
-/*
+
+  it('should render work with other format', done => {
+    return builder
+      .overrideProviders(NavbarComponent, [provide(AppApiService, {useValue: mockAppApiService})])
+      .createAsync(NavbarComponent).then(fixture => {
+      let nativeElement = fixture.nativeElement;
+      console.log( nativeElement.querySelector('#test-id') );
+      done();
+    })
+    .catch(e => done.fail(e));
+  });
+  
   it('should inject the component', inject([NavbarComponent],
       (component: NavbarComponent) => {
     expect(component).toBeTruthy();
   }));
-  //*/
-  
-/*
-  it('should create the component', inject([], () => {
-    return builder.createAsync(NavbarComponentTestComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(NavbarComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
-  //*/
+
 });
 
-@Component({
-  selector: 'as-test',
-  template: `
-    <as-navbar></as-navbar>
-  `,
-  directives: [NavbarComponent]
-})
-class NavbarComponentTestComponent {
+class MockAppApiService extends AppApiService {
+  constructor() {
+    super(null, null);
+  }
+  get(ignoredRequest) {
+    let testData = [
+      {
+        title: 'test-title'
+      }
+    ];
+    return Promise.resolve(testData);
+  }
 }
-
