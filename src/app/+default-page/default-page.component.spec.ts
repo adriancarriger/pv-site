@@ -6,10 +6,9 @@ import {
   it,
   inject,
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
+import { TestComponentBuilder } from '@angular/compiler/testing';
 // import { Component } from '@angular/core';
 import { provide } from '@angular/core';
-import { By } from '@angular/platform-browser';
 import { DefaultPageComponent } from './default-page.component';
 import {AppApiService} from '../services/app-api.service';
 import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
@@ -72,14 +71,14 @@ class MockAppApiService extends AppApiService {
   }
   get(ignoredRequest) {
     let testData = {
-        'image_small': 'http:\/\/pvbiblechurch.com\/wp-content\/uploads\/mp\/image-cache\/site\/b\/bible-for-mens-group.82ceb1a6ff1f1d0890ee39f0a18d5815.jpg',
-        'image_medium': 'http:\/\/pvbiblechurch.com\/wp-content\/uploads\/mp\/image-cache\/site\/b\/bible-for-mens-group.347e64debce81777d534cbfdcae7b1c2.jpg',
-        'image_large': 'http:\/\/pvbiblechurch.com\/wp-content\/uploads\/mp\/image-cache\/site\/0\/bible-for-mens-group.b882bdfb9e2308ac1c8e3977b7ec257a.jpg',
-        'image_x_large': 'http:\/\/pvbiblechurch.com\/wp-content\/uploads\/mp\/image-cache\/site\/5\/bible-for-mens-group.7c37f8f82bde4fdd7aa7c16c3f28f0a9.jpg',
+        'image_small': '/app/assets/test-pattern-5.jpg',
+        'image_medium': '/app/assets/test-pattern-5.jpg',
+        'image_large': '/app/assets/test-pattern-5.jpg',
+        'image_x_large': '/app/assets/test-pattern-5.jpg',
         'first_section': {
             'title': 'Bible Studies',
             'quote': '\'As iron sharpens iron, so one man sharpens another.\' - Proverbs 27:17',
-            'content': '<p>The purpose of Men&#8217;s Ministry is to grow and equip godly men who impact their relationships, marriages, families, church, community and workplace for the glory of God and for their spiritual growth.<\/p>'
+            'content': 'Test content here.'
         }
     };
     return Promise.resolve(testData);
