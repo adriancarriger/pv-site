@@ -31,6 +31,9 @@ module.exports = function (config) {
       'dist/vendor/**/*.spec.js'
     ],
     preprocessors: {},
+    proxies: {
+      "/app/assets/": "/base/dist/app/assets/"
+    },
     reporters: ['progress'],
     port: 9876,
     colors: true,

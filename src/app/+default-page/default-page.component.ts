@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {RouteSegment, ROUTER_DIRECTIVES} from '@angular/router';
-import {AppApiService} from '../services/app-api.service';
+import { Component, OnInit } from '@angular/core';
+import { RouteSegment, ROUTER_DIRECTIVES } from '@angular/router';
+import { AppApiService } from '../services/app-api.service';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +10,7 @@ import {AppApiService} from '../services/app-api.service';
   directives: [ROUTER_DIRECTIVES],
   providers: [AppApiService]
 })
-export class DefaultPageComponent {
+export class DefaultPageComponent implements OnInit {
   public testStudies = [
     {
       name: 'Old Testimate',
@@ -131,11 +131,12 @@ export class DefaultPageComponent {
   ];
   private ready = false;
   private info;
-  constructor(curr: RouteSegment, public appApiService: AppApiService) {
-    appApiService.get({
+  constructor(private curr: RouteSegment, public appApiService: AppApiService) {}
+  ngOnInit(): Promise<any> {
+    return this.appApiService.get({
       type: 'defaultPage',
-      category: curr.urlSegments[0].segment,
-      slug: curr.getParam('type')
+      category: this.curr.urlSegments[0].segment,
+      slug: this.curr.getParam('type')
     }).then(data => {
       this.info = data;
       this.ready = true;

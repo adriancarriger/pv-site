@@ -1,7 +1,7 @@
 <div class="container-image fixed-nav-fix">
   <img *ngIf="ready" src="{{info.image_small}}" srcset="{{info.image_small}} 600w, {{info.image_medium}} 1000w, {{info.image_large}} 2000w, {{info.image_x_large}} 3000w" alt="">
   <div class="overlay"></div>
-  <h1>Woman's Ministry</h1>
+  <h1>Women's Ministry</h1>
   <div class="page-nav">
     <div class="icon-container">
       <div class="icon ion-ios-information-outline"></div>
@@ -105,7 +105,7 @@
     </div>
   </div>
 <div *ngIf="ready" class="container-ad sermon-ad">
-  <img *ngIf="ready" src="app/assets/abstract.jpg" alt="">
+  <img *ngIf="ready" src="/app/assets/abstract.jpg" alt="">
   <div class="adcontent">
     <h1>Sermons</h1>
     <div class="description">Listen to some sermons on biblical womanhood.</div>
@@ -120,7 +120,7 @@
 <div *ngIf="ready" class="sermons container">
   <div *ngFor="let sermon of sermons" class="sermon-container">
     <div class="sermon-art">
-      <img src="app/assets/{{sermon.art}}" alt="">
+      <img src="/app/assets/{{sermon.art}}" alt="">
       <div class="sermon-play-container">
         <div class="sermon-play ion-play"></div>
       </div>
