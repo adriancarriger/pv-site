@@ -54,7 +54,7 @@ describe('AppApi Service', () => {
     mockbackend.connections.subscribe(connection => {
       connection.mockRespond(new Response(options));
     });
-    service.get('meow').then(data => {
+    service.get('test data').then(data => {
       expect(data[0].name).toContain('Test page');
       expect(data[0].name).toContain(1);
       expect(data[1].name).toContain(2);

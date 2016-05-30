@@ -22,9 +22,9 @@ export class NavbarComponent implements OnInit {
   }
 
   constructor(public appApiService: AppApiService) {}
-  ngOnInit() {
+  ngOnInit(): Promise<any> {
     this.isCollapsed = true;
-    this.appApiService.get({type: 'menu'})
+    return this.appApiService.get({type: 'menu'})
     .then(data => {
       this.pages = data;
     });

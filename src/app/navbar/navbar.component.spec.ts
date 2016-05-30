@@ -8,7 +8,6 @@ import {
 } from '@angular/core/testing';
 import { TestComponentBuilder } from '@angular/compiler/testing';
 import { provide } from '@angular/core';
-// import { By } from '@angular/platform-browser';
 import { NavbarComponent } from './navbar.component';
 import {AppApiService} from '../services/app-api.service';
 import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
@@ -34,13 +33,26 @@ describe('Component: Navbar', () => {
   }));
 
 
-  it('should render work with other format', done => {
+  it('should build the component', done => {
     return builder
       .overrideProviders(NavbarComponent, [provide(AppApiService, {useValue: mockAppApiService})])
       .createAsync(NavbarComponent).then(fixture => {
-      let nativeElement = fixture.nativeElement;
-      console.log( nativeElement.querySelector('#test-id') );
-      done();
+      fixture.debugElement.componentInstance.ngOnInit().then(() => {
+        let nativeElement = fixture.nativeElement;
+        fixture.detectChanges();
+        let itemsTotal = nativeElement.querySelectorAll('.navbar-nav > li').length;
+        let itemOneText = nativeElement
+          .querySelector('.navbar-nav .dropdown-toggle:first-of-type').innerHTML;
+        let subItemsTotal = nativeElement.querySelectorAll('.menu-slide').length;
+        let subItemOneText = nativeElement
+          .querySelector('.menu-slide:first-of-type .title').innerHTML;
+        expect(itemsTotal).toBe(3);
+        expect(itemOneText).toBe('Item-1');
+        expect(subItemsTotal).toBe(3);
+        expect(subItemOneText).toBe('Sub-item-1');
+        done();
+      });
+
     })
     .catch(e => done.fail(e));
   });
@@ -54,7 +66,39 @@ class MockAppApiService extends AppApiService {
   get(ignoredRequest) {
     let testData = [
       {
-        title: 'test-title'
+        'name': 'Item-1',
+        'slug': 'item-1',
+        'template': 'DefaultPage',
+        'sub': [
+          {
+              'name': 'Sub-item-1',
+              'slug': 'sub-item-1',
+              'template': 'default-page'
+          },
+          {
+              'name': 'Sub-item-2',
+              'slug': 'sub-item-2',
+              'template': 'default-page'
+          },
+          {
+              'name': 'Sub-item-3',
+              'url': 'http:\/\/pvbiblechurch.com\/wp-content\/uploads\/pastor-paul-thesis.pdf',
+              'slug': 'sub-item-3',
+              'template': 'default-page'
+          }
+        ]
+      },
+      {
+        'name': 'Item-2',
+        'slug': 'item-2',
+        'template': 'DefaultPage',
+        'url': 'http:\/\/pvbiblechurch.com\/events\/'
+      },
+      {
+        'name': 'Item-3',
+        'slug': 'item-3',
+        'template': 'DefaultPage',
+        'url': 'http:\/\/pvbiblechurch.com\/contact\/'
       }
     ];
     return Promise.resolve(testData);

@@ -44,6 +44,4 @@ import { SearchParamsService} from './services/search-params.service';
   {path: '/about/:type', component: DefaultPageComponent},
   {path: '/test-template', component: TestTemplateComponent}
 ])
-export class NgcliAppComponent {
-  title = 'ngcli works!';
-}
+export class NgcliAppComponent {}

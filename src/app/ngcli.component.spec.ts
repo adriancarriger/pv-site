@@ -14,9 +14,4 @@ describe('App: Ngcli', () => {
       inject([NgcliAppComponent], (app: NgcliAppComponent) => {
     expect(app).toBeTruthy();
   }));
-
-  it('should have as title \'ngcli works!\'',
-      inject([NgcliAppComponent], (app: NgcliAppComponent) => {
-    expect(app.title).toEqual('ngcli works!');
-  }));
 });
