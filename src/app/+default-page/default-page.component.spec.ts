@@ -47,7 +47,7 @@ describe('Component: DefaultPage', () => {
         fixture.detectChanges();
         let imageTitle = nativeElement
           .querySelector('.container-image h1').innerHTML;
-        expect(imageTitle).toBe('Women\'s Ministry');
+        expect(imageTitle).toBe('Test Title');
         done();
       });
 
@@ -75,6 +75,7 @@ class MockAppApiService extends AppApiService {
         'image_medium': '/app/assets/test-pattern-5.jpg',
         'image_large': '/app/assets/test-pattern-5.jpg',
         'image_x_large': '/app/assets/test-pattern-5.jpg',
+        'title': 'Test Title',
         'first_section': {
             'title': 'Bible Studies',
             'quote': '\'As iron sharpens iron, so one man sharpens another.\' - Proverbs 27:17',
