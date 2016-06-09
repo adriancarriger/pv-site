@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteSegment, ROUTER_DIRECTIVES } from '@angular/router';
 import { AppApiService } from '../services/app-api.service';
+import { HeaderDefaultComponent } from '../components/header-default/index'
 
 @Component({
   moduleId: module.id,
   selector: 'as-default-page',
   templateUrl: 'default-page.component.html',
   styleUrls: ['default-page.component.css'],
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, HeaderDefaultComponent],
   providers: [AppApiService]
 })
 export class DefaultPageComponent implements OnInit {
+  public meowBobParentTest = 'bla bla meow bla Bob';
   public testStudies = [
     {
       name: 'Old Testimate',
@@ -102,7 +104,7 @@ export class DefaultPageComponent implements OnInit {
     }
   ];
   private ready = false;
-  private info;
+  public info = 'just another test #2!';
   constructor(private curr: RouteSegment, public appApiService: AppApiService) {}
   ngOnInit(): Promise<any> {
     return this.appApiService.get({

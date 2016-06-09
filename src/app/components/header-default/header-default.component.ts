@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-header-default',
+  selector: 'as-header-default',
   templateUrl: 'header-default.component.html',
-  styleUrls: ['header-default.component.css']
+  styleUrls: ['header-default.component.css'],
+  inputs: ['info']
 })
 export class HeaderDefaultComponent implements OnInit {
-
+  public info;
   constructor() {}
-
-  ngOnInit() {
+  ngOnInit() {}
+  length(object) {
+    return object.length;
   }
-
 }

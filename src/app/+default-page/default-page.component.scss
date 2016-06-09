@@ -1,27 +1,4 @@
 $pvGreen: #3db74b;
-.container-image {
-  h1 {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    right: 0;
-    font-size: 35px;
-    color: white;
-    text-align: center;
-    z-index: 2;
-    font-family: BebasNeue;
-  }
-  .overlay {
-    background-color: black;
-    opacity: 0.4;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-  }
-}
 .container-ad {
   position: relative;
   $image_large: 320px;
