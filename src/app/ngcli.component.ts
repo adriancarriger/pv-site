@@ -9,7 +9,8 @@ import {NavbarComponent} from './navbar/index';
 import {FooterComponent} from './footer/index';
 import { DefaultPageComponent } from './+default-page';
 import { TestTemplateComponent } from './+test-template';
-import { SearchParamsService} from './services/search-params.service';
+import { SearchParamsService } from './services/search-params.service';
+import { GlobalEventsService } from './services/global-events.service';
 
 
 @Component({
@@ -33,7 +34,8 @@ import { SearchParamsService} from './services/search-params.service';
     }),
     AuthService,
     FirebaseService,
-    SearchParamsService
+    SearchParamsService,
+    GlobalEventsService
   ],
 })
 @Routes([
@@ -44,4 +46,8 @@ import { SearchParamsService} from './services/search-params.service';
   {path: '/about/:type', component: DefaultPageComponent},
   {path: '/test-template', component: TestTemplateComponent}
 ])
-export class NgcliAppComponent {}
+export class NgcliAppComponent {
+  constructor(globalEventsService: GlobalEventsService) {
+    globalEventsService.init();
+  }
+}

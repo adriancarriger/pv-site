@@ -11,6 +11,7 @@ import { provide } from '@angular/core';
 import { NavbarComponent } from './navbar.component';
 import {AppApiService} from '../services/app-api.service';
 import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
+import { GlobalEventsService } from '../services/global-events.service';
 
 describe('Component: Navbar', () => {
   let builder;
@@ -19,6 +20,7 @@ describe('Component: Navbar', () => {
   beforeEachProviders(() => [
     ROUTER_FAKE_PROVIDERS,
     provide(AppApiService, {useValue: mockAppApiService}),
+    GlobalEventsService,
     NavbarComponent
   ]);
 

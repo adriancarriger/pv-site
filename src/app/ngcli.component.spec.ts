@@ -6,8 +6,12 @@ import {
   inject
 } from '@angular/core/testing';
 import { NgcliAppComponent } from '../app/ngcli.component';
+import { GlobalEventsService } from './services/global-events.service';
 
-beforeEachProviders(() => [NgcliAppComponent]);
+beforeEachProviders(() => [
+  NgcliAppComponent,
+  GlobalEventsService
+]);
 
 describe('App: Ngcli', () => {
   it('should create the app',

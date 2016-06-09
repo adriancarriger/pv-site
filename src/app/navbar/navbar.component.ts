@@ -3,6 +3,7 @@ import {CORE_DIRECTIVES} from '@angular/common';
 import {DROPDOWN_DIRECTIVES, CollapseDirective} from 'ng2-bootstrap';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import {AppApiService} from '../services/app-api.service';
+import { GlobalEventsService } from '../services/global-events.service';
 
 @Component({
   moduleId: module.id,
@@ -21,7 +22,12 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  constructor(public appApiService: AppApiService) {}
+  constructor(public appApiService: AppApiService, globalEventsService: GlobalEventsService) {
+    globalEventsService.scroll$.subscribe(data => {
+      // console.log(data);
+    });
+  }
+
   ngOnInit(): Promise<any> {
     this.isCollapsed = true;
     return this.appApiService.get({type: 'menu'})
