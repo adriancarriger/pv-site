@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {DROPDOWN_DIRECTIVES, CollapseDirective} from 'ng2-bootstrap';
 import {ROUTER_DIRECTIVES} from '@angular/router';
-import {AppApiService} from '../services/app-api.service';
-import { GlobalEventsService } from '../services/global-events.service';
+import {AppApiService} from '../../services/app-api.service';
+import { GlobalEventsService } from '../../services/global-events.service';
 
 @Component({
   moduleId: module.id,

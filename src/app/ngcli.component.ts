@@ -5,12 +5,13 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {Http} from '@angular/http';
 import {AuthService} from './services/auth.service';
 import {FirebaseService} from './services/firebase.service';
-import {NavbarComponent} from './navbar/index';
-import {FooterComponent} from './footer/index';
+import {NavbarComponent} from './components/navbar/index';
+import {FooterComponent} from './components/footer/index';
 import { DefaultPageComponent } from './+default-page';
 import { TestTemplateComponent } from './+test-template';
 import { SearchParamsService } from './services/search-params.service';
 import { GlobalEventsService } from './services/global-events.service';
+import { SermonsPageComponent } from './+sermons-page';
 
 
 @Component({
@@ -44,7 +45,8 @@ import { GlobalEventsService } from './services/global-events.service';
   {path: '/ministries/:type', component: DefaultPageComponent},
   {path: '/outreaches/:type', component: DefaultPageComponent},
   {path: '/about/:type', component: DefaultPageComponent},
-  {path: '/test-template', component: TestTemplateComponent}
+  {path: '/test-template', component: TestTemplateComponent},
+  {path: '/sermons', component: SermonsPageComponent}
 ])
 export class NgcliAppComponent {
   constructor(globalEventsService: GlobalEventsService) {
