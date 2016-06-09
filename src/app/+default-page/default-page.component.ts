@@ -99,34 +99,6 @@ export class DefaultPageComponent implements OnInit {
       date: '4/17/16 AM',
       art: 'test-pattern.jpg',
       verse: '1 John 2:10'
-    },
-    {
-      title: 'Man\'s Greatest Sin...It\'s Not What You Think',
-      speaker: 'Pastor Paul Phillipps',
-      date: '4/10/16 AM',
-      art: 'test-pattern-3.jpg',
-      verse: '1 John 2:10'
-    },
-    {
-      title: 'The Best Is Yet To Come (Part 1 Of 2)',
-      speaker: 'Pastor Paul Phillipps',
-      date: '5/8/16 AM',
-      art: 'test-pattern-4.jpg',
-      verse: '1 John 2:10'
-    },
-    {
-      title: 'The Best Is Yet To Come (Part 1 Of 2)',
-      speaker: 'Pastor Paul Phillipps',
-      date: '5/8/16 AM',
-      art: 'test-pattern-5.jpg',
-      verse: '1 John 2:10'
-    },
-    {
-      title: 'The Best Is Yet To Come (Part 1 Of 2)',
-      speaker: 'Pastor Paul Phillipps',
-      date: '5/8/16 AM',
-      art: 'test-pattern.jpg',
-      verse: '1 John 2:10'
     }
   ];
   private ready = false;
