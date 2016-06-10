@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+.filter {
+  top: 51px;
+  z-index: 2;
+  background: $pvGreen;
+  width: 100%;
+  &.sticky {
+    position: fixed;
+  }
+  .container {
+    .input-item {
+      float: left;
+      padding: 10px;
+      color: white;
+      &.search {
+        width: 50%;
+        position: relative;
+        i {
+          position: absolute;
+          top: 17px;
+          left: 25px;
+        }
+        input {
+          border-radius: 25px;
+          padding: 5px 10px 5px 40px;
+          border: none;
+          outline: none;
+          width: 100%;
+          background-color: #71bf7a;
+          color: white;
+          &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: white;
+          }
+          &:focus {
+            background-color: white;
+            color: gray;
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+              color: gray;
+            }
+            & + i {
+              color: gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}

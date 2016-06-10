@@ -114,31 +114,7 @@
   <button type="button" class="btn ion-play play-button"></button>
   <div class="button-overlay"></div>
 </div>
-<div *ngIf="ready" class="sermons container">
-  <div *ngFor="let sermon of sermons" class="sermon-container">
-    <div class="sermon-art">
-      <img src="/app/assets/{{sermon.art}}" alt="">
-      <div class="sermon-play-container">
-        <div class="sermon-play ion-play"></div>
-      </div>
-    </div>
-    <div class="sermon-info">
-      <div class="sermon-title truncate">
-        "{{sermon.title}}"
-      </div>
-      <div class="sermon-author truncate">
-        {{sermon.speaker}}
-      </div>
-      <div class="sermon-verse truncate">
-        <a>{{sermon.verse}}</a>
-      </div>
-      <div class="sermon-date">
-        {{sermon.date}}
-      </div>
-    </div>
-  </div>
-</div>
-
+<as-sermons-list [sermons]=sermons></as-sermons-list>
 <!--
 <div *ngIf="ready" class="container-ad">
   <img *ngIf="ready" src="app/assets/fun-pattern.jpg" alt="">

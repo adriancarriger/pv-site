@@ -2,13 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { RouteSegment, ROUTER_DIRECTIVES } from '@angular/router';
 import { AppApiService } from '../services/app-api.service';
 import { HeaderDefaultComponent } from '../components/header-default/index';
+import { SermonsListComponent } from '../components/sermons-list/index';
 
 @Component({
   moduleId: module.id,
   selector: 'as-default-page',
   templateUrl: 'default-page.component.html',
   styleUrls: ['default-page.component.css'],
-  directives: [ROUTER_DIRECTIVES, HeaderDefaultComponent],
+  directives: [
+    ROUTER_DIRECTIVES,
+    HeaderDefaultComponent,
+    SermonsListComponent
+  ],
   providers: [AppApiService]
 })
 export class DefaultPageComponent implements OnInit {

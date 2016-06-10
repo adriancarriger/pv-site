@@ -46,6 +46,8 @@ const barrels: string[] = [
   'app/sermons-page',
   'app/+sermons-page',
   'app/header-default',
+  'app/filter-default',
+  'app/sermon-list',
   /** @cli-barrel */
 ];
 

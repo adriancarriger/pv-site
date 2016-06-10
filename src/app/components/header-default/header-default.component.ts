@@ -8,7 +8,4 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderDefaultComponent {
   @Input() info;
-  length(object) {
-    return object.length;
-  }
 }

@@ -1,10 +1,9 @@
-$pvGreen: #3db74b;
+@import '../styles/variables';
 .container-ad {
   position: relative;
   $image_large: 320px;
   $image_small: 380px;
   margin: 50px 0;
-  //background-color: hotpink;
   color: darkslategray;
   height: $image_large;
   img {
@@ -55,7 +54,6 @@ $pvGreen: #3db74b;
       margin-bottom: 0;
     }
     .more-info {
-      //padding-top: 60px;
       position: absolute;
       bottom: 15%;
       right: 0;

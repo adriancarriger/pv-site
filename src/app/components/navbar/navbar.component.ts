@@ -14,6 +14,7 @@ import { GlobalEventsService } from '../../services/global-events.service';
   providers: [AppApiService]
 })
 export class NavbarComponent implements OnInit {
+  public stickyNav = true;
   public isCollapsed: boolean;
   private pages = false;
   public hasX(obj, X) {
@@ -25,6 +26,9 @@ export class NavbarComponent implements OnInit {
   constructor(public appApiService: AppApiService, globalEventsService: GlobalEventsService) {
     globalEventsService.scroll$.subscribe(data => {
       // console.log(data);
+    });
+    globalEventsService.sticky$.subscribe(value => {
+      this.stickyNav = value;
     });
   }
 

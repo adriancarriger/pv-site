@@ -1,5 +1,5 @@
 import { Component, provide, ViewEncapsulation } from '@angular/core';
-import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 import { HomeComponent } from './+home';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {Http} from '@angular/http';
@@ -41,12 +41,12 @@ import { SermonsPageComponent } from './+sermons-page';
 })
 @Routes([
   {path: '/', component: HomeComponent},
+  {path: '/resources/sermons', component: SermonsPageComponent},
   {path: '/resources/:type', component: DefaultPageComponent},
   {path: '/ministries/:type', component: DefaultPageComponent},
   {path: '/outreaches/:type', component: DefaultPageComponent},
   {path: '/about/:type', component: DefaultPageComponent},
-  {path: '/test-template', component: TestTemplateComponent},
-  {path: '/sermons', component: SermonsPageComponent}
+  {path: '/test-template', component: TestTemplateComponent}
 ])
 export class NgcliAppComponent {
   constructor(globalEventsService: GlobalEventsService) {
