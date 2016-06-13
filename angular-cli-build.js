@@ -16,7 +16,10 @@ module.exports = function(defaults) {
       'bootstrap/dist/css/bootstrap.min.css',
       'bootstrap/dist/fonts/*',
       'ng2-bootstrap/**',
-      'angular2-jwt/angular2-jwt.js'
+      'ng2-select/**',
+      'angular2-jwt/angular2-jwt.js',
+      'angular2-moment/**',
+      'ng2-pagination/**'
     ]
   });
 };

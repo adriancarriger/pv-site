@@ -4,8 +4,11 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'moment': 'vendor/moment/moment.js',
+  'angular2-moment': 'vendor/angular2-moment/index.js',
   'angular2-jwt': 'vendor/angular2-jwt/angular2-jwt.js',
-  'ng2-bootstrap': 'vendor/ng2-bootstrap/ng2-bootstrap.js'
+  'ng2-bootstrap': 'vendor/ng2-bootstrap/ng2-bootstrap.js',
+  'ng2-select': 'vendor/ng2-select/ng2-select.js',
+  'ng2-pagination': 'vendor/ng2-pagination/index.js'
 };
 
 /** User packages configuration. */
@@ -14,6 +17,15 @@ const packages: any = {
     defaultExtension: 'js'
   },
   'vendor/ng2-bootstrap': {
+    defaultExtension: 'js',
+  },
+  'vendor/ng2-select': {
+    defaultExtension: 'js',
+  },
+  'vendor/angular2-moment': {
+    defaultExtension: 'js',
+  },
+   'vendor/ng2-pagination': {
     defaultExtension: 'js',
   }
 };
@@ -48,6 +60,8 @@ const barrels: string[] = [
   'app/header-default',
   'app/filter-default',
   'app/sermon-list',
+  'app/preload',
+  'app/pagination',
   /** @cli-barrel */
 ];
 

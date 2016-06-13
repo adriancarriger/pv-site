@@ -11,6 +11,8 @@ import { DefaultPageComponent } from './+default-page';
 import { TestTemplateComponent } from './+test-template';
 import { SearchParamsService } from './services/search-params.service';
 import { GlobalEventsService } from './services/global-events.service';
+import { PreloadService } from './services/preload.service';
+import { ApiObservableService } from './services/api-observable.service';
 import { SermonsPageComponent } from './+sermons-page';
 
 
@@ -36,7 +38,9 @@ import { SermonsPageComponent } from './+sermons-page';
     AuthService,
     FirebaseService,
     SearchParamsService,
-    GlobalEventsService
+    GlobalEventsService,
+    PreloadService,
+    ApiObservableService
   ],
 })
 @Routes([

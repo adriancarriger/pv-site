@@ -1,24 +1,25 @@
-<div *ngIf="sermons.length > 0" class="sermons container">
-  <div *ngFor="let sermon of sermons" class="sermon-container">
+<div class="sermons container">
+  <div *ngFor="let sermon of sermons | asSearch:term | paginate: config; let i = index" class="sermon-container">
     <div class="sermon-art">
-      <img src="/app/assets/{{sermon.art}}" alt="">
+      <img src="/app/assets/test-pattern.jpg" alt="">
       <div class="sermon-play-container">
         <div class="sermon-play ion-play"></div>
       </div>
     </div>
     <div class="sermon-info">
       <div class="sermon-title truncate">
-        "{{sermon.title}}"
+        "{{sermon?.name}}"
       </div>
       <div class="sermon-author truncate">
-        {{sermon.speaker}}
+        {{sermon?.speaker}}
       </div>
       <div class="sermon-verse truncate">
-        <a>{{sermon.verse}}</a>
+        <a>{{sermon?.verse}}</a>
       </div>
       <div class="sermon-date">
-        {{sermon.date}}
+        {{sermon?.unix | amFromUnix | amDateFormat:'M/D/YY'}}
       </div>
     </div>
   </div>
+  <as-pagination (pageChange)="config.currentPage = $event" [config]="config"></as-pagination>
 </div>

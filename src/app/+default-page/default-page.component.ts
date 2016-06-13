@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteSegment, ROUTER_DIRECTIVES } from '@angular/router';
-import { AppApiService } from '../services/app-api.service';
+import { ApiObservableService } from '../services/api-observable.service';
 import { HeaderDefaultComponent } from '../components/header-default/index';
 import { SermonsListComponent } from '../components/sermons-list/index';
 
@@ -14,7 +14,7 @@ import { SermonsListComponent } from '../components/sermons-list/index';
     HeaderDefaultComponent,
     SermonsListComponent
   ],
-  providers: [AppApiService]
+  providers: [ApiObservableService]
 })
 export class DefaultPageComponent implements OnInit {
   public testStudies = [
@@ -109,15 +109,19 @@ export class DefaultPageComponent implements OnInit {
   ];
   private ready = false;
   private info;
-  constructor(private curr: RouteSegment, public appApiService: AppApiService) {}
-  ngOnInit(): Promise<any> {
-    return this.appApiService.get({
+  constructor(private curr: RouteSegment, public apiObservableService: ApiObservableService) {}
+
+  ngOnInit() {
+    return this.apiObservableService.observe({
       type: 'defaultPage',
       category: this.curr.urlSegments[0].segment,
       slug: this.curr.getParam('type')
-    }).then(data => {
+    })
+    .subscribe(data => {
       this.info = data;
       this.ready = true;
     });
   }
+
+
 }

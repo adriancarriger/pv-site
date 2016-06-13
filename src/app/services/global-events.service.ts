@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/Rx';
 export class GlobalEventsService {
   public scroll$;
   public resize$;
-  public sticky$;
 
   private throttleConfig = {
     scroll: 50,
@@ -14,7 +13,6 @@ export class GlobalEventsService {
   constructor() {
     this.scroll$ = new EventEmitter();
     this.resize$ = new EventEmitter();
-    this.sticky$ = new EventEmitter();
   }
 
   init() {
@@ -30,10 +28,6 @@ export class GlobalEventsService {
     resizeEventStream.subscribe(event => {
       this.resize$.emit(event);
     });
-  }
-
-  stickyChange(value) {
-    this.sticky$.emit(value);
   }
 
 }

@@ -5,5 +5,5 @@
     </div>
   </div>
 </as-header-default>
-<as-filter-default></as-filter-default>
-<as-sermons-list [sermons]=sermons></as-sermons-list>
+<as-filter-default (update)="term = $event"></as-filter-default>
+<as-sermons-list [sermons]=sermons [term]="term"></as-sermons-list>
