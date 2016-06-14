@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid gray;
+  background-color: #f2f2f2;
+  z-index: 3;
+  .player-item {
+    width: 33.333%;
+    float: left;
+  }
+  .controls {
+    > button {
+      height: 50px;
+      margin: 0 2px;
+      background: none;
+      font-size: 25px;
+      color: #4a4a4a;
+    }
+  }
+  .progress {
+    > div {
+      float: left;
+    }
+  }
+  .info-container {
+    .album-art {
+      float: left;
+      width: 50px;
+      img {
+        width: 45px;
+      }
+    }
+    .info-text {
+      .info-title {
+        //float: left;
+      }
+      .info-speaker {
+        //float: left;
+      }
+    }
+  }
+}

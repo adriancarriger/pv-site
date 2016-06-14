@@ -7,6 +7,7 @@ import {AuthService} from './services/auth.service';
 import {FirebaseService} from './services/firebase.service';
 import {NavbarComponent} from './components/navbar/index';
 import {FooterComponent} from './components/footer/index';
+import {PlayerComponent} from './components/player/index';
 import { DefaultPageComponent } from './+default-page';
 import { TestTemplateComponent } from './+test-template';
 import { SearchParamsService } from './services/search-params.service';
@@ -25,7 +26,8 @@ import { SermonsPageComponent } from './+sermons-page';
   directives: [
     ROUTER_DIRECTIVES,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    PlayerComponent
   ],
   providers: [
     ROUTER_PROVIDERS,

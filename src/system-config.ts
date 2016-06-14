@@ -62,6 +62,7 @@ const barrels: string[] = [
   'app/sermon-list',
   'app/preload',
   'app/pagination',
+  'app/components/player',
   /** @cli-barrel */
 ];
 
