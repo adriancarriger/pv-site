@@ -1,5 +1,5 @@
 <div class="sermons container">
-  <div *ngFor="let sermon of sermons | asSearch:term | paginate: config; let i = index" class="sermon-container">
+  <div *ngFor="let sermon of sermons | asSearchSermons:filterValues?.term:filterValues?.box1:filterValues?.box2:filterValues?.box3 | paginate: config; let i = index" class="sermon-container">
     <div class="sermon-art">
       <img src="/app/assets/test-pattern.jpg" alt="">
       <div class="sermon-play-container">

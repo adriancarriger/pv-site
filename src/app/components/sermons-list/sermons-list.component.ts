@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Search } from '../../pipes/search.pipe';
+import { SearchSermons } from '../../pipes/search-sermons.pipe';
 import { FromUnixPipe, DateFormatPipe } from 'angular2-moment';
 import { PaginationComponent } from '../pagination/index';
 import { PaginatePipe, IPaginationInstance, PaginationService } from 'ng2-pagination';
@@ -9,13 +9,13 @@ import { PaginatePipe, IPaginationInstance, PaginationService } from 'ng2-pagina
   selector: 'as-sermons-list',
   templateUrl: 'sermons-list.component.html',
   styleUrls: ['sermons-list.component.css'],
-  pipes: [Search, FromUnixPipe, DateFormatPipe, PaginatePipe],
+  pipes: [SearchSermons, FromUnixPipe, DateFormatPipe, PaginatePipe],
   directives: [PaginationComponent],
   providers: [PaginationService]
 })
 export class SermonsListComponent {
   @Input() sermons;
-  @Input() term;
+  @Input() filterValues;
   public page;
   public config: IPaginationInstance = {
       id: 'custom',

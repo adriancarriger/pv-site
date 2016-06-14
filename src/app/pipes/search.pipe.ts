@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'asSearch'
 })
 export class Search implements PipeTransform {
-  transform(value: any, term): any {
+  transform(value: any, term?, selectBox1?,  selectBox2?,  selectBox3?): any {
     if (value === undefined) { return; };
     if (term === undefined) { return value; };
     let queries = term.toLowerCase().split( ' ' );
