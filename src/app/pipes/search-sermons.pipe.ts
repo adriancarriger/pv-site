@@ -15,7 +15,7 @@ export class SearchSermons implements PipeTransform {
     if (book !== undefined && book !== 'All books') { books.push(book); }
     if (year !== undefined && year !== 'All years') { years.push(year); }
     if (amPm !== undefined && amPm !== 'AM/PM') { meridian = meridians[amPm]; }
-    return value.filter((item) => {
+    let filtered = value.filter((item) => {
       // Filter out sermons missing audio
       if (!item.audio) { return false; }
       // Merdian
@@ -42,6 +42,10 @@ export class SearchSermons implements PipeTransform {
       }
       return item;
     });
+    if (filtered.length === 0) {
+      filtered = [-1];
+    }
+    return filtered;
   }
 
 }

@@ -5,5 +5,5 @@
     </div>
   </div>
 </as-header-default>
-<as-filter-default (update)="filterValues = $event" [inputData]="filterInfo"></as-filter-default>
-<as-sermons-list [sermons]=sermons [filterValues]="filterValues"></as-sermons-list>
+<as-filter-default (update)="filterValues = $event; updateChange()" [inputData]="filterInfo"></as-filter-default>
+<as-sermons-list [sermons]=sermons [filterValues]="filterValues" [lastChange]="lastChange"></as-sermons-list>

@@ -60,7 +60,7 @@ export class SermonsPageComponent implements OnInit {
     box3: ['AM', 'PM']
   };
   public sermons;
-  public testValue;
+  public lastChange;
 
   constructor(public apiObservableService: ApiObservableService) {
 
@@ -90,7 +90,7 @@ export class SermonsPageComponent implements OnInit {
   }
 
   updateChange() {
-    this.testValue = new Date().getTime();
+    this.lastChange = new Date().getTime();
   }
 
 }

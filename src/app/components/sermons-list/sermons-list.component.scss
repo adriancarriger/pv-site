@@ -16,7 +16,7 @@
     height: 150px;
     border-radius: 5px;
     clear: both;
-    &:hover, &.playing {
+    &:hover, &.current-sermon {
       background-color: #f2f2f2;
       .sermon-art .sermon-play-container {
         display: block;

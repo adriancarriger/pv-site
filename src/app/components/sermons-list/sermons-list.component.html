@@ -1,31 +1,34 @@
 <div class="sermons container">
-  <div *ngFor="let sermon of sermons | asSearchSermons:filterValues?.term:filterValues?.box1:filterValues?.box2:filterValues?.box3 | orderBy:'Special':filterValues?.box1 | paginate: config; let i = index"
+  <div *ngFor="let sermon of sermons | asSearchSermons:filterValues?.term:filterValues?.box1:filterValues?.box2:filterValues?.box3 | orderBy:'Special':filterValues?.box1:filteredItems | paginate: config; let i = index"
     class="sermon-container"
-    [ngClass]="{'playing': current?.playing && current?.id === sermon?.key}">
-    <div class="sermon-art" (click)="current?.playing && current?.id === sermon?.key ? audioService.pause(): audioService.play(sermon?.key)">
-      <img src="/app/assets/test-pattern.jpg" alt="">
-      <div class="sermon-play-container">
-        <div class="sermon-play ion-play"></div>
-        <div class="sermon-play ion-pause"></div>
+    [ngClass]="{'playing': current?.playing && current?.id === sermon?.key, 'current-sermon': current?.id === sermon?.key}">
+    <div *ngIf="sermon === -1">"No matches for " {{filterValues | json}}</div>
+    <div *ngIf="sermon !== -1">
+      <div class="sermon-art" (click)="current?.playing && current?.id === sermon?.key ? audioService.pause(): audioService.play(sermon?.key)">
+        <img src="/app/assets/test-pattern.jpg" alt="">
+        <div class="sermon-play-container">
+          <div class="sermon-play ion-play"></div>
+          <div class="sermon-play ion-pause"></div>
+        </div>
       </div>
-    </div>
-    <div class="sermon-info">
-      <div class="sermon-title truncate info-item">
-        &ldquo;{{sermon?.name}}&rdquo;
-      </div>
-      <div class="sermon-author truncate info-item">
-        {{sermon?.speaker}}
-      </div>
-      <div class="sermon-verse truncate info-item">
-        <a>{{sermon?.verse}}</a>
-      </div>
-      <div class="sermon-meridian truncate info-item">
-        <a>{{sermon?.meridian}}</a>
-      </div>
-      <div class="sermon-date">
-        {{sermon?.unix | amFromUnix | amDateFormat:'M/D/YY'}}
+      <div class="sermon-info">
+        <div class="sermon-title truncate info-item">
+          &ldquo;{{sermon?.name}}&rdquo;
+        </div>
+        <div class="sermon-author truncate info-item">
+          {{sermon?.speaker}}
+        </div>
+        <div class="sermon-verse truncate info-item">
+          <a>{{sermon?.verse}}</a>
+        </div>
+        <div class="sermon-meridian truncate info-item">
+          <a>{{sermon?.meridian}}</a>
+        </div>
+        <div class="sermon-date">
+          {{sermon?.unix | amFromUnix | amDateFormat:'M/D/YY'}}
+        </div>
       </div>
     </div>
   </div>
-  <as-pagination (pageChange)="config.currentPage = $event" [config]="config"></as-pagination>
+  <as-pagination (pageChange)="config.currentPage = $event; pageChange()" [config]="config"></as-pagination>
 </div>
