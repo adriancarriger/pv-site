@@ -82,7 +82,6 @@ export class SermonsPageComponent implements OnInit {
       type: 'sermon-books'
     })
     .subscribe(data => {
-      console.log(data);
       this.filterInfo.box1 = data;
     });
 

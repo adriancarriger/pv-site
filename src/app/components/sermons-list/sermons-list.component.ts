@@ -43,47 +43,23 @@ export class SermonsListComponent implements OnChanges, OnInit {
     });
   }
   ngOnChanges(changes) {
-      console.log('Change detected');
       this.checkHeight();
-      
   }
 
   pageChange() {
-    console.log('Page change');
-    //this.lastChange = new Date().getTime();
-    //*
     this.checkHeight();
     setTimeout( () => {
-      console.log('Page change 2');
       this.checkHeight();
     }, 50);
-    //*/
   }
 
   checkHeight() {
-    //console.log('checking height');
-    //console.log(this.element);
       let newHeight = this.element.nativeElement.firstChild.offsetHeight;
-      console.log(newHeight, this.domHeight);
-
       let navs = 54 + 50;
       let offsetTop = this.element.nativeElement.offsetTop;
       let offset = (offsetTop - navs);
       let diff = (offset -  this.domScroll) * -1;
-
-      //console.log('Offset: ' + offset + ', Scroll: ' + this.domScroll + ', Diff: ' + diff);
-
-
       if (newHeight < this.domHeight) {
-        
-        console.log('Changing height');
-        
-        //this.domHeight;
-
-        //this.domScroll;
-
-        
-
         let heightChange = this.domHeight - newHeight;
         let change;
         if (diff > heightChange) {
@@ -92,16 +68,8 @@ export class SermonsListComponent implements OnChanges, OnInit {
         else {
           change = diff;
         }
-
-        //console.log('ScrollChange: ' + change + ', BoxChanged: ' + heightChange);
         let newScroll = this.domScroll - change;
-        //console.log('New Scroll Position: ' + newScroll);
         window.scrollTo(0, newScroll);
-        
-        //console.log('Change: ' + heightChange);
-
-
-
         let changeScroll;
         if (heightChange > offset) {
           changeScroll = offset;
@@ -109,19 +77,7 @@ export class SermonsListComponent implements OnChanges, OnInit {
         else {
           changeScroll = heightChange;
         }
-
-        //console.log('ChangeScroll: ' + changeScroll);
-
-
-
-
-
       }
-      
       this.domHeight = newHeight;
   }
-
-
-
-
 }
