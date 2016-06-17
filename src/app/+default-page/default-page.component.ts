@@ -79,29 +79,6 @@ export class DefaultPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*this.sermons = [
-      {
-        "name": "Determination Amidst Distractions",
-        "unix": 1465157458,
-        "verse": "Nehemiah 6",
-        "speaker": "Pastor Paul Phillipps",
-        "audio": "http:\/\/pvbiblechurch.com\/wp-content\/uploads\/mp\/files\/sermons\/audios\/2016-06-05-pm.MP3",
-        "meridian": "Evening",
-        "slug": "determination-amidst-distractions",
-        "key": '1999'
-      },
-      {
-        "name": "Re-Minding Your Mind",
-        "unix": 1465157372,
-        "verse": "Philippians 4:8",
-        "speaker": "Pastor Paul Phillipps",
-        "audio": "http:\/\/pvbiblechurch.com\/wp-content\/uploads\/mp\/files\/sermons\/audios\/2016-06-05-am.MP3",
-        "meridian": "Morning",
-        "slug": "re-minding-your-mind",
-        "key": 1998
-      }
-    ];*/
-
     this.apiObservableService.sermons$
     .subscribe(data => {
       this.sermons =  Object.keys(data).map(function(key) {
