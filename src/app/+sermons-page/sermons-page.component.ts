@@ -32,7 +32,8 @@ export class SermonsPageComponent implements OnInit {
     defaults: {
       box1: 'All books',
       box2: 'All years',
-      box3: 'AM/PM'
+      box3: 'AM/PM',
+      alwaysSome: false
     },
     box1: [
       'Genesis',         'Exodus',          'Leviticus',     'Numbers',

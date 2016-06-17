@@ -13,8 +13,7 @@ import { SermonsListComponent } from '../components/sermons-list/index';
     ROUTER_DIRECTIVES,
     HeaderDefaultComponent,
     SermonsListComponent
-  ],
-  providers: [ApiObservableService]
+  ]
 })
 export class DefaultPageComponent implements OnInit {
   public testStudies = [
@@ -72,6 +71,7 @@ export class DefaultPageComponent implements OnInit {
   ];
   public preSermons;
   public sermons;
+  public tempSlug;
   private ready = false;
   private info;
   constructor(private curr: RouteSegment, public apiObservableService: ApiObservableService) {
@@ -79,7 +79,7 @@ export class DefaultPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sermons = [
+    /*this.sermons = [
       {
         "name": "Determination Amidst Distractions",
         "unix": 1465157458,
@@ -100,7 +100,20 @@ export class DefaultPageComponent implements OnInit {
         "slug": "re-minding-your-mind",
         "key": 1998
       }
-    ];
+    ];*/
+
+    this.apiObservableService.sermons$
+    .subscribe(data => {
+      this.sermons =  Object.keys(data).map(function(key) {
+        let pair = {};
+        pair = data[key];
+        pair["key"] = key;
+        return pair;
+      });
+    });
+    this.apiObservableService.loadSermons(true);
+
+
     this.preSermons = {
       "1999": {
           "name": "Determination Amidst Distractions",
@@ -202,6 +215,10 @@ export class DefaultPageComponent implements OnInit {
     .subscribe(data => {
       this.info = data;
       this.ready = true;
+      // Temp
+      let titleArray = this.info.title.split( "'" );
+      this.tempSlug = titleArray[0];
+      // End Temp
     });
     
   }

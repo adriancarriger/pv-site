@@ -127,6 +127,10 @@ export class AudioService {
     
   }
 
+  initCurrent() {
+    this.preCurrentAudio$.next(this.current);
+  }
+
   displayTime(seconds) {
     let milliseconds = seconds * 1000;
     let displayTime = moment.utc( milliseconds ).format("mm:ss");

@@ -10,7 +10,7 @@ export class SearchSermons implements PipeTransform {
   transform(value: any, term?, book?, year?, amPm?): any {
     let books = [], years = [], meridian, queries = [], meridians = {AM: 'Morning', PM: "Evening"};
     if (value === undefined) { return; };
-    if (term === null) { return value; }
+    if (term === null || term === undefined) { return value; }
     if (term.length) { queries = term.toLowerCase().split( ' ' ); }
     if (book !== undefined && book !== 'All books') { books.push(book); }
     if (year !== undefined && year !== 'All years') { years.push(year); }
