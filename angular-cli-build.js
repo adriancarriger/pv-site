@@ -19,7 +19,9 @@ module.exports = function(defaults) {
       'ng2-select/**',
       'angular2-jwt/angular2-jwt.js',
       'angular2-moment/**',
-      'ng2-pagination/**'
+      'ng2-pagination/**',
+      'nouislider/**',
+      'ng2-nouislider/**'
     ]
   });
 };

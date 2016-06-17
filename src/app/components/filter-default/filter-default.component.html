@@ -1,29 +1,31 @@
-<div class="filter" [ngClass]="{sticky: stuck}">
-  <div class="container">
-    <div class="input-item search">
-      <input #input type="text" placeholder="" (input)="sendOutput('term', input.value)">
-      <i class="ion-ios-search-strong"></i>
-    </div>
-    <div class="input-item">
-      <ng-select
-        [items]="inputData.box1"
-        (selected)="sendOutput('box1', $event.id)"
-        placeholder="{{inputData.defaults.box1}}">
-      </ng-select>
-    </div>
-    <div class="input-item">
-      <ng-select
-        [items]="inputData.box2"
-        (selected)="sendOutput('box2', $event.id)"
-        placeholder="{{inputData.defaults.box2}}">
-      </ng-select>
-    </div>
-    <div class="input-item">
-      <ng-select 
-        [items]="inputData.box3"
-        (selected)="sendOutput('box3', $event.id)"
-        placeholder="{{inputData.defaults.box3}}">
-      </ng-select>
+<div class="filter-container">
+  <div class="filter" [ngClass]="{sticky: stuck}">
+    <div class="container">
+      <div class="input-item search">
+        <input #input type="text" placeholder="" [value]="term" [ngFormControl]="termControl" (input)="sendOutput('term', input.value, true)">
+        <i class="ion-ios-search-strong"></i>
+      </div>
+      <div class="input-item">
+        <ng-select
+          [items]="inputData.box1"
+          (selected)="sendOutput('box1', $event.id)"
+          placeholder="{{inputData.defaults.box1}}">
+        </ng-select>
+      </div>
+      <div class="input-item">
+        <ng-select
+          [items]="inputData.box2"
+          (selected)="sendOutput('box2', $event.id)"
+          placeholder="{{inputData.defaults.box2}}">
+        </ng-select>
+      </div>
+      <div class="input-item">
+        <ng-select 
+          [items]="inputData.box3"
+          (selected)="sendOutput('box3', $event.id)"
+          placeholder="{{inputData.defaults.box3}}">
+        </ng-select>
+      </div>
     </div>
   </div>
 </div>

@@ -8,7 +8,9 @@ const map: any = {
   'angular2-jwt': 'vendor/angular2-jwt/angular2-jwt.js',
   'ng2-bootstrap': 'vendor/ng2-bootstrap/ng2-bootstrap.js',
   'ng2-select': 'vendor/ng2-select/ng2-select.js',
-  'ng2-pagination': 'vendor/ng2-pagination/index.js'
+  'ng2-pagination': 'vendor/ng2-pagination/index.js',
+  'nouislider': 'vendor/nouislider/distribute/nouislider.js',
+  'ng2-nouislider': 'vendor/ng2-nouislider/src/nouislider.js'
 };
 
 /** User packages configuration. */
@@ -17,16 +19,22 @@ const packages: any = {
     defaultExtension: 'js'
   },
   'vendor/ng2-bootstrap': {
-    defaultExtension: 'js',
+    defaultExtension: 'js'
   },
   'vendor/ng2-select': {
-    defaultExtension: 'js',
+    defaultExtension: 'js'
   },
   'vendor/angular2-moment': {
-    defaultExtension: 'js',
+    defaultExtension: 'js'
   },
    'vendor/ng2-pagination': {
-    defaultExtension: 'js',
+    defaultExtension: 'js'
+  },
+  'vendor/nouislider': {
+    defaultExtension: 'js'
+  },
+  'vendor/ng2-nouislider': {
+    defaultExtension: 'js'
   }
 };
 
@@ -63,6 +71,7 @@ const barrels: string[] = [
   'app/preload',
   'app/pagination',
   'app/components/player',
+  'app/components/slider',
   /** @cli-barrel */
 ];
 

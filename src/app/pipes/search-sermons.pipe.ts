@@ -16,6 +16,8 @@ export class SearchSermons implements PipeTransform {
     if (year !== undefined && year !== 'All years') { years.push(year); }
     if (amPm !== undefined && amPm !== 'AM/PM') { meridian = meridians[amPm]; }
     return value.filter((item) => {
+      // Filter out sermons missing audio
+      if (!item.audio) { return false; }
       // Merdian
       if (meridian !== undefined && meridian !== item.meridian) { return false; }
       // Book filter

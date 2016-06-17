@@ -16,10 +16,20 @@
     height: 150px;
     border-radius: 5px;
     clear: both;
-    &:hover {
+    &:hover, &.playing {
       background-color: #f2f2f2;
       .sermon-art .sermon-play-container {
         display: block;
+      }
+    }
+    &.playing {
+      .sermon-art .sermon-play-container {
+        .ion-pause {
+          display: block;
+        }
+        .ion-play {
+          display: none;
+        }
       }
     }
     .sermon-art {
@@ -50,6 +60,13 @@
           height: 54px;
           transition: all 0.5s ease, color 0.5s ease;
         }
+        .ion-pause {
+          display: none;
+          $scale: 1.2;
+          -ms-transform: scale($scale,$scale);; /* IE 9 */
+          -webkit-transform: scale($scale,$scale);; /* Safari */
+          transform: scale($scale,$scale);
+        }
       }
       &:hover {
         .sermon-play-container {
@@ -66,10 +83,7 @@
       float: left;
       padding: 24px 13px;
       width: 71%;
-      .sermon-author {
-        color: gray;
-      }
-      .sermon-verse {
+      .info-item {
         color: gray;
         a {
           color: gray;

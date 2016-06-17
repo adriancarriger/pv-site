@@ -7,7 +7,7 @@ export class GlobalEventsService {
   public resize$;
 
   private throttleConfig = {
-    scroll: 50,
+    scroll: 10,
     resize: 300
   };
   constructor() {
@@ -29,5 +29,4 @@ export class GlobalEventsService {
       this.resize$.emit(event);
     });
   }
-
 }

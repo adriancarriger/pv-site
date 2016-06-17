@@ -51,15 +51,16 @@ export class SermonsPageComponent implements OnInit {
       '2 Thessalonians', '1 Timothy',       '2 Timothy',     'Titus',
       'Philemon',        'Hebrews',         'James',         '1 Peter',
       '2 Peter',         '1 John',          '2 John',        '3 John',
-      'Jude',            'Revelation'
+      'Jude',            'Revelation',      'Selected Scriptures'
     ],
     box2: [
       '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008',
-      '2007', '2006', '2005', '2004', '2003', '2002', '2001'
+      '2007', '2006', '2005', '2004'
     ],
     box3: ['AM', 'PM']
   };
   public sermons;
+  public testValue;
 
   constructor(public apiObservableService: ApiObservableService) {
 
@@ -68,9 +69,28 @@ export class SermonsPageComponent implements OnInit {
   ngOnInit() {
     this.apiObservableService.sermons$
     .subscribe(data => {
-      this.sermons = data;
+      this.sermons =  Object.keys(data).map(function(key) {
+        let pair = {};
+        pair = data[key];
+        pair["key"] = key;
+        return pair;
+      });
     });
     this.apiObservableService.loadSermons(true);
+
+    this.apiObservableService.observe({
+      type: 'sermon-books'
+    })
+    .subscribe(data => {
+      console.log(data);
+      this.filterInfo.box1 = data;
+    });
+
+
+  }
+
+  updateChange() {
+    this.testValue = new Date().getTime();
   }
 
 }

@@ -8,6 +8,7 @@ import { SearchParamsService } from './search-params.service';
 @Injectable()
 export class ApiObservableService {
   private preSermons$;
+  private sermons;
   private dataStore: {};
   private haveSermons = {
     base: false,
@@ -35,6 +36,7 @@ export class ApiObservableService {
   loadSermons(all?) {
     let preType;
     if (this.haveSermons.all) {
+      this.preSermons$.next( this.sermons );
       return;
     } else if (all) {
       preType = 'sermons-all';
@@ -45,7 +47,8 @@ export class ApiObservableService {
     }
     this.observe({type: preType})
     .subscribe(data => {
-      this.preSermons$.next(data);
+      this.sermons = data;
+      this.preSermons$.next( this.sermons );
     });
   }
 

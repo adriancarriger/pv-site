@@ -4,6 +4,7 @@ import { HomeComponent } from './+home';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {Http} from '@angular/http';
 import {AuthService} from './services/auth.service';
+import {AudioService} from './services/audio.service';
 import {FirebaseService} from './services/firebase.service';
 import {NavbarComponent} from './components/navbar/index';
 import {FooterComponent} from './components/footer/index';
@@ -42,7 +43,8 @@ import { SermonsPageComponent } from './+sermons-page';
     SearchParamsService,
     GlobalEventsService,
     PreloadService,
-    ApiObservableService
+    ApiObservableService,
+    AudioService
   ],
 })
 @Routes([

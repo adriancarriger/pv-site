@@ -8,6 +8,8 @@ import {
   EventEmitter } from '@angular/core';
 import { GlobalEventsService } from '../../services/global-events.service';
 import {SELECT_DIRECTIVES} from 'ng2-select';
+import { Control } from '@angular/common'; 
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   moduleId: module.id,
@@ -20,10 +22,13 @@ import {SELECT_DIRECTIVES} from 'ng2-select';
 export class FilterDefaultComponent implements OnInit {
   @Input() inputData;
   @Output() update = new EventEmitter();
-
+  public term = '';
+  public termControl;
   public outputData = {term: ''}
   public stuck = false;
-  constructor(private globalEventsService: GlobalEventsService, public element: ElementRef) {}
+  constructor(private globalEventsService: GlobalEventsService, public element: ElementRef) {
+    this.termControl = new Control();
+  }
   ngOnInit() {
     let el = this.element.nativeElement;
     let filterOffset = el.firstChild.offsetTop;
@@ -43,11 +48,24 @@ export class FilterDefaultComponent implements OnInit {
     this.outputData['box3'] = this.inputData.defaults.box3;
 
     this.update.emit( this.outputData );
+
+    this.termControl.valueChanges
+      .debounceTime(1000) // Long debounce for short searches
+      .subscribe(newValue => {
+        this.term = newValue;
+        if (this.term.length >= 3 || this.term.length === 0) { return; }
+        this.sendOutput('term', this.term)
+      })
   }
   
-  sendOutput(key, value) {
-    this.outputData[key] = value;
-    this.update.emit( this.outputData );
+  sendOutput(key, value, debounceWait?) {
+    if (!debounceWait || value.length >= 3 || value.length === 0) {
+      setTimeout( () => { // Prevent DOM freezing (TODO: webworkers)
+        this.outputData[key] = value;
+        this.update.emit( this.outputData );
+      }, 1);
+    }
+    
   }
   
 }
