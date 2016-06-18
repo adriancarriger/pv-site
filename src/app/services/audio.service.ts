@@ -62,6 +62,7 @@ export class AudioService {
     if (this.current.id in this.audioObjects) {
       this.audioObjects[this.current.id].pause();
       this.current.playing = false;
+      this.preCurrentAudio$.next(this.current);
     }
   }
 

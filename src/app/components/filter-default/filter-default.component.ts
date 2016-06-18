@@ -8,7 +8,7 @@ import {
   EventEmitter } from '@angular/core';
 import { GlobalEventsService } from '../../services/global-events.service';
 import {SELECT_DIRECTIVES} from 'ng2-select';
-import { Control } from '@angular/common'; 
+import { Control } from '@angular/common';
 import 'rxjs/add/operator/debounceTime';
 
 @Component({
@@ -24,7 +24,12 @@ export class FilterDefaultComponent implements OnInit {
   @Output() update = new EventEmitter();
   public term = '';
   public termControl;
-  public outputData = {term: ''}
+  public outputData = {
+    term: '',
+    box1: undefined,
+    box2: undefined,
+    box3: undefined
+  };
   public stuck = false;
   constructor(private globalEventsService: GlobalEventsService, public element: ElementRef) {
     this.termControl = new Control();
@@ -43,9 +48,9 @@ export class FilterDefaultComponent implements OnInit {
     this.inputData.box2.unshift(this.inputData.defaults.box2);
     this.inputData.box3.unshift(this.inputData.defaults.box3);
 
-    this.outputData['box1'] = this.inputData.defaults.box1;
-    this.outputData['box2'] = this.inputData.defaults.box2;
-    this.outputData['box3'] = this.inputData.defaults.box3;
+    this.outputData.box1 = this.inputData.defaults.box1;
+    this.outputData.box2 = this.inputData.defaults.box2;
+    this.outputData.box3 = this.inputData.defaults.box3;
 
     this.update.emit( this.outputData );
 
@@ -54,10 +59,10 @@ export class FilterDefaultComponent implements OnInit {
       .subscribe(newValue => {
         this.term = newValue;
         if (this.term.length >= 3 || this.term.length === 0) { return; }
-        this.sendOutput('term', this.term)
-      })
+        this.sendOutput('term', this.term);
+      });
   }
-  
+
   sendOutput(key, value, debounceWait?) {
     if (!debounceWait || value.length >= 3 || value.length === 0) {
       setTimeout( () => { // Prevent DOM freezing (TODO: webworkers)
@@ -65,7 +70,7 @@ export class FilterDefaultComponent implements OnInit {
         this.update.emit( this.outputData );
       }, 1);
     }
-    
+
   }
-  
+
 }

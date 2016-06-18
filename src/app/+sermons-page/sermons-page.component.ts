@@ -68,7 +68,9 @@ export class SermonsPageComponent implements OnInit {
   public sermons;
   public lastChange;
 
-  constructor(public apiObservableService: ApiObservableService, public audioService: AudioService) {
+  constructor(
+    public apiObservableService: ApiObservableService,
+    public audioService: AudioService) {
 
   }
 
@@ -76,15 +78,14 @@ export class SermonsPageComponent implements OnInit {
     this.apiObservableService.sermons$
     .subscribe(data => {
       this.sermons =  Object.keys(data).map(function(key) {
-        let pair = {};
+        let pair = {
+          key: undefined
+        };
         pair = data[key];
-        pair["key"] = key;
+        pair.key = key;
         return pair;
       });
-      //this.audioService.play(1998);
     });
-    
-    //(click)="audioService.play(latestSermon?.id)"
 
     this.apiObservableService.loadSermons(true);
 
@@ -98,14 +99,11 @@ export class SermonsPageComponent implements OnInit {
 
     this.audioService.currentAudio$.subscribe(data => {
       if (data.playing) {
-        this.adButtonText = 'Playing';
-      }
-      else {
         this.adButtonText = 'Listening';
+      } else {
+        this.adButtonText = 'Listen now';
       }
     });
-
-    
 
   }
 
@@ -115,12 +113,8 @@ export class SermonsPageComponent implements OnInit {
 
   playLatest() {
     window.scrollTo(0, 400);
-    //this.scrollTo(document.body, 400, 500);
     this.audioService.play(this.latestSermon.id);
-    //this.scrollY(400, 400);
-    //this.scrollTo(document.body, 500, 1250); 
   }
-
 
   scrollY(distance, goal) {
     if (distance <= 0) { return; }
@@ -129,33 +123,6 @@ export class SermonsPageComponent implements OnInit {
       this.scrollY(distance - 75, goal);
     }, 1);
   }
-  
-
-  scrollTo(element, to, duration) {
-      var start = element.scrollTop,
-          change = to - start,
-          currentTime = 0,
-          increment = 20;
-          
-      var animateScroll = function(){        
-          currentTime += increment;
-          var val = this.easeInOutQuad(currentTime, start, change, duration);
-          element.scrollTop = val;
-          if(currentTime < duration) {
-              setTimeout(animateScroll, increment);
-          }
-      };
-      animateScroll();
-  }
-
-  easeInOutQuad(t, b, c, d) {
-    t /= d/2;
-    if (t < 1) return c/2*t*t + b;
-    t--;
-    return -c/2 * (t*(t-2) - 1) + b;
-  }
-
-
 
 }
 

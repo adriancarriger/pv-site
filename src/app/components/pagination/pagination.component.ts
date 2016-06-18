@@ -13,8 +13,11 @@ export class PaginationComponent {
   @Input() config;
   @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
   public page;
+  public showAll = false;
   bubble(event) {
     this.pageChange.emit(event);
   }
-
+  showAllPages() {
+    this.showAll = true;
+  }
 }

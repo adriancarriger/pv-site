@@ -16,6 +16,9 @@
       &.current {
           border-color: $pvGreen;
       }
+      &.view-all {
+          flex-grow: 3;
+      }
   }
   a {
       color: $pvBlue;

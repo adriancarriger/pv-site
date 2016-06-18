@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="filteredCount?.count === 0" class="no-results">
+  <div *ngIf="filterReadable && filteredCount?.count === 0" class="no-results">
       No matches for {{filterReadable}}
   </div>
   <as-pagination *ngIf="filteredCount?.count > 0" (pageChange)="config.currentPage = $event; pageChange()" [config]="config"></as-pagination>

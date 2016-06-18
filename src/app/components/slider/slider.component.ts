@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  ViewEncapsulation,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges } from '@angular/core';
 import { Nouislider } from 'ng2-nouislider';
 
 @Component({
@@ -9,19 +15,14 @@ import { Nouislider } from 'ng2-nouislider';
   styleUrls: ['slider.component.css'],
   directives: [Nouislider]
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent implements OnChanges {
   @Input() position: number;
   @Output() seek = new EventEmitter();
   public lastInput;
-  constructor() {}
   bubbleChange(event) {
-    if (~~this.lastInput !== ~~this.position) {
-      //console.log('update detected');
+    if (Math.floor(this.lastInput) !== Math.floor(this.position)) {
       this.seek.emit( this.position );
     }
-    
-  }
-  ngOnInit() {
   }
   ngOnChanges(changes) {
       this.lastInput = changes.position.currentValue;

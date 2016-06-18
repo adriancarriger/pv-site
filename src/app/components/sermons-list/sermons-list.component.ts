@@ -35,9 +35,11 @@ export class SermonsListComponent implements OnChanges, OnInit {
       itemsPerPage: 25,
       currentPage: 1
   };
-  constructor(public audioService: AudioService, public element: ElementRef, public globalEventsService: GlobalEventsService) {
+  constructor(
+    public audioService: AudioService,
+    public element: ElementRef,
+    public globalEventsService: GlobalEventsService) {
     this.audioService.currentAudio$.subscribe(data => {
-      console.log(data);
       this.test = new Date().getTime();
       this.current = data;
     });
@@ -53,15 +55,11 @@ export class SermonsListComponent implements OnChanges, OnInit {
       this.getFiltered();
       this.showPagesComponent = true;
   }
-  showPages(newValue) {
-    console.log('tested');
-    this.showPagesComponent = newValue;
-  }
 
-  getFiltered() {
-    this.filterValues;
+  getFiltered() { // use to display an error message for no search results
+
     let filteredArray = [];
-    let defaults = ['', 'All books', 'All years', 'AM/PM']
+    let defaults = ['', 'All books', 'All years', 'AM/PM'];
     for (let key in this.filterValues) {
       if (defaults.indexOf( this.filterValues[key] ) === -1) {
         filteredArray.push( this.filterValues[key] );
@@ -70,16 +68,13 @@ export class SermonsListComponent implements OnChanges, OnInit {
     for (let i = 0; i < filteredArray.length; i++) {
       if (i === 0) {
         this.filterReadable = '"' + filteredArray[i] + '"';
-      }
-      else if (filteredArray.length === i+1) {
+      } else if (filteredArray.length === i + 1) {
         this.filterReadable += ', and "' + filteredArray[i] + '"';
-      }
-      else {
+      } else {
         this.filterReadable += ', "' + filteredArray[i] + '"';
       }
     }
   }
-
 
   pageChange() {
     this.checkHeight();
@@ -92,15 +87,14 @@ export class SermonsListComponent implements OnChanges, OnInit {
       let newHeight = this.element.nativeElement.firstChild.offsetHeight;
       let navs = 54 + 50;
       let offsetTop = this.element.nativeElement.offsetTop;
-      let offset = (offsetTop - navs);
+      let offset = offsetTop - navs;
       let diff = (offset -  this.domScroll) * -1;
       if (newHeight < this.domHeight) {
         let heightChange = this.domHeight - newHeight;
         let change;
         if (diff > heightChange) {
           change = heightChange;
-        }
-        else {
+        } else {
           change = diff;
         }
         let newScroll = this.domScroll - change;
@@ -109,8 +103,7 @@ export class SermonsListComponent implements OnChanges, OnInit {
         if (offset > 0) {
           if (heightChange > offset) {
             changeScroll = offset;
-          }
-          else {
+          } else {
             changeScroll = heightChange;
           }
         }

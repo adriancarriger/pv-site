@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SliderComponent } from '../slider/index';
 import { AudioService } from '../../services/audio.service';
-import { Observable } from 'rxjs/Rx';
 
 @Component({
   moduleId: module.id,
@@ -11,7 +10,6 @@ import { Observable } from 'rxjs/Rx';
   directives: [SliderComponent]
 })
 export class PlayerComponent implements OnInit {
-  //public started = false;
   public current;
   public position;
   public playing = false;
@@ -26,10 +24,5 @@ export class PlayerComponent implements OnInit {
     this.audioService.audioPosition$.subscribe(data => {
       this.position = data;
     });
-
-    
-
   }
-  
-
 }
