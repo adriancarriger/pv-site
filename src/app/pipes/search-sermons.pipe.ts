@@ -8,7 +8,7 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 })
 export class SearchSermons implements PipeTransform {
   transform(value: any, term?, book?, year?, amPm?, meowTest?): any {
-    let books = [], years = [], meridian, queries = [], meridians = {AM: 'Morning', PM: "Evening"};
+    let books = [], years = [], meridian, queries = [], meridians = {AM: 'Morning', PM: 'Evening'};
     if (value === undefined) { return; };
     if (term === null || term === undefined) { return value; }
     if (term.length) { queries = term.toLowerCase().split( ' ' ); }
@@ -35,7 +35,12 @@ export class SearchSermons implements PipeTransform {
       // Search terms
       if (term.length) {
         let speaker = (item.speaker).replace('Pastor ','');
-        let str = (item.name + " " + sermonVerse + " " + sermonYear + " " + sermonDate + " " + speaker).toLowerCase();
+        let str = (
+          item.name + ' ' + 
+          sermonVerse + ' ' + 
+          sermonYear + ' ' + 
+          sermonDate + ' ' + 
+          speaker).toLowerCase();
         for (let i = 0 ; i < queries.length; i++) {
             if (str.indexOf( queries[i] ) === -1) { return false; }
         }

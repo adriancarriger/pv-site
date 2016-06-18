@@ -11,7 +11,7 @@ export class AudioService {
   listenFunc: Function;
   metaData: Function;
   public current = {
-    id: 0, 
+    id: 0,
     playing: false,
     init: false,
     title: '',
@@ -27,7 +27,7 @@ export class AudioService {
     .subscribe(data => {
       this.sermons = data;
     });
-    
+
   }
   play(setCurrent) {
     let oldId = this.current.id;
@@ -37,14 +37,14 @@ export class AudioService {
       // Create new audio object
       if (!(this.current.id in this.audioObjects)) {
         this.audioObjects[this.current.id] = new Audio();
-        this.audioObjects[this.current.id].src = this.sermons[this.current.id]["audio"];
+        this.audioObjects[this.current.id].src = this.sermons[this.current.id]['audio'];
         this.current.init = true;
-        this.metaData = this.renderer.listen(this.audioObjects[this.current.id], 'timeupdate', (event) => {
+        this.metaData = this.renderer.listen(
+          this.audioObjects[this.current.id], 'timeupdate', (event) => {
             this.getDuration();
         });
 
-      }
-      else {
+      } else {
         this.current.duration = this.displayTime( this.audioObjects[this.current.id].duration );
       }
     }
@@ -70,7 +70,8 @@ export class AudioService {
     if (oldId !== 0) {
       this.listenFunc();
     }
-    this.listenFunc = this.renderer.listen(this.audioObjects[this.current.id], 'timeupdate', (event) => {
+    this.listenFunc = this.renderer.listen(
+      this.audioObjects[this.current.id], 'timeupdate', (event) => {
         this.updatePosition();
     });
   }
@@ -90,7 +91,7 @@ export class AudioService {
       percentage: percentage,
       time: displayPosition
     });
-    
+
   }
 
   initCurrent() {
@@ -99,8 +100,8 @@ export class AudioService {
 
   displayTime(seconds) {
     let milliseconds = seconds * 1000;
-    let displayTime = moment.utc( milliseconds ).format("mm:ss");
-    let hours = moment.utc( milliseconds ).format("h");
+    let displayTime = moment.utc( milliseconds ).format('mm:ss');
+    let hours = moment.utc( milliseconds ).format('h');
     if (milliseconds >= 3600000 ) { // If >= 1 hour
       displayTime = hours + ':' + displayTime;
     }
