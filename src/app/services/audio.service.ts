@@ -34,8 +34,6 @@ export class AudioService {
     if (this.current.id === 0 || (setCurrent !== undefined && setCurrent !== this.current.id)) {
       this.pause();
       this.current.id = setCurrent;
-      //console.log(this.current.id, setCurrent);
-      //this.updatePlaylist();
       // Create new audio object
       if (!(this.current.id in this.audioObjects)) {
         this.audioObjects[this.current.id] = new Audio();
@@ -64,41 +62,8 @@ export class AudioService {
     if (this.current.id in this.audioObjects) {
       this.audioObjects[this.current.id].pause();
       this.current.playing = false;
-      //this.preCurrentAudio$.emit(this.current); 
     }
   }
-  /*
-  updatePlaylist() {
-    let next = null;
-    let previous = null;
-    let keys = Object.keys( this.sermons ).sort( (a, b) => {
-      //console.log(this.sermons[a].audio );
-      if (this.sermons[a].audio === null) { return 0; }
-      if (this.sermons[a].unix > this.sermons[b].unix) {
-        return 1;
-      }
-      if (this.sermons[a].unix < this.sermons[b].unix) {
-        return -1;
-      }
-      // a must be equal to b
-      return 0;
-    });
-    console.log( keys, 'current id: ' + this.current.id );
-    let loc = keys.indexOf( this.current.id + '' );
-    console.log(loc);
-    if (loc < keys.length) {
-      next = keys[loc-1];
-      console.log(next);
-    }
-    else {
-      console.log('there aren\'t any more');
-    }
-    return {
-      next: next,
-      previous: previous
-    };
-  }
-  */
 
   updateListeners(oldId) {
     if (oldId !== 0) {
@@ -151,7 +116,6 @@ export class AudioService {
 
   setPosition(percentage) {
     let newPosition = ~~this.audioObjects[this.current.id].duration * percentage * 0.01;
-    //console.log('about to set position to: ' + newPosition);
     this.audioObjects[this.current.id].currentTime = newPosition;
   }
   

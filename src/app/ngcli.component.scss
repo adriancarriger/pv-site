@@ -108,3 +108,29 @@ a {
   text-overflow: ellipsis;
   word-break: normal;
 }
+/* Buttons */
+.btn-primary {
+  color: $pvGreen;
+  border-color: $pvGreen;
+  background-color: transparent;
+  margin: 20px;
+  font-size: 20px;
+  border-width: 3px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  
+  &:focus {
+    color: $pvGreen;
+    background-color: transparent;
+    border-color: $pvGreen;
+    
+  }
+  &:hover {
+    color: white;
+    background-color: $pvGreen;
+    border-color: $pvGreen;
+  }
+}
+.btn {
+  box-shadow: none !important;
+  outline: none !important; 
+}

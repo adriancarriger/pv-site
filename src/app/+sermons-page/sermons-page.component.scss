@@ -1,0 +1,27 @@
+.btn-primary {
+  color: white;
+  border-color: white;
+  background-color: transparent;
+  &:focus {
+    color: white;
+    background-color: transparent;
+    border-color: white;
+  }
+  &:hover {
+    color: #3c3c3c;
+    background-color: white;
+    border-color: white;
+  }
+}
+.ad-container {
+  .ad-text {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
+  .ad-button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}

@@ -3,6 +3,7 @@ import { HeaderDefaultComponent } from '../components/header-default/index';
 import { FilterDefaultComponent } from '../components/filter-default/index';
 import { SermonsListComponent } from '../components/sermons-list/index';
 import { ApiObservableService } from '../services/api-observable.service';
+import { AudioService } from '../services/audio.service';
 
 let tempImage = // Will connect to api soon 
   'http://pvbiblechurch.com/wp-content' + // Avoid max line length (temp)
@@ -21,6 +22,10 @@ let tempImage = // Will connect to api soon
   ]
 })
 export class SermonsPageComponent implements OnInit {
+  public adButtonText = 'Listen now';
+  public latestSermon = {
+    id: 0
+  };
   public info = {
     image_small: tempImage,
     image_medium: tempImage,
@@ -63,7 +68,7 @@ export class SermonsPageComponent implements OnInit {
   public sermons;
   public lastChange;
 
-  constructor(public apiObservableService: ApiObservableService) {
+  constructor(public apiObservableService: ApiObservableService, public audioService: AudioService) {
 
   }
 
@@ -76,16 +81,31 @@ export class SermonsPageComponent implements OnInit {
         pair["key"] = key;
         return pair;
       });
+      //this.audioService.play(1998);
     });
+    
+    //(click)="audioService.play(latestSermon?.id)"
+
     this.apiObservableService.loadSermons(true);
 
     this.apiObservableService.observe({
-      type: 'sermon-books'
+      type: 'general-meta'
     })
     .subscribe(data => {
-      this.filterInfo.box1 = data;
+      this.filterInfo.box1 = data.books;
+      this.latestSermon = data.latestSermon;
     });
 
+    this.audioService.currentAudio$.subscribe(data => {
+      if (data.playing) {
+        this.adButtonText = 'Playing';
+      }
+      else {
+        this.adButtonText = 'Listening';
+      }
+    });
+
+    
 
   }
 
@@ -93,4 +113,51 @@ export class SermonsPageComponent implements OnInit {
     this.lastChange = new Date().getTime();
   }
 
+  playLatest() {
+    window.scrollTo(0, 400);
+    //this.scrollTo(document.body, 400, 500);
+    this.audioService.play(this.latestSermon.id);
+    //this.scrollY(400, 400);
+    //this.scrollTo(document.body, 500, 1250); 
+  }
+
+
+  scrollY(distance, goal) {
+    if (distance <= 0) { return; }
+    setTimeout( () => {
+      window.scrollTo(0, goal - distance);
+      this.scrollY(distance - 75, goal);
+    }, 1);
+  }
+  
+
+  scrollTo(element, to, duration) {
+      var start = element.scrollTop,
+          change = to - start,
+          currentTime = 0,
+          increment = 20;
+          
+      var animateScroll = function(){        
+          currentTime += increment;
+          var val = this.easeInOutQuad(currentTime, start, change, duration);
+          element.scrollTop = val;
+          if(currentTime < duration) {
+              setTimeout(animateScroll, increment);
+          }
+      };
+      animateScroll();
+  }
+
+  easeInOutQuad(t, b, c, d) {
+    t /= d/2;
+    if (t < 1) return c/2*t*t + b;
+    t--;
+    return -c/2 * (t*(t-2) - 1) + b;
+  }
+
+
+
 }
+
+
+

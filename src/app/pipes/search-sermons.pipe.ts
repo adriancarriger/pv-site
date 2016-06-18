@@ -7,7 +7,7 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
   name: 'asSearchSermons'
 })
 export class SearchSermons implements PipeTransform {
-  transform(value: any, term?, book?, year?, amPm?): any {
+  transform(value: any, term?, book?, year?, amPm?, meowTest?): any {
     let books = [], years = [], meridian, queries = [], meridians = {AM: 'Morning', PM: "Evening"};
     if (value === undefined) { return; };
     if (term === null || term === undefined) { return value; }
@@ -42,9 +42,7 @@ export class SearchSermons implements PipeTransform {
       }
       return item;
     });
-    if (filtered.length === 0) {
-      filtered = [-1];
-    }
+    meowTest.count = filtered.length;
     return filtered;
   }
 

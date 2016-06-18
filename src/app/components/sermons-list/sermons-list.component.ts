@@ -23,9 +23,13 @@ export class SermonsListComponent implements OnChanges, OnInit {
   @Input() lastChange;
   public filteredItems = 0;
   public page;
+  public test;
   public current;
+  public showPagesComponent = true;
   public domHeight;
   public domScroll;
+  public filteredCount = {count: 0};
+  public filterReadable;
   public config: IPaginationInstance = {
       id: 'custom',
       itemsPerPage: 25,
@@ -33,6 +37,8 @@ export class SermonsListComponent implements OnChanges, OnInit {
   };
   constructor(public audioService: AudioService, public element: ElementRef, public globalEventsService: GlobalEventsService) {
     this.audioService.currentAudio$.subscribe(data => {
+      console.log(data);
+      this.test = new Date().getTime();
       this.current = data;
     });
   }
@@ -44,7 +50,36 @@ export class SermonsListComponent implements OnChanges, OnInit {
   }
   ngOnChanges(changes) {
       this.checkHeight();
+      this.getFiltered();
+      this.showPagesComponent = true;
   }
+  showPages(newValue) {
+    console.log('tested');
+    this.showPagesComponent = newValue;
+  }
+
+  getFiltered() {
+    this.filterValues;
+    let filteredArray = [];
+    let defaults = ['', 'All books', 'All years', 'AM/PM']
+    for (let key in this.filterValues) {
+      if (defaults.indexOf( this.filterValues[key] ) === -1) {
+        filteredArray.push( this.filterValues[key] );
+      }
+    }
+    for (let i = 0; i < filteredArray.length; i++) {
+      if (i === 0) {
+        this.filterReadable = '"' + filteredArray[i] + '"';
+      }
+      else if (filteredArray.length === i+1) {
+        this.filterReadable += ', and "' + filteredArray[i] + '"';
+      }
+      else {
+        this.filterReadable += ', "' + filteredArray[i] + '"';
+      }
+    }
+  }
+
 
   pageChange() {
     this.checkHeight();
@@ -71,11 +106,13 @@ export class SermonsListComponent implements OnChanges, OnInit {
         let newScroll = this.domScroll - change;
         window.scrollTo(0, newScroll);
         let changeScroll;
-        if (heightChange > offset) {
-          changeScroll = offset;
-        }
-        else {
-          changeScroll = heightChange;
+        if (offset > 0) {
+          if (heightChange > offset) {
+            changeScroll = offset;
+          }
+          else {
+            changeScroll = heightChange;
+          }
         }
       }
       this.domHeight = newHeight;
