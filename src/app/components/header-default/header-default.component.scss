@@ -20,4 +20,7 @@
     bottom: 0;
     z-index: 1;
   }
+  @media (max-width: 510px) {
+    height: 210px;
+  }
 }

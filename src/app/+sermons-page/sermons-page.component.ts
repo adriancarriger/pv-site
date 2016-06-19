@@ -22,7 +22,10 @@ let tempImage = // Will connect to api soon
   ]
 })
 export class SermonsPageComponent implements OnInit {
-  public adButtonText = 'Listen now';
+  public currentAudio = {
+    id: 0,
+    playing: false
+  };
   public latestSermon = {
     id: 0
   };
@@ -98,11 +101,9 @@ export class SermonsPageComponent implements OnInit {
     });
 
     this.audioService.currentAudio$.subscribe(data => {
-      if (data.playing) {
-        this.adButtonText = 'Listening';
-      } else {
-        this.adButtonText = 'Listen now';
-      }
+      this.updateChange();
+      this.currentAudio.playing = data.playing;
+      this.currentAudio.id = data.id;
     });
 
   }

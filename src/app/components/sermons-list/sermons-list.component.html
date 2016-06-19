@@ -19,11 +19,8 @@
       <div class="sermon-verse truncate info-item">
         <a>{{sermon?.verse}}</a>
       </div>
-      <div class="sermon-meridian truncate info-item">
-        <a>{{sermon?.meridian}}</a>
-      </div>
       <div class="sermon-date">
-        {{sermon?.unix | amFromUnix | amDateFormat:'M/D/YY'}}
+        {{sermon?.unix | amFromUnix | amDateFormat:'M/D/YY'}} <span *ngIf="sermon?.meridian === 'Morning'">AM</span><span *ngIf="sermon?.meridian === 'Evening'">PM</span>
       </div>
     </div>
   </div>
