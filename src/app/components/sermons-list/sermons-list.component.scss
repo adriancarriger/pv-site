@@ -84,6 +84,9 @@
           font-size: $LoveMoment;
           height: $LoveMoment;
         }
+        &.white {
+          color: white;
+        }
         @media (max-width: 500px) {
           &.adam {
             font-family: Adam;
