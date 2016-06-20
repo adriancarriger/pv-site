@@ -69,4 +69,4 @@ var ApiObservableService = (function () {
     return ApiObservableService;
 }());
 exports.ApiObservableService = ApiObservableService;
-//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-CDZkVC0n.tmp/0/app/services/api-observable.service.js.map
+//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-XRdieG5j.tmp/0/app/services/api-observable.service.js.map

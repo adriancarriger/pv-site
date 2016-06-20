@@ -24,4 +24,4 @@ var TestTemplateComponent = (function () {
     return TestTemplateComponent;
 }());
 exports.TestTemplateComponent = TestTemplateComponent;
-//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-CDZkVC0n.tmp/0/app/+test-template/test-template.component.js.map
+//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-XRdieG5j.tmp/0/app/+test-template/test-template.component.js.map
