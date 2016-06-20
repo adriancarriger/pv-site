@@ -3,13 +3,14 @@ import {CORE_DIRECTIVES} from '@angular/common';
 import {DROPDOWN_DIRECTIVES, CollapseDirective} from 'ng2-bootstrap';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import {ApiObservableService} from '../../services/api-observable.service';
+import {PvLogoComponent} from '../pv-logo/index';
 
 @Component({
   moduleId: module.id,
   selector: 'as-navbar',
   templateUrl: 'navbar.component.html',
   styleUrls: ['navbar.component.css'],
-  directives: [DROPDOWN_DIRECTIVES, CollapseDirective, CORE_DIRECTIVES, ROUTER_DIRECTIVES],
+  directives: [DROPDOWN_DIRECTIVES, CollapseDirective, CORE_DIRECTIVES, ROUTER_DIRECTIVES, PvLogoComponent],
   providers: [ApiObservableService]
 })
 export class NavbarComponent implements OnInit {

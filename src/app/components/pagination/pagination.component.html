@@ -19,8 +19,8 @@
             <a *ngIf="!p.isLastPage()" (click)="p.next()" class="ion-chevron-right"></a>
         </div>
 
-        <div class="view-all">
-            <a  *ngIf="config.itemsPerPage < 10000" (click)="config.itemsPerPage = 10000" class="">View all</a>
+        <div *ngIf="config.itemsPerPage < 10000 && !(p.isLastPage() && p.isFirstPage())" class="view-all">
+            <a (click)="config.itemsPerPage = 10000" class="">View all</a>
         </div>
 
 

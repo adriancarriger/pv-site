@@ -5,10 +5,14 @@ import { SermonsListComponent } from '../components/sermons-list/index';
 import { ApiObservableService } from '../services/api-observable.service';
 import { AudioService } from '../services/audio.service';
 
+/*
 let tempImage = // Will connect to api soon 
   'http://pvbiblechurch.com/wp-content' + // Avoid max line length (temp)
   '/uploads/mp/image-cache/site/8' +
   '/ipod-headphones-1920x1080.414acded74a4af3f514ff36e41045e5b.jpg';
+  */
+
+let tempImage = '/app/assets/sermons.jpeg';
 
 @Component({
   moduleId: module.id,

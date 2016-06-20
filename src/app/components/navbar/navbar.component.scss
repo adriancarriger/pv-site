@@ -78,12 +78,15 @@
 .navbar {
 	.navbar-header {
 		.navbar-brand {
-			position: absolute;
-			left: 0;
-			right: 0;
-			margin: auto;
-			text-align: center;
-			width: 50px;
+			padding: 8px 0px 5px 15px;
+    	width: 44px;
+			@media (max-width: 767px) {
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: auto;
+				text-align: center;
+			}
 		}
 		.navbar-toggle {
 			float: left;
@@ -93,6 +96,9 @@
 			font-size: 30px;
     	margin: 5px 20px 0 20px;
 			color: $pvGreen;
+			@media (min-width: 768px) {
+				display: none;
+			}
 		}
 	}
 }

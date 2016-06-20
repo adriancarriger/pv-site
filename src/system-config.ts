@@ -72,6 +72,7 @@ const barrels: string[] = [
   'app/pagination',
   'app/components/player',
   'app/components/slider',
+  'app/pv-logo',
   /** @cli-barrel */
 ];
 
