@@ -44,4 +44,4 @@ var PvLogoComponentTestController = (function () {
     ], PvLogoComponentTestController);
     return PvLogoComponentTestController;
 }());
-//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-erU5Ws0U.tmp/0/app/components/pv-logo/pv-logo.component.spec.js.map
+//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-CDZkVC0n.tmp/0/app/components/pv-logo/pv-logo.component.spec.js.map
