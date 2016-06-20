@@ -1,23 +1,21 @@
-/* tslint:disable:no-unused-variable */
-
 import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
+  beforeEachProviders,
+  describe,
+  expect,
+  it,
+  inject
 } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { GlobalEventsService } from './services/global-events.service';
 
-beforeEachProviders(() => [AppComponent]);
+beforeEachProviders(() => [
+  AppComponent,
+  GlobalEventsService
+]);
 
-describe('App: PvSite', () => {
+describe('App: Ngcli', () => {
   it('should create the app',
       inject([AppComponent], (app: AppComponent) => {
     expect(app).toBeTruthy();
-  }));
-
-  it('should have as title \'app works!\'',
-      inject([AppComponent], (app: AppComponent) => {
-    expect(app.title).toEqual('app works!');
   }));
 });
