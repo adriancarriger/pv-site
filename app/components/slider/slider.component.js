@@ -44,4 +44,4 @@ var SliderComponent = (function () {
     return SliderComponent;
 }());
 exports.SliderComponent = SliderComponent;
-//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-JUi8mYWH.tmp/0/app/components/slider/slider.component.js.map
+//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-yf5H8foM.tmp/0/app/components/slider/slider.component.js.map
