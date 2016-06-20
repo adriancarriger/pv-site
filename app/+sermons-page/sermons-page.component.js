@@ -20,7 +20,7 @@ let tempImage = // Will connect to api soon
   '/uploads/mp/image-cache/site/8' +
   '/ipod-headphones-1920x1080.414acded74a4af3f514ff36e41045e5b.jpg';
   */
-var tempImage = '/app/assets/sermons.jpeg';
+var tempImage = 'app/assets/sermons.jpeg';
 var SermonsPageComponent = (function () {
     function SermonsPageComponent(apiObservableService, audioService) {
         this.apiObservableService = apiObservableService;
@@ -133,4 +133,4 @@ var SermonsPageComponent = (function () {
     return SermonsPageComponent;
 }());
 exports.SermonsPageComponent = SermonsPageComponent;
-//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-OpBPmHPt.tmp/0/app/+sermons-page/sermons-page.component.js.map
+//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-erU5Ws0U.tmp/0/app/+sermons-page/sermons-page.component.js.map

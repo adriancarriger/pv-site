@@ -63,10 +63,10 @@ var NgcliAppComponent = (function () {
         router_1.Routes([
             { path: '/', component: _home_1.HomeComponent },
             { path: '/resources/sermons', component: _sermons_page_1.SermonsPageComponent },
-            { path: '/resources/:type', component: _default_page_1.DefaultPageComponent },
+            { path: '/resources/:type', component: _test_template_1.TestTemplateComponent },
             { path: '/ministries/:type', component: _default_page_1.DefaultPageComponent },
             { path: '/outreaches/:type', component: _default_page_1.DefaultPageComponent },
-            { path: '/about/:type', component: _default_page_1.DefaultPageComponent },
+            { path: '/about/:type', component: _test_template_1.TestTemplateComponent },
             { path: '/test-template', component: _test_template_1.TestTemplateComponent }
         ]), 
         __metadata('design:paramtypes', [global_events_service_1.GlobalEventsService])
@@ -74,4 +74,4 @@ var NgcliAppComponent = (function () {
     return NgcliAppComponent;
 }());
 exports.NgcliAppComponent = NgcliAppComponent;
-//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-OpBPmHPt.tmp/0/app/ngcli.component.js.map
+//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-erU5Ws0U.tmp/0/app/ngcli.component.js.map
