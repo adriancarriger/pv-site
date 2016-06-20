@@ -50,10 +50,10 @@ import { SermonsPageComponent } from './+sermons-page';
 @Routes([
   {path: '/', component: HomeComponent},
   {path: '/resources/sermons', component: SermonsPageComponent},
-  {path: '/resources/:type', component: DefaultPageComponent},
+  {path: '/resources/:type', component: TestTemplateComponent},
   {path: '/ministries/:type', component: DefaultPageComponent},
   {path: '/outreaches/:type', component: DefaultPageComponent},
-  {path: '/about/:type', component: DefaultPageComponent},
+  {path: '/about/:type', component: TestTemplateComponent},
   {path: '/test-template', component: TestTemplateComponent}
 ])
 export class NgcliAppComponent {
