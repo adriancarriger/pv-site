@@ -1,9 +1,9 @@
-export class NgcliPage {
+export class PvSitePage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('ngcli-app h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }

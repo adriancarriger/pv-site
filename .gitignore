@@ -10,6 +10,10 @@
 
 # IDEs and editors
 /.idea
+.project
+.classpath
+*.launch
+.settings/
 
 # misc
 /.sass-cache
@@ -29,3 +33,4 @@ testem.log
 
 #Good Sync
 /_gsdata_
+Thumbs.db

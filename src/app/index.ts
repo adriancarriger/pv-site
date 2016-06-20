@@ -1,2 +1,2 @@
-export {environment} from './environment';
-export {NgcliAppComponent} from './ngcli.component';
+export * from './environment';
+export * from './app.component';
