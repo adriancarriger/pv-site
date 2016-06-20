@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/app/+test-template/index.ts"],"names":[],"mappings":";AAAA,wCAAsC,2BAA2B,CAAC;AAAzD,gFAAyD","sourcesContent":["export { TestTemplateComponent } from './test-template.component';\n"]}

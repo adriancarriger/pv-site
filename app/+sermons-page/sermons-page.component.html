@@ -1,0 +1,14 @@
+<as-header-default [info]=info>
+  <div class="page-nav">
+    <div class="ad-container" *ngIf="latestSermon?.book">
+      <div class="ad-text">We're currently studying {{latestSermon?.book}}.</div>
+      <div class="ad-text">Listen to the latest sermon.</div>
+      <button type="button" class="btn btn-primary ad-button" (click)="playLatest()">
+        <span *ngIf="!currentAudio?.playing || currentAudio?.id != latestSermon?.id">Listen now</span>
+        <span *ngIf="currentAudio?.playing && currentAudio?.id == latestSermon?.id">Listening</span>
+      </button>
+    </div>
+  </div>
+</as-header-default>
+<as-filter-default (update)="filterValues = $event; updateChange()" [inputData]="filterInfo"></as-filter-default>
+<as-sermons-list [sermons]=sermons [filterValues]="filterValues" [lastChange]="lastChange"></as-sermons-list>

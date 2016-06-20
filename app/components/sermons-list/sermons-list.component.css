@@ -1,0 +1,175 @@
+.sermons {
+  margin-top: 60px; }
+  @media (max-width: 700px) {
+    .sermons {
+      font-size: 14px;
+      padding-left: 0;
+      padding-right: 0;
+      margin-top: 0; } }
+  @media (min-width: 701px) {
+    .sermons {
+      margin: 20px auto; }
+      .sermons.container {
+        padding-right: initial;
+        padding-left: initial;
+        font-size: inherit;
+        font-family: inherit; } }
+  .sermons .no-results {
+    text-align: center;
+    height: 300px;
+    margin-top: 100px;
+    font-size: 20px; }
+  .sermons .sermon-container {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 150px;
+    border-radius: 5px;
+    clear: both; }
+    .sermons .sermon-container:hover, .sermons .sermon-container.current-sermon {
+      background-color: #f2f2f2; }
+      .sermons .sermon-container:hover .sermon-art .sermon-play-container, .sermons .sermon-container.current-sermon .sermon-art .sermon-play-container {
+        display: block; }
+    .sermons .sermon-container.playing .sermon-art .sermon-play-container .ion-pause {
+      display: block; }
+    .sermons .sermon-container.playing .sermon-art .sermon-play-container .ion-play {
+      display: none; }
+    .sermons .sermon-container .sermon-art {
+      position: relative;
+      width: 110px;
+      height: 130px;
+      float: left;
+      padding: 15px 5px;
+      cursor: pointer; }
+      .sermons .sermon-container .sermon-art img {
+        width: 100%; }
+      .sermons .sermon-container .sermon-art .sermon-book {
+        position: absolute;
+        display: block;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center; }
+        .sermons .sermon-container .sermon-art .sermon-book.adam {
+          font-family: Adam;
+          font-size: 13px;
+          height: 13px; }
+        .sermons .sermon-container .sermon-art .sermon-book.bebas-kai {
+          font-family: BebasKai;
+          font-size: 16px;
+          height: 16px; }
+        .sermons .sermon-container .sermon-art .sermon-book.love-moment {
+          font-family: LoveMoment;
+          font-size: 29px;
+          height: 29px; }
+        .sermons .sermon-container .sermon-art .sermon-book.white {
+          color: white; }
+        @media (max-width: 500px) {
+          .sermons .sermon-container .sermon-art .sermon-book.adam {
+            font-family: Adam;
+            font-size: 9px;
+            height: 9px; }
+          .sermons .sermon-container .sermon-art .sermon-book.bebas-kai {
+            font-family: BebasKai;
+            font-size: 11px;
+            height: 11px; }
+          .sermons .sermon-container .sermon-art .sermon-book.love-moment {
+            font-family: LoveMoment;
+            font-size: 20px;
+            height: 20px; } }
+      .sermons .sermon-container .sermon-art .sermon-play-container {
+        position: absolute;
+        display: block;
+        margin: auto;
+        top: 0;
+        left: 7px;
+        right: 0;
+        bottom: 0;
+        width: 25px;
+        height: 54px;
+        display: none; }
+        .sermons .sermon-container .sermon-art .sermon-play-container .sermon-play {
+          font-size: 40px;
+          color: #3db74b;
+          width: 25px;
+          height: 54px;
+          transition: all 0.5s ease, color 0.5s ease; }
+        .sermons .sermon-container .sermon-art .sermon-play-container .ion-pause {
+          display: none;
+          -ms-transform: scale(1.2, 1.2);
+          /* IE 9 */
+          -webkit-transform: scale(1.2, 1.2);
+          /* Safari */
+          transform: scale(1.2, 1.2); }
+      .sermons .sermon-container .sermon-art:hover .sermon-play-container .sermon-play {
+        -ms-transform: scale(1.2, 1.2);
+        /* IE 9 */
+        -webkit-transform: scale(1.2, 1.2);
+        /* Safari */
+        transform: scale(1.2, 1.2); }
+    .sermons .sermon-container .sermon-info {
+      float: left;
+      padding: 24px 13px;
+      width: 71%; }
+      .sermons .sermon-container .sermon-info .info-item {
+        color: gray; }
+        .sermons .sermon-container .sermon-info .info-item a {
+          color: gray; }
+    .sermons .sermon-container .sermon-date {
+      position: absolute;
+      right: 10px;
+      top: 34px;
+      color: gray; }
+    @media (max-width: 700px) {
+      .sermons .sermon-container {
+        border-bottom: solid 1px lightgray;
+        border-radius: 0; }
+        .sermons .sermon-container:hover {
+          background-color: initial; }
+        .sermons .sermon-container:last-of-type {
+          border-bottom: none; }
+        .sermons .sermon-container .sermon-info {
+          width: 75%;
+          padding: 17px 13px; }
+        .sermons .sermon-container .sermon-date {
+          position: static; }
+        .sermons .sermon-container .sermon-art .sermon-play-container {
+          left: initial;
+          top: initial;
+          right: 7px;
+          bottom: 21px;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background-color: white;
+          display: block; }
+          .sermons .sermon-container .sermon-art .sermon-play-container .sermon-play {
+            position: absolute;
+            font-size: 11px;
+            width: 7px;
+            height: 12px;
+            color: gray;
+            top: 6px;
+            left: 10px;
+            right: 0;
+            bottom: 0; } }
+    @media (max-width: 500px) {
+      .sermons .sermon-container {
+        height: 130px; }
+        .sermons .sermon-container .sermon-info {
+          padding: 14px 0 7px 13px;
+          width: 79%; }
+        .sermons .sermon-container .sermon-art {
+          width: 70px;
+          height: 100px;
+          padding: 20px 0; }
+          .sermons .sermon-container .sermon-art .sermon-play-container {
+            right: 4px;
+            bottom: 14px; } }
+    @media (max-width: 400px) {
+      .sermons .sermon-container .sermon-info {
+        width: 70%; } }

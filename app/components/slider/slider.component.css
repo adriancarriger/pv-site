@@ -1,0 +1,32 @@
+@import url(../../../vendor/nouislider/distribute/nouislider.min.css);
+.slider-container {
+  padding: 5px 0; }
+  .slider-container .slider {
+    background-color: #3db74b !important;
+    height: 1px !important;
+    margin: 10px 0;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0; }
+    .slider-container .slider .noUi-base {
+      padding: 20px;
+      -webkit-transform: translate3d(0, -20px, 0);
+      transform: translate3d(0, -20px, 0); }
+      .slider-container .slider .noUi-base:hover {
+        cursor: pointer; }
+        .slider-container .slider .noUi-base:hover .noUi-origin .noUi-handle {
+          display: block; }
+      .slider-container .slider .noUi-base .noUi-origin {
+        height: 1px;
+        background-color: #d6d6d6;
+        top: 20px; }
+        .slider-container .slider .noUi-base .noUi-origin .noUi-handle {
+          background-color: #3db74b;
+          width: 8px;
+          height: 8px;
+          border-radius: 100%;
+          box-shadow: none;
+          top: -3px;
+          left: -4px;
+          display: none;
+          cursor: pointer; }

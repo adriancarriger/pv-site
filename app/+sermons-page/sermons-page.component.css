@@ -1,0 +1,33 @@
+@media (max-width: 510px) {
+  .page-nav {
+    bottom: 0; } }
+
+.page-nav .btn-primary {
+  color: white;
+  border-color: white;
+  background-color: transparent; }
+  .page-nav .btn-primary:focus {
+    color: white;
+    background-color: transparent;
+    border-color: white; }
+  .page-nav .btn-primary:hover {
+    color: #3c3c3c;
+    background-color: white;
+    border-color: white; }
+
+.page-nav .ad-container .ad-text {
+  color: white;
+  font-size: 20px;
+  text-align: center; }
+  @media (max-width: 510px) {
+    .page-nav .ad-container .ad-text {
+      font-size: 17px; } }
+
+.page-nav .ad-container .ad-button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+  @media (max-width: 510px) {
+    .page-nav .ad-container .ad-button {
+      font-size: 14px;
+      margin-top: 9px; } }

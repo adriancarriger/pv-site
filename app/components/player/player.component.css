@@ -1,0 +1,79 @@
+.player {
+  position: fixed;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #d6d6d6;
+  background-color: #f2f2f2;
+  z-index: 3; }
+  .player.started {
+    -webkit-animation: player 0.2s forwards; }
+  .player .player-item {
+    float: left; }
+  .player .controls {
+    min-width: 150px;
+    width: 15%; }
+    .player .controls > button {
+      height: 50px;
+      margin: 0 2px;
+      background: none;
+      font-size: 25px;
+      color: #4a4a4a;
+      outline: none; }
+      .player .controls > button.control-disabled {
+        color: gray;
+        cursor: default; }
+      .player .controls > button:active {
+        box-shadow: none; }
+      .player .controls > button.play-toggle {
+        width: 42px; }
+    .player .controls.no-playlist {
+      width: 60px;
+      min-width: 60px;
+      margin-left: 60px; }
+      .player .controls.no-playlist > button.play-toggle {
+        margin: 0 auto;
+        display: block; }
+  .player .progress {
+    width: 50%;
+    height: 50px;
+    box-shadow: none; }
+    .player .progress > div {
+      float: left; }
+    .player .progress .progress-timer {
+      width: 10%;
+      text-align: center;
+      margin: 15px 6%; }
+      .player .progress .progress-timer.timer-current {
+        color: #3db74b; }
+    .player .progress .player-progress-bar {
+      width: 50%;
+      float: left;
+      padding: 9px 0; }
+  .player .info-container {
+    width: 20%; }
+    .player .info-container .album-art {
+      float: left;
+      position: relative;
+      width: 30px;
+      margin: 10px; }
+      .player .info-container .album-art img {
+        width: 30px; }
+    .player .info-container .info-text {
+      font-size: 11px;
+      line-height: 16px;
+      float: left;
+      margin-top: 9px; }
+      .player .info-container .info-text > div {
+        text-overflow: ellipsis;
+        width: 120px;
+        white-space: nowrap;
+        overflow: hidden; }
+
+@-webkit-keyframes player {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0); }
+  100% {
+    -webkit-transform: translate3d(0, -50px, 0); } }

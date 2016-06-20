@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/app/components/footer/index.ts"],"names":[],"mappings":";AAAA,iCAAgC,oBAAoB,CAAC;AAA5C,6DAA4C","sourcesContent":["export { FooterComponent } from './footer.component';\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/app/components/pagination/index.ts"],"names":[],"mappings":";AAAA,qCAAoC,wBAAwB,CAAC;AAApD,yEAAoD","sourcesContent":["export { PaginationComponent } from './pagination.component';\n"]}

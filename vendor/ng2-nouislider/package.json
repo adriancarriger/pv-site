@@ -1,0 +1,116 @@
+{
+  "_args": [
+    [
+      "ng2-nouislider",
+      "/Users/adriancarriger/starters/sites/ngcli"
+    ]
+  ],
+  "_from": "ng2-nouislider@latest",
+  "_id": "ng2-nouislider@0.4.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ng2-nouislider",
+  "_nodeVersion": "4.2.6",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/ng2-nouislider-0.4.1.tgz_1464358755984_0.20156584633514285"
+  },
+  "_npmUser": {
+    "email": "t.bak@selleo.com",
+    "name": "tomaszbak"
+  },
+  "_npmVersion": "3.8.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "ng2-nouislider",
+    "raw": "ng2-nouislider",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ng2-nouislider/-/ng2-nouislider-0.4.1.tgz",
+  "_shasum": "7d3c5844b233980c5a4613b3b328dbbc532e00e3",
+  "_shrinkwrap": null,
+  "_spec": "ng2-nouislider",
+  "_where": "/Users/adriancarriger/starters/sites/ngcli",
+  "author": {
+    "email": "t.bak@selleo.com",
+    "name": "Tomasz Bak"
+  },
+  "bugs": {
+    "url": "https://github.com/tb/ng2-nouislider/issues"
+  },
+  "dependencies": {},
+  "description": "Angular2 noUiSlider directive",
+  "devDependencies": {
+    "@angular/common": "^2.0.0-rc.1",
+    "@angular/compiler": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc.1",
+    "@angular/platform-browser": "^2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
+    "css-loader": "^0.23.1",
+    "es6-shim": "^0.35.0",
+    "http-server": "^0.9.0",
+    "node-sass": "^3.7.0",
+    "nouislider": "^8.4.0",
+    "raw-loader": "^0.5.1",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "^5.0.0-beta.7",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.8.2",
+    "tslint": "^3.9.0",
+    "tslint-loader": "^2.1.4",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "zone.js": "^0.6.12"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "7d3c5844b233980c5a4613b3b328dbbc532e00e3",
+    "tarball": "https://registry.npmjs.org/ng2-nouislider/-/ng2-nouislider-0.4.1.tgz"
+  },
+  "gitHead": "cc6aaf18d05acbb0adeea030e7eb765122bc46cc",
+  "homepage": "https://github.com/tb/ng2-nouislider#readme",
+  "keywords": [
+    "angular2",
+    "ng2",
+    "nouislider",
+    "slider",
+    "range",
+    "directive"
+  ],
+  "license": "MIT",
+  "main": "src/nouislider.js",
+  "maintainers": [
+    {
+      "email": "t.bak@selleo.com",
+      "name": "tomaszbak"
+    }
+  ],
+  "name": "ng2-nouislider",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "@angular/common": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc.1",
+    "nouislider": "^8.4.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tb/ng2-nouislider.git"
+  },
+  "scripts": {
+    "build": "typings install && tslint src/*.ts && tsc",
+    "start": "webpack-dev-server",
+    "start:demo": "webpack && http-server ./demo"
+  },
+  "typings": "src/nouislider.d.ts",
+  "version": "0.4.1"
+}

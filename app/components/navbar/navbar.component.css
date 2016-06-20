@@ -1,0 +1,84 @@
+/* Full width dropdown */
+.nav .dropdown {
+  position: static;
+  cursor: pointer; }
+
+.dropdown-menu {
+  width: 100%; }
+
+.menu-slides-shell {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto; }
+
+.menu-slide {
+  float: left;
+  width: 29.33%;
+  margin: 20px 2%;
+  text-align: center; }
+  .menu-slide > a {
+    display: block;
+    color: #333; }
+  .menu-slide a {
+    position: relative; }
+    .menu-slide a .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: black;
+      opacity: 0.7; }
+    .menu-slide a .title {
+      position: absolute;
+      top: 50%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 32px;
+      font-family: BebasNeue;
+      color: white;
+      z-index: 1; }
+      @media (min-width: 900px) {
+        .menu-slide a .title {
+          font-size: 42px; } }
+      @media (min-width: 1200px) {
+        .menu-slide a .title {
+          font-size: 58px; } }
+    .menu-slide a img {
+      width: 100%; }
+
+@media (min-width: 768px) {
+  /* Show large menu on initialization
+	   `.collapse` is removed on init while large,
+		 but comes back after resizing window.
+	*/
+  .fix-on-init {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+    position: static; } }
+
+.navbar .navbar-header .navbar-brand {
+  padding: 8px 0px 5px 15px;
+  width: 44px; }
+  @media (max-width: 767px) {
+    .navbar .navbar-header .navbar-brand {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center; } }
+
+.navbar .navbar-header .navbar-toggle {
+  float: left; }
+
+.navbar .navbar-header .navbar-audio {
+  float: right;
+  font-size: 30px;
+  margin: 5px 20px 0 20px;
+  color: #3db74b; }
+  @media (min-width: 768px) {
+    .navbar .navbar-header .navbar-audio {
+      display: none; } }

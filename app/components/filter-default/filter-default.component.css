@@ -1,0 +1,108 @@
+.filter-container {
+  height: 54px;
+  width: 100%; }
+  .filter-container .filter {
+    height: 54px;
+    top: 51px;
+    z-index: 2;
+    background: #3db74b;
+    width: 100%; }
+    .filter-container .filter.sticky {
+      position: fixed; }
+    @media (max-width: 500px) {
+      .filter-container .filter .container {
+        width: 100%; } }
+    .filter-container .filter .container .input-item {
+      float: left;
+      padding: 12px 10px;
+      color: white;
+      width: 180px;
+      /*
+        @media (max-width: 1000px) {
+          width: 18%;
+          padding: 10px 20px;
+          &.search {
+            width: 35%;
+          }
+        }
+        */ }
+      .filter-container .filter .container .input-item .ui-select-container {
+        outline: none; }
+        .filter-container .filter .container .input-item .ui-select-container .ui-select-toggle {
+          background-color: #3db74b;
+          color: white;
+          border-color: #3db74b;
+          box-shadow: none;
+          text-align: center !important; }
+          .filter-container .filter .container .input-item .ui-select-container .ui-select-toggle .pull-left {
+            float: initial !important; }
+          .filter-container .filter .container .input-item .ui-select-container .ui-select-toggle .btn-link {
+            color: white; }
+          .filter-container .filter .container .input-item .ui-select-container .ui-select-toggle .ui-select-placeholder {
+            color: white; }
+          .filter-container .filter .container .input-item .ui-select-container .ui-select-toggle .pull-right {
+            float: initial !important;
+            padding: 2px; }
+          .filter-container .filter .container .input-item .ui-select-container .ui-select-toggle .glyphicon-remove {
+            display: none; }
+          .filter-container .filter .container .input-item .ui-select-container .ui-select-toggle .caret {
+            display: initial;
+            width: initial;
+            height: initial;
+            margin-left: initial;
+            margin-top: initial;
+            vertical-align: initial;
+            border-top: initial;
+            border-right: initial;
+            border-bottom: initial;
+            border-left: initial;
+            right: initial;
+            top: initial;
+            position: initial; }
+            .filter-container .filter .container .input-item .ui-select-container .ui-select-toggle .caret:before {
+              content: "\f123";
+              display: inline-block;
+              font-family: "Ionicons";
+              speak: none;
+              font-style: normal;
+              font-weight: normal;
+              font-variant: normal;
+              text-transform: none;
+              text-rendering: auto;
+              line-height: 1;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale; }
+      .filter-container .filter .container .input-item.search {
+        width: 500px;
+        position: relative; }
+        .filter-container .filter .container .input-item.search i {
+          position: absolute;
+          top: 15px;
+          left: 27px; }
+        .filter-container .filter .container .input-item.search input {
+          border-radius: 25px;
+          padding: 6px 10px 6px 40px;
+          border: none;
+          outline: none;
+          width: 100%;
+          background-color: #71bf7a;
+          line-height: 1;
+          font-size: 18px;
+          color: white; }
+          .filter-container .filter .container .input-item.search input::-webkit-input-placeholder {
+            /* Chrome/Opera/Safari */
+            color: white; }
+          .filter-container .filter .container .input-item.search input:focus {
+            background-color: white;
+            color: gray; }
+            .filter-container .filter .container .input-item.search input:focus::-webkit-input-placeholder {
+              /* Chrome/Opera/Safari */
+              color: gray; }
+            .filter-container .filter .container .input-item.search input:focus + i {
+              color: gray; }
+      @media (max-width: 1400px) {
+        .filter-container .filter .container .input-item {
+          width: 18%;
+          padding: 10px 20px; }
+          .filter-container .filter .container .input-item.search {
+            width: 35%; } }

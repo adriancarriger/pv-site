@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/app/components/header-default/index.ts"],"names":[],"mappings":";AAAA,yCAAuC,4BAA4B,CAAC;AAA3D,mFAA2D","sourcesContent":["export { HeaderDefaultComponent } from './header-default.component';\n"]}

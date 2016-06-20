@@ -1,0 +1,367 @@
+/* Style when highlighting a search. */
+.ui-select-highlight {
+  font-weight: bold; }
+
+.ui-select-offscreen {
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  outline: 0 !important;
+  left: 0px !important;
+  top: 0px !important; }
+
+.ui-select-choices-row:hover {
+  background-color: #f5f5f5; }
+
+/* Select2 theme */
+/* Mark invalid Select2 */
+.ng-dirty.ng-invalid > a.select2-choice {
+  border-color: #D44950; }
+
+.select2-result-single {
+  padding-left: 0; }
+
+.select2-locked > .select2-search-choice-close {
+  display: none; }
+
+.select-locked > .ui-select-match-close {
+  display: none; }
+
+body > .select2-container.open {
+  z-index: 9999;
+  /* The z-index Select2 applies to the select2-drop */ }
+
+/* Handle up direction Select2 */
+.ui-select-container[theme="select2"].direction-up .ui-select-match {
+  border-radius: 4px;
+  /* FIXME hardcoded value :-/ */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.ui-select-container[theme="select2"].direction-up .ui-select-dropdown {
+  border-radius: 4px;
+  /* FIXME hardcoded value :-/ */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-width: 1px;
+  /* FIXME hardcoded value :-/ */
+  border-top-style: solid;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+  margin-top: -4px;
+  /* FIXME hardcoded value :-/ */ }
+
+.ui-select-container[theme="select2"].direction-up .ui-select-dropdown .select2-search {
+  margin-top: 4px;
+  /* FIXME hardcoded value :-/ */ }
+
+.ui-select-container[theme="select2"].direction-up.select2-dropdown-open .ui-select-match {
+  border-bottom-color: #5897fb; }
+
+/* Selectize theme */
+/* Helper class to show styles when focus */
+.selectize-input.selectize-focus {
+  border-color: #007FBB !important; }
+
+/* Fix input width for Selectize theme */
+.selectize-control > .selectize-input > input {
+  width: 100%; }
+
+/* Fix dropdown width for Selectize theme */
+.selectize-control > .selectize-dropdown {
+  width: 100%; }
+
+/* Mark invalid Selectize */
+.ng-dirty.ng-invalid > div.selectize-input {
+  border-color: #D44950; }
+
+/* Handle up direction Selectize */
+.ui-select-container[theme="selectize"].direction-up .ui-select-dropdown {
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+  margin-top: -2px;
+  /* FIXME hardcoded value :-/ */ }
+
+/* Bootstrap theme */
+/* Helper class to show styles when focus */
+.btn-default-focus {
+  color: #333;
+  background-color: #EBEBEB;
+  border-color: #ADADAD;
+  text-decoration: none;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
+
+.ui-select-bootstrap .ui-select-toggle {
+  position: relative; }
+
+.ui-select-bootstrap .ui-select-toggle > .caret {
+  position: absolute;
+  height: 10px;
+  top: 50%;
+  right: 10px;
+  margin-top: -2px; }
+
+/* Fix Bootstrap dropdown position when inside a input-group */
+.input-group > .ui-select-bootstrap.dropdown {
+  /* Instead of relative */
+  position: static; }
+
+.input-group > .ui-select-bootstrap > input.ui-select-search.form-control {
+  border-radius: 4px;
+  /* FIXME hardcoded value :-/ */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.input-group > .ui-select-bootstrap > input.ui-select-search.form-control.direction-up {
+  border-radius: 4px !important;
+  /* FIXME hardcoded value :-/ */
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important; }
+
+.ui-select-bootstrap > .ui-select-match > .btn {
+  /* Instead of center because of .btn */
+  text-align: left !important; }
+
+.ui-select-bootstrap > .ui-select-match > .caret {
+  position: absolute;
+  top: 45%;
+  right: 15px; }
+
+.ui-disabled {
+  background-color: #eceeef;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  cursor: not-allowed; }
+
+/* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
+.ui-select-bootstrap > .ui-select-choices {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+  margin-top: -1px; }
+
+body > .ui-select-bootstrap.open {
+  z-index: 1000;
+  /* Standard Bootstrap dropdown z-index */ }
+
+.ui-select-multiple.ui-select-bootstrap {
+  height: auto;
+  padding: 3px 3px 0 3px; }
+
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+  background-color: transparent !important;
+  /* To prevent double background when disabled */
+  border: none;
+  outline: none;
+  height: 1.666666em;
+  margin-bottom: 3px; }
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
+  font-size: 1.6em;
+  line-height: 0.75; }
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+  outline: 0;
+  margin: 0 3px 3px 0; }
+
+.ui-select-multiple .ui-select-match-item {
+  position: relative; }
+
+.ui-select-multiple .ui-select-match-item.dropping-before:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 100%;
+  height: 100%;
+  margin-right: 2px;
+  border-left: 1px solid #428bca; }
+
+.ui-select-multiple .ui-select-match-item.dropping-after:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  margin-left: 2px;
+  border-right: 1px solid #428bca; }
+
+.ui-select-bootstrap .ui-select-choices-row > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap; }
+
+.ui-select-bootstrap .ui-select-choices-row > a:hover, .ui-select-bootstrap .ui-select-choices-row > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5; }
+
+.ui-select-bootstrap .ui-select-choices-row.active > a {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca; }
+
+.ui-select-bootstrap .ui-select-choices-row.disabled > a,
+.ui-select-bootstrap .ui-select-choices-row.active.disabled > a {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff; }
+
+/* fix hide/show angular animation */
+.ui-select-match.ng-hide-add,
+.ui-select-search.ng-hide-add {
+  display: none !important; }
+
+/* Mark invalid Bootstrap */
+.ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
+  border-color: #D44950; }
+
+/* Handle up direction Bootstrap */
+.ui-select-container[theme="bootstrap"].direction-up .ui-select-dropdown {
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25); }
+
+@font-face {
+  font-family: BebasNeue;
+  font-weight: normal;
+  src: url("app/assets/BebasNeue.otf"); }
+
+@font-face {
+  font-family: BebasKai;
+  font-weight: normal;
+  src: url("app/assets/BebasKai-Regular.otf"); }
+
+@font-face {
+  font-family: Adam;
+  font-weight: normal;
+  src: url("app/assets/Adam.otf"); }
+
+@font-face {
+  font-family: LoveMoment;
+  font-weight: normal;
+  src: url("app/assets/Love Moment.otf"); }
+
+.fixed-nav-fix {
+  margin-top: 51px; }
+
+.quote {
+  padding: 5% 0;
+  font-style: italic; }
+
+.content {
+  line-height: 2; }
+
+.container, .container-fluid {
+  font-size: 20px;
+  font-family: Arial,Helvetica,sans-serif;
+  color: dimgray; }
+  @media (min-width: 501px) and (max-width: 700px) {
+    .container, .container-fluid {
+      font-size: 18px; } }
+  @media (max-width: 500px) {
+    .container, .container-fluid {
+      font-size: 16px; } }
+
+.container-image {
+  height: 600px;
+  overflow: hidden;
+  position: relative; }
+  .container-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 600px; }
+  @media (min-width: 501px) and (max-width: 900px) {
+    .container-image {
+      height: 400px; }
+      .container-image img {
+        height: 400px; } }
+  @media (max-width: 500px) {
+    .container-image {
+      height: 300px; }
+      .container-image img {
+        height: 300px; } }
+
+.cover {
+  object-fit: cover;
+  width: 50px;
+  height: 100px; }
+
+a {
+  color: #3db74b;
+  cursor: pointer; }
+  a:hover {
+    color: #3db74b; }
+
+.play-button {
+  background-color: transparent;
+  font-size: 70px; }
+
+.page-nav {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 70px;
+  width: 450px;
+  margin: 0 auto; }
+  .page-nav .icon-container {
+    float: left;
+    border-right: 1px solid white;
+    color: white;
+    padding: 10px;
+    width: 150px;
+    text-align: center; }
+    .page-nav .icon-container:last-of-type {
+      border-right: none; }
+    .page-nav .icon-container .icon {
+      font-size: 60px; }
+  @media (max-width: 500px) {
+    .page-nav {
+      width: 300px; }
+      .page-nav .icon-container {
+        width: 100px; }
+        .page-nav .icon-container .icon {
+          font-size: 40px; } }
+
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: normal; }
+
+/* Buttons */
+.btn-primary {
+  color: #3db74b;
+  border-color: #3db74b;
+  background-color: transparent;
+  margin: 20px;
+  font-size: 20px;
+  border-width: 3px;
+  transition: background-color 0.5s ease, color 0.5s ease; }
+  .btn-primary:focus {
+    color: #3db74b;
+    background-color: transparent;
+    border-color: #3db74b; }
+  .btn-primary:hover {
+    color: white;
+    background-color: #3db74b;
+    border-color: #3db74b; }
+
+.btn {
+  box-shadow: none !important;
+  outline: none !important; }

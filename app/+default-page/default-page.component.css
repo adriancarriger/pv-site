@@ -1,0 +1,125 @@
+.container-ad {
+  position: relative;
+  margin: 50px 0;
+  color: darkslategray;
+  height: 320px; }
+  .container-ad img {
+    object-fit: cover;
+    width: 100%;
+    height: 320px; }
+  .container-ad .button-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    background-color: black;
+    transition: opacity 0.8s ease;
+    opacity: 0; }
+  .container-ad .play-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 7px;
+    margin: auto;
+    width: 80%;
+    height: 90%;
+    text-align: center;
+    opacity: 1;
+    transition: color 0.3s ease;
+    z-index: 2; }
+    .container-ad .play-button:hover {
+      color: #3db74b; }
+      .container-ad .play-button:hover + .button-overlay {
+        opacity: 0.2; }
+  @media (max-width: 700px) {
+    .container-ad {
+      margin: 30px 0;
+      height: 380px; }
+      .container-ad img {
+        height: 380px; } }
+  @media (max-width: 700px) {
+    .container-ad.sermon-ad {
+      margin-bottom: 0; } }
+  .container-ad.sermon-ad .more-info {
+    position: absolute;
+    bottom: 15%;
+    right: 0;
+    left: 0; }
+
+.sermons.container {
+  margin-top: 0; }
+
+.adcontent {
+  position: absolute;
+  top: 6%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5; }
+  .adcontent h1 {
+    font-size: 70px;
+    font-family: BebasNeue;
+    text-align: center;
+    margin: 0; }
+  .adcontent .description {
+    padding: 0 0 20px 0; }
+  @media (max-width: 500px) {
+    .adcontent h1 {
+      font-size: 50px; } }
+
+.events h1 {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  height: 60px; }
+  @media (max-width: 500px) {
+    .events h1 {
+      margin: 10px 0 10px 0; } }
+
+.events-container {
+  padding-bottom: 70px; }
+  @media (max-width: 991px) {
+    .events-container {
+      padding-bottom: 0; } }
+  .events-container .event {
+    border-right: 1px solid gray;
+    height: 180px;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+    @media (max-width: 991px) {
+      .events-container .event {
+        width: 230px;
+        margin: 0 auto;
+        border-right: none;
+        border-bottom: 1px solid gray;
+        margin-top: 35px; } }
+    @media (max-width: 500px) {
+      .events-container .event {
+        margin-top: 10px;
+        height: 135px; }
+        .events-container .event:first-of-type {
+          margin-top: 0; } }
+    .events-container .event:last-of-type {
+      border-right: none;
+      border-bottom: none; }
+    .events-container .event .ion-location {
+      padding-left: 5px; }
+    .events-container .event .ion-android-time {
+      padding-left: 1px; }
+    .events-container .event .ion-bookmark {
+      padding-left: 5px; }
+    .events-container .event .event-icon {
+      min-width: 25px;
+      float: left;
+      clear: left;
+      min-height: 1px;
+      max-width: 5%; }
+    .events-container .event .event-info {
+      float: left;
+      clear: right;
+      max-width: 85%; }

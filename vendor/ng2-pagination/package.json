@@ -1,0 +1,120 @@
+{
+  "_args": [
+    [
+      "ng2-pagination",
+      "/Users/adriancarriger/starters/sites/ngcli"
+    ]
+  ],
+  "_from": "ng2-pagination@latest",
+  "_id": "ng2-pagination@0.3.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ng2-pagination",
+  "_nodeVersion": "5.11.1",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/ng2-pagination-0.3.2.tgz_1465462571403_0.21931890351697803"
+  },
+  "_npmUser": {
+    "email": "michael@michaelbromley.co.uk",
+    "name": "michaelbromley"
+  },
+  "_npmVersion": "3.5.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "ng2-pagination",
+    "raw": "ng2-pagination",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.2.tgz",
+  "_shasum": "91002281b75d50e9c7c67305017bd4b93bc24dfa",
+  "_shrinkwrap": null,
+  "_spec": "ng2-pagination",
+  "_where": "/Users/adriancarriger/starters/sites/ngcli",
+  "author": {
+    "email": "michael@michaelbromley.co.uk",
+    "name": "Michael Bromley"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelbromley/ng2-pagination/issues"
+  },
+  "dependencies": {},
+  "description": "Pagination for Angular2",
+  "devDependencies": {
+    "@angular/common": "2.0.0-rc.1",
+    "@angular/compiler": "2.0.0-rc.1",
+    "@angular/core": "2.0.0-rc.1",
+    "@angular/platform-browser": "2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "bulma": "^0.0.14",
+    "css-loader": "^0.23.1",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.35.0",
+    "highlight.js": "^9.1.0",
+    "html-loader": "^0.4.3",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.6",
+    "karma-webpack": "^1.7.0",
+    "node-sass": "^3.6.0",
+    "raw-loader": "^0.5.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.6",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.7.2",
+    "typescript": "^1.8.0",
+    "typings": "^1.0.4",
+    "webpack": "^1.12.9",
+    "zone.js": "0.6.12"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "91002281b75d50e9c7c67305017bd4b93bc24dfa",
+    "tarball": "https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.2.tgz"
+  },
+  "files": [
+    "dist",
+    "index.js",
+    "index.d.ts"
+  ],
+  "gitHead": "2d5711ccdefa7e31d06dc076f7f8123fb720fae4",
+  "homepage": "https://github.com/michaelbromley/ng2-pagination#readme",
+  "keywords": [
+    "angular2",
+    "pagination"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "michael@michaelbromley.co.uk",
+      "name": "michaelbromley"
+    }
+  ],
+  "name": "ng2-pagination",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelbromley/ng2-pagination.git"
+  },
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:system",
+    "build:cjs": "node node_modules/typescript/bin/tsc",
+    "build:system": "node node_modules/typescript/bin/tsc -p tsconfig.system.json",
+    "demo:dist": "webpack --progress --colors --dist",
+    "demo:watch": "webpack --progress --colors --watch",
+    "publish-lib": "npm run build && npm run demo:dist",
+    "test": "karma start karma.conf.js",
+    "typings:install": "node node_modules/typings/dist/bin install"
+  },
+  "version": "0.3.2"
+}

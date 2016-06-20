@@ -1,0 +1,26 @@
+.custom-pagination {
+  display: flex;
+  max-width: 300px;
+  margin: auto;
+  height: 170px;
+  padding: 70px 0; }
+  .custom-pagination > div {
+    flex: 1;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none; }
+    .custom-pagination > div.current {
+      border-color: #3db74b; }
+    .custom-pagination > div.view-all {
+      flex-grow: 3; }
+  .custom-pagination a {
+    color: #0a69a7;
+    cursor: pointer;
+    text-decoration: none;
+    transition: none 2086ms ease-out; }
+
+.ng2-pagination {
+  display: none; }
