@@ -12,7 +12,7 @@ let tempImage = // Will connect to api soon
   '/ipod-headphones-1920x1080.414acded74a4af3f514ff36e41045e5b.jpg';
   */
 
-let tempImage = '/app/assets/sermons.jpeg';
+let tempImage = 'app/assets/sermons.jpeg';
 
 @Component({
   moduleId: module.id,
