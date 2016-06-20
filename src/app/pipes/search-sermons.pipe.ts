@@ -15,6 +15,11 @@ export class SearchSermons implements PipeTransform {
     if (book !== undefined && book !== 'All books') { books.push(book); }
     if (year !== undefined && year !== 'All years') { years.push(year); }
     if (amPm !== undefined && amPm !== 'AM/PM') { meridian = meridians[amPm]; }
+    let artClasses = [
+      'adam',
+      'bebas-kai',
+      'love-moment'
+    ];
     let filtered = value.filter((item) => {
       // Filter out sermons missing audio
       if (!item.audio) { return false; }
@@ -45,6 +50,8 @@ export class SearchSermons implements PipeTransform {
             if (str.indexOf( queries[i] ) === -1) { return false; }
         }
       }
+      let i = Math.floor(Math.random() * 3);
+      item.randomClass = artClasses[i];
       return item;
     });
     meowTest.count = filtered.length;

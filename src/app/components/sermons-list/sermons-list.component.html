@@ -4,6 +4,7 @@
     [ngClass]="{'playing': current?.playing && current?.id == sermon?.key, 'current-sermon': current?.id == sermon?.key}">
     <div class="sermon-art" (click)="current?.playing && current?.id === sermon?.key ? audioService.pause(): audioService.play(sermon?.key)">
       <img src="{{sermon?.art.image_small}}" srcset="{{sermon?.art.image_small}} 60w, {{sermon?.art.image_medium}} 100w, {{sermon?.art.image_large}} 300w" alt="">
+      <div class="sermon-book {{sermon?.randomClass}}">{{sermon?.book}}</div>
       <div class="sermon-play-container">
         <div class="sermon-play ion-play"></div>
         <div class="sermon-play ion-pause"></div>

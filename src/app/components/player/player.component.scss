@@ -76,6 +76,7 @@ $playerHeight: 50px;
     .album-art {
       $artSize: 30px;
       float: left;
+      position: relative;
       width: $artSize;
       margin: ($playerHeight - $artSize) / 2;
       img {

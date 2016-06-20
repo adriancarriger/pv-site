@@ -16,7 +16,9 @@ export class AudioService {
     init: false,
     title: '',
     speaker: '',
-    duration: ''
+    duration: '',
+    art: {},
+    randomClass: ''
   };
   public audioObjects = {}
   public sermons;
@@ -55,6 +57,7 @@ export class AudioService {
       this.current.playing = true;
       this.current.title = this.sermons[this.current.id].name;
       this.current.speaker = this.sermons[this.current.id].speaker;
+      this.current.art = this.sermons[this.current.id].art;
       this.preCurrentAudio$.next(this.current);
     }
   }

@@ -57,6 +57,54 @@
       img {
         width: 100%;
       }
+      .sermon-book {
+        position: absolute;
+        display: block;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        &.adam {
+          font-family: Adam;
+          $adam: 13px;
+          font-size: $adam;
+          height: $adam;
+        }
+        &.bebas-kai {
+          font-family: BebasKai;
+          $BebasKai: 16px;
+          font-size: $BebasKai;
+          height: $BebasKai;
+        }
+        &.love-moment {
+          font-family: LoveMoment;
+          $LoveMoment: 29px;
+          font-size: $LoveMoment;
+          height: $LoveMoment;
+        }
+        @media (max-width: 500px) {
+          &.adam {
+            font-family: Adam;
+            $adam: 9px;
+            font-size: $adam;
+            height: $adam;
+          }
+          &.bebas-kai {
+            font-family: BebasKai;
+            $BebasKai: 11px;
+            font-size: $BebasKai;
+            height: $BebasKai;
+          }
+          &.love-moment {
+            font-family: LoveMoment;
+            $LoveMoment: 20px;
+            font-size: $LoveMoment;
+            height: $LoveMoment;
+          }
+        }
+      }
       .sermon-play-container {
         position: absolute;
         display: block;
@@ -103,9 +151,6 @@
         a {
           color: gray;
         }
-      }
-      .sermon-date {
-        
       }
     }
     .sermon-date {
