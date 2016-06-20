@@ -1,63 +1,60 @@
 {
-  "_args": [
-    [
-      "ng2-select",
-      "/Users/adriancarriger/starters/sites/ngcli"
-    ]
+  "name": "ng2-select",
+  "version": "1.0.3",
+  "description": "Angular2 based replacement for select boxes",
+  "scripts": {
+    "flow.install:typings": "typings install",
+    "flow.compile": "npm run flow.install:typings && npm run flow.compile:common && npm run flow.compile:system ",
+    "flow.compile:common": "tsc",
+    "flow.compile:system": "./.config/bundle-system.js",
+    "flow.copy:src": "cpy ng2-select.ts \"components/*.ts\" ts --parents",
+    "flow.clean": "del bundles coverage demo-build typings \"components/**/*.+(js|d.ts|js.map)\" dist \"ng2-select.+(js|d.ts|js.map)\"",
+    "flow.deploy:gh-pages": "npm run flow.build:prod && ./node_modules/.bin/gh-pages -d demo-build",
+    "flow.eslint": "eslint --ignore-path .gitignore  --ext js --fix . .config",
+    "flow.tslint": "gulp lint",
+    "flow.lint": "npm run flow.eslint && npm run flow.tslint",
+    "flow.changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -v",
+    "flow.github-release": "conventional-github-releaser -p angular",
+    "flow.build:prod": "NODE_ENV=production ./node_modules/.bin/webpack --progress --color",
+    "flow.build:dev": "webpack --progress --color",
+    "flow.serve:dev": "webpack-dev-server --hot --inline --colors --display-error-details --display-cached",
+    "flow.serve:prod": "NODE_ENV=production ./node_modules/.bin/webpack-dev-server --hot --inline --colors --display-error-details --display-cached",
+    "prepublish": "npm run flow.clean && npm run flow.compile",
+    "postpublish": "npm run flow.deploy:gh-pages",
+    "start": "npm run flow.serve:dev",
+    "pretest": "npm run flow.lint",
+    "test": "NODE_ENV=test ./node_modules/.bin/karma start",
+    "preversion": "npm test",
+    "version": "npm run flow.changelog && git add -A",
+    "postversion": "git push origin development && git push --tags"
+  },
+  "main": "ng2-select.js",
+  "typings": "ng2-select.d.ts",
+  "keywords": [
+    "angular2",
+    "select",
+    "selectify",
+    "angularjs"
   ],
-  "_from": "ng2-select@latest",
-  "_id": "ng2-select@1.0.3",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/ng2-select",
-  "_nodeVersion": "6.2.0",
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/ng2-select-1.0.3.tgz_1463586863266_0.8940545863006264"
-  },
-  "_npmUser": {
-    "email": "valorkin@gmail.com",
-    "name": "valorkin"
-  },
-  "_npmVersion": "3.8.9",
-  "_phantomChildren": {},
-  "_requested": {
-    "name": "ng2-select",
-    "raw": "ng2-select",
-    "rawSpec": "",
-    "scope": null,
-    "spec": "latest",
-    "type": "tag"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz",
-  "_shasum": "61cf87e47c93167e60a66d18bf1ae52f024f75cc",
-  "_shrinkwrap": null,
-  "_spec": "ng2-select",
-  "_where": "/Users/adriancarriger/starters/sites/ngcli",
   "author": {
-    "email": "vyacheslav.chub@valor-software.com",
-    "name": "Vyacheslav Chub"
+    "name": "Vyacheslav Chub",
+    "email": "vyacheslav.chub@valor-software.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/valor-software/ng2-select.git"
   },
   "bugs": {
     "url": "https://github.com/valor-software/ng2-select/issues"
   },
-  "contributors": [
-    {
-      "email": "vyacheslav.chub@valor-software.com",
-      "name": "Vyacheslav Chub",
-      "url": "https://github.com/buchslava"
-    },
-    {
-      "email": "valorkin@gmail.com",
-      "name": "Dmitriy Shekhovtsov",
-      "url": "https://github.com/valorkin"
-    }
-  ],
+  "homepage": "https://github.com/valor-software/ng2-select#readme",
+  "peerDependencies": {
+    "@angular/common": "^2.0.0-rc.1",
+    "@angular/compiler": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc.1"
+  },
   "dependencies": {},
-  "description": "Angular2 based replacement for select boxes",
   "devDependencies": {
     "@angular/common": "^2.0.0-rc.1",
     "@angular/compiler": "^2.0.0-rc.1",
@@ -120,65 +117,43 @@
     "webpack-dev-server": "1.14.1",
     "zone.js": "0.6.12"
   },
-  "directories": {},
+  "contributors": [
+    {
+      "name": "Vyacheslav Chub",
+      "email": "vyacheslav.chub@valor-software.com",
+      "url": "https://github.com/buchslava"
+    },
+    {
+      "name": "Dmitriy Shekhovtsov",
+      "email": "valorkin@gmail.com",
+      "url": "https://github.com/valorkin"
+    }
+  ],
+  "gitHead": "f479a623079ff2a26a1c162652212891956e57a0",
+  "_id": "ng2-select@1.0.3",
+  "_shasum": "61cf87e47c93167e60a66d18bf1ae52f024f75cc",
+  "_from": "ng2-select@>=1.0.3 <2.0.0",
+  "_npmVersion": "3.8.9",
+  "_nodeVersion": "6.2.0",
+  "_npmUser": {
+    "name": "valorkin",
+    "email": "valorkin@gmail.com"
+  },
   "dist": {
     "shasum": "61cf87e47c93167e60a66d18bf1ae52f024f75cc",
     "tarball": "https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz"
   },
-  "gitHead": "f479a623079ff2a26a1c162652212891956e57a0",
-  "homepage": "https://github.com/valor-software/ng2-select#readme",
-  "keywords": [
-    "angular2",
-    "select",
-    "selectify",
-    "angularjs"
-  ],
-  "license": "MIT",
-  "main": "ng2-select.js",
   "maintainers": [
     {
-      "email": "valorkin@gmail.com",
-      "name": "valorkin"
+      "name": "valorkin",
+      "email": "valorkin@gmail.com"
     }
   ],
-  "name": "ng2-select",
-  "optionalDependencies": {},
-  "peerDependencies": {
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/compiler": "^2.0.0-rc.1",
-    "@angular/core": "^2.0.0-rc.1"
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/ng2-select-1.0.3.tgz_1463586863266_0.8940545863006264"
   },
-  "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/valor-software/ng2-select.git"
-  },
-  "scripts": {
-    "flow.build:dev": "webpack --progress --color",
-    "flow.build:prod": "NODE_ENV=production ./node_modules/.bin/webpack --progress --color",
-    "flow.changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -v",
-    "flow.clean": "del bundles coverage demo-build typings \"components/**/*.+(js|d.ts|js.map)\" dist \"ng2-select.+(js|d.ts|js.map)\"",
-    "flow.compile": "npm run flow.install:typings && npm run flow.compile:common && npm run flow.compile:system ",
-    "flow.compile:common": "tsc",
-    "flow.compile:system": "./.config/bundle-system.js",
-    "flow.copy:src": "cpy ng2-select.ts \"components/*.ts\" ts --parents",
-    "flow.deploy:gh-pages": "npm run flow.build:prod && ./node_modules/.bin/gh-pages -d demo-build",
-    "flow.eslint": "eslint --ignore-path .gitignore  --ext js --fix . .config",
-    "flow.github-release": "conventional-github-releaser -p angular",
-    "flow.install:typings": "typings install",
-    "flow.lint": "npm run flow.eslint && npm run flow.tslint",
-    "flow.serve:dev": "webpack-dev-server --hot --inline --colors --display-error-details --display-cached",
-    "flow.serve:prod": "NODE_ENV=production ./node_modules/.bin/webpack-dev-server --hot --inline --colors --display-error-details --display-cached",
-    "flow.tslint": "gulp lint",
-    "postpublish": "npm run flow.deploy:gh-pages",
-    "postversion": "git push origin development && git push --tags",
-    "prepublish": "npm run flow.clean && npm run flow.compile",
-    "pretest": "npm run flow.lint",
-    "preversion": "npm test",
-    "start": "npm run flow.serve:dev",
-    "test": "NODE_ENV=test ./node_modules/.bin/karma start",
-    "version": "npm run flow.changelog && git add -A"
-  },
-  "typings": "ng2-select.d.ts",
-  "version": "1.0.3"
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz",
+  "readme": "ERROR: No README data found!"
 }

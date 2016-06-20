@@ -1,5 +1,5 @@
-import { OnInit } from '@angular/core';
-export declare class DatePickerInnerComponent implements OnInit {
+import { OnInit, OnChanges } from '@angular/core';
+export declare class DatePickerInnerComponent implements OnInit, OnChanges {
     datepickerMode: string;
     startingDay: number;
     yearRange: number;
@@ -41,6 +41,7 @@ export declare class DatePickerInnerComponent implements OnInit {
     private update;
     activeDate: Date;
     ngOnInit(): void;
+    ngOnChanges(): void;
     setCompareHandler(handler: Function, type: string): void;
     compare(date1: Date, date2: Date): number;
     setRefreshViewHandler(handler: Function, type: string): void;

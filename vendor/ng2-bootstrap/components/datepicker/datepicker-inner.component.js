@@ -57,7 +57,6 @@ var DatePickerInnerComponent = (function () {
         },
         set: function (value) {
             this._activeDate = value;
-            this.refreshView();
         },
         enumerable: true,
         configurable: true
@@ -92,6 +91,9 @@ var DatePickerInnerComponent = (function () {
         else if (this.activeDate === undefined) {
             this.activeDate = new Date();
         }
+    };
+    // this.refreshView should be called here to reflect the changes on the fly
+    DatePickerInnerComponent.prototype.ngOnChanges = function () {
         this.refreshView();
     };
     DatePickerInnerComponent.prototype.setCompareHandler = function (handler, type) {

@@ -17,21 +17,22 @@ var Observable_1 = require('rxjs/Observable');
 var AuthConfig = (function () {
     function AuthConfig(config) {
         var _this = this;
-        this.config = config || {};
-        this.headerName = this.config.headerName || 'Authorization';
-        if (this.config.headerPrefix) {
-            this.headerPrefix = this.config.headerPrefix + ' ';
+        if (config === void 0) { config = {}; }
+        this.headerName = config.headerName || 'Authorization';
+        if (config.headerPrefix) {
+            this.headerPrefix = config.headerPrefix + ' ';
         }
-        else if (this.config.noTokenScheme) {
+        else if (config.noTokenScheme) {
             this.headerPrefix = '';
         }
         else {
             this.headerPrefix = 'Bearer ';
         }
-        this.tokenName = this.config.tokenName || 'id_token';
-        this.noJwtError = this.config.noJwtError || false;
-        this.tokenGetter = this.config.tokenGetter || (function () { return localStorage.getItem(_this.tokenName); });
-        this.globalHeaders = this.config.globalHeaders || null;
+        this.tokenName = config.tokenName || 'id_token';
+        this.noJwtError = config.noJwtError || false;
+        this.tokenGetter = config.tokenGetter || (function () { return localStorage.getItem(_this.tokenName); });
+        this.globalHeaders = config.globalHeaders || [];
+        this.noTokenScheme = config.noTokenScheme || false;
     }
     AuthConfig.prototype.getConfig = function () {
         return {
@@ -40,7 +41,7 @@ var AuthConfig = (function () {
             tokenName: this.tokenName,
             tokenGetter: this.tokenGetter,
             noJwtError: this.noJwtError,
-            emptyHeaderPrefix: this.noTokenScheme,
+            noTokenScheme: this.noTokenScheme,
             globalHeaders: this.globalHeaders
         };
     };
@@ -159,7 +160,7 @@ var JwtHelper = (function () {
                 throw 'Illegal base64url string!';
             }
         }
-        return decodeURIComponent(escape(window.atob(output))); //polifyll https://github.com/davidchambers/Base64.js
+        return decodeURIComponent(escape(window.atob(output))); //polyfill https://github.com/davidchambers/Base64.js
     };
     JwtHelper.prototype.decodeToken = function (token) {
         var parts = token.split('.');
@@ -199,21 +200,10 @@ exports.JwtHelper = JwtHelper;
  * For use with the @CanActivate router decorator and NgIf
  */
 function tokenNotExpired(tokenName, jwt) {
-    var authToken = tokenName || 'id_token';
-    var token;
-    if (jwt) {
-        token = jwt;
-    }
-    else {
-        token = localStorage.getItem(authToken);
-    }
+    if (tokenName === void 0) { tokenName = 'id_token'; }
+    var token = jwt || localStorage.getItem(tokenName);
     var jwtHelper = new JwtHelper();
-    if (!token || jwtHelper.isTokenExpired(token, null)) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return token && !jwtHelper.isTokenExpired(token, null);
 }
 exports.tokenNotExpired = tokenNotExpired;
 exports.AUTH_PROVIDERS = [

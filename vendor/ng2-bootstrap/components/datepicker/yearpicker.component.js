@@ -33,7 +33,8 @@ var YearPickerComponent = (function () {
         this.datePicker.setRefreshViewHandler(function () {
             var years = new Array(this.yearRange);
             var date;
-            for (var i = 0, start = self.getStartingYear(this.activeDate.getFullYear()); i < this.yearRange; i++) {
+            var start = self.getStartingYear(this.activeDate.getFullYear());
+            for (var i = 0; i < this.yearRange; i++) {
                 date = new Date(start + i, 0, 1);
                 date = this.fixTimeZone(date);
                 years[i] = this.createDateObject(date, this.formatYear);

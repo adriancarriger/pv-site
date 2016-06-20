@@ -25,6 +25,7 @@ var TooltipContainerComponent = (function () {
         Object.assign(this, options);
         this.classMap = { 'in': false, 'fade': false };
         this.classMap[options.placement] = true;
+        this.classMap['tooltip-' + options.placement] = true;
     }
     TooltipContainerComponent.prototype.ngAfterViewInit = function () {
         var p = position_1.positionService

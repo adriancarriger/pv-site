@@ -1,6 +1,7 @@
 "use strict";
-var environment_1 = require('./environment');
-exports.environment = environment_1.environment;
-var ngcli_component_1 = require('./ngcli.component');
-exports.NgcliAppComponent = ngcli_component_1.NgcliAppComponent;
-//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-mAoy4yxP.tmp/0/app/index.js.map
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require('./environment'));
+__export(require('./app.component'));
+//# sourceMappingURL=index.js.map

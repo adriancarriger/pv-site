@@ -973,8 +973,8 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/daypicker.component"
         self.rows = this.split(days, 7);
         if (this.showWeeks) {
           self.weekNumbers = [];
-          var thursdayIndex = (4 + 7 - this.startingDay) % 7,
-              numWeeks = self.rows.length;
+          var thursdayIndex = (4 + 7 - this.startingDay) % 7;
+          var numWeeks = self.rows.length;
           for (var curWeek = 0; curWeek < numWeeks; curWeek++) {
             self.weekNumbers.push(self.getISO8601WeekNumber(self.rows[curWeek][thursdayIndex].date));
           }
@@ -1162,7 +1162,6 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.com
       },
       set: function(value) {
         this._activeDate = value;
-        this.refreshView();
       },
       enumerable: true,
       configurable: true
@@ -1190,6 +1189,8 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.com
       } else if (this.activeDate === undefined) {
         this.activeDate = new Date();
       }
+    };
+    DatePickerInnerComponent.prototype.ngOnChanges = function() {
       this.refreshView();
     };
     DatePickerInnerComponent.prototype.setCompareHandler = function(handler, type) {
@@ -1398,8 +1399,8 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/yearpicker.component
       this.datePicker.setRefreshViewHandler(function() {
         var years = new Array(this.yearRange);
         var date;
-        for (var i = 0,
-            start = self.getStartingYear(this.activeDate.getFullYear()); i < this.yearRange; i++) {
+        var start = self.getStartingYear(this.activeDate.getFullYear());
+        for (var i = 0; i < this.yearRange; i++) {
           date = new Date(start + i, 0, 1);
           date = this.fixTimeZone(date);
           years[i] = this.createDateObject(date, this.formatYear);
@@ -1873,6 +1874,400 @@ System.registerDynamic("ng2-bootstrap/components/dropdown", ["./dropdown/dropdow
   var dropdown_toggle_directive_2 = $__require('./dropdown/dropdown-toggle.directive');
   exports.DropdownToggleDirective = dropdown_toggle_directive_2.DropdownToggleDirective;
   exports.DROPDOWN_DIRECTIVES = [dropdown_directive_1.DropdownDirective, dropdown_toggle_directive_1.DropdownToggleDirective, dropdown_menu_directive_1.DropdownMenuDirective];
+  return module.exports;
+});
+
+System.registerDynamic("ng2-bootstrap/components/modal/modal-backdrop.component", ["@angular/core", "@angular/common", "./modal-options.class"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('@angular/core');
+  var common_1 = $__require('@angular/common');
+  var modal_options_class_1 = $__require('./modal-options.class');
+  var ModalBackdropOptions = (function() {
+    function ModalBackdropOptions(options) {
+      this.animate = true;
+      Object.assign(this, options);
+    }
+    return ModalBackdropOptions;
+  }());
+  exports.ModalBackdropOptions = ModalBackdropOptions;
+  var ModalBackdropComponent = (function() {
+    function ModalBackdropComponent(options, element) {
+      this.isAnimated = true;
+      this.isShown = false;
+      this.isAnimated = options.animate;
+      this.element = element;
+    }
+    ModalBackdropComponent = __decorate([core_1.Component({
+      selector: 'bs-modal-backdrop',
+      directives: [common_1.NgClass],
+      template: "\n<div class=\"" + modal_options_class_1.ClassName.BACKDROP + "\"\n  [class." + modal_options_class_1.ClassName.IN + "]=\"isShown\"\n  [class." + modal_options_class_1.ClassName.FADE + "]=\"isAnimated\"></div>"
+    }), __metadata('design:paramtypes', [ModalBackdropOptions, core_1.ElementRef])], ModalBackdropComponent);
+    return ModalBackdropComponent;
+  }());
+  exports.ModalBackdropComponent = ModalBackdropComponent;
+  return module.exports;
+});
+
+System.registerDynamic("ng2-bootstrap/components/modal/modal-options.class", [], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  exports.modalConfigDefaults = {
+    backdrop: true,
+    keyboard: true,
+    focus: true,
+    show: true
+  };
+  exports.ClassName = {
+    SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+    BACKDROP: 'modal-backdrop',
+    OPEN: 'modal-open',
+    FADE: 'fade',
+    IN: 'in'
+  };
+  exports.Selector = {
+    DIALOG: '.modal-dialog',
+    DATA_TOGGLE: '[data-toggle="modal"]',
+    DATA_DISMISS: '[data-dismiss="modal"]',
+    FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed'
+  };
+  return module.exports;
+});
+
+System.registerDynamic("ng2-bootstrap/components/utils/utils.class", ["@angular/core/src/facade/lang"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  var lang_1 = $__require('@angular/core/src/facade/lang');
+  var Utils = (function() {
+    function Utils() {}
+    Utils.reflow = function(element) {
+      new Function('bs', 'return bs')(element.offsetHeight);
+    };
+    Utils.getStyles = function(elem) {
+      var view = elem.ownerDocument.defaultView;
+      if (!view || !view.opener) {
+        view = lang_1.global;
+      }
+      return view.getComputedStyle(elem);
+    };
+    return Utils;
+  }());
+  exports.Utils = Utils;
+  return module.exports;
+});
+
+System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angular/core", "@angular/core/src/facade/lang", "@angular/platform-browser", "./modal-backdrop.component", "./modal-options.class", "../utils/components-helper.service", "../utils/utils.class"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1 = $__require('@angular/core');
+  var lang_1 = $__require('@angular/core/src/facade/lang');
+  var platform_browser_1 = $__require('@angular/platform-browser');
+  var modal_backdrop_component_1 = $__require('./modal-backdrop.component');
+  var modal_options_class_1 = $__require('./modal-options.class');
+  var components_helper_service_1 = $__require('../utils/components-helper.service');
+  var utils_class_1 = $__require('../utils/utils.class');
+  var TRANSITION_DURATION = 300;
+  var BACKDROP_TRANSITION_DURATION = 150;
+  var ModalDirective = (function() {
+    function ModalDirective(element, renderer, document, componentsHelper) {
+      this.onShow = new core_1.EventEmitter();
+      this.onShown = new core_1.EventEmitter();
+      this.onHide = new core_1.EventEmitter();
+      this.onHidden = new core_1.EventEmitter();
+      this.isAnimated = true;
+      this._isShown = false;
+      this.isBodyOverflowing = false;
+      this.ignoreBackdropClick = false;
+      this.originalBodyPadding = 0;
+      this.scrollbarWidth = 0;
+      this.element = element;
+      this.renderer = renderer;
+      this.document = document;
+      this.componentsHelper = componentsHelper;
+    }
+    Object.defineProperty(ModalDirective.prototype, "config", {
+      get: function() {
+        return this._config;
+      },
+      set: function(conf) {
+        this._config = this.getConfig(conf);
+      },
+      enumerable: true,
+      configurable: true
+    });
+    ;
+    Object.defineProperty(ModalDirective.prototype, "isShown", {
+      get: function() {
+        return this._isShown;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    ModalDirective.prototype.onClick = function(event) {
+      if (event.target === this.element.nativeElement) {
+        this.hide(event);
+      }
+    };
+    ModalDirective.prototype.onEsc = function() {
+      if (this.config.keyboard) {
+        this.hide();
+      }
+    };
+    ModalDirective.prototype.ngOnDestroy = function() {
+      this.config = void 0;
+      this._isShown = void 0;
+      this.isBodyOverflowing = void 0;
+      this.ignoreBackdropClick = void 0;
+      this.originalBodyPadding = void 0;
+      this.scrollbarWidth = void 0;
+      this.document = void 0;
+    };
+    ModalDirective.prototype.ngAfterViewInit = function() {
+      this._config = this._config || this.getConfig();
+    };
+    ModalDirective.prototype.toggle = function() {
+      return this._isShown ? this.hide() : this.show();
+    };
+    ModalDirective.prototype.show = function() {
+      var _this = this;
+      this.onShow.emit(this);
+      if (this._isShown) {
+        return;
+      }
+      this._isShown = true;
+      this.checkScrollbar();
+      this.setScrollbar();
+      if (this.document && this.document.body) {
+        this.renderer.setElementClass(this.document.body, modal_options_class_1.ClassName.OPEN, true);
+      }
+      this.showBackdrop(function() {
+        _this.showElement();
+      });
+    };
+    ModalDirective.prototype.hide = function(event) {
+      var _this = this;
+      if (event) {
+        event.preventDefault();
+      }
+      this.onHide.emit(this);
+      if (!this._isShown) {
+        return;
+      }
+      this._isShown = false;
+      this.renderer.setElementClass(this.element.nativeElement, modal_options_class_1.ClassName.IN, false);
+      if (this.isAnimated) {
+        setTimeout(function() {
+          return _this.hideModal();
+        }, TRANSITION_DURATION);
+      } else {
+        this.hideModal();
+      }
+    };
+    ModalDirective.prototype.getConfig = function(config) {
+      return Object.assign({}, modal_options_class_1.modalConfigDefaults, config);
+    };
+    ModalDirective.prototype.showElement = function() {
+      var _this = this;
+      if (!this.element.nativeElement.parentNode || (this.element.nativeElement.parentNode.nodeType !== Node.ELEMENT_NODE)) {
+        if (this.document && this.document.body) {
+          this.document.body.appendChild(this.element.nativeElement);
+        }
+      }
+      this.renderer.setElementAttribute(this.element.nativeElement, 'aria-hidden', 'false');
+      this.renderer.setElementStyle(this.element.nativeElement, 'display', 'block');
+      this.renderer.setElementProperty(this.element.nativeElement, 'scrollTop', 0);
+      if (this.isAnimated) {
+        utils_class_1.Utils.reflow(this.element.nativeElement);
+      }
+      this.renderer.setElementClass(this.element.nativeElement, modal_options_class_1.ClassName.IN, true);
+      this.onShown.emit(this);
+      var transitionComplete = function() {
+        if (_this._config.focus) {
+          _this.element.nativeElement.focus();
+        }
+        _this.onShown.emit(_this);
+      };
+      if (this.isAnimated) {
+        setTimeout(transitionComplete, TRANSITION_DURATION);
+      } else {
+        transitionComplete();
+      }
+    };
+    ModalDirective.prototype.hideModal = function() {
+      var _this = this;
+      this.renderer.setElementAttribute(this.element.nativeElement, 'aria-hidden', 'true');
+      this.renderer.setElementStyle(this.element.nativeElement, 'display', 'none');
+      this.showBackdrop(function() {
+        if (_this.document && _this.document.body) {
+          _this.renderer.setElementClass(_this.document.body, modal_options_class_1.ClassName.OPEN, false);
+        }
+        _this.resetAdjustments();
+        _this.resetScrollbar();
+        _this.onHidden.emit(_this);
+      });
+    };
+    ModalDirective.prototype.showBackdrop = function(callback) {
+      var _this = this;
+      if (this._isShown && modal_options_class_1.modalConfigDefaults.backdrop) {
+        this.backdrop = this.componentsHelper.appendNextToRoot(modal_backdrop_component_1.ModalBackdropComponent, modal_backdrop_component_1.ModalBackdropOptions, new modal_backdrop_component_1.ModalBackdropOptions({animate: false}));
+        this.backdrop.then(function(backdrop) {
+          if (_this.isAnimated) {
+            backdrop.instance.isAnimated = _this.isAnimated;
+            utils_class_1.Utils.reflow(backdrop.instance.element.nativeElement);
+          }
+          backdrop.instance.isShown = true;
+          if (!callback) {
+            return;
+          }
+          if (!_this.isAnimated) {
+            callback();
+            return;
+          }
+          setTimeout(callback, BACKDROP_TRANSITION_DURATION);
+        });
+      } else if (!this._isShown && this.backdrop) {
+        this.backdrop.then(function(backdrop) {
+          backdrop.instance.isShown = false;
+          var callbackRemove = function() {
+            _this.removeBackdrop();
+            if (callback) {
+              callback();
+            }
+          };
+          if (backdrop.instance.isAnimated) {
+            setTimeout(callbackRemove, BACKDROP_TRANSITION_DURATION);
+          } else {
+            callbackRemove();
+          }
+        });
+      } else if (callback) {
+        callback();
+      }
+    };
+    ModalDirective.prototype.removeBackdrop = function() {
+      var _this = this;
+      if (this.backdrop) {
+        this.backdrop.then(function(backdrop) {
+          backdrop.destroy();
+          _this.backdrop = void 0;
+        });
+      }
+    };
+    ModalDirective.prototype.resetAdjustments = function() {
+      this.renderer.setElementStyle(this.element.nativeElement, 'paddingLeft', '');
+      this.renderer.setElementStyle(this.element.nativeElement, 'paddingRight', '');
+    };
+    ModalDirective.prototype.checkScrollbar = function() {
+      this.isBodyOverflowing = this.document.body.clientWidth < lang_1.global.innerWidth;
+      this.scrollbarWidth = this.getScrollbarWidth();
+    };
+    ModalDirective.prototype.setScrollbar = function() {
+      if (!this.document) {
+        return;
+      }
+      var fixedEl = this.document.querySelector(modal_options_class_1.Selector.FIXED_CONTENT);
+      if (!fixedEl) {
+        return;
+      }
+      var bodyPadding = parseInt(utils_class_1.Utils.getStyles(fixedEl).paddingRight || 0, 10);
+      this.originalBodyPadding = parseInt(this.document.body.style.paddingRight || 0, 10);
+      if (this.isBodyOverflowing) {
+        this.document.body.style.paddingRight = (bodyPadding + this.scrollbarWidth) + "px";
+      }
+    };
+    ModalDirective.prototype.resetScrollbar = function() {
+      this.document.body.style.paddingRight = this.originalBodyPadding;
+    };
+    ModalDirective.prototype.getScrollbarWidth = function() {
+      var scrollDiv = this.renderer.createElement(this.document.body, 'div', void 0);
+      scrollDiv.className = modal_options_class_1.ClassName.SCROLLBAR_MEASURER;
+      var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+      this.document.body.removeChild(scrollDiv);
+      return scrollbarWidth;
+    };
+    __decorate([core_1.Input(), __metadata('design:type', Object), __metadata('design:paramtypes', [Object])], ModalDirective.prototype, "config", null);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], ModalDirective.prototype, "onShow", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], ModalDirective.prototype, "onShown", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], ModalDirective.prototype, "onHide", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], ModalDirective.prototype, "onHidden", void 0);
+    __decorate([core_1.HostListener('click', ['$event']), __metadata('design:type', Function), __metadata('design:paramtypes', [Object]), __metadata('design:returntype', void 0)], ModalDirective.prototype, "onClick", null);
+    __decorate([core_1.HostListener('keydown.esc'), __metadata('design:type', Function), __metadata('design:paramtypes', []), __metadata('design:returntype', void 0)], ModalDirective.prototype, "onEsc", null);
+    ModalDirective = __decorate([core_1.Directive({
+      selector: '[bsModal]',
+      exportAs: 'bs-modal'
+    }), __param(2, core_1.Inject(platform_browser_1.DOCUMENT)), __param(3, core_1.Inject(components_helper_service_1.ComponentsHelper)), __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, Object, components_helper_service_1.ComponentsHelper])], ModalDirective);
+    return ModalDirective;
+  }());
+  exports.ModalDirective = ModalDirective;
+  return module.exports;
+});
+
+System.registerDynamic("ng2-bootstrap/components/modal", ["./modal/modal-backdrop.component", "./modal/modal-options.class", "./modal/modal.component"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  function __export(m) {
+    for (var p in m)
+      if (!exports.hasOwnProperty(p))
+        exports[p] = m[p];
+  }
+  __export($__require('./modal/modal-backdrop.component'));
+  __export($__require('./modal/modal-options.class'));
+  __export($__require('./modal/modal.component'));
+  var modal_backdrop_component_2 = $__require('./modal/modal-backdrop.component');
+  var modal_component_2 = $__require('./modal/modal.component');
+  exports.MODAL_DIRECTVES = [modal_component_2.ModalDirective, modal_backdrop_component_2.ModalBackdropComponent];
   return module.exports;
 });
 
@@ -2912,9 +3307,16 @@ System.registerDynamic("ng2-bootstrap/components/timepicker/timepicker.component
       }
       var hours = this.getHoursFromTemplate();
       var minutes = this.getMinutesFromTemplate();
-      if (!isDefined(hours) || !isDefined(minutes)) {}
+      this.invalidHours = !isDefined(hours);
+      this.invalidMinutes = !isDefined(minutes);
+      if (this.invalidHours || this.invalidMinutes) {
+        return;
+      }
       this.selected.setHours(hours);
-      if (this.selected < this.min || this.selected > this.max) {} else {
+      this.invalidHours = (this.selected < this.min || this.selected > this.max);
+      if (this.invalidHours) {
+        return;
+      } else {
         this.refresh();
       }
     };
@@ -2932,9 +3334,16 @@ System.registerDynamic("ng2-bootstrap/components/timepicker/timepicker.component
       }
       var minutes = this.getMinutesFromTemplate();
       var hours = this.getHoursFromTemplate();
-      if (!isDefined(minutes) || !isDefined(hours)) {}
+      this.invalidMinutes = !isDefined(minutes);
+      this.invalidHours = !isDefined(hours);
+      if (this.invalidMinutes || this.invalidHours) {
+        return;
+      }
       this.selected.setMinutes(minutes);
-      if (this.selected < this.min || this.selected > this.max) {} else {
+      this.invalidMinutes = (this.selected < this.min || this.selected > this.max);
+      if (this.invalidMinutes) {
+        return;
+      } else {
         this.refresh();
       }
     };
@@ -3096,13 +3505,14 @@ System.registerDynamic("ng2-bootstrap/components/tooltip/tooltip.directive", ["@
   var TooltipDirective = (function() {
     function TooltipDirective(viewContainerRef, loader) {
       this.placement = 'top';
+      this.enable = true;
       this.animation = true;
       this.visible = false;
       this.viewContainerRef = viewContainerRef;
       this.loader = loader;
     }
     TooltipDirective.prototype.show = function() {
-      if (this.visible) {
+      if (this.visible || !this.enable) {
         return;
       }
       this.visible = true;
@@ -3220,6 +3630,7 @@ System.registerDynamic("ng2-bootstrap/components/tooltip/tooltip-container.compo
         'fade': false
       };
       this.classMap[options.placement] = true;
+      this.classMap['tooltip-' + options.placement] = true;
     }
     TooltipContainerComponent.prototype.ngAfterViewInit = function() {
       var p = position_1.positionService.positionElements(this.hostEl.nativeElement, this.element.nativeElement.children[0], this.placement, this.appendToBody);
@@ -4609,6 +5020,57 @@ System.registerDynamic("ng2-bootstrap/components/typeahead", ["./typeahead/typea
   return module.exports;
 });
 
+System.registerDynamic("ng2-bootstrap/components/utils/components-helper.service", ["@angular/core"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('@angular/core');
+  var ComponentsHelper = (function() {
+    function ComponentsHelper(applicationRef, componentResolver, injector) {
+      this.applicationRef = applicationRef;
+      this.componentResolver = componentResolver;
+      this.injector = injector;
+    }
+    ComponentsHelper.prototype.getRootViewContainerRef = function() {
+      var classOfRootComponent = this.applicationRef.componentTypes[0];
+      var appInstance = this.injector.get(classOfRootComponent);
+      return appInstance.viewContainerRef;
+    };
+    ComponentsHelper.prototype.appendNextToRoot = function(ComponentClass, ComponentOptionsClass, options, _viewContainerRef) {
+      var _this = this;
+      return this.componentResolver.resolveComponent(ComponentClass).then(function(componentFactory) {
+        var viewContainerRef = _viewContainerRef || _this.getRootViewContainerRef();
+        var bindings = core_1.ReflectiveInjector.resolve([new core_1.Provider(ComponentOptionsClass, {useValue: options})]);
+        var ctxInjector = viewContainerRef.parentInjector;
+        var childInjector = Array.isArray(bindings) && bindings.length > 0 ? core_1.ReflectiveInjector.fromResolvedProviders(bindings, ctxInjector) : ctxInjector;
+        return viewContainerRef.createComponent(componentFactory, viewContainerRef.length, childInjector);
+      });
+    };
+    ComponentsHelper = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [core_1.ApplicationRef, core_1.ComponentResolver, core_1.Injector])], ComponentsHelper);
+    return ComponentsHelper;
+  }());
+  exports.ComponentsHelper = ComponentsHelper;
+  return module.exports;
+});
+
 System.registerDynamic("ng2-bootstrap/components/position", [], true, function($__require, exports, module) {
   "use strict";
   ;
@@ -4833,7 +5295,7 @@ System.registerDynamic("ng2-bootstrap/components/ng2-bootstrap-config", ["@angul
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/ng2-bootstrap", ["./components/accordion", "./components/alert", "./components/buttons", "./components/carousel", "./components/collapse", "./components/datepicker", "./components/dropdown", "./components/pagination", "./components/progressbar", "./components/rating", "./components/tabs", "./components/timepicker", "./components/tooltip", "./components/typeahead", "./components/position", "./components/common", "./components/ng2-bootstrap-config"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/ng2-bootstrap", ["./components/accordion", "./components/alert", "./components/buttons", "./components/carousel", "./components/collapse", "./components/datepicker", "./components/dropdown", "./components/modal", "./components/pagination", "./components/progressbar", "./components/rating", "./components/tabs", "./components/timepicker", "./components/tooltip", "./components/typeahead", "./components/utils/components-helper.service", "./components/position", "./components/common", "./components/ng2-bootstrap-config"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -4851,6 +5313,7 @@ System.registerDynamic("ng2-bootstrap/ng2-bootstrap", ["./components/accordion",
   var collapse_1 = $__require('./components/collapse');
   var datepicker_1 = $__require('./components/datepicker');
   var dropdown_1 = $__require('./components/dropdown');
+  var modal_1 = $__require('./components/modal');
   var pagination_1 = $__require('./components/pagination');
   var progressbar_1 = $__require('./components/progressbar');
   var rating_1 = $__require('./components/rating');
@@ -4858,12 +5321,14 @@ System.registerDynamic("ng2-bootstrap/ng2-bootstrap", ["./components/accordion",
   var timepicker_1 = $__require('./components/timepicker');
   var tooltip_1 = $__require('./components/tooltip');
   var typeahead_1 = $__require('./components/typeahead');
+  var components_helper_service_1 = $__require('./components/utils/components-helper.service');
   __export($__require('./components/accordion'));
   __export($__require('./components/alert'));
   __export($__require('./components/buttons'));
   __export($__require('./components/carousel'));
   __export($__require('./components/collapse'));
   __export($__require('./components/datepicker'));
+  __export($__require('./components/modal'));
   __export($__require('./components/dropdown'));
   __export($__require('./components/pagination'));
   __export($__require('./components/progressbar'));
@@ -4875,8 +5340,15 @@ System.registerDynamic("ng2-bootstrap/ng2-bootstrap", ["./components/accordion",
   __export($__require('./components/position'));
   __export($__require('./components/common'));
   __export($__require('./components/ng2-bootstrap-config'));
+  exports.BS_VIEW_PROVIDERS = [{
+    provide: components_helper_service_1.ComponentsHelper,
+    useClass: components_helper_service_1.ComponentsHelper
+  }];
   Object.defineProperty(exports, "__esModule", {value: true});
-  exports.default = {directives: [alert_1.AlertComponent, accordion_1.ACCORDION_DIRECTIVES, buttons_1.BUTTON_DIRECTIVES, carousel_1.CAROUSEL_DIRECTIVES, collapse_1.CollapseDirective, datepicker_1.DATEPICKER_DIRECTIVES, dropdown_1.DROPDOWN_DIRECTIVES, pagination_1.PAGINATION_DIRECTIVES, progressbar_1.PROGRESSBAR_DIRECTIVES, rating_1.RatingComponent, tabs_1.TAB_DIRECTIVES, timepicker_1.TimepickerComponent, tooltip_1.TOOLTIP_DIRECTIVES, typeahead_1.TYPEAHEAD_DIRECTIVES]};
+  exports.default = {
+    directives: [alert_1.AlertComponent, accordion_1.ACCORDION_DIRECTIVES, buttons_1.BUTTON_DIRECTIVES, carousel_1.CAROUSEL_DIRECTIVES, collapse_1.CollapseDirective, datepicker_1.DATEPICKER_DIRECTIVES, dropdown_1.DROPDOWN_DIRECTIVES, modal_1.MODAL_DIRECTVES, pagination_1.PAGINATION_DIRECTIVES, progressbar_1.PROGRESSBAR_DIRECTIVES, rating_1.RatingComponent, tabs_1.TAB_DIRECTIVES, timepicker_1.TimepickerComponent, tooltip_1.TOOLTIP_DIRECTIVES, typeahead_1.TYPEAHEAD_DIRECTIVES],
+    providers: [components_helper_service_1.ComponentsHelper]
+  };
   return module.exports;
 });
 

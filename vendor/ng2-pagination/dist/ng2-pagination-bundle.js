@@ -237,8 +237,7 @@ System.register("paginate-pipe", ["@angular/core", "pagination-service"], functi
                     if (!state) {
                         return false;
                     }
-                    var isMetaDataIdentical = state.collection === collection &&
-                        state.size === collection.length &&
+                    var isMetaDataIdentical = state.size === collection.length &&
                         state.start === start &&
                         state.end === end;
                     if (!isMetaDataIdentical) {
@@ -340,9 +339,8 @@ System.register("pagination-controls-cmp", ['@angular/core', "pagination-service
                     this.updatePageLinks();
                 };
                 PaginationControlsCmp.prototype.ngAfterViewInit = function () {
-                    var _this = this;
-                    if ((this.template) && 0 < this.template.nativeElement.children.length) {
-                        setTimeout(function () { return _this.hasTemplate = true; });
+                    if (this.template && 0 < this.template.nativeElement.children.length) {
+                        this.hasTemplate = true;
                     }
                 };
                 PaginationControlsCmp.prototype.ngOnDestroy = function () {

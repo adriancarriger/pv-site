@@ -7,8 +7,8 @@ var router_1 = require('@angular/router');
 if (_1.environment.production) {
     core_1.enableProdMode();
 }
-platform_browser_dynamic_1.bootstrap(_1.NgcliAppComponent, [
+platform_browser_dynamic_1.bootstrap(_1.AppComponent, [
     http_1.HTTP_PROVIDERS,
     router_1.ROUTER_PROVIDERS
 ]);
-//# sourceMappingURL=/Users/adriancarriger/pv/site/tmp/broccoli_type_script_compiler-input_base_path-mAoy4yxP.tmp/0/main.js.map
+//# sourceMappingURL=main.js.map

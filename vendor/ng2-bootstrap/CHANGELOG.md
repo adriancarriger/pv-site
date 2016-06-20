@@ -1,3 +1,21 @@
+<a name="1.0.17"></a>
+## [1.0.17](https://github.com/valor-software/ng2-bootstrap/compare/v1.0.16...v1.0.17) (2016-05-31)
+
+
+### Bug Fixes
+
+* **datepicker:** added ngOnChanges hook ([ecffdb0](https://github.com/valor-software/ng2-bootstrap/commit/ecffdb0)), closes [#543](https://github.com/valor-software/ng2-bootstrap/issues/543)
+* **timepicker:** added null value validation ([f9ad7e7](https://github.com/valor-software/ng2-bootstrap/commit/f9ad7e7)), closes [#533](https://github.com/valor-software/ng2-bootstrap/issues/533)
+* **tooltip:** Fix tooltip arrows in bootstrap v4 ([b4250d4](https://github.com/valor-software/ng2-bootstrap/commit/b4250d4)), closes [#141](https://github.com/valor-software/ng2-bootstrap/issues/141)
+
+
+### Features
+
+* **modals:** added declarative modals component ([#564](https://github.com/valor-software/ng2-bootstrap/issues/564)) ([1d0903f](https://github.com/valor-software/ng2-bootstrap/commit/1d0903f)), closes [#29](https://github.com/valor-software/ng2-bootstrap/issues/29)
+* **tooltip:** adds implementation to tooltipEnable ([#517](https://github.com/valor-software/ng2-bootstrap/issues/517)) ([1470892](https://github.com/valor-software/ng2-bootstrap/commit/1470892))
+
+
+
 <a name="1.0.16"></a>
 ## [1.0.16](https://github.com/valor-software/ng2-bootstrap/compare/v1.0.15...v1.0.16) (2016-05-06)
 
@@ -14,8 +32,7 @@
 
 * **package:** upgrade ng2-bootstrap to rc.1 ([#481](https://github.com/valor-software/ng2-bootstrap/issues/481))([554be3d](https://github.com/valor-software/ng2-bootstrap/commit/554be3d)), closes [#482](https://github.com/valor-software/ng2-bootstrap/issues/482) [#472](https://github.com/valor-software/ng2-bootstrap/issues/472) [#477](https://github.com/valor-software/ng2-bootstrap/issues/477)
 
-### Breaking Changes
-* if you use `system.js` pay attention to changes in [angular2-quickstart](https://github.com/valor-software/angular2-quickstart) (check changes here [205df54](https://github.com/valor-software/angular2-quickstart/commit/205df545fdbe3ccfa472eca151252580bcccace6))
+
 
 <a name="1.0.15"></a>
 ## [1.0.15](https://github.com/valor-software/ng2-bootstrap/compare/v1.0.14...v1.0.15) (2016-04-28)

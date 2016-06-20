@@ -128,10 +128,18 @@ var TimepickerComponent = (function () {
         }
         var hours = this.getHoursFromTemplate();
         var minutes = this.getMinutesFromTemplate();
-        if (!isDefined(hours) || !isDefined(minutes)) {
+        this.invalidHours = !isDefined(hours);
+        this.invalidMinutes = !isDefined(minutes);
+        if (this.invalidHours || this.invalidMinutes) {
+            // TODO: needed a validation functionality.
+            return;
         }
         this.selected.setHours(hours);
-        if (this.selected < this.min || this.selected > this.max) {
+        this.invalidHours = (this.selected < this.min || this.selected > this.max);
+        if (this.invalidHours) {
+            // todo: validation?
+            // invalidate(true);
+            return;
         }
         else {
             this.refresh();
@@ -152,10 +160,18 @@ var TimepickerComponent = (function () {
         }
         var minutes = this.getMinutesFromTemplate();
         var hours = this.getHoursFromTemplate();
-        if (!isDefined(minutes) || !isDefined(hours)) {
+        this.invalidMinutes = !isDefined(minutes);
+        this.invalidHours = !isDefined(hours);
+        if (this.invalidMinutes || this.invalidHours) {
+            // TODO: needed a validation functionality.
+            return;
         }
         this.selected.setMinutes(minutes);
-        if (this.selected < this.min || this.selected > this.max) {
+        this.invalidMinutes = (this.selected < this.min || this.selected > this.max);
+        if (this.invalidMinutes) {
+            // todo: validation
+            // invalidate(undefined, true);
+            return;
         }
         else {
             this.refresh();

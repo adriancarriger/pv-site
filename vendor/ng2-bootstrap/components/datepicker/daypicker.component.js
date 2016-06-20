@@ -74,7 +74,8 @@ var DayPickerComponent = (function () {
             self.rows = this.split(days, 7);
             if (this.showWeeks) {
                 self.weekNumbers = [];
-                var thursdayIndex = (4 + 7 - this.startingDay) % 7, numWeeks = self.rows.length;
+                var thursdayIndex = (4 + 7 - this.startingDay) % 7;
+                var numWeeks = self.rows.length;
                 for (var curWeek = 0; curWeek < numWeeks; curWeek++) {
                     self.weekNumbers.push(self.getISO8601WeekNumber(self.rows[curWeek][thursdayIndex].date));
                 }
