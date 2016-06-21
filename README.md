@@ -27,6 +27,6 @@ To install the Angular CLI open your terminal and run:
 * `ng serve` to watch and rebuild on change
 * `ng test` to unit test
 
-## LICENSE
+## License
 
  pv-site is licensed under the MIT Open Source license. For more information, see the LICENSE file in this repository.
