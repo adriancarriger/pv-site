@@ -25,7 +25,8 @@ module.exports = function(defaults) {
       'angular2-moment/**',
       'ng2-pagination/**',
       'nouislider/**',
-      'ng2-nouislider/**'
+      'ng2-nouislider/**',
+      'ng2-page-scroll/**'
     ]
   });
 };

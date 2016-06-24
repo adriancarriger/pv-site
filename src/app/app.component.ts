@@ -17,7 +17,6 @@ import { PreloadService } from './services/preload.service';
 import { ApiObservableService } from './services/api-observable.service';
 import { SermonsPageComponent } from './+sermons-page';
 
-
 @Component({
   moduleId: module.id,
   selector: 'app-root',
