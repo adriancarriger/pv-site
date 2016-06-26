@@ -5,8 +5,6 @@ import {ROUTER_DIRECTIVES} from '@angular/router';
 import {ApiObservableService} from '../../services/api-observable.service';
 import {PvLogoComponent} from '../pv-logo/index';
 
-// I don't think we need: CORE_DIRECTIVES, DROPDOWN_DIRECTIVES, ApiObservableService -- double check
-
 @Component({
   moduleId: module.id,
   selector: 'as-navbar',

@@ -13,8 +13,7 @@ const map: any = {
   'ng2-select': 'vendor/ng2-select/ng2-select.js',
   'ng2-pagination': 'vendor/ng2-pagination/index.js',
   'nouislider': 'vendor/nouislider/distribute/nouislider.js',
-  'ng2-nouislider': 'vendor/ng2-nouislider/src/nouislider.js',
-  'ng2-page-scroll': 'vendor/ng2-page-scroll/src/ng2-page-scroll.directive.js'
+  'ng2-nouislider': 'vendor/ng2-nouislider/src/nouislider.js'
 };
 
 /** User packages configuration. */
@@ -38,9 +37,6 @@ const packages: any = {
     defaultExtension: 'js'
   },
   'vendor/ng2-nouislider': {
-    defaultExtension: 'js'
-  },
-  'vendor/ng2-page-scroll': {
     defaultExtension: 'js'
   }
 };
