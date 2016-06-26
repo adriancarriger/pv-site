@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, Renderer } from '@angular/core';
+import { Injectable, Renderer } from '@angular/core';
 import { ApiObservableService } from './api-observable.service';
 import { Subject } from 'rxjs/Subject';
 import * as moment from 'moment';
@@ -20,7 +20,7 @@ export class AudioService {
     art: {},
     randomClass: ''
   };
-  public audioObjects = {}
+  public audioObjects = {};
   public sermons;
   constructor(public apiObservableService: ApiObservableService, public renderer: Renderer) {
     this.preCurrentAudio$ = new Subject();
@@ -39,7 +39,7 @@ export class AudioService {
       // Create new audio object
       if (!(this.current.id in this.audioObjects)) {
         this.audioObjects[this.current.id] = new Audio();
-        this.audioObjects[this.current.id].src = this.sermons[this.current.id]['audio'];
+        this.audioObjects[this.current.id].src = this.sermons[this.current.id].audio;
         this.current.init = true;
         this.metaData = this.renderer.listen(
           this.audioObjects[this.current.id], 'timeupdate', (event) => {
@@ -86,8 +86,8 @@ export class AudioService {
   }
 
   updatePosition() {
-    let duration = ~~this.audioObjects[this.current.id].duration;
-    let position = ~~this.audioObjects[this.current.id].currentTime;
+    let duration = Math.floor(this.audioObjects[this.current.id].duration);
+    let position = Math.floor(this.audioObjects[this.current.id].currentTime);
     let percentage = (position / duration) * 100;
     let displayPosition = this.displayTime(position);
     this.preAudioPosition$.next({
@@ -120,8 +120,8 @@ export class AudioService {
   }
 
   setPosition(percentage) {
-    let newPosition = ~~this.audioObjects[this.current.id].duration * percentage * 0.01;
+    let newPosition = Math.floor(this.audioObjects[this.current.id].duration * percentage * 0.01);
     this.audioObjects[this.current.id].currentTime = newPosition;
   }
-  
+
 }

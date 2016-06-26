@@ -1,8 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment';
 
-const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
-
 @Pipe({
   name: 'asSearchSermons'
 })
@@ -39,12 +37,12 @@ export class SearchSermons implements PipeTransform {
       }
       // Search terms
       if (term.length) {
-        let speaker = (item.speaker).replace('Pastor ','');
+        let speaker = (item.speaker).replace('Pastor ', '');
         let str = (
-          item.name + ' ' + 
-          sermonVerse + ' ' + 
-          sermonYear + ' ' + 
-          sermonDate + ' ' + 
+          item.name + ' ' +
+          sermonVerse + ' ' +
+          sermonYear + ' ' +
+          sermonDate + ' ' +
           speaker).toLowerCase();
         for (let i = 0 ; i < queries.length; i++) {
             if (str.indexOf( queries[i] ) === -1) { return false; }

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class BibleService {
-
-  constructor() {}
   books() {
     return [
       'Genesis',         'Exodus',          'Leviticus',     'Numbers',

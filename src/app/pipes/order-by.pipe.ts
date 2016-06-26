@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'orderBy'
+    name: 'asOrderBy'
 })
 export class OrderBy implements PipeTransform {
   static _orderByComparator(a: any, b: any): number {
@@ -31,7 +31,7 @@ export class OrderBy implements PipeTransform {
 
     let splitOn = /[\s:\s-]+/;
     if (config === 'verse') {
-        let result = input.sort( (a,b) => {
+        let result = input.sort( (a, b) => {
             let x = a.verse.split(splitOn);
             let y = b.verse.split(splitOn);
             let sortLength = Math.min(x.length, y.length);
@@ -62,7 +62,7 @@ export class OrderBy implements PipeTransform {
     } else {
         // Loop over property of the array in order and sort
         return input.sort(function(a: any, b: any) {
-            for(let i = 0; i < config.length; i++) {
+            for (let i = 0; i < config.length; i++) {
                 let desc = config[i].substr(0, 1) === '-';
                 let property = config[i].substr(0, 1) === '+' || config[i].substr(0, 1) === '-'
                     ? config[i].substr(1)
