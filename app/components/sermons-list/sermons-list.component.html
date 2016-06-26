@@ -1,5 +1,5 @@
 <div class="sermons container">
-  <div *ngFor="let sermon of sermons | asSearchSermons:filterValues?.term:filterValues?.box1:filterValues?.box2:filterValues?.box3:filteredCount | orderBy:'Special':filterValues?.box1:filteredItems | paginate: config; let i = index"
+  <div *ngFor="let sermon of sermons | asSearchSermons:filterValues?.term:filterValues?.box1:filterValues?.box2:filterValues?.box3:filteredCount | asOrderBy:'Special':filterValues?.box1:filteredItems | paginate: config; let i = index"
     class="sermon-container"
     [ngClass]="{'playing': current?.playing && current?.id == sermon?.key, 'current-sermon': current?.id == sermon?.key}">
     <div class="sermon-art" (click)="current?.playing && current?.id === sermon?.key ? audioService.pause(): audioService.play(sermon?.key)">
