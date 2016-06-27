@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteSegment, ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { ApiObservableService } from '../services/api-observable.service';
 import { HeaderDefaultComponent } from '../components/header-default/index';
 import { SermonsListComponent } from '../components/sermons-list/index';
@@ -73,7 +73,9 @@ export class DefaultPageComponent implements OnInit {
   public tempSlug;
   private ready = false;
   private info;
-  constructor(private curr: RouteSegment, public apiObservableService: ApiObservableService) {
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    public apiObservableService: ApiObservableService) {
 
   }
 
@@ -93,8 +95,8 @@ export class DefaultPageComponent implements OnInit {
 
     this.apiObservableService.observe({
       type: 'defaultPage',
-      category: this.curr.urlSegments[0].segment,
-      slug: this.curr.getParam('type')
+      category: this.activatedRoute.snapshot.url[0].path,
+      slug: this.activatedRoute.snapshot.url[1].path
     })
     .subscribe(data => {
       this.info = data;

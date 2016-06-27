@@ -1,3 +1,4 @@
+/*
 import {
   beforeEach,
   beforeEachProviders,
@@ -8,7 +9,7 @@ import {
 } from '@angular/core/testing';
 import { TestComponentBuilder } from '@angular/compiler/testing';
 import { HomeComponent } from './home.component';
-import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
+import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing'; // Upgrading to router rc3
 
 describe('Component: Home', () => {
   let builder: TestComponentBuilder;
@@ -37,4 +38,4 @@ describe('Component: Home', () => {
     })
     .catch(e => done.fail(e));
   });
-});
+});*/
