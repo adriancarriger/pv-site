@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
-import {DROPDOWN_DIRECTIVES, CollapseDirective} from 'ng2-bootstrap';
+import {DROPDOWN_DIRECTIVES} from 'ng2-bootstrap';
+import {CollapseDirective} from '../../forks/collapse.directive';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import {ApiObservableService} from '../../services/api-observable.service';
 import {PvLogoComponent} from '../pv-logo/index';

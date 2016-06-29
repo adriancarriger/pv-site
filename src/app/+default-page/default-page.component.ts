@@ -3,6 +3,7 @@ import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { ApiObservableService } from '../services/api-observable.service';
 import { HeaderDefaultComponent } from '../components/header-default/index';
 import { SermonsListComponent } from '../components/sermons-list/index';
+import {DomSanitizationService, SafeHtml} from '@angular/platform-browser';
 
 @Component({
   moduleId: module.id,
@@ -69,13 +70,19 @@ export class DefaultPageComponent implements OnInit {
       learn: false
     }
   ];
+  public html = {
+    quote: <SafeHtml> undefined,
+    content: <SafeHtml> undefined
+  }
+  public quote: SafeHtml;
   public sermons;
   public tempSlug;
   private ready = false;
   private info;
   constructor(
     public activatedRoute: ActivatedRoute,
-    public apiObservableService: ApiObservableService) {
+    public apiObservableService: ApiObservableService,
+    private sanitationService: DomSanitizationService) {
 
   }
 
@@ -100,6 +107,8 @@ export class DefaultPageComponent implements OnInit {
     })
     .subscribe(data => {
       this.info = data;
+      this.html.quote = this.sanitationService.bypassSecurityTrustHtml( data.first_section.quote );
+      this.html.content = this.sanitationService.bypassSecurityTrustHtml( data.first_section.content );
       this.ready = true;
       // Temp
       let titleArray = this.info.title.split( "'" );
