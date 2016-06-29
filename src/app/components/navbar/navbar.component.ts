@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {CORE_DIRECTIVES} from '@angular/common';
 import {DROPDOWN_DIRECTIVES} from 'ng2-bootstrap';
-import {CollapseDirective} from '../../forks/collapse.directive';
+import {CollapseDirective} from '../../temp-forks/collapse.directive';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import {ApiObservableService} from '../../services/api-observable.service';
 import {PvLogoComponent} from '../pv-logo/index';
-
-// I don't think we need: CORE_DIRECTIVES, DROPDOWN_DIRECTIVES, ApiObservableService -- double check
 
 @Component({
   moduleId: module.id,
@@ -16,7 +13,6 @@ import {PvLogoComponent} from '../pv-logo/index';
   directives: [
     DROPDOWN_DIRECTIVES,
     CollapseDirective,
-    CORE_DIRECTIVES,
     ROUTER_DIRECTIVES,
     PvLogoComponent
   ],

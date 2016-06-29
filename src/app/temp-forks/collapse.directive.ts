@@ -1,3 +1,8 @@
+/*
+ * This is a fork of https://github.com/valor-software/ng2-bootstrap/blob/master/components/collapse/collapse.directive.ts
+ * It fixes a an unsanitized style warning.
+ * This will be removed after the next release of ng2-bootstrap that includes this fix.
+ */
 // FIX: in order to update to rc.1 had to disable animation, sorry
 import {Directive, OnInit, ElementRef, Input, HostBinding, Renderer} from '@angular/core';
 // import {AnimationBuilder} from '@angular/platform-browser/src/animate/animation_builder';
@@ -93,6 +98,8 @@ export class CollapseDirective implements OnInit {
     this.isCollapse = true;
     this.isCollapsing = false;
 
+    this.display = 'none';
+
     /*  setTimeout(() => {
           // this.height = '0';
           // this.isCollapse = true;
@@ -125,7 +132,7 @@ export class CollapseDirective implements OnInit {
     this.isExpanded = true;
     this.isCollapsed = false;
 
-    // this.display = '';
+     this.display = 'block';
     // this.height = 'auto';
     this.isCollapse = true;
     this.isCollapsing = false;
