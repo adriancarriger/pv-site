@@ -14,9 +14,9 @@
     </div>
   </div>
 </as-header-default>
-<div *ngIf="info?.first_section" class="container">
-  <div [innerHTML]="info.first_section.quote" class="content quote"></div>
-  <div [innerHTML]="info.first_section.content" class="content"></div>
+<div *ngIf="html?.quote" class="container">
+  <div [innerHTML]="html.quote" class="content quote"></div>
+  <div [innerHTML]="html.content" class="content"></div>
 </div>
 <div *ngIf="ready" class="container-ad">
   <img *ngIf="ready" src="app/assets/abstract.jpg" alt="">

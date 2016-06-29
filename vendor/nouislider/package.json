@@ -1,16 +1,47 @@
 {
-  "name": "nouislider",
-  "version": "8.5.1",
-  "main": "distribute/nouislider",
-  "style": "distribute/nouislider.min.css",
-  "license": "WTFPL",
-  "scripts": {
-    "build": "grunt create",
-    "watch:js": "npm run build && onchange 'src/js/*.js' 'src/*.css' -- npm run build",
-    "serve-tests": "browser-sync start --server . --startPath tests/slider.html --files 'distribute/, tests/*.js'",
-    "test": "grunt lint",
-    "dev": "./scripts/dev.sh"
+  "_args": [
+    [
+      "nouislider@^8.5.1",
+      "/Users/adriancarriger/pv/site"
+    ]
+  ],
+  "_from": "nouislider@>=8.5.1 <9.0.0",
+  "_id": "nouislider@8.5.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/nouislider",
+  "_nodeVersion": "5.1.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/nouislider-8.5.1.tgz_1461507054277_0.16320232511498034"
   },
+  "_npmUser": {
+    "email": "leon.gersen+npm@gmail.com",
+    "name": "leongersen"
+  },
+  "_npmVersion": "3.3.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "nouislider",
+    "raw": "nouislider@^8.5.1",
+    "rawSpec": "^8.5.1",
+    "scope": null,
+    "spec": ">=8.5.1 <9.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nouislider/-/nouislider-8.5.1.tgz",
+  "_shasum": "df8dedd0e0de1afb074c33be1e6cf4d2919662e4",
+  "_shrinkwrap": null,
+  "_spec": "nouislider@^8.5.1",
+  "_where": "/Users/adriancarriger/pv/site",
+  "bugs": {
+    "url": "https://github.com/leongersen/noUiSlider/issues"
+  },
+  "dependencies": {},
+  "description": "noUiSlider is lightweight JavaScript range slider, originally developed to be a jQuery UI alternative.",
   "devDependencies": {
     "blanket": "1.1.7",
     "browser-sync": "2.9.3",
@@ -25,44 +56,39 @@
     "onchange": "2.0.0",
     "simulant": "0.1.5"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/leongersen/noUiSlider.git"
-  },
-  "gitHead": "772dc921563f56ab8c5dc145068f64b6acef5df1",
-  "description": "noUiSlider is lightweight JavaScript range slider, originally developed to be a jQuery UI alternative.",
-  "bugs": {
-    "url": "https://github.com/leongersen/noUiSlider/issues"
-  },
-  "homepage": "https://github.com/leongersen/noUiSlider#readme",
-  "_id": "nouislider@8.5.1",
-  "_shasum": "df8dedd0e0de1afb074c33be1e6cf4d2919662e4",
-  "_from": "nouislider@>=8.5.1 <9.0.0",
-  "_npmVersion": "3.3.12",
-  "_nodeVersion": "5.1.0",
-  "_npmUser": {
-    "name": "leongersen",
-    "email": "leon.gersen+npm@gmail.com"
-  },
+  "directories": {},
   "dist": {
     "shasum": "df8dedd0e0de1afb074c33be1e6cf4d2919662e4",
     "tarball": "https://registry.npmjs.org/nouislider/-/nouislider-8.5.1.tgz"
   },
+  "gitHead": "772dc921563f56ab8c5dc145068f64b6acef5df1",
+  "homepage": "https://github.com/leongersen/noUiSlider#readme",
+  "license": "WTFPL",
+  "main": "distribute/nouislider",
   "maintainers": [
     {
-      "name": "approach",
-      "email": "alexejkloos@gmail.com"
+      "email": "alexejkloos@gmail.com",
+      "name": "approach"
     },
     {
-      "name": "leongersen",
-      "email": "leon.gersen+npm@gmail.com"
+      "email": "leon.gersen+npm@gmail.com",
+      "name": "leongersen"
     }
   ],
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/nouislider-8.5.1.tgz_1461507054277_0.16320232511498034"
+  "name": "nouislider",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leongersen/noUiSlider.git"
   },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/nouislider/-/nouislider-8.5.1.tgz",
-  "readme": "ERROR: No README data found!"
+  "scripts": {
+    "build": "grunt create",
+    "dev": "./scripts/dev.sh",
+    "serve-tests": "browser-sync start --server . --startPath tests/slider.html --files 'distribute/, tests/*.js'",
+    "test": "grunt lint",
+    "watch:js": "npm run build && onchange 'src/js/*.js' 'src/*.css' -- npm run build"
+  },
+  "style": "distribute/nouislider.min.css",
+  "version": "8.5.1"
 }
