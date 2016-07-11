@@ -1,7 +1,15 @@
 {
   "_args": [
     [
-      "ng2-bootstrap@^1.0.17",
+      {
+        "raw": "ng2-bootstrap@^1.0.17",
+        "scope": null,
+        "escapedName": "ng2-bootstrap",
+        "name": "ng2-bootstrap",
+        "rawSpec": "^1.0.17",
+        "spec": ">=1.0.17 <2.0.0",
+        "type": "range"
+      },
       "/Users/adriancarriger/pv/site"
     ]
   ],
@@ -16,16 +24,17 @@
     "tmp": "tmp/ng2-bootstrap-1.0.17.tgz_1464702338980_0.26414189185015857"
   },
   "_npmUser": {
-    "email": "valorkin@gmail.com",
-    "name": "valorkin"
+    "name": "valorkin",
+    "email": "valorkin@gmail.com"
   },
   "_npmVersion": "3.8.9",
   "_phantomChildren": {},
   "_requested": {
-    "name": "ng2-bootstrap",
     "raw": "ng2-bootstrap@^1.0.17",
-    "rawSpec": "^1.0.17",
     "scope": null,
+    "escapedName": "ng2-bootstrap",
+    "name": "ng2-bootstrap",
+    "rawSpec": "^1.0.17",
     "spec": ">=1.0.17 <2.0.0",
     "type": "range"
   },
@@ -38,8 +47,8 @@
   "_spec": "ng2-bootstrap@^1.0.17",
   "_where": "/Users/adriancarriger/pv/site",
   "author": {
-    "email": "valorkin@gmail.com",
-    "name": "Dmitriy Shekhovtsov"
+    "name": "Dmitriy Shekhovtsov",
+    "email": "valorkin@gmail.com"
   },
   "bugs": {
     "url": "https://github.com/valor-software/ng2-bootstrap/issues"
@@ -125,8 +134,8 @@
   "main": "ng2-bootstrap.js",
   "maintainers": [
     {
-      "email": "valorkin@gmail.com",
-      "name": "valorkin"
+      "name": "valorkin",
+      "email": "valorkin@gmail.com"
     }
   ],
   "name": "ng2-bootstrap",

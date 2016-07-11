@@ -78,7 +78,13 @@
   float: right;
   font-size: 30px;
   margin: 5px 20px 0 20px;
-  color: #3db74b; }
+  color: gray;
+  cursor: pointer;
+  display: none; }
+  .navbar .navbar-header .navbar-audio.started {
+    display: block; }
+  .navbar .navbar-header .navbar-audio.playing {
+    color: #3db74b; }
   @media (min-width: 768px) {
     .navbar .navbar-header .navbar-audio {
       display: none; } }

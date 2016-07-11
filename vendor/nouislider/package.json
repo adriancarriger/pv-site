@@ -1,7 +1,15 @@
 {
   "_args": [
     [
-      "nouislider@^8.5.1",
+      {
+        "raw": "nouislider@^8.5.1",
+        "scope": null,
+        "escapedName": "nouislider",
+        "name": "nouislider",
+        "rawSpec": "^8.5.1",
+        "spec": ">=8.5.1 <9.0.0",
+        "type": "range"
+      },
       "/Users/adriancarriger/pv/site"
     ]
   ],
@@ -16,16 +24,17 @@
     "tmp": "tmp/nouislider-8.5.1.tgz_1461507054277_0.16320232511498034"
   },
   "_npmUser": {
-    "email": "leon.gersen+npm@gmail.com",
-    "name": "leongersen"
+    "name": "leongersen",
+    "email": "leon.gersen+npm@gmail.com"
   },
   "_npmVersion": "3.3.12",
   "_phantomChildren": {},
   "_requested": {
-    "name": "nouislider",
     "raw": "nouislider@^8.5.1",
-    "rawSpec": "^8.5.1",
     "scope": null,
+    "escapedName": "nouislider",
+    "name": "nouislider",
+    "rawSpec": "^8.5.1",
     "spec": ">=8.5.1 <9.0.0",
     "type": "range"
   },
@@ -67,12 +76,12 @@
   "main": "distribute/nouislider",
   "maintainers": [
     {
-      "email": "alexejkloos@gmail.com",
-      "name": "approach"
+      "name": "approach",
+      "email": "alexejkloos@gmail.com"
     },
     {
-      "email": "leon.gersen+npm@gmail.com",
-      "name": "leongersen"
+      "name": "leongersen",
+      "email": "leon.gersen+npm@gmail.com"
     }
   ],
   "name": "nouislider",

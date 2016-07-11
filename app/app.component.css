@@ -365,3 +365,18 @@ a {
 .btn {
   box-shadow: none !important;
   outline: none !important; }
+
+@media (min-width: 768px) {
+  .modal-open {
+    overflow: initial; }
+  .fade {
+    opacity: 1; }
+  .modal {
+    display: block !important;
+    position: initial; }
+    .modal.fade .modal-dialog {
+      transform: initial; }
+    .modal .modal-header {
+      display: none; }
+  .modal-backdrop {
+    display: none; } }

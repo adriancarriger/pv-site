@@ -1,26 +1,44 @@
-<div [ngClass]="{started: current?.init}" class="player">
-  <div class="controls player-item no-playlist">
-    <button
-      class="play-toggle btn ion-play ion-pause"
-      (click)="current?.playing ? audioService.pause(): audioService.play()"
-      [ngClass]="{'ion-pause': current?.playing, 'ion-play': !current?.playing}"></button>
-  </div>
-  <div class="progress player-item">
-    <div class="progress-timer timer-current">
-      {{ position?.time }}
-    </div>
-    <as-slider (seek)="audioService.setPosition($event)" [position]="position?.percentage" class="player-progress-bar"></as-slider>
-    <div class="progress-timer">
-      {{ current?.duration }}
-    </div>
-  </div>
-  <div class="info-container player-item">
-    <div class="album-art">
-      <img src="{{current?.art?.image_small}}" alt="">
-    </div>
-    <div class="info-text">
-      <div class="info-title">{{ current?.title }}</div>
-      <div class="info-speaker">{{ current?.speaker }}</div>
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">Done</span>
+        </button>
+        <h4 class="modal-title">Sermon</h4>
+      </div>
+      <div class="modal-body">
+        
+        <div [ngClass]="{started: current?.init}" class="player">
+          <div class="controls player-item no-playlist">
+            <button
+              class="play-toggle btn ion-play ion-pause"
+              (click)="current?.playing ? audioService.pause(): audioService.play()"
+              [ngClass]="{'ion-pause': current?.playing, 'ion-play': !current?.playing}"></button>
+          </div>
+          <div class="progress player-item">
+            <div class="progress-timer timer-current">
+              {{ position?.time }}
+            </div>
+            <as-slider (seek)="audioService.setPosition($event)" [position]="position?.percentage" class="player-progress-bar"></as-slider>
+            <div class="progress-timer">
+              {{ current?.duration }}
+            </div>
+          </div>
+          <div class="info-container player-item">
+            <div class="album-art">
+              <img src="{{current?.art?.image_small}}" alt="">
+            </div>
+            <div class="info-text">
+              <div class="info-title">{{ current?.title }}</div>
+              <div class="info-speaker">{{ current?.speaker }}</div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
     </div>
   </div>
 </div>

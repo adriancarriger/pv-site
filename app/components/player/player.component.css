@@ -77,3 +77,20 @@
     -webkit-transform: translate3d(0, 0, 0); }
   100% {
     -webkit-transform: translate3d(0, -50px, 0); } }
+
+@media (max-width: 767px) {
+  .modal .modal-dialog {
+    margin: 0;
+    height: 100%;
+    background-color: white; }
+    .modal .modal-dialog .modal-content {
+      box-shadow: initial;
+      border: none; }
+      .modal .modal-dialog .modal-content .player {
+        animation: initial;
+        -webkit-animation: initial;
+        border: none;
+        background-color: transparent;
+        position: initial; }
+        .modal .modal-dialog .modal-content .player .progress {
+          background-color: transparent; } }

@@ -1,8 +1,19 @@
+@media (min-width: 768px) {
+  /* Show large menu on initialization
+	   `.collapse` is removed on init while large,
+		 but comes back after resizing window.
+	*/
+  .fix-on-init {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+    position: static; } }
+
 .filter-container {
   height: 54px;
   width: 100%; }
   .filter-container .filter {
-    height: 54px;
     top: 51px;
     z-index: 2;
     background: #3db74b;
@@ -12,6 +23,15 @@
     @media (max-width: 500px) {
       .filter-container .filter .container {
         width: 100%; } }
+    @media (max-width: 767px) {
+      .filter-container .filter .container {
+        padding: 0; } }
+    .filter-container .filter .container .filter-toggle {
+      color: white;
+      background-color: transparent; }
+      @media (min-width: 768px) {
+        .filter-container .filter .container .filter-toggle {
+          display: none; } }
     .filter-container .filter .container .input-item {
       float: left;
       padding: 12px 10px;
@@ -103,6 +123,15 @@
       @media (max-width: 1400px) {
         .filter-container .filter .container .input-item {
           width: 18%;
-          padding: 10px 20px; }
+          padding: 10px 20px; } }
+      @media (min-width: 768px) and (max-width: 1400px) {
+        .filter-container .filter .container .input-item.search {
+          width: 35%; } }
+      @media (max-width: 767px) {
+        .filter-container .filter .container .input-item {
+          width: 100%;
+          border-bottom: 1px solid white; }
           .filter-container .filter .container .input-item.search {
-            width: 35%; } }
+            width: 100%; }
+            .filter-container .filter .container .input-item.search input {
+              width: 70%; } }

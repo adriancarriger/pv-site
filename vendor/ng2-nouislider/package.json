@@ -1,7 +1,15 @@
 {
   "_args": [
     [
-      "ng2-nouislider@^0.4.1",
+      {
+        "raw": "ng2-nouislider@^0.4.1",
+        "scope": null,
+        "escapedName": "ng2-nouislider",
+        "name": "ng2-nouislider",
+        "rawSpec": "^0.4.1",
+        "spec": ">=0.4.1 <0.5.0",
+        "type": "range"
+      },
       "/Users/adriancarriger/pv/site"
     ]
   ],
@@ -16,16 +24,17 @@
     "tmp": "tmp/ng2-nouislider-0.4.2.tgz_1466973319246_0.12097179866395891"
   },
   "_npmUser": {
-    "email": "t.bak@selleo.com",
-    "name": "tomaszbak"
+    "name": "tomaszbak",
+    "email": "t.bak@selleo.com"
   },
   "_npmVersion": "3.8.6",
   "_phantomChildren": {},
   "_requested": {
-    "name": "ng2-nouislider",
     "raw": "ng2-nouislider@^0.4.1",
-    "rawSpec": "^0.4.1",
     "scope": null,
+    "escapedName": "ng2-nouislider",
+    "name": "ng2-nouislider",
+    "rawSpec": "^0.4.1",
     "spec": ">=0.4.1 <0.5.0",
     "type": "range"
   },
@@ -38,8 +47,8 @@
   "_spec": "ng2-nouislider@^0.4.1",
   "_where": "/Users/adriancarriger/pv/site",
   "author": {
-    "email": "t.bak@selleo.com",
-    "name": "Tomasz Bak"
+    "name": "Tomasz Bak",
+    "email": "t.bak@selleo.com"
   },
   "bugs": {
     "url": "https://github.com/tb/ng2-nouislider/issues"
@@ -90,8 +99,8 @@
   "main": "src/nouislider.js",
   "maintainers": [
     {
-      "email": "t.bak@selleo.com",
-      "name": "tomaszbak"
+      "name": "tomaszbak",
+      "email": "t.bak@selleo.com"
     }
   ],
   "name": "ng2-nouislider",
