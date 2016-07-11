@@ -95,7 +95,15 @@
 			float: right;
 			font-size: 30px;
     	margin: 5px 20px 0 20px;
-			color: $pvGreen;
+			color: gray;
+			cursor: pointer;
+			display: none;
+			&.started {
+				display: block;
+			}
+			&.playing {
+				color: $pvGreen;
+			}
 			@media (min-width: 768px) {
 				display: none;
 			}

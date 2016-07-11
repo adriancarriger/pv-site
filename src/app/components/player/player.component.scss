@@ -111,3 +111,28 @@ $playerHeight: 50px;
 		-webkit-transform: translate3d(0,($playerHeight * -1),0); 
 	}
 }
+
+@media (max-width: 767px) {
+  // Modal Design
+  .modal {
+    .modal-dialog {
+      margin: 0;
+      height: 100%;
+      background-color: white;
+      .modal-content {
+        box-shadow: initial;
+        border: none;
+        .player {
+          animation: initial;
+          -webkit-animation: initial;
+          border: none;
+          background-color: transparent;
+          position: initial;
+          .progress {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}

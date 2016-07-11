@@ -7,7 +7,9 @@ import * as moment from 'moment';
 export class AudioService {
   public preCurrentAudio$;
   public preAudioPosition$;
+  public preModalStatus$;
   public testInfo;
+  public modalStatus = false;
   listenFunc: Function;
   metaData: Function;
   public current = {
@@ -25,11 +27,12 @@ export class AudioService {
   constructor(public apiObservableService: ApiObservableService, public renderer: Renderer) {
     this.preCurrentAudio$ = new Subject();
     this.preAudioPosition$ = new Subject();
+    this.preModalStatus$ = new Subject();
     this.apiObservableService.sermons$
     .subscribe(data => {
       this.sermons = data;
     });
-
+    this.preModalStatus$.next(false);
   }
   play(setCurrent) {
     let oldId = this.current.id;
@@ -119,9 +122,18 @@ export class AudioService {
     return this.preAudioPosition$.asObservable();
   }
 
+  get modalStatus$() {
+    return this.preModalStatus$.asObservable();
+  }
+
   setPosition(percentage) {
     let newPosition = Math.floor(this.audioObjects[this.current.id].duration * percentage * 0.01);
     this.audioObjects[this.current.id].currentTime = newPosition;
+  }
+
+  changeModalStatus() {
+    this.modalStatus = !this.modalStatus;
+    this.preModalStatus$.next(this.modalStatus);
   }
 
 }

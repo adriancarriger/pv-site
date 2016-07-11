@@ -5,6 +5,7 @@ import {ROUTER_DIRECTIVES} from '@angular/router';
 import {ApiObservableService} from '../../services/api-observable.service';
 import {PvLogoComponent} from '../pv-logo/index';
 import { GlobalEventsService } from '../../services/global-events.service';
+import { AudioService } from '../../services/audio.service';
 
 @Component({
   moduleId: module.id,
@@ -22,6 +23,7 @@ import { GlobalEventsService } from '../../services/global-events.service';
 export class NavbarComponent implements OnInit {
   public stickyNav = true;
   public isCollapsed: boolean;
+  public current;
   private pages = false;
   public hasX(obj, X) {
     if (X in obj) {
@@ -29,7 +31,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  constructor(private globalEventsService: GlobalEventsService, public apiObservableService: ApiObservableService) {}
+  constructor(
+    private globalEventsService: GlobalEventsService,
+    public apiObservableService: ApiObservableService,
+    public audioService: AudioService) {}
 
   ngOnInit() {
     this.isCollapsed = true;
@@ -40,6 +45,11 @@ export class NavbarComponent implements OnInit {
     this.globalEventsService.resize$.subscribe(data => {
       this.isCollapsed = true;
     });
+    this.audioService.currentAudio$.subscribe(data => {
+      this.current = data;
+    });
+    
+
   }
 
 }

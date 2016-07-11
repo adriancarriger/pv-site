@@ -150,3 +150,29 @@ a {
   box-shadow: none !important;
   outline: none !important; 
 }
+
+
+@media (min-width: 768px) {
+  .modal-open {
+    overflow: initial;
+  }
+  .fade {
+    opacity: 1;
+  }
+  .modal {
+    display: block !important;
+    position: initial;
+    &.fade {
+      .modal-dialog {
+        transform: initial;
+      }
+    }
+    
+    .modal-header {
+      display: none;
+    }
+  }
+  .modal-backdrop {
+    display: none;
+  }
+}

@@ -42,7 +42,7 @@ import { ApiObservableService } from './services/api-observable.service';
   ],
 })
 export class AppComponent {
-  constructor(private globalEventsService: GlobalEventsService) {
+  constructor(private globalEventsService: GlobalEventsService, private viewContainerRef: ViewContainerRef) {
     globalEventsService.init();
   }
 }
