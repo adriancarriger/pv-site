@@ -1,4 +1,4 @@
-import { Component, provide, ViewEncapsulation } from '@angular/core';
+import { Component, provide, ViewEncapsulation, ViewContainerRef } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {Http} from '@angular/http';
@@ -42,7 +42,7 @@ import { ApiObservableService } from './services/api-observable.service';
   ],
 })
 export class AppComponent {
-  constructor(globalEventsService: GlobalEventsService) {
+  constructor(private globalEventsService: GlobalEventsService) {
     globalEventsService.init();
   }
 }

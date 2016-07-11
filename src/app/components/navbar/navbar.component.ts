@@ -4,6 +4,7 @@ import {CollapseDirective} from '../../temp-forks/collapse.directive';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import {ApiObservableService} from '../../services/api-observable.service';
 import {PvLogoComponent} from '../pv-logo/index';
+import { GlobalEventsService } from '../../services/global-events.service';
 
 @Component({
   moduleId: module.id,
@@ -28,13 +29,16 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  constructor(public apiObservableService: ApiObservableService) {}
+  constructor(private globalEventsService: GlobalEventsService, public apiObservableService: ApiObservableService) {}
 
   ngOnInit() {
     this.isCollapsed = true;
-    return this.apiObservableService.observe({type: 'menu'})
+    this.apiObservableService.observe({type: 'menu'})
     .subscribe(data => {
       this.pages = data;
+    });
+    this.globalEventsService.resize$.subscribe(data => {
+      this.isCollapsed = true;
     });
   }
 

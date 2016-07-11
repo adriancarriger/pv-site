@@ -7,9 +7,10 @@ import {
   Output,
   EventEmitter } from '@angular/core';
 import { GlobalEventsService } from '../../services/global-events.service';
-import {SELECT_DIRECTIVES} from 'ng2-select';
+import { SELECT_DIRECTIVES } from 'ng2-select';
 import { Control } from '@angular/common';
 import 'rxjs/add/operator/debounceTime';
+import { CollapseDirective } from '../../temp-forks/collapse.directive';
 
 @Component({
   moduleId: module.id,
@@ -17,11 +18,16 @@ import 'rxjs/add/operator/debounceTime';
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'filter-default.component.html',
   styleUrls: ['filter-default.component.css'],
-  directives: [SELECT_DIRECTIVES]
+  directives: [
+    SELECT_DIRECTIVES,
+    CollapseDirective
+  ]
 })
 export class FilterDefaultComponent implements OnInit {
   @Input() inputData;
   @Output() update = new EventEmitter();
+  private stickyPoint;
+  public isCollapsed: boolean;
   public term = '';
   public termControl;
   public outputData = {
@@ -35,13 +41,15 @@ export class FilterDefaultComponent implements OnInit {
     this.termControl = new Control();
   }
   ngOnInit() {
-    let el = this.element.nativeElement;
-    let filterOffset = el.firstChild.offsetTop;
-    let navHeight = document.getElementById('navbar').offsetHeight;
-    let stickyPoint = filterOffset - navHeight;
+    this.isCollapsed = true;
+
+    this.getDimensions();
     this.globalEventsService.scroll$.subscribe(data => {
       let yPos = data.path[1].pageYOffset;
-      this.stuck = yPos >= stickyPoint;
+      this.stuck = yPos >= this.stickyPoint;
+    });
+    this.globalEventsService.resize$.subscribe(data => {
+      this.getDimensions();
     });
 
     this.inputData.box1.unshift(this.inputData.defaults.box1);
@@ -70,7 +78,13 @@ export class FilterDefaultComponent implements OnInit {
         this.update.emit( this.outputData );
       }, 1);
     }
+  }
 
+  getDimensions() {
+    let el = this.element.nativeElement;
+    let filterOffset = el.firstChild.offsetTop;
+    let navHeight = document.getElementById('navbar').offsetHeight;
+    this.stickyPoint = filterOffset - navHeight;
   }
 
 }
