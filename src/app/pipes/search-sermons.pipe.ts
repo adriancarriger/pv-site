@@ -5,9 +5,9 @@ import * as moment from 'moment';
   name: 'asSearchSermons'
 })
 export class SearchSermons implements PipeTransform {
-  transform(value: any, term?, book?, year?, amPm?, meowTest?): any {
+  transform(value: any, term?, book?, year?, amPm?, filteredCount?): any {
     let books = [], years = [], meridian, queries = [], meridians = {AM: 'Morning', PM: 'Evening'};
-    if (value === undefined) { return; };
+    if (value === undefined) { return; }
     if (term === null || term === undefined) { return value; }
     if (term.length) { queries = term.toLowerCase().split( ' ' ); }
     if (book !== undefined && book !== 'All books') { books.push(book); }
@@ -52,7 +52,7 @@ export class SearchSermons implements PipeTransform {
       item.randomClass = artClasses[i];
       return item;
     });
-    meowTest.count = filtered.length;
+    filteredCount.count = filtered.length;
     return filtered;
   }
 
