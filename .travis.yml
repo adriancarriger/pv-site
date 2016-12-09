@@ -23,5 +23,8 @@ before_install:
 after_success:
   # Send coverage data to Codecov
   - bash <(curl -s https://codecov.io/bash)
+  # Deploy to firebase
+  - npm run fireDeployPrep
+  - firebase deploy --token=${FIREBASE_API_TOKEN}
 
 after_script:
