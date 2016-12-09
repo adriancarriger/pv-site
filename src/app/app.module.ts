@@ -1,11 +1,17 @@
+/**
+ * @module AppModule
+ * @preferred
+ */ /** */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { CoreModule } from './core/core.module';
+/**
+ * @whatItDoes The root module class that is bootstraped by the `main.ts` file.
+ * @see [Angular 2 docs - the application root module](https://angular.io/docs/ts/latest/guide/ngmodule.html#root-module)
+ */
 @NgModule({
   declarations: [
     AppComponent
@@ -13,10 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    FormsModule,
-    HttpModule
+    CoreModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
