@@ -10,8 +10,10 @@
 
 # IDEs and editors
 /.idea
+/.vscode
 .project
 .classpath
+.c9/
 *.launch
 .settings/
 
@@ -30,7 +32,4 @@ testem.log
 
 #System Files
 .DS_Store
-
-#Good Sync
-/_gsdata_
 Thumbs.db

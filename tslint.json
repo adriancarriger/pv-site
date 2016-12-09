@@ -16,10 +16,15 @@
       "spaces"
     ],
     "label-position": true,
-    "label-undefined": true,
     "max-line-length": [
       true,
-      100
+      140
+    ],
+    "member-access": false,
+    "member-ordering": [
+      true,
+      "static-before-instance",
+      "variables-before-functions"
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -33,19 +38,15 @@
     ],
     "no-construct": true,
     "no-debugger": true,
-    "no-duplicate-key": true,
     "no-duplicate-variable": true,
-    "no-empty": true,
+    "no-empty": false,
     "no-eval": true,
     "no-inferrable-types": true,
-    "no-internal-module": true,
     "no-shadowed-variable": true,
-    "no-string-literal": true,
+    "no-string-literal": false,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
     "no-unused-expression": true,
-    "no-unused-variable": true,
-    "no-unreachable": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
@@ -58,12 +59,10 @@
     ],
     "quotemark": [
       true,
-      "single",
-      "avoid-escape"
+      "single"
     ],
     "radix": true,
     "semicolon": [
-      true,
       "always"
     ],
     "triple-equals": [
@@ -80,12 +79,7 @@
         "variable-declaration": "nospace"
       }
     ],
-    "variable-name": [
-      true,
-      "ban-keywords",
-      "check-format",
-      "allow-trailing-underscore"
-    ],
+    "variable-name": false,
     "whitespace": [
       true,
       "check-branch",
@@ -94,10 +88,9 @@
       "check-separator",
       "check-type"
     ],
-    "directive-selector-name": [true, "camelCase"],
-    "component-selector-name": [true, "kebab-case"],
-    "directive-selector-type": [true, "attribute"],
-    "component-selector-type": [true, "element"],
+
+    "directive-selector": [true, "attribute", "app", "camelCase"],
+    "component-selector": [true, "element", "app", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
@@ -107,20 +100,8 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-
-
-    
-    "directive-selector-prefix": [true, "as"],
-    "component-selector-prefix": [true, "as"],
-    "pipe-naming": [true, "camelCase", "as"],
-    "no-attribute-parameter-decorator": true,
-    "no-forward-ref" :true,
-    "member-access": false,
-    "member-ordering": [true,
-      "public-before-private",
-      "static-before-instance",
-      "variables-before-functions"
-    ],
-    "trailing-comma": true
+    "no-access-missing-member": true,
+    "templates-use-public": true,
+    "invoke-injectable": true
   }
 }
