@@ -7,6 +7,7 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { RouterModule } from '@angular/router';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
+import { NavComponent } from './nav/nav.component';
 /**
  * @whatItDoes {@link CoreModule} exists to make commonly used singleton services and single-use classes available
  * for use in the many other modules.
@@ -20,10 +21,10 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
     RouterModule
   ],
   exports: [
-
+    NavComponent
   ],
   declarations: [
-
+    NavComponent
   ]
 })
 export class CoreModule {
