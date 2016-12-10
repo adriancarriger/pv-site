@@ -5,9 +5,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { ApiService } from './core/api/api.service';
+import { MockApiService } from './core/api/mock-api.service.spec';
 
 describe('AppComponent', () => {
+  let mockApiService: MockApiService;
   beforeEach(() => {
+    mockApiService = new MockApiService();
     TestBed.configureTestingModule({
       imports: [
         CoreModule.forRoot(),
@@ -16,6 +20,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        { provide: ApiService, useValue: mockApiService }
+      ]
     });
     TestBed.compileComponents();
   });

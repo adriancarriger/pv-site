@@ -5,7 +5,12 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { LocalForageModule } from 'ng2-localforage';
 
+import { ApiService } from './api/api.service';
+import { FirebaseCacheService } from './firebase-cache/firebase-cache.service';
+import { firebaseConfig } from './firebase-config';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { NavComponent } from './nav/nav.component';
 /**
@@ -17,7 +22,9 @@ import { NavComponent } from './nav/nav.component';
  */
 @NgModule({
   imports: [
+    AngularFireModule.initializeApp(firebaseConfig),
     CommonModule,
+    LocalForageModule.forRoot(),
     RouterModule
   ],
   exports: [
@@ -37,7 +44,8 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: [
-
+        ApiService,
+        FirebaseCacheService
       ]
     };
   }

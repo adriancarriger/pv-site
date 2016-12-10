@@ -2,6 +2,8 @@
  * @module CoreModule
  */ /** */
 import { Component, OnInit } from '@angular/core';
+
+import { ApiService } from '../api/api.service';
 /**
  * @whatItDoes Returns the {@link NavComponent} view
  * @consumers {@link AppComponent}
@@ -15,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
   }

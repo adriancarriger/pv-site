@@ -5,15 +5,21 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavComponent } from './nav.component';
+import { ApiService } from '../api/api.service';
+import { MockApiService } from '../api/mock-api.service.spec';
 
 describe('NavComponent', () => {
   let component: NavComponent;
   let fixture: ComponentFixture<NavComponent>;
-
+  let mockApiService: MockApiService;
   beforeEach(async(() => {
+    mockApiService = new MockApiService();
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule ],
-      declarations: [ NavComponent ]
+      declarations: [ NavComponent ],
+      providers: [
+        { provide: ApiService, useValue: mockApiService }
+      ]
     })
     .compileComponents();
   }));
