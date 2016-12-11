@@ -1,0 +1,64 @@
+@import '../../../variables';
+.nav {
+  display: flex;
+  justify-content: space-between;
+  // top container holds the home button, and mobile only nav buttons (toggle nav, etc)
+  .top-container {
+    display: flex;
+    justify-content: space-between;
+    .mobile-nav {
+      display: none;
+      margin-left: auto;
+    }
+  }
+  .home, .item {
+    padding: 10px;
+  }
+  .items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .left, .right {
+      display: flex;
+      justify-content: space-between;
+    }
+    .left {
+      margin-right: auto;
+    }
+    .right {
+      margin-left: auto;
+    }
+    .item {
+      .sub-items {
+        height: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        &.active {
+          height: initial;
+        }
+      }
+    }
+  }
+  @media (max-width: $mobileBreakPoint) {
+    display: initial;
+    .top-container {
+      .mobile-nav {
+        display: initial;
+      }
+    }
+    .items {
+      display: initial;
+      .left, .right {
+        display: initial;
+        .item {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

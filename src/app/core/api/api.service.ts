@@ -21,7 +21,7 @@ import { FirebaseCacheService } from '../firebase-cache/firebase-cache.service';
  */
 @Injectable()
 export class ApiService {
-  test: Observable<any>;
+  menu: Observable<any>;
   constructor(
     private fbCache: FirebaseCacheService) {
     this.onInit();
@@ -31,6 +31,6 @@ export class ApiService {
    * - Gets the required items from Firebase to use in the app
    */
   onInit() {
-    this.test = this.fbCache.object('test');
+    this.menu = this.fbCache.object('client/menu');
   }
 }
