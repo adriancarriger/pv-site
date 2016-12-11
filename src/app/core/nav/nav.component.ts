@@ -16,7 +16,7 @@ import { ApiService } from '../api/api.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
+  activeItem: string;
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
