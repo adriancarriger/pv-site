@@ -12,7 +12,6 @@ import { ApiService } from './api/api.service';
 import { FirebaseCacheService } from './firebase-cache/firebase-cache.service';
 import { firebaseConfig } from './firebase-config';
 import { throwIfAlreadyLoaded } from './module-import-guard';
-import { NavComponent } from './nav/nav.component';
 /**
  * @whatItDoes {@link CoreModule} exists to make commonly used singleton services and single-use classes available
  * for use in the many other modules.
@@ -28,10 +27,8 @@ import { NavComponent } from './nav/nav.component';
     RouterModule
   ],
   exports: [
-    NavComponent
   ],
   declarations: [
-    NavComponent
   ]
 })
 export class CoreModule {

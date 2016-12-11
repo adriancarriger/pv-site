@@ -8,16 +8,13 @@ import { RouterModule, Routes } from '@angular/router';
  */
 const routes: Routes = [
   {
+    path: 'backend',
+    loadChildren: './back-end/back-end.module#BackEndModule'
+  },
+  {
     path: '',
-    loadChildren: './home/home.module#HomeModule'
-  },
-  {
-    path: 'sermons',
-    loadChildren: './sermons/sermons.module#SermonsModule'
-  },
-  {
-    path: '**',
-    redirectTo: ''
+    pathMatch: 'prefix',
+    loadChildren: './front-end/front-end.module#FrontEndModule'
   }
 ];
 /**
@@ -32,7 +29,6 @@ const routes: Routes = [
  */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: []
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

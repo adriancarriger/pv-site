@@ -3,7 +3,7 @@
  */ /** */
 import { Component, OnInit } from '@angular/core';
 
-import { ApiService } from '../api/api.service';
+import { ApiService } from '../../core/api/api.service';
 /**
  * @whatItDoes Returns the {@link NavComponent} view
  * @consumers {@link AppComponent}

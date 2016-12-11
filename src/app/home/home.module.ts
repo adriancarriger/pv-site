@@ -9,7 +9,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 /**
  * @whatItDoes Lazy loaded feature module for the home page.
- * @consumers {@link AppRoutingModule} (on demand)
+ * @consumers {@link FrontEndRoutingModule} (on demand)
  */
 @NgModule({
   imports: [
