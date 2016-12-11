@@ -11,15 +11,17 @@
         <a *ngIf="item.url" [routerLink]="['/' + item.slug]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">{{item.name}}</a>
         <template [ngIf]="item.sub">
           <button (click)="activeItem !== item.slug ? activeItem = item.slug : activeItem = undefined">{{item.name}}</button>
-          <ul class="sub-items" [ngClass]="{'active': item.slug === activeItem}">
-            <li *ngFor="let sub of item.sub" class="sub-item">
-              <a [routerLink]="['/' + item.slug + '/' + sub.slug]" (click)="isCollapsed = !isCollapsed">
-                <img src="{{sub.image_small}}" srcset="{{sub.image_small}} 150w, {{sub.image_medium}} 300w, {{sub.image_large}} 600w" sizes="30vw" alt="">
-                <div class="title">{{sub.name}}</div>
-                <div class="overlay"></div>
-              </a>
-            </li>
-          </ul>
+          <div class="sub-items-container" [ngClass]="{'active': item.slug === activeItem}">
+            <ul class="sub-items">
+              <li *ngFor="let sub of item.sub" class="sub-item">
+                <a [routerLink]="['/' + item.slug + '/' + sub.slug]" (click)="isCollapsed = !isCollapsed">
+                  <img src="{{sub.image_small}}" srcset="{{sub.image_small}} 150w, {{sub.image_medium}} 300w, {{sub.image_large}} 600w" sizes="30vw" alt="">
+                  <div class="title">{{sub.name}}</div>
+                  <div class="overlay"></div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </template>
       </li>
     </div>

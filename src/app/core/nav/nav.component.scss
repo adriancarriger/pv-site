@@ -29,17 +29,68 @@
       margin-left: auto;
     }
     .item {
-      .sub-items {
+      .sub-items-container {
         height: 0;
         left: 0;
         right: 0;
         position: absolute;
         overflow: hidden;
-        display: flex;
-        justify-content: space-between;
+        background-color: white;
         &.active {
           height: initial;
         }
+        .sub-items {
+          width: 80%;
+          max-width: 900px;
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          .sub-item {
+            width: 29.33%;
+            margin: 20px 2%;
+            text-align: center;
+            > a {
+              // Apply some of Bootstrap's default styles
+              // after changing the HTML structure
+              display: block;
+              color: #333;
+            }
+            a {
+              position: relative;
+              .overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: black;
+                opacity: 0.7;
+              }
+              .title {
+                position: absolute;
+                top: 50%;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                font-size: 32px;
+                font-family: $titleFont;
+                color: white;
+                z-index: 1;
+                @media (min-width: 900px) {
+                  font-size: 42px;
+                }
+                @media (min-width: 1200px) {
+                  font-size: 58px;
+                }
+              }
+              img {
+                width: 100%;
+              }
+            }
+          }
+        }
+        
       }
     }
   }
