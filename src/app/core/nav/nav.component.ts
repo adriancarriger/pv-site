@@ -17,6 +17,8 @@ import { ApiService } from '../api/api.service';
 })
 export class NavComponent implements OnInit {
   activeItem: string;
+  isCollapsed:  boolean;
+  navOpen: boolean;
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {

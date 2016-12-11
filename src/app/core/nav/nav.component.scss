@@ -50,12 +50,6 @@
             width: 29.33%;
             margin: 20px 2%;
             text-align: center;
-            > a {
-              // Apply some of Bootstrap's default styles
-              // after changing the HTML structure
-              display: block;
-              color: #333;
-            }
             a {
               position: relative;
               .overlay {
