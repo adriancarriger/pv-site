@@ -2,11 +2,9 @@
 import { Injectable } from '@angular/core';
 import { async, inject, TestBed } from '@angular/core/testing';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
-import { Subject, Observable } from 'rxjs/Rx';
+import { Observable, ReplaySubject, Subject } from 'rxjs/Rx';
 
 import { FirebaseCacheService } from './firebase-cache.service';
-import { MockAngularFire } from '../../../mocks/mock-angular-fire.service.spec';
-import { MockNg2LocalforageService } from '../../../mocks/mock-ng2-localforage.service.spec';
 import { LocalForageService } from 'ng2-localforage';
 
 describe('Service: FirebaseCacheService', () => {
@@ -128,3 +126,78 @@ describe('Service: FirebaseCacheService', () => {
     })();
   });
 });
+
+export const MockApiData = [
+  {
+    dataUrl: 'https://example.com/slug-1',
+    date: '',
+    id: 1,
+    stamp: 1437120051000,
+    slug: 'slug-1',
+    text: 'this is string of searchable text'
+  }
+];
+
+@Injectable()
+export class MockNg2LocalforageService {
+  item;
+  list;
+  constructor() {
+    this.onInit();
+  }
+  onInit() {
+    this.item = new Subject();
+    this.list = new ReplaySubject();
+  }
+  getItem(input) {
+    if (input === 'list-2') {
+      return this.list.asObservable();
+    }
+    return this.item.asObservable();
+  }
+  setItem(input) {
+
+  }
+  update(updateInput, list?: boolean) {
+    if (list) {
+      this.list.next(updateInput);
+    } else {
+      this.item.next(updateInput);
+      this.item.complete();
+    }
+  }
+}
+
+@Injectable()
+export class MockAngularFire {
+  recipeList$;
+  input;
+  database = {
+    list: (input: string, query?) => {
+      return this.recipeList$.asObservable();
+    },
+    object: (input: string, query?) => {
+      this.input = input;
+      return this.recipeList$.asObservable();
+    }
+  };
+  private mockArray: Array<Object>;
+  constructor() {
+    this.mockArray = MockApiData;
+    this.recipeList$ = new Subject();
+    this.update();
+  }
+  update(newValue?) {
+    let nextObj;
+    if (this.input === 'client/recipes/slug-2') {
+      nextObj = this.mockArray[1];
+    } else {
+      nextObj = this.mockArray;
+    }
+    nextObj = { val: () => { return nextObj; } };
+    if (newValue) {
+      nextObj = newValue;
+    }
+    this.recipeList$.next(nextObj);
+  }
+}

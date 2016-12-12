@@ -1,13 +1,12 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, Injectable } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { FrontEndComponent } from './front-end.component';
 import { NavComponent } from './nav/nav.component';
 import { ApiService } from '../core/api/api.service';
-import { MockApiService } from '../core/api/mock-api.service.spec';
 
 describe('FrontEndComponent', () => {
   let component: FrontEndComponent;
@@ -40,3 +39,11 @@ describe('FrontEndComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Injectable()
+export class MockApiService extends ApiService {
+  constructor() {
+    super(null);
+  }
+  onInit() { }
+}

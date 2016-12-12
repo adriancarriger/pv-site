@@ -1,12 +1,12 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ApiService } from './core/api/api.service';
-import { MockApiService } from './core/api/mock-api.service.spec';
 
 describe('AppComponent', () => {
   let mockApiService: MockApiService;
@@ -33,3 +33,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 });
+
+@Injectable()
+export class MockApiService extends ApiService {
+  constructor() {
+    super(null);
+  }
+  onInit() { }
+}
