@@ -14,7 +14,7 @@
           <div class="sub-items-container" [ngClass]="{'active': item.slug === activeItem}">
             <ul class="sub-items">
               <li *ngFor="let sub of item.sub" class="sub-item">
-                <a [routerLink]="['/' + item.slug + '/' + sub.slug]" (click)="isCollapsed = !isCollapsed">
+                <a [routerLink]="['/' + item.slug + '/' + sub.slug]" (click)="activeItem = undefined">
                   <img src="{{sub.image_small}}" srcset="{{sub.image_small}} 150w, {{sub.image_medium}} 300w, {{sub.image_large}} 600w" sizes="30vw" alt="">
                   <div class="title">{{sub.name}}</div>
                   <div class="overlay"></div>
