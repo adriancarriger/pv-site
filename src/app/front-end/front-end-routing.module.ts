@@ -18,8 +18,32 @@ const routes: Routes = [
         loadChildren: '../home/home.module#HomeModule'
       },
       {
-        path: 'sermons',
+        path: 'resources/sermons',
         loadChildren: '../sermons/sermons.module#SermonsModule'
+      },
+      {
+        path: 'resources/:type',
+        loadChildren: '../home/home.module#HomeModule'
+      },
+      {
+        path: 'ministries/:type',
+        loadChildren: '../default/default.module#DefaultModule'
+      },
+      {
+        path: 'outreaches/:type',
+        loadChildren: '../default/default.module#DefaultModule'
+      },
+      {
+        path: 'about/:type',
+        loadChildren: '../home/home.module#HomeModule'
+      },
+      {
+        path: 'events',
+        loadChildren: '../home/home.module#HomeModule'
+      },
+      {
+        path: 'contact',
+        loadChildren: '../home/home.module#HomeModule'
       }
     ]
   },
