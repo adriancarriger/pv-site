@@ -1,6 +1,8 @@
 <nav class="nav">
   <div class="top-container">
-    <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="home" (click)="activeItem = undefined">Home</a>
+    <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="home" (click)="activeItem = undefined">
+      <app-logo></app-logo>
+    </a>
     <div class="mobile-nav">
       <app-button-clear padding="10px" (click)="navOpen = !navOpen">Toggle nav</app-button-clear>
     </div>

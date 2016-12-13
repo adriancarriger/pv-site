@@ -7,6 +7,12 @@
   .top-container {
     display: flex;
     justify-content: space-between;
+    .home {
+      font-size: 44px;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+    }
     .mobile-nav {
       display: none;
       margin-left: auto;
@@ -22,10 +28,12 @@
   .items {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     .left, .right {
       display: flex;
       justify-content: space-between;
+      height: 100%;
     }
     .left {
       margin-right: auto;
@@ -34,6 +42,8 @@
       margin-left: auto;
     }
     .item {
+      display: flex;
+      align-items: center;
       &.active {
         background-color: #e7e7e7;
       }
@@ -41,7 +51,7 @@
         height: 0;
         left: 0;
         right: 0;
-        top: 59px;
+        top: 68px;
         position: absolute;
         overflow: hidden;
         background-color: white;
@@ -62,6 +72,9 @@
             a {
               position: relative;
               display: block;
+              &:focus {
+                outline: 2px solid $primaryColor;
+              }
               .overlay {
                 position: absolute;
                 top: 0;
