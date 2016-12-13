@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavComponent } from './nav.component';
 import { ApiService } from '../../core/api/api.service';
+import { SharedModule } from '../../shared/shared.module';
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -14,7 +15,7 @@ describe('NavComponent', () => {
   beforeEach(async(() => {
     mockApiService = new MockApiService();
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule ],
+      imports: [ RouterTestingModule, SharedModule ],
       declarations: [ NavComponent ],
       providers: [
         { provide: ApiService, useValue: mockApiService }

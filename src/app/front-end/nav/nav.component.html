@@ -1,20 +1,20 @@
 <nav class="nav">
   <div class="top-container">
-    <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="home">Home</a>
+    <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="home" (click)="activeItem = undefined">Home</a>
     <div class="mobile-nav">
-      <button (click)="navOpen = !navOpen">Toggle nav</button>
+      <app-button-clear padding="10px" (click)="navOpen = !navOpen">Toggle nav</app-button-clear>
     </div>
   </div>
   <ul class="items">
     <div class="left">
-      <li *ngFor="let item of apiService.menu | async" class="item">
-        <a *ngIf="item.url" [routerLink]="['/' + item.slug]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">{{item.name}}</a>
+      <li *ngFor="let item of apiService.menu | async" class="item" [ngClass]="{'active': item.slug === activeItem}">
+        <a *ngIf="item.url" [routerLink]="['/' + item.slug]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" (click)="activeItem = undefined">{{item.name}}</a>
         <template [ngIf]="item.sub">
-          <button (click)="activeItem !== item.slug ? activeItem = item.slug : activeItem = undefined">{{item.name}}</button>
+          <app-button-clear padding="10px" (click)="activeItem !== item.slug ? activeItem = item.slug : activeItem = undefined">{{item.name}}</app-button-clear>
           <div class="sub-items-container" [ngClass]="{'active': item.slug === activeItem}">
             <ul class="sub-items">
               <li *ngFor="let sub of item.sub" class="sub-item">
-                <a [routerLink]="['/' + item.slug + '/' + sub.slug]" (click)="activeItem = undefined">
+                <a [routerLink]="['/' + item.slug + '/' + sub.slug]" [tabindex]="item.slug !== activeItem ? '-1' : null" (click)="activeItem = undefined">
                   <img src="{{sub.image_small}}" srcset="{{sub.image_small}} 150w, {{sub.image_medium}} 300w, {{sub.image_large}} 600w" sizes="30vw" alt="">
                   <div class="title">{{sub.name}}</div>
                   <div class="overlay"></div>

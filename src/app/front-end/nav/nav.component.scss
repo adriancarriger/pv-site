@@ -2,6 +2,7 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  background-color: #f8f8f8;
   // top container holds the home button, and mobile only nav buttons (toggle nav, etc)
   .top-container {
     display: flex;
@@ -11,8 +12,12 @@
       margin-left: auto;
     }
   }
-  .home, .item {
+  .top-container, .item {
     padding: 10px;
+    a {
+      display: block;
+      padding: 10px;
+    }
   }
   .items {
     display: flex;
@@ -29,10 +34,14 @@
       margin-left: auto;
     }
     .item {
+      &.active {
+        background-color: #e7e7e7;
+      }
       .sub-items-container {
         height: 0;
         left: 0;
         right: 0;
+        top: 59px;
         position: absolute;
         overflow: hidden;
         background-color: white;

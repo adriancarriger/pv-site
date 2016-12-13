@@ -7,6 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FrontEndComponent } from './front-end.component';
 import { NavComponent } from './nav/nav.component';
 import { ApiService } from '../core/api/api.service';
+import { SharedModule } from '../shared/shared.module';
 
 describe('FrontEndComponent', () => {
   let component: FrontEndComponent;
@@ -16,7 +17,8 @@ describe('FrontEndComponent', () => {
     mockApiService = new MockApiService();
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        SharedModule
       ],
       declarations: [
         FrontEndComponent,
