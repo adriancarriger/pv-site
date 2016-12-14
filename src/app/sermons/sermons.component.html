@@ -1,3 +1,2 @@
-<p>
-  sermons works!
-</p>
+<app-header-default [info]="(apiService.latestSermon | async)?.info">
+</app-header-default>

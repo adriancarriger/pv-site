@@ -1,7 +1,9 @@
 /**
  * @module SermonsModule
  */ /** */
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { ApiService } from '../core/api/api.service';
 /**
  * @whatItDoes Returns the {@link SermonsComponent} view.
  * @consumers {@link SermonsModule},  {@link SermonsRoutingModule}
@@ -11,11 +13,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sermons.component.html',
   styleUrls: ['./sermons.component.scss']
 })
-export class SermonsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class SermonsComponent {
+  constructor(
+    public apiService: ApiService) { }
 }

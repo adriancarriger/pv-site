@@ -1,0 +1,6 @@
+<div class="container-image fixed-nav-fix">
+  <img *ngIf="info?.image_small" src="{{info.image_small}}" srcset="{{info.image_small}} 600w, {{info.image_medium}} 1000w, {{info.image_large}} 2000w, {{info.image_x_large}} 3000w" alt="">
+  <div class="overlay"></div>
+  <h1>{{info?.title}}</h1>
+  <ng-content></ng-content>
+</div>
