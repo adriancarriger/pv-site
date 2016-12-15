@@ -75,7 +75,7 @@
               position: relative;
               display: block;
               &:focus {
-                outline: 2px solid $primaryColor;
+                outline: 4px solid $primaryColor;
               }
               .overlay {
                 position: absolute;
