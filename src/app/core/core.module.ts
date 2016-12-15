@@ -9,7 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { LocalForageModule } from 'ng2-localforage';
 
 import { ApiService } from './api/api.service';
-import { FirebaseCacheService } from './firebase-cache/firebase-cache.service';
+import { FirebaseCacheModule } from '../packages/firebase-cache/firebase-cache.module';
 import { firebaseConfig } from './firebase-config';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 /**
@@ -23,6 +23,7 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
     CommonModule,
+    FirebaseCacheModule.forRoot(),
     LocalForageModule.forRoot(),
     RouterModule
   ],
@@ -41,8 +42,7 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: [
-        ApiService,
-        FirebaseCacheService
+        ApiService
       ]
     };
   }

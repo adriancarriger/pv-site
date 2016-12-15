@@ -4,7 +4,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { FirebaseCacheService } from '../firebase-cache/firebase-cache.service';
+import { FirebaseCacheService } from '../../packages/firebase-cache/firebase-cache.service';
 /**
  * @whatItDoes Reponsible for returning data from an API.
  * @consumers {@link HomeComponent}, {@link RecipeComponent}, {@link RecipeAdComponent}

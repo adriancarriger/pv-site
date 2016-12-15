@@ -4,7 +4,7 @@ import { async, inject, TestBed } from '@angular/core/testing';
 import { Subject, Observable } from 'rxjs/Rx';
 
 import { ApiService } from './api.service';
-import { FirebaseCacheService } from '../firebase-cache/firebase-cache.service';
+import { FirebaseCacheService } from '../../packages/firebase-cache/firebase-cache.service';
 
 describe('Service: ApiService', () => {
   let mockFirebaseCacheService: MockFirebaseCacheService;
