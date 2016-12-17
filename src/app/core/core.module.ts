@@ -9,9 +9,10 @@ import { AngularFireModule } from 'angularfire2';
 import { LocalForageModule } from 'ng2-localforage';
 
 import { ApiService } from './api/api.service';
-import { FirebaseCacheModule } from '../packages/firebase-cache/firebase-cache.module';
 import { firebaseConfig } from './firebase-config';
 import { throwIfAlreadyLoaded } from './module-import-guard';
+import { FirebaseCacheModule } from '../packages/firebase-cache/firebase-cache.module';
+import { GlobalEventsModule } from '../packages/global-events/global-events.module';
 /**
  * @whatItDoes {@link CoreModule} exists to make commonly used singleton services and single-use classes available
  * for use in the many other modules.
@@ -24,6 +25,7 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
     AngularFireModule.initializeApp(firebaseConfig),
     CommonModule,
     FirebaseCacheModule.forRoot(),
+    GlobalEventsModule.forRoot(),
     LocalForageModule.forRoot(),
     RouterModule
   ],
