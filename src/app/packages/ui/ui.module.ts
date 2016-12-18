@@ -5,10 +5,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LoadingComponent } from './loading/loading.component';
-import { InputComponent } from './input/input.component';
-import { SelectComponent } from './select/select.component';
+import { ButtonClearComponent } from './button-clear/button-clear.component';
 import { IconArrowDownComponent } from './icons/icon-arrow-down/icon-arrow-down.component';
+import { IconNavComponent } from './icons/icon-nav/icon-nav.component';
+import { InputComponent } from './input/input.component';
+import { LoadingComponent } from './loading/loading.component';
+import { SelectComponent } from './select/select.component';
 /**
  * @whatItDoes {@link UiModule} exists to hold the common user interface methods that offers a
  * consistant look and api to the rest of the app.
@@ -31,13 +33,17 @@ import { IconArrowDownComponent } from './icons/icon-arrow-down/icon-arrow-down.
     CommonModule
   ],
   declarations: [
+    ButtonClearComponent,
     IconArrowDownComponent,
+    IconNavComponent,
     InputComponent,
     LoadingComponent,
     SelectComponent
   ],
   exports: [
+    ButtonClearComponent,
     IconArrowDownComponent,
+    IconNavComponent,
     InputComponent,
     LoadingComponent,
     SelectComponent
