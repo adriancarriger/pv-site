@@ -82,7 +82,7 @@ export class FilterPipe implements PipeTransform {
     return searchQueries
       .toLowerCase()
       .split(' ')
-      .filter(item => !this.stopWords().includes(item));
+      .filter(item => this.stopWords().indexOf(item) === -1);
   }
   /**
    * The actual filter logic applied to each item.
@@ -95,7 +95,7 @@ export class FilterPipe implements PipeTransform {
     // Filter by select terms
     if (Object.keys(meta.input)
       .filter(x => x !== 'search' && meta.input[x] !== 'all')
-      .find(y => !this.flatArray(item[y]).includes(meta.input[y]))) { return; }
+      .find(y => this.flatArray(item[y]).indexOf(meta.input[y]) === -1)) { return; }
     // Filter by search terms
     if (meta.checkSearch) {
       let searchable = meta.searchFields
@@ -105,7 +105,7 @@ export class FilterPipe implements PipeTransform {
             .reduce((e, f) => e + ' ' + f, '')
             .toLowerCase();
         }, '');
-      if (meta.searchQueries.find(x => !searchable.includes(x))) { return; }
+      if (meta.searchQueries.find(x => searchable.indexOf(x) === -1)) { return; }
     }
     return item;
   }
@@ -121,7 +121,7 @@ export class FilterPipe implements PipeTransform {
   private readableQueries(inputs: Object): string {
     return Object.keys(inputs)
       .map(key => inputs[key])
-      .filter(input => !['', 'all'].includes(input))
+      .filter(input => ['', 'all'].indexOf(input) === -1)
       .reduce(this.readableList, '');
   }
   /**
