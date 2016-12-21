@@ -24,6 +24,7 @@ export class ApiService {
   menu: Observable<any>;
   sermons: Observable<any>;
   latestSermon: Observable<any>;
+  filterOptions: Observable<any>;
   constructor(
     private fbCache: FirebaseCacheService) {
     this.onInit();
@@ -36,5 +37,6 @@ export class ApiService {
     this.menu = this.fbCache.object('client/menu');
     this.sermons = this.fbCache.list('client/sermons');
     this.latestSermon = this.fbCache.object('client/latestSermon');
+    this.filterOptions = this.fbCache.object('client/filter');
   }
 }

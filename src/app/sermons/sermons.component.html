@@ -1,2 +1,3 @@
 <app-header-default [info]="(apiService.latestSermon | async)?.info">
 </app-header-default>
+<app-filter [filterItems]="(apiService.filterOptions | async)?.items"></app-filter>

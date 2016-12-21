@@ -13,6 +13,7 @@ import { firebaseConfig } from './firebase-config';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { FirebaseCacheModule } from '../packages/firebase-cache/firebase-cache.module';
 import { GlobalEventsModule } from '../packages/global-events/global-events.module';
+import { FilterModule } from '../packages/filter/filter.module';
 /**
  * @whatItDoes {@link CoreModule} exists to make commonly used singleton services and single-use classes available
  * for use in the many other modules.
@@ -24,6 +25,7 @@ import { GlobalEventsModule } from '../packages/global-events/global-events.modu
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
     CommonModule,
+    FilterModule.forRoot(),
     FirebaseCacheModule.forRoot(),
     GlobalEventsModule.forRoot(),
     LocalForageModule.forRoot(),
