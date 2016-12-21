@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { ButtonClearComponent } from './button-clear/button-clear.component';
 import { IconArrowDownComponent } from './icons/icon-arrow-down/icon-arrow-down.component';
 import { IconNavComponent } from './icons/icon-nav/icon-nav.component';
+import { IconSearchComponent } from './icons/icon-search/icon-search.component';
 import { InputComponent } from './input/input.component';
 import { LoadingComponent } from './loading/loading.component';
 import { SelectComponent } from './select/select.component';
@@ -36,6 +37,7 @@ import { SelectComponent } from './select/select.component';
     ButtonClearComponent,
     IconArrowDownComponent,
     IconNavComponent,
+    IconSearchComponent,
     InputComponent,
     LoadingComponent,
     SelectComponent
@@ -44,6 +46,7 @@ import { SelectComponent } from './select/select.component';
     ButtonClearComponent,
     IconArrowDownComponent,
     IconNavComponent,
+    IconSearchComponent,
     InputComponent,
     LoadingComponent,
     SelectComponent

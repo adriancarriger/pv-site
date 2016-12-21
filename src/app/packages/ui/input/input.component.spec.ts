@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { InputComponent } from './input.component';
+import { IconSearchComponent } from '../icons/icon-search/icon-search.component';
 
 describe('InputComponent', () => {
   let component: InputComponent;
@@ -11,7 +12,7 @@ describe('InputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputComponent ]
+      declarations: [ IconSearchComponent, InputComponent ]
     })
     .compileComponents();
   }));

@@ -41,4 +41,13 @@ $borderRadius: 0;
     width: 0;
     transition: 0.5s ease;
   }
+  app-icon-search {
+    position: absolute;
+    left: $sidePadding;
+    top: 3px;
+    bottom: 0;
+    margin: auto;
+    fill: inherit;
+    line-height: 1;
+  }
 }

@@ -26,6 +26,10 @@ export class InputComponent {
    */
   @Input() color: string;
   /**
+   * Allows custom options (e.g. search input styling)
+   */
+  @Input() special: string;
+  /**
    * attr.aria-label (optional)
    */
   @Input() label: string;
