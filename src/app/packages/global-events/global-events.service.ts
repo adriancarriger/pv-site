@@ -29,7 +29,7 @@ export class GlobalEventsService {
    * (following this [Stackoverflow answer](http://stackoverflow.com/a/38875374/5357459)).
    */
   constructor(
-    @Inject('Window') private window: Window) {
+    @Inject('Window') private window: any) {
     this.onInit();
   }
   /**

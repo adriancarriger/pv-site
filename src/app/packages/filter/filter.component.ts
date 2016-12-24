@@ -89,7 +89,7 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
     private el: ElementRef,
     private filterUtilitiesService: FilterUtilitiesService,
     private globalEventsService: GlobalEventsService,
-    @Inject('Window') private window: Window) { }
+    @Inject('Window') private window: any) { }
   /**
    * After the view has loaded, assume that the results may not be showing.
    */

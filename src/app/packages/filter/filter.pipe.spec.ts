@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, NgModule, OnInit } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 
@@ -76,16 +76,24 @@ export class ContainerComponent implements OnInit {
   }
 }
 
+@NgModule({
+  declarations: [ ContainerComponent ],
+  exports: [ ContainerComponent ]
+})
+export class ContainerModule { }
+
+
 describe('Pipe: Filter', () => {
   let component: ContainerComponent;
   let fixture: ComponentFixture<ContainerComponent>;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ ContainerModule ],
       providers: [
         FilterPipe,
         FilterUtilitiesService
       ],
-      declarations: [ContainerComponent, FilterPipe]
+      declarations: [FilterPipe]
     })
     .compileComponents();
   }));
