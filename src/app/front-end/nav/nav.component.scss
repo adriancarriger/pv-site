@@ -76,7 +76,7 @@
               position: relative;
               display: block;
               &:focus {
-                outline: 4px solid $primaryColor;
+                outline: 4px solid $primary-color;
               }
               .overlay {
                 position: absolute;
@@ -94,7 +94,7 @@
                 left: 0;
                 right: 0;
                 font-size: 32px;
-                font-family: $titleFont;
+                font-family: $title-font;
                 color: white;
                 z-index: 1;
                 @media (min-width: 900px) {
@@ -114,7 +114,7 @@
       }
     }
   }
-  @media (max-width: $mobileBreakPoint) {
+  @media (max-width: $mobile-break-point) {
     display: initial;
     .top-container {
       .mobile-nav {
