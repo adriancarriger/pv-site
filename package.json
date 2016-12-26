@@ -9,7 +9,7 @@
     "hmr": "ng serve --hmr -e=hmr",
     "lint": "tslint \"src/**/*.ts\"",
     "sassLint": "sass-lint 'src/**/*.scss' -v --max-warnings=0",
-    "test": "ng lint && sassLint && ng test --watch=false --code-coverage",
+    "test": "ng lint && npm run sassLint && ng test --watch=false --code-coverage",
     "fireDeployPrep": "ng build --prod --aot",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor"
