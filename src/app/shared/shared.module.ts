@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ButtonClearComponent } from './button-clear/button-clear.component';
 import { LogoComponent } from './logo/logo.component';
 import { HeaderDefaultComponent } from './header-default/header-default.component';
+import { UiModule } from '../packages/ui/ui.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    UiModule
   ],
   declarations: [
-    ButtonClearComponent,
     HeaderDefaultComponent,
     LogoComponent
   ],
   exports: [
-    ButtonClearComponent,
     HeaderDefaultComponent,
-    LogoComponent
+    LogoComponent,
+    UiModule
   ]
 })
 export class SharedModule { }
