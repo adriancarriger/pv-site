@@ -15,7 +15,7 @@ Check out a demo at [http://adriancarriger.github.io/pv-site/](http://adriancarr
 
 ## Tech Stack
 
-* Front end: [Angular 2](https://github.com/angular/angular) version 2.3.1
+* Front end: [Angular 2](https://github.com/angular/angular) version 2.4.1
 * Database/hosting: [Firebase](https://firebase.google.com/)
 * Scaffolding: [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24
 
