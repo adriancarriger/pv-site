@@ -19,7 +19,7 @@
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-2.4.1.tgz#a70167430574959c3423ac96ebdec98032d3500d"
 
-"@angular/compiler-cli@2.4.1":
+"@angular/compiler-cli@2.4.1", "@angular/compiler-cli@^2.3.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-2.4.1.tgz#9291504197a199fee2f48353d67431a1a9e40833"
   dependencies:
@@ -27,29 +27,13 @@
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler-cli@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-2.3.1.tgz#ff461fdf44a8c5b51117f572ba58949e45bd18b5"
-  dependencies:
-    "@angular/tsc-wrapped" "0.5.0"
-    minimist "^1.2.0"
-    reflect-metadata "^0.1.2"
-
-"@angular/compiler@2.4.1":
+"@angular/compiler@2.4.1", "@angular/compiler@^2.3.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.4.1.tgz#62b4fbfc53c934bd5def78db594cbf245b3f446a"
 
-"@angular/compiler@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.3.1.tgz#0c57f848e41432bac3201c29b645dd4dd099d2f9"
-
-"@angular/core@2.4.1":
+"@angular/core@2.4.1", "@angular/core@^2.3.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.4.1.tgz#3a6d2dc7fd86fdebe4febae7eb28abad7d04c76a"
-
-"@angular/core@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.3.1.tgz#be6e91fdfdd7498506604263e051797cf67a47be"
 
 "@angular/forms@2.4.1":
   version "2.4.1"
@@ -1028,9 +1012,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codelyzer@2.0.0-beta.3:
-  version "2.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-2.0.0-beta.3.tgz#be17e73a4ccd659d6f2a863da1711b3f742762ed"
+codelyzer@2.0.0-beta.4:
+  version "2.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-2.0.0-beta.4.tgz#644c5ffcdcc6c933991e3790a29c5085e80ae4ca"
   dependencies:
     app-root-path "^2.0.1"
     css-selector-tokenizer "^0.7.0"
