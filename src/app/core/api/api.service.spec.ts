@@ -57,7 +57,7 @@ export class MockFirebaseCacheService extends FirebaseCacheService {
     return this.list$.asObservable();
   }
   update() {
-    let nextObj = this.mockArray;
+    const nextObj = this.mockArray;
     this.list$.next(nextObj);
   }
 }

@@ -31,7 +31,7 @@ describe('Service: FirebaseCacheService', () => {
   }));
 
   it('should return a list', async(inject([FirebaseCacheService], (service: FirebaseCacheService) => {
-    let newValue = [
+    const newValue = [
       { val: () => { return 'xyz'; } }
     ];
     service.list('slug-2').subscribe(list => {
@@ -55,7 +55,7 @@ describe('Service: FirebaseCacheService', () => {
   }));
 
   it('should return an object', async(inject([FirebaseCacheService], (service: FirebaseCacheService) => {
-    let newValue = { val: () => { return 'abc23-7'; } };
+    const newValue = { val: () => { return 'abc23-7'; } };
     service.object('slug-2').subscribe(object => {
       expect(object).toBe('abc23-7');
     });
