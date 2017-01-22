@@ -6,12 +6,11 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
-import { LocalForageModule } from 'ng2-localforage';
+import { AngularFire2OfflineModule } from 'angularfire2-offline';
 
 import { ApiService } from './api/api.service';
 import { firebaseConfig } from './firebase-config';
 import { throwIfAlreadyLoaded } from './module-import-guard';
-import { FirebaseCacheModule } from '../packages/firebase-cache/firebase-cache.module';
 import { GlobalEventsModule } from '../packages/global-events/global-events.module';
 import { FilterModule } from '../packages/filter/filter.module';
 /**
@@ -24,11 +23,10 @@ import { FilterModule } from '../packages/filter/filter.module';
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFire2OfflineModule.forRoot(),
     CommonModule,
     FilterModule.forRoot(),
-    FirebaseCacheModule.forRoot(),
     GlobalEventsModule.forRoot(),
-    LocalForageModule.forRoot(),
     RouterModule
   ],
   exports: [

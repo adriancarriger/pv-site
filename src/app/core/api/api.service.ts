@@ -4,7 +4,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { FirebaseCacheService } from '../../packages/firebase-cache/firebase-cache.service';
+import {
+  Angularfire2OfflineService,
+  ListObservable,
+  ObjectObservable } from 'angularfire2-offline';
 /**
  * @whatItDoes Reponsible for returning data from an API.
  * @consumers {@link HomeComponent}, {@link RecipeComponent}, {@link RecipeAdComponent}
@@ -21,12 +24,12 @@ import { FirebaseCacheService } from '../../packages/firebase-cache/firebase-cac
  */
 @Injectable()
 export class ApiService {
-  menu: Observable<any>;
-  sermons: Observable<any>;
-  latestSermon: Observable<any>;
-  filterOptions: Observable<any>;
+  menu: ObjectObservable;
+  sermons: ListObservable;
+  latestSermon: ObjectObservable;
+  filterOptions: ObjectObservable;
   constructor(
-    private fbCache: FirebaseCacheService) {
+    private fbCache: Angularfire2OfflineService) {
     this.onInit();
   }
   /**
