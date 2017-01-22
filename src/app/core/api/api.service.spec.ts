@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
 import { Injectable } from '@angular/core';
 import { async, inject, TestBed } from '@angular/core/testing';
+import { Angularfire2OfflineService } from 'angularfire2-offline';
 import { Subject, Observable } from 'rxjs/Rx';
 
 import { ApiService } from './api.service';
-import { FirebaseCacheService } from '../../packages/firebase-cache/firebase-cache.service';
 
 describe('Service: ApiService', () => {
   let mockFirebaseCacheService: MockFirebaseCacheService;
@@ -13,7 +13,7 @@ describe('Service: ApiService', () => {
     TestBed.configureTestingModule({
       providers: [
         ApiService,
-        { provide: FirebaseCacheService, useValue: mockFirebaseCacheService },
+        { provide: Angularfire2OfflineService, useValue: mockFirebaseCacheService },
       ]
     });
   });
@@ -39,7 +39,7 @@ export const MockApiData = [
 ];
 
 @Injectable()
-export class MockFirebaseCacheService extends FirebaseCacheService {
+export class MockFirebaseCacheService extends Angularfire2OfflineService {
   list$;
   input;
   private mockArray: Array<Object>;
