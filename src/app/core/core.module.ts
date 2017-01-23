@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFire2OfflineModule } from 'angularfire2-offline';
+import { AngularFireOfflineModule } from 'angularfire2-offline';
 
 import { ApiService } from './api/api.service';
 import { firebaseConfig } from './firebase-config';
@@ -23,7 +23,7 @@ import { FilterModule } from '../packages/filter/filter.module';
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFire2OfflineModule.forRoot(),
+    AngularFireOfflineModule.forRoot(),
     CommonModule,
     FilterModule.forRoot(),
     GlobalEventsModule.forRoot(),
