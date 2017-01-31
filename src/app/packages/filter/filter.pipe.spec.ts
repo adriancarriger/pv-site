@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/subject';
 
 import { FilterPipe } from './filter.pipe';
 import { FilterUtilitiesService } from './filter-utilities.service';
-import { GlobalEventsService } from '..//global-events/global-events.service';
+import { GlobalEventsService } from '../global-events/global-events.service';
 
 export const MockApiData = [
   {
