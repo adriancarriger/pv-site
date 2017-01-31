@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { Component, Injectable, NgModule, OnInit } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/subject';
 
 import { FilterPipe } from './filter.pipe';
 import { FilterUtilitiesService } from './filter-utilities.service';

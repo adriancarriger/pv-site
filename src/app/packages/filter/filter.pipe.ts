@@ -62,7 +62,7 @@ export class FilterPipe implements PipeTransform {
   private filtering(filterInput, filteredMeta) {
     const status = { any: false, search: false };
     if (filterInput === undefined || filterInput === {}) { return status; }
-    for (let key in filterInput) {
+    for (const key in filterInput) {
       if (key === 'search') {
         if (filterInput[key] !== '' && filteredMeta.searchFields.length > 0) {
           status.search = true;

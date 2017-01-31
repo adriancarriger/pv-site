@@ -2,7 +2,7 @@
  * @module CoreModule
  */ /** */
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/observable';
 
 import {
   AngularFireOffline,

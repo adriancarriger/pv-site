@@ -82,6 +82,10 @@
   version "2.5.38"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.38.tgz#a4379124c4921d4e21de54ec74669c9e9b356717"
 
+"@types/localforage@^0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/localforage/-/localforage-0.0.33.tgz#dac2f28cdce54c3095bc4d5555b4e89cb7c5063c"
+
 "@types/node@6.0.52", "@types/node@^6.0.46":
   version "6.0.52"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.52.tgz#1ac3a99b42320f9e463482f25af4c2359473aaa6"
@@ -182,7 +186,7 @@ amdefine@1.0.0, amdefine@>=0.0.4:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.0.tgz#fd17474700cb5cc9c2b709f0be9d23ce3c198c33"
 
-angular-cli@latest:
+angular-cli@1.0.0-beta.26:
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/angular-cli/-/angular-cli-1.0.0-beta.26.tgz#f366c9060368a4cda65ded09caa8f3251efc78ec"
   dependencies:
