@@ -22,10 +22,4 @@ before_install:
 
 after_success:
   # Only deploy if master
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    # Send coverage data to Codecov
-    bash <(curl -s https://codecov.io/bash) &&
-    # Deploy to firebase
-    npm run fireDeployPrep &&
-    firebase deploy --token=${FIREBASE_API_TOKEN}
-  fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then bash <(curl -s https://codecov.io/bash) fi
