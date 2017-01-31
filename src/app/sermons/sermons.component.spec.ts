@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, Injectable } from '@angular/core';
-import { Subject } from 'rxjs/subject';
+import { Subject } from 'rxjs/Subject';
 
 import { SermonsComponent } from './sermons.component';
 import { ApiService } from '../core/api/api.service';
