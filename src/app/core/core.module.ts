@@ -23,7 +23,7 @@ import { FilterModule } from '../packages/filter/filter.module';
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireOfflineModule.forRoot(),
+    AngularFireOfflineModule,
     CommonModule,
     FilterModule.forRoot(),
     GlobalEventsModule.forRoot(),
