@@ -6,6 +6,8 @@
 
 ## PV Bible Church Website
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/adriancarriger/pv-site.svg)](https://greenkeeper.io/)
+
 - This project is a work in progress.
 - Repo for the future [pvbiblechurch.com](http://pvbiblechurch.com/) site. Built using [Angular 2](https://github.com/angular/angular) with the [Angular 2 CLI](https://github.com/angular/angular-cli)
 
