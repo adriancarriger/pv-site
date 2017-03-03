@@ -41,14 +41,14 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
   @Output() drawerEvent = new EventEmitter();
   /**
    * Current state of the drawer.
-   * 
+   *
    * - The drawer is div that shows/hides extra filter options
    * - Set to closed by default
    */
   drawerOpen = false;
   /**
    * Optional filter items.
-   * 
+   *
    * - Filter by search
    * - Filter by select boxes (array)
    */
@@ -67,8 +67,8 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
   resizeSubscription: Subscription;
   /**
    * Used to hold the `.unsubscribe()` method to the scroll subscription when active.
-   * 
-   * - Unsubscribe is called if the user scrolls while the drawer is open.  
+   *
+   * - Unsubscribe is called if the user scrolls while the drawer is open.
    */
   scrollSubscription: Subscription;
   /**
@@ -149,7 +149,7 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
   }
   /**
    * Triggered on an update from a select input.
-   * 
+   *
    * - Turns the human name into a camelcase key
    * - Attaches the new value to the key
    * - Send the data via {@link onUpdate}
@@ -161,7 +161,7 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
   }
   /**
    * Triggered on an update from all inputs
-   * 
+   *
    * - Emits the current filter values
    * - Emits the current time to trigger pure pipes
    */
@@ -181,7 +181,7 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
   }
   /**
    * Closes the additional filter options.
-   * 
+   *
    * - Unsbuscribes from the scroll subscription
    * - Resets varibles
    * - Emits a drawer event

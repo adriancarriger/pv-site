@@ -14,7 +14,7 @@ export class FilterUtilitiesService {
    * - 'Equipment className' => 'equipmentClassName'
    * - 'equipment class name' => 'equipmentClassName'
    * - 'Equipment Class Name' => 'equipmentClassName'
-   * @param input takes any multi-word string 
+   * @param input takes any multi-word string
    * @see http://stackoverflow.com/a/2970667/5357459
    */
   camelize(input: string): string {

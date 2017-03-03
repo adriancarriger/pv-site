@@ -49,7 +49,7 @@ export class InputComponent {
     return this.input.nativeElement.value;
   }
   /**
-   * Sets the `input` value. 
+   * Sets the `input` value.
    */
   set(newValue: string) {
     this.input.nativeElement.value = newValue;

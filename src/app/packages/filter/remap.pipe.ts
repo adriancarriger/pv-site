@@ -4,7 +4,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 /**
  * @whatItDoes Allows the reordering of an array in an `*ngFor` to effectively move the elements
- * into a different order without destroying and recreating the elements. 
+ * into a different order without destroying and recreating the elements.
  */
 @Pipe({
   name: 'remap'

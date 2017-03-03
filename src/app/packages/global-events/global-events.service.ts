@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Rx';
  * @whatItDoes Reponsible for handling and dispatching global events such as `window` resizing,
  * `body` scrolling, etc.
  * @consumers {@link StickyScrollComponent}, {@link WatchHeightDirective}
- * @providerScope {@link AppComponent}   
+ * @providerScope {@link AppComponent}
  */
 @Injectable()
 export class GlobalEventsService {
@@ -40,7 +40,7 @@ export class GlobalEventsService {
   }
   /**
    * Called on each event (e.g. scroll/resize)
-   * 
+   *
    * - If `requestAnimationFrame` is currently running, then it will skip this event.
    * - When the browser calls `requestAnimationFrame` the event requested will emit to the
    * subscribers of this event that it is okay to perform short, optimized DOM operations.

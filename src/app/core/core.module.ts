@@ -17,7 +17,7 @@ import { FilterModule } from '../packages/filter/filter.module';
  * @whatItDoes {@link CoreModule} exists to make commonly used singleton services and single-use classes available
  * for use in the many other modules.
  * @consumers {@link AppModule}
- * 
+ *
  * This module follows the Angular style guide [STYLE 04-11](https://angular.io/styleguide#04-11)
  */
 @NgModule({
@@ -53,7 +53,7 @@ export class CoreModule {
    * [STYLE 04-11](https://angular.io/styleguide#04-12)
    * @param parentModule will be `null` if {@link CoreModule} is not reimported by another module,
    * otherwise it will throw an error.
-   * @see [Angular 2 docs - Prevent reimport of the CoreModule](https://angular.io/docs/ts/latest/guide/ngmodule.html#prevent-reimport) 
+   * @see [Angular 2 docs - Prevent reimport of the CoreModule](https://angular.io/docs/ts/latest/guide/ngmodule.html#prevent-reimport)
    */
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');

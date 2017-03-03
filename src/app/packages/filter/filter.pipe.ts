@@ -20,7 +20,7 @@ export class FilterPipe implements PipeTransform {
     private filterUtilitiesService: FilterUtilitiesService) { }
   /**
    * Filters the input `value` according to the `filteredInput`.
-   *  
+   *
    * @param value input data
    * @param updateTime the timestamp of the last update. Needed because pure pipes do not
    * detect updates to object properties
@@ -86,7 +86,7 @@ export class FilterPipe implements PipeTransform {
   }
   /**
    * The actual filter logic applied to each item.
-   * 
+   *
    * - Filters out non search queries first (e.g. select box queries)
    * - If filtering by search, then it finds the searchable text and checks if it matches
    * any queries.

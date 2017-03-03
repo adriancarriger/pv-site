@@ -7,7 +7,7 @@ import { ApiService } from '../../core/api/api.service';
 /**
  * @whatItDoes Returns the {@link NavComponent} view
  * @consumers {@link AppComponent}
- * 
+ *
  * Shown at the top of each page.
  */
 @Component({

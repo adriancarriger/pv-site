@@ -63,7 +63,7 @@ export class SelectComponent {
     return selectNative.options[selectNative.selectedIndex].value;
   }
   /**
-   * Sets the `select` value. 
+   * Sets the `select` value.
    */
   set(newValue: string) {
     this.select.nativeElement.value = newValue;

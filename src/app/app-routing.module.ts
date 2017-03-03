@@ -23,7 +23,7 @@ const routes: Routes = [
  * handles the app's routing concerns.
  * @consumers {@link AppModule}
  * @see [Angular 2 docs - Lazy loading modules with the Router](https://angular.io/docs/ts/latest/guide/ngmodule.html#lazy-load)
- * 
+ *
  * The returned {@link AppRoutingModule} class is a Routing Module containing both the RouterModule
  * directives and the Dependency Injection providers that produce a configured Router.
  */
