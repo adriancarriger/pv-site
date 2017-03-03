@@ -6,8 +6,8 @@ import { Observable } from 'rxjs/observable';
 
 import {
   AngularFireOffline,
-  ListObservable,
-  ObjectObservable } from 'angularfire2-offline';
+  AfoListObservable,
+  AfoObjectObservable } from 'angularfire2-offline';
 /**
  * @whatItDoes Reponsible for returning data from an API.
  * @consumers {@link HomeComponent}, {@link RecipeComponent}, {@link RecipeAdComponent}
@@ -24,10 +24,10 @@ import {
  */
 @Injectable()
 export class ApiService {
-  menu: ObjectObservable<any>;
-  sermons: ListObservable<any[]>;
-  latestSermon: ObjectObservable<any>;
-  filterOptions: ObjectObservable<any>;
+  menu: AfoObjectObservable<any>;
+  sermons: AfoListObservable<any[]>;
+  latestSermon: AfoObjectObservable<any>;
+  filterOptions: AfoObjectObservable<any>;
   constructor(
     private afo: AngularFireOffline) {
     this.onInit();
