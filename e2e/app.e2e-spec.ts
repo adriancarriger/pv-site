@@ -1,6 +1,6 @@
 import { PvSitePage } from './app.po';
 
-describe('pv-site App', function() {
+describe('pv-site App', () => {
   let page: PvSitePage;
 
   beforeEach(() => {
