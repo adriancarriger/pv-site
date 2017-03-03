@@ -15,4 +15,8 @@ export class ButtonClearComponent {
    * Attached to the `aria-label` property of the `button` element.
    */
   @Input() label: string;
+  /**
+   * Allows setting the `button` element's padding style.
+   */
+  @Input() padding: string;
 }

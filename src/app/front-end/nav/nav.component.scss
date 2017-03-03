@@ -62,6 +62,10 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
       align-items: center;
       display: flex;
 
+      app-button-clear {
+        padding: 0;
+      }
+
       &.active {
         background-color: $nav-gray;
       }
