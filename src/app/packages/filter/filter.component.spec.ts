@@ -8,6 +8,7 @@ import { FilterComponent } from './filter.component';
 import { FilterUtilitiesService } from './filter-utilities.service';
 import { RemapPipe } from './remap.pipe';
 import { GlobalEventsService } from '../global-events/global-events.service';
+import { WindowRef } from '../window/window.service';
 import { UiModule } from '../ui/ui.module';
 
 describe('FilterComponent', () => {
@@ -16,7 +17,7 @@ describe('FilterComponent', () => {
   let mockGlobalEventsService: MockGlobalEventsService;
   let mockWindowService: MockWindowService;
   beforeEach(async(() => {
-    mockWindowService = new MockWindowService();
+    mockWindowService = new MockWindowService( new MockNativeWindowService() );
     mockGlobalEventsService = new MockGlobalEventsService();
     TestBed.configureTestingModule({
       imports: [ UiModule ],
@@ -24,7 +25,7 @@ describe('FilterComponent', () => {
       providers: [
         FilterUtilitiesService,
         { provide: GlobalEventsService, useValue: mockGlobalEventsService },
-        { provide: 'Window', useValue: mockWindowService }
+        { provide: WindowRef, useValue: mockWindowService }
       ]
     })
     .compileComponents();
@@ -33,7 +34,7 @@ describe('FilterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FilterComponent);
     component = fixture.componentInstance;
-    mockWindowService.pageYOffset = 0;
+    mockWindowService.nativeWindow.pageYOffset = 0;
     fixture.detectChanges();
   });
 
@@ -60,14 +61,14 @@ describe('FilterComponent', () => {
 
   it('should set map to null', () => {
     component.map = 'mobile';
-    mockWindowService.innerWidth = 1200;
+    mockWindowService.nativeWindow.innerWidth = 1200;
     mockGlobalEventsService.update();
     expect(component.map).toEqual('default');
   });
 
   it('should set map to mobile', () => {
     component.map = 'default';
-    mockWindowService.innerWidth = 700;
+    mockWindowService.nativeWindow.innerWidth = 700;
     mockGlobalEventsService.update();
     expect(component.map).toEqual('mobile');
   });
@@ -103,7 +104,7 @@ describe('FilterComponent', () => {
 });
 
 @Injectable()
-export class MockWindowService {
+export class MockNativeWindowService {
   events$ = { };
   pageXOffset: number;
   pageYOffset: number;
@@ -131,6 +132,11 @@ export class MockWindowService {
       y: this.pageYOffset
     });
   }
+}
+
+@Injectable()
+export class MockWindowService {
+  constructor(public nativeWindow: MockNativeWindowService) { }
 }
 
 @Injectable()

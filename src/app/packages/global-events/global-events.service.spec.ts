@@ -4,15 +4,16 @@ import { async, inject, TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs/Rx';
 
 import { GlobalEventsService } from './global-events.service';
+import { WindowRef } from '../window/window.service';
 
 describe('Service: GlobalEvents', () => {
   let mockWindowService: MockWindowService;
   beforeEach(() => {
-    mockWindowService = new MockWindowService();
+    mockWindowService = new MockWindowService( new MockNativeWindowService() );
     TestBed.configureTestingModule({
       providers: [
         GlobalEventsService,
-        { provide: 'Window', useValue: <any> mockWindowService }
+        { provide: WindowRef, useValue: <any> mockWindowService }
       ]
     });
   });
@@ -36,16 +37,16 @@ describe('Service: GlobalEvents', () => {
       totalCalled++;
     });
     // Should call
-    mockWindowService.scrollTo(0, 0);
+    mockWindowService.nativeWindow.scrollTo(0, 0);
     // Should block
-    mockWindowService.scrollTo(0, 0);
+    mockWindowService.nativeWindow.scrollTo(0, 0);
     setTimeout( () => {
       // Should call
-      mockWindowService.scrollTo(0, 0);
+      mockWindowService.nativeWindow.scrollTo(0, 0);
     }, 300);
     setTimeout( () => {
       // Should call
-      mockWindowService.scrollTo(0, 0);
+      mockWindowService.nativeWindow.scrollTo(0, 0);
     }, 500);
     setTimeout( () => {
       expect(totalCalled).toBe(3);
@@ -59,14 +60,14 @@ describe('Service: GlobalEvents', () => {
   //     totalCalled++;
   //   });
   //   // Should call
-  //   mockWindowService.scrollTo(0, 0);
+  //   mockWindowService.nativeWindow.scrollTo(0, 0);
   //   // Should block
-  //   mockWindowService.scrollTo(0, 0);
+  //   mockWindowService.nativeWindow.scrollTo(0, 0);
   //   setTimeout( () => {
   //     // Should call
-  //     mockWindowService.scrollTo(0, 0);
+  //     mockWindowService.nativeWindow.scrollTo(0, 0);
   //     // Should block
-  //   mockWindowService.scrollTo(0, 0);
+  //   mockWindowService.nativeWindow.scrollTo(0, 0);
   //   }, 300);
   //   setTimeout( () => {
   //     expect(totalCalled).toBe(2);
@@ -79,18 +80,18 @@ describe('Service: GlobalEvents', () => {
   //     totalCalled++;
   //   });
   //   // Should call
-  //   mockWindowService.newEvent('resize', {new: 'object'});
+  //   mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //   // Should block
-  //   mockWindowService.newEvent('resize', {new: 'object'});
+  //   mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //   setTimeout( () => {
   //     // Should call
-  //     mockWindowService.newEvent('resize', {new: 'object'});
+  //     mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //     // Should block
-  //     mockWindowService.newEvent('resize', {new: 'object'});
+  //     mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //   }, 300);
   //   setTimeout( () => {
   //     // Should call
-  //     mockWindowService.newEvent('resize', {new: 'object'});
+  //     mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //   }, 500);
   //   setTimeout( () => {
   //     expect(totalCalled).toBe(3);
@@ -103,14 +104,14 @@ describe('Service: GlobalEvents', () => {
   //     totalCalled++;
   //   });
   //   // Should call
-  //   mockWindowService.newEvent('resize', {new: 'object'});
+  //   mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //   // Should block
-  //   mockWindowService.newEvent('resize', {new: 'object'});
+  //   mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //   setTimeout( () => {
   //     // Should call
-  //     mockWindowService.newEvent('resize', {new: 'object'});
+  //     mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //     // Should block
-  //     mockWindowService.newEvent('resize', {new: 'object'});
+  //     mockWindowService.nativeWindow.newEvent('resize', {new: 'object'});
   //   }, 300);
   //   setTimeout( () => {
   //     expect(totalCalled).toBe(2);
@@ -123,9 +124,9 @@ describe('Service: GlobalEvents', () => {
   //     totalCalled++;
   //   });
   //   // Should call
-  //   mockWindowService.scrollTo(0, 0);
+  //   mockWindowService.nativeWindow.scrollTo(0, 0);
   //   // Should block
-  //   mockWindowService.scrollTo(0, 0);
+  //   mockWindowService.nativeWindow.scrollTo(0, 0);
   //   setTimeout( () => {
   //     expect(totalCalled).toBe(1);
   //   }, 200);
@@ -133,7 +134,7 @@ describe('Service: GlobalEvents', () => {
 });
 
 @Injectable()
-export class MockWindowService {
+export class MockNativeWindowService {
   events$ = { };
   pageXOffset: number;
   pageYOffset: number;
@@ -161,4 +162,9 @@ export class MockWindowService {
       y: this.pageYOffset
     });
   }
+}
+
+@Injectable()
+export class MockWindowService {
+  constructor(public nativeWindow: MockNativeWindowService) { }
 }
