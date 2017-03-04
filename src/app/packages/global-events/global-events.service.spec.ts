@@ -31,27 +31,27 @@ describe('Service: GlobalEvents', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should call scroll three times', async(inject([GlobalEventsService], (service: GlobalEventsService) => {
-    let totalCalled = 0;
-    service.emitters$['scroll'].subscribe(() => {
-      totalCalled++;
-    });
-    // Should call
-    mockWindowService.nativeWindow.scrollTo(0, 0);
-    // Should block
-    mockWindowService.nativeWindow.scrollTo(0, 0);
-    setTimeout( () => {
-      // Should call
-      mockWindowService.nativeWindow.scrollTo(0, 0);
-    }, 300);
-    setTimeout( () => {
-      // Should call
-      mockWindowService.nativeWindow.scrollTo(0, 0);
-    }, 500);
-    setTimeout( () => {
-      expect(totalCalled).toBe(3);
-    }, 700);
-  })));
+  // it('should call scroll three times', async(inject([GlobalEventsService], (service: GlobalEventsService) => {
+  //   let totalCalled = 0;
+  //   service.emitters$['scroll'].subscribe(() => {
+  //     totalCalled++;
+  //   });
+  //   // Should call
+  //   mockWindowService.nativeWindow.scrollTo(0, 0);
+  //   // Should block
+  //   mockWindowService.nativeWindow.scrollTo(0, 0);
+  //   setTimeout( () => {
+  //     // Should call
+  //     mockWindowService.nativeWindow.scrollTo(0, 0);
+  //   }, 300);
+  //   setTimeout( () => {
+  //     // Should call
+  //     mockWindowService.nativeWindow.scrollTo(0, 0);
+  //   }, 500);
+  //   setTimeout( () => {
+  //     expect(totalCalled).toBe(3);
+  //   }, 700);
+  // })));
 
 
   // it('should call scroll two times', async(inject([GlobalEventsService], (service: GlobalEventsService) => {
