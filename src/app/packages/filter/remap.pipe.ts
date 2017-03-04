@@ -15,6 +15,18 @@ export class RemapPipe implements PipeTransform {
    */
   transform(value: any, mapTo = 'default'): any {
     if (value === null || value === undefined) { return; }
-    return value.sort((a, b) => a.order[mapTo] - b.order[mapTo]);
+    return value.sort((a, b) => {
+      const aExists = a.order !== undefined;
+      const bExists = b.order !== undefined;
+      if (aExists && bExists) { // if both exist
+        return a.order[mapTo] - b.order[mapTo]; // order according to the order provided
+      } else if (aExists) { // if only A
+        return -1; // move `a` before `b`
+      }  else if (bExists) { // if only B
+        return -1; // move `b` before `a`
+      } else { // no order provided
+        return 0; // do nothing
+      }
+    });
   }
 }
