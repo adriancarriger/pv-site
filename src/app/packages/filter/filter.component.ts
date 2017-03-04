@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs/subscription';
 import { GlobalEventsService } from '../global-events/global-events.service';
 import { FilterItems } from './filter-options';
 import { FilterUtilitiesService } from './filter-utilities.service';
+import { WindowRef } from '../window/window.service';
 /**
  * @whatItDoes Returns a filter bar that filters recipes
  * @consumers {@link HomeComponent}
@@ -89,7 +90,7 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
     private el: ElementRef,
     private filterUtilitiesService: FilterUtilitiesService,
     private globalEventsService: GlobalEventsService,
-    @Inject('Window') private window: any) { }
+    private window: WindowRef) { }
   /**
    * After the view has loaded, assume that the results may not be showing.
    */
@@ -173,7 +174,7 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
    * Checks the width to set {@link map} to mobile if necessary.
    */
   private checkWidth() {
-    if (this.window.innerWidth > 767) {
+    if (this.window.nativeWindow.innerWidth > 767) {
       this.map = 'default';
     } else {
       this.map = 'mobile';

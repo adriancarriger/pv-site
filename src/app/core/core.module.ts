@@ -13,6 +13,7 @@ import { firebaseConfig } from './firebase-config';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { GlobalEventsModule } from '../packages/global-events/global-events.module';
 import { FilterModule } from '../packages/filter/filter.module';
+import { WindowRef } from '../packages/window/window.service';
 /**
  * @whatItDoes {@link CoreModule} exists to make commonly used singleton services and single-use classes available
  * for use in the many other modules.
@@ -44,7 +45,8 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: [
-        ApiService
+        ApiService,
+        WindowRef
       ]
     };
   }

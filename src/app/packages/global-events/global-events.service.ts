@@ -3,6 +3,8 @@
  */ /** */
 import { EventEmitter, Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+
+import { WindowRef } from '../window/window.service';
 /**
  * @whatItDoes Reponsible for handling and dispatching global events such as `window` resizing,
  * `body` scrolling, etc.
@@ -29,7 +31,7 @@ export class GlobalEventsService {
    * (following this [Stackoverflow answer](http://stackoverflow.com/a/38875374/5357459)).
    */
   constructor(
-    @Inject('Window') private window: any) {
+    private window: WindowRef) {
     this.onInit();
   }
   /**
@@ -61,9 +63,9 @@ export class GlobalEventsService {
   private setupEmitters() {
     this.emitters$['scroll'] = new EventEmitter();
     this.emitters$['resize'] = new EventEmitter();
-    Observable.fromEvent(this.window, 'scroll')
+    Observable.fromEvent(this.window.nativeWindow, 'scroll')
       .subscribe(() => this.requestTick('scroll'));
-    Observable.fromEvent(this.window, 'resize')
+    Observable.fromEvent(this.window.nativeWindow, 'resize')
       .subscribe(() => this.requestTick('resize'));
   }
 }

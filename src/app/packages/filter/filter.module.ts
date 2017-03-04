@@ -33,8 +33,7 @@ export class FilterModule {
     return {
       ngModule: FilterModule,
       providers: [
-        FilterUtilitiesService,
-        { provide: 'Window', useValue: window }
+        FilterUtilitiesService
       ]
     };
   }
