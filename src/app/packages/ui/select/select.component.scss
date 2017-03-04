@@ -10,6 +10,10 @@
   width: 9em;
 
   select {
+    // sass-lint:disable-all
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    // sass-lint:enable-all
     background-color: transparent;
     border: 0;
     border-radius: 0;
