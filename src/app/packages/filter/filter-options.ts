@@ -9,6 +9,10 @@ export interface FilterOptions {
   searchFields: Array<string>;
 }
 /**
+ * Supported filtering types
+ */
+export type FilterType = 'search' | 'select';
+/**
  * Items used to filter
  * - Items can contain differernt ordering priorities if needed. For example, if the order for mobile
  * should be different.
@@ -22,6 +26,6 @@ export interface FilterItems {
       default: Number; // default order this item should appear on the filter
       mobile?: Number; // optional different order for mobile break point
     };
-    type: string; // supported types: search, select
+    type: FilterType; // supported types: search, select
   };
 }
