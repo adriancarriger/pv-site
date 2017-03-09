@@ -1,0 +1,288 @@
+// sass-lint:disable no-vendor-prefixes // TODO: add autoprefixer
+@import '../../../variables';
+
+$sermon-list-background: #f2f2f2;
+
+// @font-face{
+//   font-family: BebasKai;
+//   font-weight: normal;
+//   src: url("app/assets/BebasKai-Regular.otf")
+// }
+// @font-face{
+//   font-family: Adam;
+//   font-weight: normal;
+//   src: url("app/assets/Adam.otf")
+// }
+// @font-face{
+//   font-family: LoveMoment;
+//   font-weight: normal;
+//   src: url("app/assets/Love Moment.otf")
+// }
+
+.sermons {
+  margin-top: 60px;
+  @media (max-width: 700px) {
+    font-size: 14px;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media (min-width: 701px) {
+    margin: 20px auto;
+
+    &.container {
+      font-family: inherit;
+      font-size: inherit;
+      padding-left: initial;
+      padding-right: initial;
+    }
+  }
+
+  .no-results {
+    font-size: 20px;
+    height: 300px;
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .sermon-container {
+    border-radius: 5px;
+    clear: both;
+    height: 150px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    position: relative;
+
+    &:hover,
+    &.current-sermon {
+      background-color: $sermon-list-background;
+
+      // child of `.sermon-art`
+      .sermon-play-container {
+        display: block;
+      }
+    }
+
+    &.playing {
+      // child of `.sermon-art`
+      .sermon-play-container {
+        .ion-pause {
+          display: block;
+        }
+
+        .ion-play {
+          display: none;
+        }
+      }
+    }
+
+    .sermon-art {
+      cursor: pointer;
+      float: left;
+      height: 130px;
+      padding: 15px 5px;
+      position: relative;
+      width: 110px;
+
+      img {
+        width: 100%;
+      }
+
+      .sermon-book {
+        bottom: 0;
+        display: block;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+
+        &.adam {
+          font-family: Adam;
+          $adam: 13px;
+          font-size: $adam;
+          height: $adam;
+        }
+
+        &.bebas-kai {
+          font-family: BebasKai;
+          $bebas-kai: 16px;
+          font-size: $bebas-kai;
+          height: $bebas-kai;
+        }
+
+        &.love-moment {
+          font-family: LoveMoment;
+          $love-moment: 29px;
+          font-size: $love-moment;
+          height: $love-moment;
+        }
+
+        &.white {
+          color: $white;
+        }
+        @media (max-width: 500px) {
+          &.adam {
+            font-family: Adam;
+            $adam: 9px;
+            font-size: $adam;
+            height: $adam;
+          }
+
+          &.bebas-kai {
+            font-family: BebasKai;
+            $bebas-kai: 11px;
+            font-size: $bebas-kai;
+            height: $bebas-kai;
+          }
+
+          &.love-moment {
+            font-family: LoveMoment;
+            $love-moment: 20px;
+            font-size: $love-moment;
+            height: $love-moment;
+          }
+        }
+      }
+
+      .sermon-play-container {
+        bottom: 0;
+        display: none;
+        height: 54px;
+        left: 7px;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 25px;
+
+        .sermon-play {
+          color: $pv-green;
+          font-size: 40px;
+          height: 54px;
+          transition: scale .5s ease, color .5s ease;
+          width: 25px;
+        }
+
+        .ion-pause {
+          $scale: 1.2;
+          // IE 9
+          -ms-transform: scale($scale, $scale);
+          // Safari
+          -webkit-transform: scale($scale, $scale);
+          display: none;
+          transform: scale($scale, $scale);
+        }
+      }
+
+      &:hover {
+        .sermon-play-container {
+          .sermon-play {
+            $scale: 1.2;
+            // IE 9
+            -ms-transform: scale($scale, $scale);
+            // Safari
+            -webkit-transform: scale($scale, $scale);
+            transform: scale($scale, $scale);
+          }
+        }
+      }
+    }
+
+    .sermon-info {
+      float: left;
+      padding: 24px 13px;
+      width: 71%;
+
+      .info-item {
+        color: $gray;
+
+        a {
+          color: $gray;
+        }
+      }
+    }
+
+    .sermon-date {
+      color: $gray;
+      position: absolute;
+      right: 10px;
+      top: 34px;
+    }
+    // Major Break Points
+    @media (max-width: 700px) {
+      border-bottom: solid 1px $light-gray;
+      border-radius: 0;
+
+      &:hover {
+        background-color: initial;
+      }
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+
+      .sermon-info {
+        padding: 17px 13px;
+        width: 75%;
+      }
+
+      .sermon-date {
+        position: static;
+      }
+
+      .sermon-art {
+        .sermon-play-container {
+          background-color: $white;
+          border-radius: 50%;
+          bottom: 21px;
+          display: block;
+          height: 25px;
+          left: initial;
+          right: 7px;
+          top: initial;
+          width: 25px;
+
+          .sermon-play {
+            bottom: 0;
+            color: $gray;
+            font-size: 11px;
+            height: 12px;
+            left: 10px;
+            position: absolute;
+            right: 0;
+            top: 6px;
+            width: 7px;
+          }
+        }
+      }
+    }
+    @media (max-width: 500px) {
+      height: 130px;
+
+      .sermon-info {
+        padding: 14px 0 7px 13px;
+        width: 79%;
+      }
+
+      .sermon-art {
+        height: 100px;
+        padding: 20px 0;
+        width: 70px;
+
+        .sermon-play-container {
+          bottom: 14px;
+          right: 4px;
+        }
+      }
+    }
+    @media (max-width: 400px) {
+      .sermon-info {
+        width: 70%;
+      }
+    }
+  }
+}

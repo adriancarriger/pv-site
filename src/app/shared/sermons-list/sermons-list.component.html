@@ -1,0 +1,26 @@
+<div class="sermons container">
+  <div *ngFor="let sermon of sermons" class="sermon-container">
+    <div class="sermon-art">
+      <img [src]="sermon?.art.image_small" srcset="{{sermon?.art.image_small}} 60w, {{sermon?.art.image_medium}} 100w, {{sermon?.art.image_large}} 300w" alt="">
+      <div class="sermon-book {{sermon?.randomClass}} {{sermon?.art?.color}}">{{sermon?.book}}</div>
+      <div class="sermon-play-container">
+        <div class="sermon-play ion-play"></div>
+        <div class="sermon-play ion-pause"></div>
+      </div>
+    </div>
+    <div class="sermon-info">
+      <div class="sermon-title truncate info-item">
+        &ldquo;{{sermon?.name}}&rdquo;
+      </div>
+      <div class="sermon-author truncate info-item">
+        {{sermon?.speaker}}
+      </div>
+      <div class="sermon-verse truncate info-item">
+        <a>{{sermon?.verse}}</a>
+      </div>
+      <div class="sermon-date">
+        {{sermon?.unix | amFromUnix | amDateFormat:'M/D/YY'}} <span *ngIf="sermon?.meridian === 'Morning'">AM</span><span *ngIf="sermon?.meridian === 'Evening'">PM</span>
+      </div>
+    </div>
+  </div>
+</div>
