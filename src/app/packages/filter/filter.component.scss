@@ -1,12 +1,12 @@
 @import '../../../variables';
-$filter-gray: #c3c3c3;
-$filter-white: #fff;
-$filter-black: #000;
+$search-text-color: #808080;
+$filter-text-color: #fff;
+$filter-text-font: Arial, Helvetica, sans-serif;
+$filter-background-color: $pv-green;
 $spacing: 15px;
 
 :host {
-  background-color: $filter-white;
-  border-top: 1px solid $filter-gray;
+  background-color: $filter-background-color;
   display: block;
   font-size: inherit;
   line-height: 2;
@@ -47,26 +47,29 @@ $spacing: 15px;
     }
 
     &:focus {
-      outline: solid $filter-black 1px;
+      outline: solid $filter-text-color 1px;
     }
   }
 
   .search {
+    padding: 0 20px;
     width: 35%;
 
     app-input {
+      border-radius: 25px;
+      color: $search-text-color;
       overflow: hidden;
       width: 100%;
     }
   }
 
   .item {
-    color: $filter-black;
-    fill: $filter-black;
-    font-family: $title-font;
+    color: $filter-text-color;
+    fill: $filter-text-color;
+    font-family: $filter-text-font;
     font-size: .8em;
     margin: 3px;
-    outline-color: $filter-black;
+    outline-color: $filter-text-color;
   }
   @media (max-width: $mobile-break-point) {
     $mobile-font-size: 20px;

@@ -7,7 +7,7 @@ $border-radius: 0;
 :host {
   background-color: $ui-white;
   border-radius: $border-radius;
-  color: $ui-white;
+  color: inherit;
   display: block;
   fill: $default-color;
   height: 2em;
@@ -24,26 +24,9 @@ $border-radius: 0;
     height: 100%;
     outline: none;
     padding: .4em $side-padding;
-    padding-left: 2em;
     position: absolute;
     width: 100%;
     z-index: 1;
-
-    &:focus + .design {
-      background-color: $ui-black;
-      width: 100%;
-    }
-  }
-
-  .design {
-    background-color: transparent;
-    bottom: 0;
-    height: 1px;
-    left: 2em;
-    position: absolute;
-    right: 0;
-    transition: .5s ease;
-    width: 0;
   }
 
   app-icon-search {
