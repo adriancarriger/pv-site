@@ -1,0 +1,39 @@
+// sass-lint:disable no-vendor-prefixes // TODO: add autoprefixer
+@import '../../../variables';
+
+.custom-pagination {
+  display: flex;
+  height: 170px;
+  margin: auto;
+  max-width: 300px;
+  padding: 70px 0;
+
+  > div {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    border-bottom: 3px solid transparent;
+    flex: 1;
+    font-size: 20px;
+    text-align: center;
+
+    &.current {
+      border-color: $pv-green;
+    }
+
+    &.view-all {
+      flex-grow: 3;
+    }
+  }
+
+  a {
+    color: $pv-blue;
+    cursor: pointer;
+    text-decoration: none;
+    transition: none 2086ms ease-out;
+  }
+}
+
+.ng2-pagination {
+  display: none;
+}

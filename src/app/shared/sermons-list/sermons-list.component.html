@@ -1,5 +1,5 @@
 <div class="sermons container">
-  <div *ngFor="let sermon of sermons; let i = index" class="sermon-container">
+  <div *ngFor="let sermon of sermons | paginate: config; let i = index" class="sermon-container">
     <div class="sermon-art">
       <img [src]="sermon?.art.image_small" srcset="{{sermon?.art.image_small}} 60w, {{sermon?.art.image_medium}} 100w, {{sermon?.art.image_large}} 300w" alt="">
       <div class="sermon-book {{sermon?.art?.color}}" [ngClass]="artClass(i)">{{sermon?.book}}</div>
@@ -23,4 +23,5 @@
       </div>
     </div>
   </div>
+  <app-pagination (pageChange)="config.currentPage = $event" [config]="config"></app-pagination>
 </div>

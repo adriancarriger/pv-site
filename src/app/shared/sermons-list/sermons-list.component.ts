@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PaginationInstance } from 'ng2-pagination';
 
 @Component({
   selector: 'app-sermons-list',
@@ -12,6 +13,11 @@ export class SermonsListComponent implements OnInit {
     'bebas-kai',
     'love-moment'
   ];
+  config: PaginationInstance = {
+    id: 'custom',
+    itemsPerPage: 25,
+    currentPage: 1
+  };
   constructor() { }
 
   ngOnInit() {
