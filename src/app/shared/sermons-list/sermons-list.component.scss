@@ -3,21 +3,21 @@
 
 $sermon-list-background: #f2f2f2;
 
-// @font-face{
-//   font-family: BebasKai;
-//   font-weight: normal;
-//   src: url("app/assets/BebasKai-Regular.otf")
-// }
-// @font-face{
-//   font-family: Adam;
-//   font-weight: normal;
-//   src: url("app/assets/Adam.otf")
-// }
-// @font-face{
-//   font-family: LoveMoment;
-//   font-weight: normal;
-//   src: url("app/assets/Love Moment.otf")
-// }
+@font-face {
+  font-family: BebasKai;
+  font-weight: normal;
+  src: url('/assets/fonts/BebasKai-Regular.otf');
+}
+@font-face {
+  font-family: Adam;
+  font-weight: normal;
+  src: url('/assets/fonts/Adam.otf');
+}
+@font-face {
+  font-family: LoveMoment;
+  font-weight: normal;
+  src: url('/assets/fonts/Love Moment.otf');
+}
 
 .sermons {
   margin-top: 60px;
