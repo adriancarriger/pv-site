@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MomentModule } from 'angular2-moment';
 
 import { SermonsListComponent } from './sermons-list.component';
 
@@ -8,6 +9,7 @@ describe('SermonsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ MomentModule ],
       declarations: [ SermonsListComponent ]
     })
     .compileComponents();
