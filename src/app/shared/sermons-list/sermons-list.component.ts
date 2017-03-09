@@ -7,9 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SermonsListComponent implements OnInit {
   @Input() sermons;
+  artClasses = [
+    'adam',
+    'bebas-kai',
+    'love-moment'
+  ];
   constructor() { }
 
   ngOnInit() {
+  }
+
+  artClass(index) {
+    return this.artClasses[index % 3];
   }
 
 }
