@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation  } from '@angular/core';
+
+import { PaginationControlsDirective } from 'ng2-pagination';
 
 @Component({
   selector: 'app-pagination',
@@ -8,7 +10,7 @@ import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angu
 })
 export class PaginationComponent {
   @Input() config;
-  @Input()
+  p: PaginationControlsDirective;
   @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
   page;
   showAll = false;
