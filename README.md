@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/PV-Bible/site](https://badges.gitter.im/PV-Bible/site.svg)](https://gitter.im/PV-Bible/site?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+
 [![Build Status](http://img.shields.io/travis/adriancarriger/pv-site/master.svg?maxAge=60)](https://travis-ci.org/adriancarriger/pv-site)
 [![Codecov](https://img.shields.io/codecov/c/github/adriancarriger/pv-site/master.svg?maxAge=60)](https://codecov.io/gh/adriancarriger/pv-site)
 [![Dependency Status](https://img.shields.io/david/adriancarriger/pv-site/master.svg?maxAge=60)](https://david-dm.org/adriancarriger/pv-site)
