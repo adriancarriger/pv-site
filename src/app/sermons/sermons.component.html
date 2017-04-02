@@ -1,9 +1,6 @@
 <app-header-default [info]="(apiService.latestSermon | async)?.info">
 </app-header-default>
 <app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.filterOptions | async)?.items"></app-filter>
-<br>Meta: {{ filteredMeta | json }}
-<br>Data: {{ filterData | json }}
-<br>Change: {{ filterChange | json }}
 <app-sermons-list [sermons]="apiService.sermons | async | filter:filterChange:filterData:filteredMeta"></app-sermons-list>
 <div *ngIf="(apiService.recipes | async) !== undefined && filteredMeta?.count === 0" class="no-results">
     No matches for {{filteredMeta.query}}
