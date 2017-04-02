@@ -47,7 +47,9 @@ export class MockApiService extends ApiService {
   constructor() {
     super(null);
   }
-  onInit() { }
+  onInit() {
+    this.filterOptions = <any>new Subject();
+  }
 }
 
 @Injectable()
