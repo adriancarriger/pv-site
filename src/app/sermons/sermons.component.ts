@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { ApiService } from '../core/api/api.service';
 /**
  * @whatItDoes Returns the {@link SermonsComponent} view.
- * @consumers {@link SermonsModule},  {@link SermonsRoutingModule}
+ * @consumers {@link SermonsModule}, {@link SermonsRoutingModule}
  */
 @Component({
   selector: 'app-sermons',
@@ -15,6 +15,16 @@ import { ApiService } from '../core/api/api.service';
   styleUrls: ['./sermons.component.scss']
 })
 export class SermonsComponent implements OnDestroy, OnInit {
+  /**
+   * Timestamp of the last change made by the filter data.
+   *
+   * This is needed to trigger the {@link filterPipe}.
+   */
+  filterChange: number;
+  /**
+   * Data used to filter - passed to to the {@link filterPipe}
+   */
+  filterData;
   /**
    * Data that is bound to the filter pipe. It can pass through filter data and get back data
    * that tells how many results were found after filtering.

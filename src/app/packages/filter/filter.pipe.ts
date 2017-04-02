@@ -56,7 +56,6 @@ export class FilterPipe implements PipeTransform {
       checkSearch: filtering.search,
       searchFields: filteredMeta.searchFields
     };
-    console.log('meta is', meta);
     const filtered = value.filter(item => this.filterItem(item, meta));
     filteredMeta.count = filtered.length;
     filteredMeta.query = this.readableQueries(filterInput);
@@ -98,12 +97,10 @@ export class FilterPipe implements PipeTransform {
    * any queries.
    */
   private filterItem(item: Object, meta) {
-    console.log('checking item: ', item);
     // Filter by select terms
     if (Object.keys(meta.input) // get filter items
       .filter(x => x !== 'search' && meta.input[x] !== 'all') // remove if not filtering or search
       .find(y => {
-        console.log('item --->', item[y], 'y', y, 'thing ----', meta.input[y]);
         return this.flatArray(item[y]).indexOf(meta.input[y]) === -1;
       })) { return; }
     // Filter by search terms
