@@ -28,8 +28,10 @@ export class SelectComponent {
   @Input() category: string;
   /**
    * Options given in select box
+   *
+   * - Accepts an array of strings or name value pairs
    */
-  @Input() options: Array<string>;
+  @Input() options: Array<string|Object>;
   /**
    * attr.aria-label (optional)
    */
