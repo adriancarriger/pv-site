@@ -24,7 +24,7 @@ import {
  */
 @Injectable()
 export class ApiService {
-  menu: AfoObjectObservable<any>;
+  menu: AfoListObservable<any>;
   sermons: AfoListObservable<any[]>;
   latestSermon: AfoObjectObservable<any>;
   filterOptions: AfoObjectObservable<any>;
@@ -37,7 +37,7 @@ export class ApiService {
    * - Gets the required items from Firebase to use in the app
    */
   onInit() {
-    this.menu = this.afo.database.object('client/menu');
+    this.menu = this.afo.database.list('client/menu');
     this.sermons = this.afo.database.list('client/sermons');
     this.latestSermon = this.afo.database.object('client/latestSermon');
     this.filterOptions = this.afo.database.object('client/filter');
