@@ -25,7 +25,7 @@
     "@angular/router": "3.4.9",
     "angular2-moment": "^1.2.0",
     "angularfire2": "^2.0.0-beta.8",
-    "angularfire2-offline": "2.0.5",
+    "angularfire2-offline": "2.0.7",
     "core-js": "2.4.1",
     "ng2-pagination": "^2.0.1",
     "rxjs": "5.1.0",
