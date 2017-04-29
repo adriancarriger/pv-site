@@ -23,11 +23,11 @@
     "@angular/platform-browser": "2.4.9",
     "@angular/platform-browser-dynamic": "2.4.9",
     "@angular/router": "3.4.9",
-    "angular2-moment": "^1.2.0",
-    "angularfire2": "^2.0.0-beta.8",
+    "angular2-moment": "1.2.0",
+    "angularfire2": "2.0.0-beta.8",
     "angularfire2-offline": "2.0.7",
     "core-js": "2.4.1",
-    "ng2-pagination": "^2.0.1",
+    "ng2-pagination": "2.0.1",
     "rxjs": "5.1.0",
     "zone.js": "0.7.6"
   },
@@ -36,11 +36,11 @@
     "@angular/compiler-cli": "2.4.9",
     "@angularclass/hmr": "1.2.2",
     "@types/jasmine": "2.5.38",
-    "@types/localforage": "^0.0.33",
+    "@types/localforage": "0.0.33",
     "@types/node": "6.0.60",
-    "angular2-template-loader": "^0.6.2",
-    "codelyzer": "~2.0.0",
-    "electron": "^1.6.2",
+    "angular2-template-loader": "0.6.2",
+    "codelyzer": "2.0.0",
+    "electron": "1.6.2",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "3.2.0",
     "karma": "1.4.1",
@@ -53,7 +53,7 @@
     "sass-lint": "1.10.2",
     "ts-node": "2.0.0",
     "tslint": "4.4.2",
-    "typescript": "~2.0.0",
-    "wallaby-webpack": "^0.0.38"
+    "typescript": "2.0.0",
+    "wallaby-webpack": "0.0.38"
   }
 }
