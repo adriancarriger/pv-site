@@ -4,10 +4,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import {
-  AngularFireOffline,
-  AfoListObservable,
-  AfoObjectObservable } from 'angularfire2-offline';
+import { AfoListObservable,
+  AfoObjectObservable,
+  AngularFireOfflineDatabase } from 'angularfire2-offline/database';
 /**
  * @whatItDoes Reponsible for returning data from an API.
  * @consumers {@link HomeComponent}, {@link RecipeComponent}, {@link RecipeAdComponent}
@@ -29,7 +28,7 @@ export class ApiService {
   latestSermon: AfoObjectObservable<any>;
   filterOptions: AfoObjectObservable<any>;
   constructor(
-    private afo: AngularFireOffline) {
+    private afoDatabase: AngularFireOfflineDatabase) {
     this.onInit();
   }
   /**
@@ -37,9 +36,9 @@ export class ApiService {
    * - Gets the required items from Firebase to use in the app
    */
   onInit() {
-    this.menu = this.afo.database.list('client/menu');
-    this.sermons = this.afo.database.list('client/sermons');
-    this.latestSermon = this.afo.database.object('client/latestSermon');
-    this.filterOptions = this.afo.database.object('client/filter');
+    this.menu = this.afoDatabase.list('client/menu');
+    this.sermons = this.afoDatabase.list('client/sermons');
+    this.latestSermon = this.afoDatabase.object('client/latestSermon');
+    this.filterOptions = this.afoDatabase.object('client/filter');
   }
 }

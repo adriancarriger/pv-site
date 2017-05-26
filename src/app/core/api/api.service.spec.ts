@@ -1,19 +1,19 @@
 /* tslint:disable:no-unused-variable */
 import { Injectable } from '@angular/core';
 import { async, inject, TestBed } from '@angular/core/testing';
-import { AngularFireOffline } from 'angularfire2-offline';
+import { AngularFireOfflineDatabase } from 'angularfire2-offline/database';
 import { Subject, Observable } from 'rxjs/Rx';
 
 import { ApiService } from './api.service';
 
 describe('Service: ApiService', () => {
-  let mockAngularFireOffline: MockAngularFireOffline;
+  let mockAngularFireOfflineDatabase: MockAngularFireOfflineDatabase;
   beforeEach(() => {
-    mockAngularFireOffline = new MockAngularFireOffline();
+    mockAngularFireOfflineDatabase = new MockAngularFireOfflineDatabase();
     TestBed.configureTestingModule({
       providers: [
         ApiService,
-        { provide: AngularFireOffline, useValue: mockAngularFireOffline },
+        { provide: AngularFireOfflineDatabase, useValue: mockAngularFireOfflineDatabase },
       ]
     });
   });
@@ -39,25 +39,21 @@ export const MockApiData = [
 ];
 
 @Injectable()
-export class MockAngularFireOffline {
+export class MockAngularFireOfflineDatabase {
   list$;
   input;
-  database = {
-    list: undefined,
-    object: undefined
-  };
   private mockArray: Array<Object>;
   constructor() {
-    this.database.list = (input: string, query?) => {
-      return this.list$.asObservable();
-    };
-    this.database.object = (input: string) => {
-      this.input = input;
-    return this.list$.asObservable();
-    };
     this.mockArray = MockApiData;
     this.list$ = new Subject();
     this.update();
+  }
+  list(input: string, query?) {
+    return this.list$.asObservable();
+  }
+  object(input: string) {
+    this.input = input;
+  return this.list$.asObservable();
   }
   update() {
     const nextObj = this.mockArray;

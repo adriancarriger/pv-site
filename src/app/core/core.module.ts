@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireOfflineModule } from 'angularfire2-offline';
 
 import { ApiService } from './api/api.service';
@@ -23,6 +24,7 @@ import { WindowRef } from '../packages/window/window.service';
  */
 @NgModule({
   imports: [
+    AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireOfflineModule,
     CommonModule,
