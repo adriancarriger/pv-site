@@ -23,5 +23,8 @@
       </div>
     </div>
   </div>
-  <app-pagination (pageChange)="config.currentPage = $event" [config]="config"></app-pagination>
+  <div *ngIf="sermons !== undefined && filteredMeta?.count === 0" class="no-results">
+      No matches for {{filteredMeta.query}}
+  </div>
+  <app-pagination *ngIf="sermons !== undefined" (pageChange)="config.currentPage = $event" [config]="config"></app-pagination>
 </div>

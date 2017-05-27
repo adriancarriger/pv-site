@@ -8,6 +8,7 @@ import { PaginationInstance } from 'ng2-pagination';
 })
 export class SermonsListComponent implements OnInit {
   @Input() sermons;
+  @Input() filteredMeta;
   artClasses = [
     'adam',
     'bebas-kai',
