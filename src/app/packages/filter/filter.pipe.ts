@@ -40,13 +40,13 @@ export class FilterPipe implements PipeTransform {
     }
     if (value === undefined || value === null) {
       filteredMeta.count = -1; // filter not active
-      return;
+      return value;
     }
     const filtering = this.filtering(filterInput, filteredMeta);
     if (!filtering.any) {
       filteredMeta.count = -1; // filter not active
       const prefilter = filteredMeta.prefilter !== undefined ? filteredMeta.prefilter : () => true;
-      return value.filter(prefilter);
+      return value.filter(prefilter).sort(this.byDate); // TODO: refactor .sort into separate pipe
     }
     const searchQueries: Array<string> = filtering.search ? this.getQueries(filterInput.search) : [];
     if (searchQueries.length === 0) { filtering.search = false; }
@@ -57,10 +57,17 @@ export class FilterPipe implements PipeTransform {
       checkSearch: filtering.search,
       searchFields: filteredMeta.searchFields
     };
-    const filtered = value.filter(item => this.filterItem(item, meta));
+    const filtered = value
+      .filter(item => this.filterItem(item, meta))
+      .sort(this.byDate);
     filteredMeta.count = filtered.length;
     filteredMeta.query = this.readableQueries(filterInput);
     return filtered;
+  }
+  private byDate(a, b) {
+    if ((a.unix) < (b.unix)) { return 1; }
+    if ((a.unix) > (b.unix)) { return -1; }
+    return 0;
   }
   /**
    * Checks if the filterInput is trying to filter anything at all.
