@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NouisliderModule } from 'ng2-nouislider';
 
 import { PlayerComponent } from './player.component';
+import { SliderComponent } from '../slider/slider.component';
+import { UiModule } from '../../packages/ui/ui.module';
 
 describe('PlayerComponent', () => {
   let component: PlayerComponent;
@@ -8,7 +11,14 @@ describe('PlayerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayerComponent ]
+      imports: [
+        UiModule,
+        NouisliderModule
+      ],
+      declarations: [
+        PlayerComponent,
+        SliderComponent
+      ]
     })
     .compileComponents();
   }));

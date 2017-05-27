@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NouisliderModule } from 'ng2-nouislider';
 
 import { SliderComponent } from './slider.component';
 
@@ -8,6 +9,7 @@ describe('SliderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ NouisliderModule ],
       declarations: [ SliderComponent ]
     })
     .compileComponents();
@@ -16,6 +18,7 @@ describe('SliderComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SliderComponent);
     component = fixture.componentInstance;
+    component.position = 4;
     fixture.detectChanges();
   });
 

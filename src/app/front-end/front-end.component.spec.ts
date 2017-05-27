@@ -3,9 +3,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, Injectable } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NouisliderModule } from 'ng2-nouislider';
 
 import { FrontEndComponent } from './front-end.component';
 import { NavComponent } from './nav/nav.component';
+import { PlayerComponent } from './player/player.component';
+import { SliderComponent } from './slider/slider.component';
 import { ApiService } from '../core/api/api.service';
 import { SharedModule } from '../shared/shared.module';
 
@@ -18,11 +21,14 @@ describe('FrontEndComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        NouisliderModule,
         SharedModule
       ],
       declarations: [
         FrontEndComponent,
-        NavComponent
+        NavComponent,
+        PlayerComponent,
+        SliderComponent
       ],
       providers: [
         { provide: ApiService, useValue: mockApiService }
