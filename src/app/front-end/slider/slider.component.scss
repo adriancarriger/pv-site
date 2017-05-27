@@ -1,0 +1,80 @@
+// sass-lint:disable no-vendor-prefixes // TODO: add autoprefixer
+// sass-lint:disable nesting-depth
+// sass-lint:disable no-important
+// sass-lint:disable class-name-format
+@import '../../../variables';
+@import '~nouislider/distribute/nouislider.min.css';
+
+$slider-height: 1px;
+$origin-pull: -20px;
+
+.slider-container {
+  padding: 5px 0;
+
+  .slider {
+    background-color: $pv-green !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    height: $slider-height !important;
+    margin: 10px 0;
+    padding: 0;
+
+    .noUi-base {
+      -webkit-transform: translate3d(0, $origin-pull, 0);
+      padding: 20px;
+      transform: translate3d(0, $origin-pull, 0);
+
+      &:hover {
+        cursor: pointer;
+
+        .noUi-origin {
+
+          .noUi-handle {
+            background-color: transparent;
+            border: 0;
+            display: block;
+            padding: 15px;
+            top: -15px;
+
+            &::before {
+              background-color: $pv-green;
+              border-radius: 50%;
+              height: 6px;
+              left: 12px;
+              top: 12px;
+              width: 6px;
+            }
+
+            &::after {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+
+      .noUi-origin {
+        background-color: $light-gray;
+        height: $slider-height;
+        top: $origin-pull * -1;
+
+        .noUi-handle {
+          background-color: $pv-green;
+          border-radius: 100%;
+          box-shadow: none;
+          cursor: pointer;
+          display: none;
+          height: 8px;
+          left: -4px;
+          top: -3px;
+          width: 8px;
+        }
+      }
+    }
+
+    .noUi-target {
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+  }
+}
