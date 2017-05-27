@@ -1,8 +1,8 @@
 <div [ngClass]="{started: current?.init}" class="player">
   <div class="controls player-item no-playlist">
-    <button
+    <app-button-clear
       class="play-toggle btn ion-play ion-pause"
-      [ngClass]="{'ion-pause': current?.playing, 'ion-play': !current?.playing}"></button>
+      [ngClass]="{'ion-pause': current?.playing, 'ion-play': !current?.playing}"></app-button-clear>
        <!--(click)="current?.playing ? audioService.pause(): audioService.play()"-->
   </div>
   <div class="progress player-item">

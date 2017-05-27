@@ -6,7 +6,7 @@ $player-height: 50px;
 $art-size: 30px;
 
 .player {
-  background-color: $light-gray;
+  background-color: $very-light-gray;
   border-top: 1px solid $light-gray;
   bottom: $player-height * -1;
   height: $player-height;
@@ -29,7 +29,7 @@ $art-size: 30px;
     min-width: 150px;
     width: 15%;
 
-    > button {
+    > app-button-clear {
       background: none;
       color: $dark-gray;
       font-size: 25px;
