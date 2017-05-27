@@ -11,7 +11,7 @@
     <div class="left">
       <li *ngFor="let item of apiService.menu | async" class="item" [ngClass]="{'active': item.slug === activeItem}">
         <a *ngIf="item.url" [routerLink]="['/' + item.slug]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" (click)="activeItem = undefined">{{item.name}}</a>
-        <template [ngIf]="item.sub">
+        <ng-template [ngIf]="item.sub">
           <app-button-clear padding="10px" (click)="activeItem !== item.slug ? activeItem = item.slug : activeItem = undefined">{{item.name}}</app-button-clear>
           <div class="sub-items-container" [ngClass]="{'active': item.slug === activeItem}">
             <ul class="sub-items">
@@ -24,7 +24,7 @@
               </li>
             </ul>
           </div>
-        </template>
+        </ng-template>
       </li>
     </div>
     <div class="right">
