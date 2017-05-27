@@ -2,6 +2,7 @@
  * @module HomeModule
  */ /** */
 import { Pipe, PipeTransform } from '@angular/core';
+import * as moment from 'moment';
 
 import { FilterUtilitiesService } from './filter-utilities.service';
 import { StopWords } from './stop-words';
@@ -101,8 +102,29 @@ export class FilterPipe implements PipeTransform {
     if (Object.keys(meta.input) // get filter items
       .filter(x => x !== 'search' && meta.input[x] !== 'all') // remove if not filtering or search
       .find(y => {
-        return this.flatArray(item[y]).indexOf(meta.input[y]) === -1;
-      })) { return; }
+
+        /** * * * * * * * * * * * * * * * * * * * * * * *
+         * Temp - start (ideally would be refactored)
+         * * * * * * * * * * * * * * * * * * * * * * * **/
+        let thisItem;
+        if (y === 'aM/PM') {
+          if (item['meridian'] === 'Morning') {
+            thisItem = 'AM';
+          } else if (item['meridian'] === 'Evening') {
+            thisItem = 'PM';
+          }
+        } else if (y === 'years') {
+          thisItem = `${moment.unix(item['unix']).year()}`;
+        } else {
+          thisItem = item[y];
+        }
+        /** * * * * * * * * * * * * * * * * * * * * * * *
+         * Temp - end
+         * * * * * * * * * * * * * * * * * * * * * * * **/
+
+        return this.flatArray(thisItem).indexOf(meta.input[y]) === -1;
+      })
+    ) { return; }
     // Filter by search terms
     if (meta.checkSearch) {
       const searchable = meta.searchFields

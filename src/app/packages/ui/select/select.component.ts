@@ -44,6 +44,7 @@ export class SelectComponent {
    * `background-color` from the `select` element when not focused.
    */
   @Input() color: string;
+  @Input() specialName: string;
   /**
    * attr.tabindex (optional)
    */
