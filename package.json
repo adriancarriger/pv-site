@@ -7,6 +7,7 @@
     "start": "ng serve",
     "hmr": "ng serve --hmr -e=hmr",
     "lint": "ng lint",
+    "sass-lint": "sass-lint",
     "sassLint": "sass-lint 'src/**/*.scss' -v --max-warnings=0",
     "test": "ng lint && npm run sassLint && ng test --watch=false --code-coverage",
     "fireDeployPrep": "ng build --prod --aot",

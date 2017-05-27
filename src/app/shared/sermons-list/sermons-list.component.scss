@@ -1,4 +1,5 @@
 // sass-lint:disable no-vendor-prefixes // TODO: add autoprefixer
+// sass-lint:disable nesting-depth
 @import '../../../variables';
 
 $sermon-list-background: #f2f2f2;
@@ -60,8 +61,10 @@ $sermon-list-background: #f2f2f2;
       background-color: $sermon-list-background;
 
       // child of `.sermon-art`
-      .sermon-play-container {
-        display: block;
+      .sermon-art {
+        .sermon-play-container {
+          display: block;
+        }
       }
     }
 
@@ -163,7 +166,7 @@ $sermon-list-background: #f2f2f2;
           color: $pv-green;
           font-size: 40px;
           height: 54px;
-          transition: scale .5s ease, color .5s ease;
+          transition: transform .5s ease, color .5s ease;
           width: 25px;
         }
 
