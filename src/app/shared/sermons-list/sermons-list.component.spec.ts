@@ -4,12 +4,16 @@ import { Ng2PaginationModule } from 'ng2-pagination';
 
 import { SermonsListComponent } from './sermons-list.component';
 import { PaginationComponent } from '../pagination/pagination.component';
+import { ApiService } from '../../core/api/api.service';
+import { MediaService } from '../../core/media/media.service';
+import { MockApiService } from '../../core/media/media.service.spec';
 
 describe('SermonsListComponent', () => {
   let component: SermonsListComponent;
   let fixture: ComponentFixture<SermonsListComponent>;
-
+  let mockApiService: MockApiService;
   beforeEach(async(() => {
+    mockApiService =  new MockApiService();
     TestBed.configureTestingModule({
       imports: [
         MomentModule,
@@ -18,6 +22,10 @@ describe('SermonsListComponent', () => {
       declarations: [
         PaginationComponent,
         SermonsListComponent
+      ],
+      providers: [
+        MediaService,
+        { provide: ApiService, useValue: mockApiService },
       ]
     })
     .compileComponents();

@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FilterModule } from '../packages/filter/filter.module';
 import { GlobalEventsService } from '../packages/global-events/global-events.service';
 import { WindowRef } from '../packages/window/window.service';
+import { MediaService } from '../core/media/media.service';
 
 describe('SermonsComponent', () => {
   let component: SermonsComponent;
@@ -23,6 +24,7 @@ describe('SermonsComponent', () => {
       imports: [ FilterModule.forRoot(), SharedModule ],
       declarations: [ SermonsComponent ],
       providers: [
+        MediaService,
         WindowRef,
         { provide: ApiService, useValue: mockApiService },
         { provide: GlobalEventsService, useValue: mockGlobalEventsService }

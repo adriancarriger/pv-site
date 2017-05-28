@@ -11,7 +11,7 @@ export class MediaService {
   // current = {
   //   id: undefined,
   //   playing: false,
-  //   init: false,
+  //   onInit: false,
   //   title: '',
   //   speaker: '',
   //   duration: '',
@@ -33,10 +33,10 @@ export class MediaService {
   };
 
   constructor(private apiService: ApiService) {
-    this.init();
+    this.onInit();
   }
 
-  init() {
+  onInit() {
     // Start with resolved promise
     this.next.promise = new Promise(r => r());
   }

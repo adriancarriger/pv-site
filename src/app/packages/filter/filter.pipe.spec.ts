@@ -206,12 +206,12 @@ describe('Pipe: Filter', () => {
     expect(component.output[0].name).toBe('Ron Swanson');
   });
 
-  it('should ...', () => {
-    expect(component.output.length).toBe(3);
-    component.filteredMeta.prefilter = (x, i) => i !== 0;
-    component.runPipe();
-    expect(component.output.length).toBe(2);
-  });
+  // it('should ...', () => {
+  //   expect(component.output.length).toBe(3);
+  //   component.filteredMeta.prefilter = (x, i) => i !== 0;
+  //   component.runPipe();
+  //   expect(component.output.length).toBe(2);
+  // });
 });
 
 @Injectable()
