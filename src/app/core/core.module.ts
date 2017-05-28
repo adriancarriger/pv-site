@@ -11,6 +11,7 @@ import { AngularFireOfflineModule } from 'angularfire2-offline';
 
 import { ApiService } from './api/api.service';
 import { firebaseConfig } from './firebase-config';
+import { MediaService } from './media/media.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { GlobalEventsModule } from '../packages/global-events/global-events.module';
 import { FilterModule } from '../packages/filter/filter.module';
@@ -48,6 +49,7 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         ApiService,
+        MediaService,
         WindowRef
       ]
     };
