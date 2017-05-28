@@ -69,14 +69,15 @@ $sermon-list-background: #f2f2f2;
     }
 
     &.playing {
-      // child of `.sermon-art`
-      .sermon-play-container {
-        .ion-pause {
-          display: block;
-        }
+      .sermon-art {
+        .sermon-play-container {
+          .ion-pause {
+            display: block;
+          }
 
-        .ion-play {
-          display: none;
+          .ion-play {
+            display: none;
+          }
         }
       }
     }

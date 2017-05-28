@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PaginationInstance } from 'ng2-pagination';
 
+import { MediaService } from '../../core/media/media.service';
+
 @Component({
   selector: 'app-sermons-list',
   templateUrl: './sermons-list.component.html',
@@ -19,7 +21,7 @@ export class SermonsListComponent implements OnInit {
     itemsPerPage: 25,
     currentPage: 1
   };
-  constructor() { }
+  constructor(public mediaService: MediaService) { }
 
   ngOnInit() {
   }

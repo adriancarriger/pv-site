@@ -41,4 +41,8 @@ export class ApiService {
     this.latestSermon = this.afoDatabase.object('client/latestSermon');
     this.filterOptions = this.afoDatabase.object('client/filter');
   }
+
+  getSermon(sermonId) {
+    return this.sermons.pluck(sermonId);
+  }
 }

@@ -46,7 +46,13 @@ export class FilterPipe implements PipeTransform {
     if (!filtering.any) {
       filteredMeta.count = -1; // filter not active
       const prefilter = filteredMeta.prefilter !== undefined ? filteredMeta.prefilter : () => true;
-      return value.filter(prefilter).sort(this.byDate); // TODO: refactor .sort into separate pipe
+      return value
+        .filter((item, key) => {
+          const useItem = prefilter(item);
+          if (useItem) { item['key'] = key; } // Temp (ideally would be refactored)
+          return useItem;
+        })
+        .sort(this.byDate); // TODO: refactor .sort into separate pipe
     }
     const searchQueries: Array<string> = filtering.search ? this.getQueries(filterInput.search) : [];
     if (searchQueries.length === 0) { filtering.search = false; }
@@ -58,7 +64,7 @@ export class FilterPipe implements PipeTransform {
       searchFields: filteredMeta.searchFields
     };
     const filtered = value
-      .filter(item => this.filterItem(item, meta))
+      .filter((item, key) => this.filterItem(item, key, meta))
       .sort(this.byDate);
     filteredMeta.count = filtered.length;
     filteredMeta.query = this.readableQueries(filterInput);
@@ -104,7 +110,7 @@ export class FilterPipe implements PipeTransform {
    * - If filtering by search, then it finds the searchable text and checks if it matches
    * any queries.
    */
-  private filterItem(item: Object, meta) {
+  private filterItem(item: Object, key, meta) {
     // Filter by select terms
     if (Object.keys(meta.input) // get filter items
       .filter(x => x !== 'search' && meta.input[x] !== 'all') // remove if not filtering or search
@@ -129,7 +135,9 @@ export class FilterPipe implements PipeTransform {
          * Temp - end
          * * * * * * * * * * * * * * * * * * * * * * * **/
 
-        return this.flatArray(thisItem).indexOf(meta.input[y]) === -1;
+        const useItem = this.flatArray(thisItem).indexOf(meta.input[y]) === -1;
+        if (useItem) { item['key'] = key; } // Temp (ideally would be refactored)
+        return useItem;
       })
     ) { return; }
     // Filter by search terms
