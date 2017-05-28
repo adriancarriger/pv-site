@@ -10,12 +10,12 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireOfflineModule } from 'angularfire2-offline';
 
 import { ApiService } from './api/api.service';
-import { firebaseConfig } from './firebase-config';
 import { MediaService } from './media/media.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { GlobalEventsModule } from '../packages/global-events/global-events.module';
 import { FilterModule } from '../packages/filter/filter.module';
 import { WindowRef } from '../packages/window/window.service';
+import { environment } from '../../environments/environment';
 /**
  * @whatItDoes {@link CoreModule} exists to make commonly used singleton services and single-use classes available
  * for use in the many other modules.
@@ -26,7 +26,7 @@ import { WindowRef } from '../packages/window/window.service';
 @NgModule({
   imports: [
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireOfflineModule,
     CommonModule,
     FilterModule.forRoot(),
