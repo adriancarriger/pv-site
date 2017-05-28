@@ -1,36 +1,29 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { Subscription } from 'rxjs/Subscription';
 
 import { ApiService } from '../api/api.service';
 
 @Injectable()
 export class MediaService {
-  /**
-   * Old shape
-   */
-  // current = {
-  //   id: undefined,
-  //   playing: false,
-  //   onInit: false,
-  //   title: '',
-  //   speaker: '',
-  //   duration: '',
-  //   art: {},
-  //   randomClass: ''
-  // };
-
   audio = {};
   current: CurrentMedia = {};
   // Custom display data
   display = {
     playing: false,
-    id: undefined
+    id: undefined,
+    title: undefined,
+    speaker: undefined,
+    duration: undefined,
+    art: {},
+    randomClass: undefined
   };
   next = {
     pending: false,
     promise: undefined,
     id: undefined
   };
+  private sermonSubscription: Subscription;
 
   constructor(private apiService: ApiService) {
     this.onInit();
@@ -57,8 +50,7 @@ export class MediaService {
     // Setup audio if needed
     if (!(id in this.audio)) { this.setupAudio(id); }
 
-    // Update current
-    this.current.media = this.apiService.getSermon(id);
+
 
     // Play
     this.next.promise = this.audio[this.current.id].play();
@@ -75,6 +67,16 @@ export class MediaService {
   }
 
   private displayToggle(newId?) {
+    if (newId) {
+      console.log('getting new subscription');
+      // Update current
+      if (this.sermonSubscription) { this.sermonSubscription.unsubscribe(); }
+      this.sermonSubscription = this.apiService.getSermon(newId).subscribe((sermon: Sermon) => {
+        this.display.title = sermon.name;
+        this.display.speaker = sermon.speaker;
+        this.display.art = sermon.art;
+      });
+    }
     this.display.playing = newId !== this.display.id || !this.display.playing;
     this.display.id = newId;
   }
@@ -101,3 +103,15 @@ export interface CurrentMedia {
   media?: any;
   playing?: boolean;
 };
+
+export interface Sermon {
+  art: Object;
+  audio: string;
+  books: string[];
+  meridian: string;
+  name: string;
+  slug: string;
+  speaker: string;
+  unix: number;
+  verse: string;
+}
