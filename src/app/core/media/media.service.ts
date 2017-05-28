@@ -64,9 +64,9 @@ export class MediaService {
     this.next.promise = this.audio[this.current.id].play();
   }
 
-  toggle(id: number) {
-    this.next.id = id;
-    this.displayToggle(id);
+  toggle(id?: number) {
+    if (id > 0) { this.next.id = id; }
+    this.displayToggle(this.next.id);
     // Only wait for a Promise once before resolving
     if (!this.next.pending) {
       this.next.pending = true;
@@ -74,7 +74,7 @@ export class MediaService {
     }
   }
 
-  private displayToggle(newId) {
+  private displayToggle(newId?) {
     this.display.playing = newId !== this.display.id || !this.display.playing;
     this.display.id = newId;
   }

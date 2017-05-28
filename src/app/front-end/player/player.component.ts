@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MediaService } from '../../core/media/media.service';
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -20,7 +22,7 @@ export class PlayerComponent implements OnInit {
       image_small: 'http://pvbiblechurch.com/wp-content/uploads/mp/image-cache/site/9/16.ef5cd52674d33a18a0c599df8e78572d.png'
     }
   };
-  constructor() { }
+  constructor(public mediaService: MediaService) { }
 
   ngOnInit() {
   }

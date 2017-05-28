@@ -4,12 +4,16 @@ import { NouisliderModule } from 'ng2-nouislider';
 import { PlayerComponent } from './player.component';
 import { SliderComponent } from '../slider/slider.component';
 import { UiModule } from '../../packages/ui/ui.module';
+import { MediaService } from '../../core/media/media.service';
+import { MockApiService } from '../../core/media/media.service.spec';
+import { ApiService } from '../../core/api/api.service';
 
 describe('PlayerComponent', () => {
   let component: PlayerComponent;
   let fixture: ComponentFixture<PlayerComponent>;
-
+  let mockApiService: MockApiService;
   beforeEach(async(() => {
+    mockApiService = new MockApiService();
     TestBed.configureTestingModule({
       imports: [
         UiModule,
@@ -18,6 +22,10 @@ describe('PlayerComponent', () => {
       declarations: [
         PlayerComponent,
         SliderComponent
+      ],
+      providers: [
+        MediaService,
+        { provide: ApiService, useValue: mockApiService }
       ]
     })
     .compileComponents();

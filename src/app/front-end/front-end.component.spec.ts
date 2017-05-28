@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { PlayerComponent } from './player/player.component';
 import { SliderComponent } from './slider/slider.component';
 import { ApiService } from '../core/api/api.service';
+import { MediaService } from '../core/media/media.service';
 import { SharedModule } from '../shared/shared.module';
 
 describe('FrontEndComponent', () => {
@@ -31,6 +32,7 @@ describe('FrontEndComponent', () => {
         SliderComponent
       ],
       providers: [
+        MediaService,
         { provide: ApiService, useValue: mockApiService }
       ]
     })
