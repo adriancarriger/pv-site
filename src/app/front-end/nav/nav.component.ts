@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
   isCollapsed:  boolean;
   navOpen: boolean;
   test = 'asdf';
-  constructor(private apiService: ApiService) { }
+  constructor(public apiService: ApiService) { }
 
   ngOnInit() {
   }

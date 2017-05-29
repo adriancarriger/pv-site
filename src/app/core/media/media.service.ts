@@ -10,14 +10,13 @@ export class MediaService {
   audio = {};
   current: CurrentMedia = {};
   // Custom display data
-  display = {
+  display: Display = {
     playing: false,
     id: undefined,
     title: undefined,
     speaker: undefined,
     duration: undefined,
-    art: {},
-    randomClass: undefined,
+    art: undefined
   };
   time: ReplaySubject<Object>;
   next = {
@@ -141,7 +140,7 @@ export interface CurrentMedia {
 };
 
 export interface Sermon {
-  art: Object;
+  art: MediaArt;
   audio: string;
   books: string[];
   meridian: string;
@@ -150,4 +149,21 @@ export interface Sermon {
   speaker: string;
   unix: number;
   verse: string;
+}
+
+export interface Display {
+  id: number;
+  title: string;
+  speaker: string;
+  duration: string;
+  playing: boolean;
+  art: MediaArt;
+  randomClass?: string;
+}
+
+export interface MediaArt {
+  color?: string;
+  image_large?: string;
+  image_medium?: string;
+  image_small?: string;
 }
