@@ -13,8 +13,8 @@
 
 ## Demo
 
-- Check out a demo at [http://adriancarriger.github.io/pv-site/](http://adriancarriger.github.io/pv-site/)
 - Newer demo at [https://pv-site.firebaseapp.com/](https://pv-site.firebaseapp.com/)
+- Check out a demo at [http://adriancarriger.github.io/pv-site/](http://adriancarriger.github.io/pv-site/)
 
 ## Tech Stack
 
