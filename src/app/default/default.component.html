@@ -1,3 +1,4 @@
-<p>
-  default works!
-</p>
+<h2>
+  This is just a default page. It will be changed soon.
+</h2>
+<app-sermons-list [sermons]="apiService.sermons | async | filter:filterChange:filterData:filteredMeta |  slice:0:4" [filteredMeta]="filteredMeta"></app-sermons-list>

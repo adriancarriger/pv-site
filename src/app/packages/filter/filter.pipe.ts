@@ -30,6 +30,7 @@ export class FilterPipe implements PipeTransform {
    * @param filteredMeta.count the total results returned by the transform
    * @param filteredMeta.query a readable list of the the active filter items
    * @param filteredMeta.prefilter a filter that runs on the data if no other filter inputs are
+   * @param filteredMeta.wholeWords only search for whole word matches
    * given.
    */
   transform(value: any, updateTime?: number, filterInput?: any, filteredMeta?: any): any {
@@ -54,14 +55,16 @@ export class FilterPipe implements PipeTransform {
         })
         .sort(this.byDate); // TODO: refactor .sort into separate pipe
     }
-    const searchQueries: Array<string> = filtering.search ? this.getQueries(filterInput.search) : [];
+    const searchQueries: Array<string> = filtering.search
+      ? this.getQueries(filterInput.search, filteredMeta.wholeWords) : [];
     if (searchQueries.length === 0) { filtering.search = false; }
     // Meta data used to filter each item in the input `value`.
     const meta = {
       input: filterInput,
       searchQueries: searchQueries,
       checkSearch: filtering.search,
-      searchFields: filteredMeta.searchFields
+      searchFields: filteredMeta.searchFields,
+      wholeWords: filteredMeta.wholeWords
     };
     const filtered = value
       .filter((item, key) => this.filterItem(item, key, meta))
@@ -96,12 +99,15 @@ export class FilterPipe implements PipeTransform {
   /**
    * Takes a raw query string and returns an array of important words to use for search.
    */
-  private getQueries(searchQueries: string): Array<string> {
+  private getQueries(searchQueries: string, wholeWords: boolean): Array<string> {
     // Treat each word as a query and normalize to lowercase
-    return searchQueries
+    let queries = searchQueries
       .toLowerCase()
-      .split(' ')
-      .filter(item => this.stopWords().indexOf(item) === -1);
+      .split(' ');
+    if (!wholeWords) {
+      queries = queries.filter(item => this.stopWords().indexOf(item) === -1);
+    }
+    return queries;
   }
   /**
    * The actual filter logic applied to each item.
@@ -135,22 +141,42 @@ export class FilterPipe implements PipeTransform {
          * Temp - end
          * * * * * * * * * * * * * * * * * * * * * * * **/
 
-        const useItem = this.flatArray(thisItem).indexOf(meta.input[y]) === -1;
-        if (useItem) { item['key'] = key; } // Temp (ideally would be refactored)
-        return useItem;
+        return this.flatArray(thisItem).indexOf(meta.input[y]) === -1;
       })
     ) { return; }
     // Filter by search terms
     if (meta.checkSearch) {
-      const searchable = meta.searchFields
+      const searchable: string = meta.searchFields
         .filter(x => item[x] !== undefined)
         .reduce((a, b) => {
           return a + ' ' + this.flatArray(item[b])
             .reduce((e, f) => e + ' ' + f, '')
             .toLowerCase();
         }, '');
-      if (meta.searchQueries.find(x => searchable.indexOf(x) === -1)) { return; }
+
+      if (meta.wholeWords) {
+        const wholeWordFound = meta.searchQueries.find(x => {
+          const searchTerm = x.split('"').join('');
+          // True if one whole word is found
+          return searchable.split(' ').find(y => searchTerm === y);
+        });
+        if (wholeWordFound) {
+          item['key'] = key;
+          return item;
+        } else {
+          return;
+        }
+      } else {
+        // Check if all search query returns false
+        const noMatches = meta.searchQueries.find(x => {
+          // True if the search term does not exists in the searchable text
+          return searchable.indexOf(x) === -1;
+        });
+        // Remove item from list because nothing matched
+        if (noMatches) { return; }
+      }
     }
+    item['key'] = key;
     return item;
   }
   /**
