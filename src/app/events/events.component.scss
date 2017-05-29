@@ -1,3 +1,6 @@
+// sass-lint:disable no-vendor-prefixes // TODO: add autoprefixer
+// sass-lint:disable nesting-depth
+@import '../../variables';
 $filter-color: #4d4d4d;
 
 app-header-default  {
@@ -6,4 +9,13 @@ app-header-default  {
 
 app-filter {
   background-color: $filter-color;
+}
+
+.events {
+  .event-group {
+    h3 {
+      color: $gray;
+      font-size: 18px;
+    }
+  }
 }

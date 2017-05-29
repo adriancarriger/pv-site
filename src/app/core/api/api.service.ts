@@ -25,6 +25,7 @@ import { AfoListObservable,
 export class ApiService {
   menu: AfoListObservable<any>;
   sermons: AfoListObservable<any[]>;
+  events: AfoListObservable<any[]>;
   latestEvents: AfoObjectObservable<any>;
   latestSermon: AfoObjectObservable<any>;
   filterOptions: AfoObjectObservable<any>;
@@ -40,6 +41,7 @@ export class ApiService {
   onInit() {
     this.menu = this.afoDatabase.list('client/menu');
     this.sermons = this.afoDatabase.list('client/sermons');
+    this.events = this.afoDatabase.list('client/events');
     this.latestEvents = this.afoDatabase.object('client/latestEvents');
     this.latestSermon = this.afoDatabase.object('client/latestSermon');
     this.filterOptions = this.afoDatabase.object('client/filter');
