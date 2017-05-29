@@ -26,7 +26,8 @@ import { UiModule } from '../packages/ui/ui.module';
     HeaderDefaultComponent,
     LogoComponent,
     SermonsListComponent,
-    UiModule
+    UiModule,
+    MomentModule
   ]
 })
 export class SharedModule { }

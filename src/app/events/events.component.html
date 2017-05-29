@@ -2,13 +2,13 @@
 <app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.eventsFilter | async)?.items"></app-filter>
 <div class="events">
   <div *ngFor="let eventGroup of apiService.events | async; let i = index" class="event-group">
-    <h3>Date: {{eventGroup.$key}}</h3>
+    <h2>{{eventGroup.$key | amDateFormat: 'dddd, MMMM D'}}</h2>
     <div *ngFor="let event of eventGroup" class="event">
       <div>
         <i class="ion-bookmark"></i> {{event.title}}
       </div>
       <div>
-        <i class="ion-android-time"></i> {{event.time}}
+        <i class="ion-android-time"></i> {{event?.unix | amFromUnix | amDateFormat:'M/D/YY'}}
       </div>
       <div>
         <i class="ion-location"></i> <a [href]="event.location.link" target="_blank">{{event.location.text}}</a>
