@@ -1,14 +1,36 @@
 @import '../../../variables';
 
+$image-large: 600px;
+$image-medium: 400px;
+$image-small: 300px;
+
 .container-image {
-  height: 600px;
+  // Large (default)
+  height: $image-large;
   overflow: hidden;
   position: relative;
 
   img {
-    height: 600px;
+    height: $image-large;
     object-fit: cover;
     width: 100%;
+  }
+
+  // Medium
+  @media (min-width: 501px) and (max-width: 900px) {
+    height: $image-medium;
+
+    img {
+      height: $image-medium;
+    }
+  }
+  // Small
+  @media (max-width: 500px) {
+    height: $image-small;
+
+    img {
+      height: $image-small;
+    }
   }
 
   h1 {
