@@ -16,7 +16,7 @@
 - Newer demo at [https://pvbiblechurch.com/beta](https://pvbiblechurch.com/beta)
 - Check out a demo at [http://adriancarriger.github.io/pv-site/](http://adriancarriger.github.io/pv-site/)
 
-# Links
+## Links
 
 - https://pvbiblechurch.com/issues
 - https://pvbiblechurch.com/dev
