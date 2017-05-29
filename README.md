@@ -13,8 +13,14 @@
 
 ## Demo
 
-- Newer demo at [https://pv-site.firebaseapp.com/](https://pv-site.firebaseapp.com/)
+- Newer demo at [https://pvbiblechurch.com/beta](https://pvbiblechurch.com/beta)
 - Check out a demo at [http://adriancarriger.github.io/pv-site/](http://adriancarriger.github.io/pv-site/)
+
+# Links
+
+- https://pvbiblechurch.com/issues
+- https://pvbiblechurch.com/dev
+- https://pvbiblechurch.com/beta
 
 ## Tech Stack
 
