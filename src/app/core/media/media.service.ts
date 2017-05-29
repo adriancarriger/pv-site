@@ -92,7 +92,6 @@ export class MediaService {
 
   private displayToggle(newId?) {
     if (newId) {
-      console.log('getting new subscription');
       // Update current
       if (this.sub.sermon) { this.sub.sermon.unsubscribe(); }
       this.sub.sermon = this.apiService.getSermon(newId).subscribe((sermon: Sermon) => {
