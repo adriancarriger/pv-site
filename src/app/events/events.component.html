@@ -5,7 +5,7 @@
     <h2>{{eventGroup.$key | amDateFormat: 'dddd, MMMM D'}}</h2>
     <div *ngFor="let event of eventGroup" class="event">
       <div>
-        <i class="ion-bookmark"></i> {{event.title}}
+        {{event.title}}
       </div>
       <div>
         <i class="ion-android-time"></i> {{event?.unix | amFromUnix | amDateFormat:'M/D/YY'}}
