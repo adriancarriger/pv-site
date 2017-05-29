@@ -1,1 +1,2 @@
-<app-header-default [info]="apiService.latestEvents | async">
+<app-header-default [info]="apiService.latestEvents | async"></app-header-default>
+<app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.eventsFilter | async)?.items"></app-filter>

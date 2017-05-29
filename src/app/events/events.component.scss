@@ -1,3 +1,9 @@
+$filter-color: #4d4d4d;
+
 app-header-default  {
   height: 210px;
+}
+
+app-filter {
+  background-color: $filter-color;
 }

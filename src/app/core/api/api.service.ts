@@ -28,6 +28,7 @@ export class ApiService {
   latestEvents: AfoObjectObservable<any>;
   latestSermon: AfoObjectObservable<any>;
   filterOptions: AfoObjectObservable<any>;
+  eventsFilter: AfoObjectObservable<any>;
   constructor(
     private afoDatabase: AngularFireOfflineDatabase) {
     this.onInit();
@@ -42,6 +43,7 @@ export class ApiService {
     this.latestEvents = this.afoDatabase.object('client/latestEvents');
     this.latestSermon = this.afoDatabase.object('client/latestSermon');
     this.filterOptions = this.afoDatabase.object('client/filter');
+    this.eventsFilter = this.afoDatabase.object('client/eventsFilter');
   }
 
   getSermon(sermonId) {
