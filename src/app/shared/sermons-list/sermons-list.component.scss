@@ -66,6 +66,12 @@ $sermon-list-background: #f2f2f2;
           display: block;
         }
       }
+
+      .right-container {
+        .download {
+          display: block;
+        }
+      }
     }
 
     &.playing {
@@ -210,11 +216,23 @@ $sermon-list-background: #f2f2f2;
       }
     }
 
-    .sermon-date {
+    .right-container {
       color: $gray;
       position: absolute;
       right: 10px;
       top: 34px;
+
+      .download {
+        display: none;
+        font-size: 27px;
+        padding: 13px 0;
+        text-align: right;
+
+        a {
+          color: $gray;
+          outline: 0;
+        }
+      }
     }
     // Major Break Points
     @media (max-width: 700px) {
@@ -234,7 +252,7 @@ $sermon-list-background: #f2f2f2;
         width: 75%;
       }
 
-      .sermon-date {
+      .right-container {
         position: static;
       }
 
