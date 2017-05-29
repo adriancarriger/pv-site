@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
+import * as moment from 'moment';
 
 import { ApiService } from '../api/api.service';
 
@@ -16,14 +17,18 @@ export class MediaService {
     speaker: undefined,
     duration: undefined,
     art: {},
-    randomClass: undefined
+    randomClass: undefined,
   };
+  time: ReplaySubject<Object>;
   next = {
     pending: false,
     promise: undefined,
     id: undefined
   };
-  private sermonSubscription: Subscription;
+  private sub = {
+    sermon: undefined,
+    audio: undefined
+  };
 
   constructor(private apiService: ApiService) {
     this.onInit();
@@ -32,6 +37,7 @@ export class MediaService {
   onInit() {
     // Start with resolved promise
     this.next.promise = new Promise(r => r());
+    this.time = new ReplaySubject();
   }
 
   pause() {
@@ -50,10 +56,18 @@ export class MediaService {
     // Setup audio if needed
     if (!(id in this.audio)) { this.setupAudio(id); }
 
-
+    // Subscribe to audio updates
+    this.sub.audio = Observable
+      .fromEvent(this.audio[this.current.id], 'timeupdate')
+      .subscribe((event: Event) => this.onTimeUpdate());
 
     // Play
     this.next.promise = this.audio[this.current.id].play();
+  }
+
+  setPosition(percentage) {
+    const position = Math.floor(this.audio[this.current.id].duration * (percentage / 100));
+    this.audio[this.current.id].currentTime = position;
   }
 
   toggle(id?: number) {
@@ -66,12 +80,22 @@ export class MediaService {
     }
   }
 
+  private displayTime(seconds: number): string {
+    const milliseconds = Math.round(seconds * 1000);
+    let displayTime = moment.utc( milliseconds ).format('mm:ss');
+    const hours = moment.utc( milliseconds ).format('h');
+    if (milliseconds >= 3600000 ) { // If >= 1 hour
+      displayTime = hours + ':' + displayTime;
+    }
+    return displayTime;
+  }
+
   private displayToggle(newId?) {
     if (newId) {
       console.log('getting new subscription');
       // Update current
-      if (this.sermonSubscription) { this.sermonSubscription.unsubscribe(); }
-      this.sermonSubscription = this.apiService.getSermon(newId).subscribe((sermon: Sermon) => {
+      if (this.sub.sermon) { this.sub.sermon.unsubscribe(); }
+      this.sub.sermon = this.apiService.getSermon(newId).subscribe((sermon: Sermon) => {
         this.display.title = sermon.name;
         this.display.speaker = sermon.speaker;
         this.display.art = sermon.art;
@@ -88,13 +112,26 @@ export class MediaService {
     different || this.audio[this.current.id].paused ? this.play(this.next.id) : this.pause();
   }
 
+  private onTimeUpdate() {
+    const duration = this.audio[this.current.id].duration;
+    const position = this.audio[this.current.id].currentTime;
+    // Skip if not a number
+    if (isNaN(duration)) { return ''; }
+    this.time.next({
+      position: this.displayTime(position),
+      percentage: ((position / duration) * 100),
+      duration: this.displayTime(this.audio[this.current.id].duration)
+    });
+  }
+
   private setupAudio(id: number) {
     // Create audio object
     this.audio[id] = new Audio();
     // Subscribe to src
-    this.apiService.getSermon(id).subscribe(sermon => this.audio[id].src = sermon['audio']);
+    this.apiService.getSermon(id).subscribe((sermon: Sermon) => {
+      this.audio[id].src = sermon.audio;
+    });
   }
-
 }
 
 // WIP

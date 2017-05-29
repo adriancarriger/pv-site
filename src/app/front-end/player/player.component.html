@@ -4,11 +4,11 @@
   </div>
   <div class="progress player-item">
     <div class="progress-timer timer-current">
-      {{ position?.time }}
+      {{ (mediaService.time | async)?.position }}
     </div>
-    <app-slider [position]="position?.percentage" class="player-progress-bar"></app-slider>
+    <app-slider (change)="mediaService.setPosition($event)" [position]="position" class="player-progress-bar"></app-slider>
     <div class="progress-timer">
-      {{ current?.duration }}
+      {{ (mediaService.time | async)?.duration }}
     </div>
   </div>
   <div class="info-container player-item">

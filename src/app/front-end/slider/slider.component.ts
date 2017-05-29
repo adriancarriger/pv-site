@@ -3,8 +3,7 @@ import {
   ViewEncapsulation,
   Input,
   Output,
-  EventEmitter,
-  OnChanges } from '@angular/core';
+  EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -12,16 +11,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements OnChanges {
+export class SliderComponent {
   @Input() position: number;
-  @Output() seek = new EventEmitter();
-  public lastInput;
-  bubbleChange(event) {
-    if (Math.floor(this.lastInput) !== Math.floor(this.position)) {
-      this.seek.emit( this.position );
-    }
-  }
-  ngOnChanges(changes) {
-      this.lastInput = changes.position.currentValue;
-  }
+  @Output() change = new EventEmitter();
 }

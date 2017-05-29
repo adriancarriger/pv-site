@@ -5,6 +5,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NouisliderModule } from 'ng2-nouislider';
+import { FormsModule } from '@angular/forms';
 
 import { FrontEndComponent } from './front-end.component';
 import { FrontEndRoutingModule } from './front-end-routing.module';
@@ -21,7 +22,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     FrontEndRoutingModule,
     NouisliderModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   declarations: [
     FrontEndComponent,
