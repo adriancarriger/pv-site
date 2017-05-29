@@ -2,8 +2,6 @@
 // sass-lint:disable nesting-depth
 @import '../../../variables';
 
-$sermon-list-background: #f2f2f2;
-
 @font-face {
   font-family: BebasKai;
   font-weight: normal;
@@ -58,7 +56,7 @@ $sermon-list-background: #f2f2f2;
 
     &:hover,
     &.current-sermon {
-      background-color: $sermon-list-background;
+      background-color: $list-background;
 
       // child of `.sermon-art`
       .sermon-art {

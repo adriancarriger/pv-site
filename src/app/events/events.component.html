@@ -1,17 +1,20 @@
 <app-header-default [info]="apiService.latestEvents | async"></app-header-default>
 <app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.eventsFilter | async)?.items"></app-filter>
-<div class="events">
+<div class="events container">
   <div *ngFor="let eventGroup of apiService.events | async; let i = index" class="event-group">
     <h2>{{eventGroup.$key | amDateFormat: 'dddd, MMMM D'}}</h2>
-    <div *ngFor="let event of eventGroup" class="event">
-      <div>
+    <div *ngFor="let event of eventGroup; let n = index" class="event" [ngClass]="{'odd': n === 0 || n % 2 === 0}">
+      <div class="event-item">
         {{event.title}}
       </div>
-      <div>
+      <div class="event-item">
         <i class="ion-android-time"></i> {{event?.unix | amFromUnix | amDateFormat:'M/D/YY'}}
       </div>
-      <div>
+      <div class="event-item">
         <i class="ion-location"></i> <a [href]="event.location.link" target="_blank">{{event.location.text}}</a>
+      </div>
+      <div class="event-item">
+        <i class="ion-android-star"></i> {{event.ministry}}'s ministry
       </div>
     </div>
   </div>
