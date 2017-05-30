@@ -30,7 +30,8 @@ export class EventsComponent implements OnDestroy, OnInit {
    * that tells how many results were found after filtering.
    */
   filteredMeta = {
-    searchFields: []
+    searchFields: [],
+    flatten: true
   };
   /**
    * Holds the subscription the to {@link apiService}'s filterOptions Observable

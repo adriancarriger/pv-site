@@ -215,7 +215,6 @@ export const StopWords = [
   'me',
   'member',
   'members',
-  'men',
   'might',
   'more',
   'most',

@@ -31,6 +31,7 @@ export class FilterPipe implements PipeTransform {
    * @param filteredMeta.query a readable list of the the active filter items
    * @param filteredMeta.prefilter a filter that runs on the data if no other filter inputs are
    * @param filteredMeta.wholeWords only search for whole word matches
+   * @param filteredMeta.flatten
    * given.
    */
   transform(value: any, updateTime?: number, filterInput?: any, filteredMeta?: any): any {
@@ -47,13 +48,16 @@ export class FilterPipe implements PipeTransform {
     if (!filtering.any) {
       filteredMeta.count = -1; // filter not active
       const prefilter = filteredMeta.prefilter !== undefined ? filteredMeta.prefilter : () => true;
-      return value
+      value = this.flatten(filteredMeta.flatten, value);
+      value = value
         .filter((item, key) => {
+          if (filteredMeta.flatten) { return item; }
           const useItem = prefilter(item);
           if (useItem) { item['key'] = key; } // Temp (ideally would be refactored)
           return useItem;
         })
         .sort(this.byDate); // TODO: refactor .sort into separate pipe
+      return this.unflatten(filteredMeta.flatten, value);
     }
     const searchQueries: Array<string> = filtering.search
       ? this.getQueries(filterInput.search, filteredMeta.wholeWords) : [];
@@ -66,11 +70,13 @@ export class FilterPipe implements PipeTransform {
       searchFields: filteredMeta.searchFields,
       wholeWords: filteredMeta.wholeWords
     };
-    const filtered = value
+    value = this.flatten(filteredMeta.flatten, value);
+    let filtered = value
       .filter((item, key) => this.filterItem(item, key, meta))
       .sort(this.byDate);
     filteredMeta.count = filtered.length;
     filteredMeta.query = this.readableQueries(filterInput);
+    filtered = this.unflatten(filteredMeta.flatten, filtered);
     return filtered;
   }
   private byDate(a, b) {
@@ -95,6 +101,37 @@ export class FilterPipe implements PipeTransform {
     }
     if (status.search === true) { status.any = true; }
     return status;
+  }
+  private flatten(flatten, value) {
+    // Flatten
+    if (!flatten) { return value; }
+    const temp = [];
+    value.forEach(itemGroup => {
+      itemGroup.forEach(item => {
+        item.flattenKey = itemGroup.$key;
+        temp.push(item);
+      });
+    });
+    return temp;
+  }
+  private unflatten(flatten, value) {
+    if (!flatten) { return value; }
+    const temp = {};
+    value.forEach(item => {
+      const key = item.flattenKey;
+      if (!(key in temp)) {
+        temp[item.flattenKey] = [];
+      }
+      delete item.flattenKey;
+      temp[key].push(item);
+    });
+    return Object.keys(temp).map(itemKey => {
+      Object.defineProperty(temp[itemKey], '$key', {
+        enumerable: false,
+        value: itemKey
+      });
+      return temp[itemKey];
+    });
   }
   /**
    * Takes a raw query string and returns an array of important words to use for search.
