@@ -107,7 +107,8 @@ export class FilterPipe implements PipeTransform {
     if (!flatten) { return value; }
     const temp = [];
     value.forEach(itemGroup => {
-      itemGroup.forEach(item => {
+      Object.keys(itemGroup).forEach(itemKey => {
+        const item = itemGroup[itemKey];
         item.flattenKey = itemGroup.$key;
         temp.push(item);
       });
