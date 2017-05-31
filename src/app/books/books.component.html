@@ -1,8 +1,14 @@
-Books works!
 <app-header-default [info]="apiService.latestEvents | async"></app-header-default>
-<app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.eventsFilter | async)?.items"></app-filter>
-<div class="events container">
-  <div *ngFor="let books of apiService.books | async; let i = index" class="event-group">
-    <br>Book => {{ book | json }}
+<app-filter (update)="filterData = $book" (change)="filterChange = $book" [filterItems]="(apiService.booksFilter | async)?.items"></app-filter>
+<div class="books container">
+  <div *ngFor="let book of apiService.books | async; let i = index" class="book-group">
+    <h2>{{book.title}}</h2>
+     <h3 *ngIf="book.subTitle">{{book.subTitle}}</h3>
+    <div class="book-item">
+      <i class="ion-android-time"></i> {{book?.unix | amFromUnix | amDateFormat:'MMM YYYY'}}
+    </div>
+    <div class="book-item">
+      {{book.about}}
+    </div>
   </div>
 </div>
