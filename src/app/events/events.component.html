@@ -8,7 +8,7 @@
         {{event.title}}
       </div>
       <div class="event-item">
-        <i class="ion-android-time"></i> {{event?.unix | amFromUnix | amDateFormat:'M/D/YY'}}
+        <i class="ion-android-time"></i> {{event?.unix | amFromUnix | amDateFormat:'h:mm A'}}
       </div>
       <div class="event-item" *ngIf="event.locationTitle">
         <i class="ion-location"></i> {{event.locationTitle}}
