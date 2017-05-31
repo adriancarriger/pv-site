@@ -26,10 +26,12 @@ export class ApiService {
   menu: AfoListObservable<any>;
   sermons: AfoListObservable<any[]>;
   events: AfoListObservable<any[]>;
+  books: AfoListObservable<any[]>;
   latestEvents: AfoObjectObservable<any>;
   latestSermon: AfoObjectObservable<any>;
   filterOptions: AfoObjectObservable<any>;
   eventsFilter: AfoObjectObservable<any>;
+  booksFilter: AfoObjectObservable<any>;
   constructor(
     private afoDatabase: AngularFireOfflineDatabase) {
     this.onInit();
@@ -42,10 +44,12 @@ export class ApiService {
     this.menu = this.afoDatabase.list('client/menu');
     this.sermons = this.afoDatabase.list('client/sermons');
     this.events = this.afoDatabase.list('client/events');
+    this.books = this.afoDatabase.list('client/books');
     this.latestEvents = this.afoDatabase.object('client/latestEvents');
     this.latestSermon = this.afoDatabase.object('client/latestSermon');
     this.filterOptions = this.afoDatabase.object('client/filter');
     this.eventsFilter = this.afoDatabase.object('client/eventsFilter');
+    this.booksFilter = this.afoDatabase.object('client/eventsFilter');
   }
 
   getSermon(sermonId) {

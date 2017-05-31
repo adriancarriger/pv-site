@@ -1,0 +1,8 @@
+Books works!
+<app-header-default [info]="apiService.latestEvents | async"></app-header-default>
+<app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.eventsFilter | async)?.items"></app-filter>
+<div class="events container">
+  <div *ngFor="let books of apiService.books | async; let i = index" class="event-group">
+    <br>Book => {{ book | json }}
+  </div>
+</div>

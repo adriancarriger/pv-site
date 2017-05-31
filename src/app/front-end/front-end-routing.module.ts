@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: '../sermons/sermons.module#SermonsModule'
       },
       {
+        path: 'resources/books',
+        loadChildren: '../books/books.module#BooksModule'
+      },
+      {
         path: 'resources/:type',
         loadChildren: '../home/home.module#HomeModule'
       },
