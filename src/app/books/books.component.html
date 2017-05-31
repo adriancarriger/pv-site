@@ -1,4 +1,4 @@
-<app-header-default [info]="apiService.latestEvents | async"></app-header-default>
+<app-header-default [info]="apiService.latestBook | async"></app-header-default>
 <app-filter (update)="filterData = $book" (change)="filterChange = $book" [filterItems]="(apiService.booksFilter | async)?.items"></app-filter>
 <div class="books container">
   <div *ngFor="let book of apiService.books | async; let i = index" class="book-group">

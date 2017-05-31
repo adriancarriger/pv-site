@@ -29,6 +29,7 @@ export class ApiService {
   books: AfoListObservable<any[]>;
   latestEvents: AfoObjectObservable<any>;
   latestSermon: AfoObjectObservable<any>;
+  latestBook: AfoObjectObservable<any>;
   filterOptions: AfoObjectObservable<any>;
   eventsFilter: AfoObjectObservable<any>;
   booksFilter: AfoObjectObservable<any>;
@@ -47,9 +48,10 @@ export class ApiService {
     this.books = this.afoDatabase.list('client/books');
     this.latestEvents = this.afoDatabase.object('client/latestEvents');
     this.latestSermon = this.afoDatabase.object('client/latestSermon');
+    this.latestBook = this.afoDatabase.object('client/latestBook');
     this.filterOptions = this.afoDatabase.object('client/filter');
     this.eventsFilter = this.afoDatabase.object('client/eventsFilter');
-    this.booksFilter = this.afoDatabase.object('client/eventsFilter');
+    this.booksFilter = this.afoDatabase.object('client/booksFilter');
   }
 
   getSermon(sermonId) {
