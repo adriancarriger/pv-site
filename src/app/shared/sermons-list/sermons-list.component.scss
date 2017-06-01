@@ -54,6 +54,10 @@
     padding-top: 10px;
     position: relative;
 
+    &.error {
+      display: none;
+    }
+
     &:hover,
     &.current-sermon {
       background-color: $list-background;

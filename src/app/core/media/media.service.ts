@@ -9,20 +9,22 @@ import { ApiService } from '../api/api.service';
 export class MediaService {
   audio = {};
   current: CurrentMedia = {};
+  errors = {};
+  display = new ReplaySubject();
+  time: ReplaySubject<Object>;
+  next = {
+    pending: false,
+    promise: undefined,
+    id: undefined
+  };
   // Custom display data
-  display: Display = {
+  private displayInternal: Display = {
     playing: false,
     id: undefined,
     title: undefined,
     speaker: undefined,
     duration: undefined,
     art: undefined
-  };
-  time: ReplaySubject<Object>;
-  next = {
-    pending: false,
-    promise: undefined,
-    id: undefined
   };
   private sub = {
     sermon: undefined,
@@ -37,23 +39,29 @@ export class MediaService {
     // Start with resolved promise
     this.next.promise = new Promise(r => r());
     this.time = new ReplaySubject();
+    this.display.next(this.displayInternal);
   }
 
   pause() {
     this.current.playing = false;
-    this.display.playing = false;
+    this.updateDisplay({playing: false});
     this.audio[this.current.id].pause();
   }
 
   play(id: number) {
+    console.log('starting play');
     if (this.current.playing) { this.pause(); }
 
     this.current.id = id;
     this.current.playing = true;
-    this.display.playing = true;
+    this.updateDisplay({playing: true});
 
     // Setup audio if needed
-    if (!(id in this.audio)) { this.setupAudio(id); }
+    if (!(id in this.audio)) {
+      this.setupAudio(id);
+    } else {
+      console.log('not setting up');
+    }
 
     // Subscribe to audio updates
     this.sub.audio = Observable
@@ -62,6 +70,26 @@ export class MediaService {
 
     // Play
     this.next.promise = this.audio[this.current.id].play();
+    this.next.promise.catch(error => {
+      setTimeout(() => {
+        console.log('Found an error', error);
+        delete this.audio[this.current.id];
+        this.errors[this.current.id] = true;
+        this.current = {};
+
+        this.updateDisplay({
+          playing: false,
+          id: 2,
+          title: undefined,
+          speaker: undefined,
+          duration: undefined,
+          art: undefined
+        });
+        this.sub.audio.unsubscribe();
+        this.next.pending = false;
+        this.next.promise = new Promise(r => r());
+      }, 500);
+    });
   }
 
   setPosition(percentage) {
@@ -75,8 +103,17 @@ export class MediaService {
     // Only wait for a Promise once before resolving
     if (!this.next.pending) {
       this.next.pending = true;
-      this.next.promise.then(() => this.implementToggle());
+      this.next.promise
+        .then(() => this.implementToggle())
+        .catch(() => console.log('caught an error'));
     }
+  }
+
+  private updateDisplay(newData) {
+    Object.keys(newData).forEach(dataKey => {
+      this.displayInternal[dataKey] = newData[dataKey];
+    });
+    this.display.next(this.displayInternal);
   }
 
   private displayTime(seconds: number): string {
@@ -94,13 +131,17 @@ export class MediaService {
       // Update current
       if (this.sub.sermon) { this.sub.sermon.unsubscribe(); }
       this.sub.sermon = this.apiService.getSermon(newId).subscribe((sermon: Sermon) => {
-        this.display.title = sermon.name;
-        this.display.speaker = sermon.speaker;
-        this.display.art = sermon.art;
+        this.updateDisplay({
+          title: sermon.name,
+          speaker: sermon.speaker,
+          art: sermon.art
+        });
       });
     }
-    this.display.playing = newId !== this.display.id || !this.display.playing;
-    this.display.id = newId;
+    this.updateDisplay({
+      playing: newId !== this.displayInternal.id || !this.displayInternal.playing,
+      id: newId
+    });
   }
 
   private implementToggle() {
@@ -123,6 +164,7 @@ export class MediaService {
   }
 
   private setupAudio(id: number) {
+    console.log('setting up');
     // Create audio object
     this.audio[id] = new Audio();
     // Subscribe to src

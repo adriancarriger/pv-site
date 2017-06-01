@@ -30,4 +30,8 @@ export class SermonsListComponent implements OnInit {
     return this.artClasses[index % 3];
   }
 
+  error(id) {
+    return id in this.mediaService.errors;
+  }
+
 }

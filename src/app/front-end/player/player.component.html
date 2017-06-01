@@ -1,6 +1,6 @@
-<div [ngClass]="{started: mediaService.display.id}" class="player">
+<div [ngClass]="{started: (mediaService.display | async)?.id}" class="player">
   <div class="controls player-item no-playlist">
-    <app-button-clear class="play-toggle btn ion-play ion-pause" [ngClass]="{'ion-pause': mediaService.display.playing, 'ion-play': !mediaService.display.playing}" (click)="mediaService.toggle()"></app-button-clear>
+    <app-button-clear class="play-toggle btn ion-play ion-pause" [ngClass]="{'ion-pause': (mediaService.display | async)?.playing, 'ion-play': !(mediaService.display | async)?.playing}" (click)="mediaService.toggle()"></app-button-clear>
   </div>
   <div class="progress player-item">
     <div class="progress-timer timer-current">
@@ -13,11 +13,11 @@
   </div>
   <div class="info-container player-item">
     <div class="album-art">
-      <img src="{{mediaService.display?.art?.image_small}}" alt="">
+      <img src="{{(mediaService.display | async)?.art?.image_small}}" alt="">
     </div>
     <div class="info-text">
-      <div class="info-title">{{ mediaService.display?.title }}</div>
-      <div class="info-speaker">{{ mediaService.display?.speaker }}</div>
+      <div class="info-title">{{ (mediaService.display | async)?.title }}</div>
+      <div class="info-speaker">{{ (mediaService.display | async)?.speaker }}</div>
     </div>
   </div>
 </div>
