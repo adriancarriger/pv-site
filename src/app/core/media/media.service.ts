@@ -49,7 +49,6 @@ export class MediaService {
   }
 
   play(id: number) {
-    console.log('starting play');
     if (this.current.playing) { this.pause(); }
 
     this.current.id = id;
@@ -59,8 +58,6 @@ export class MediaService {
     // Setup audio if needed
     if (!(id in this.audio)) {
       this.setupAudio(id);
-    } else {
-      console.log('not setting up');
     }
 
     // Subscribe to audio updates
@@ -71,24 +68,21 @@ export class MediaService {
     // Play
     this.next.promise = this.audio[this.current.id].play();
     this.next.promise.catch(error => {
-      setTimeout(() => {
-        console.log('Found an error', error);
-        delete this.audio[this.current.id];
-        this.errors[this.current.id] = true;
-        this.current = {};
+      delete this.audio[this.current.id];
+      this.errors[this.current.id] = true;
+      this.current = {};
 
-        this.updateDisplay({
-          playing: false,
-          id: 2,
-          title: undefined,
-          speaker: undefined,
-          duration: undefined,
-          art: undefined
-        });
-        this.sub.audio.unsubscribe();
-        this.next.pending = false;
-        this.next.promise = new Promise(r => r());
-      }, 500);
+      this.updateDisplay({
+        playing: false,
+        id: 2,
+        title: undefined,
+        speaker: undefined,
+        duration: undefined,
+        art: undefined
+      });
+      this.sub.audio.unsubscribe();
+      this.next.pending = false;
+      this.next.promise = new Promise(r => r());
     });
   }
 
@@ -104,8 +98,7 @@ export class MediaService {
     if (!this.next.pending) {
       this.next.pending = true;
       this.next.promise
-        .then(() => this.implementToggle())
-        .catch(() => console.log('caught an error'));
+        .then(() => this.implementToggle());
     }
   }
 
@@ -164,7 +157,6 @@ export class MediaService {
   }
 
   private setupAudio(id: number) {
-    console.log('setting up');
     // Create audio object
     this.audio[id] = new Audio();
     // Subscribe to src
