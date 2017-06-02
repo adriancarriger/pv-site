@@ -3,13 +3,16 @@
 <div class="books container">
   <div *ngFor="let book of apiService.books | async | filter:filterChange:filterData:filteredMeta; let i = index; let i = index" class="book">
     <img [src]="book?.image ? book.image : null" class="book-image" alt="" />
-    <h2>{{book.title}}</h2>
-     <h3 *ngIf="book.subTitle">{{book.subTitle}}</h3>
-    <div class="book-item">
-      <i class="ion-android-time"></i> {{book?.unix | amFromUnix | amDateFormat:'MMM YYYY'}}
-    </div>
-    <div class="book-item">
-      {{book.about}}
+    <div class="book-details">
+      <h2>{{book.title}}</h2>
+      <h3 *ngIf="book.subTitle">{{book.subTitle}}</h3>
+      <div class="book-item">
+        <!--<i class="ion-android-time"></i> {{book?.unix | amFromUnix | amDateFormat:'MMM YYYY'}}-->
+      </div>
+      <div class="book-item about" [ngClass]="{'open': book.open}">
+        {{book.about}}
+      </div>
+      <app-button-clear (click)="book.open = !book.open">Show {{book.open ? 'less' : 'more'}} <span [ngClass]="{'ion-chevron-down': !book.open, 'ion-chevron-up': book.open}"></span></app-button-clear>
     </div>
   </div>
 </div>

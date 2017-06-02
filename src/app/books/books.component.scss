@@ -13,6 +13,7 @@ app-filter {
 .books {
 
   margin-top: 60px;
+  max-width: 700px;
   @media (max-width: 700px) {
     font-size: 14px;
     margin-top: 0;
@@ -39,30 +40,48 @@ app-filter {
 
   .book {
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
 
     img {
-      max-width: 100px;
+      align-self: flex-start;
+      max-width: 150px;
+      padding: 20px 0;
     }
 
-    h2 {
-      color: $gray;
-      font-size: 18px;
-      margin-bottom: 5px;
-      margin-top: 20px;
-      padding-left: 20px;
+    .book-details {
+      width: 65%;
+
+      h2 {
+        color: $gray;
+        font-size: 18px;
+        margin-bottom: 5px;
+        margin-top: 20px;
+      }
+
+      .book-item {
+        font-size: 16px;
+        padding: 5px 0;
+
+        &.about {
+          max-height: 150px;
+          overflow: hidden;
+          text-align: justify;
+        }
+
+        &.open {
+          max-height: initial;
+        }
+      }
     }
 
     &.odd {
       background-color: $list-background;
     }
 
-    .book-item {
-      font-size: 16px;
-      padding: 5px 0;
-    }
   }
 }

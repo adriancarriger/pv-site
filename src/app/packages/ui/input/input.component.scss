@@ -27,6 +27,10 @@ $border-radius: 0;
     position: absolute;
     width: 100%;
     z-index: 1;
+
+    &.search {
+      padding-left: 10%;
+    }
   }
 
   app-icon-search {
