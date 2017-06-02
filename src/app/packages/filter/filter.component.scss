@@ -70,6 +70,19 @@ $spacing: 15px;
     margin: 3px;
     outline-color: $filter-text-color;
   }
+
+  &.center {
+    .search {
+      margin-left: auto;
+      width: 50%;
+      @media (max-width: $mobile-break-point) {
+        .item {
+          width: 87%;
+        }
+      }
+    }
+  }
+
   @media (max-width: $mobile-break-point) {
     $mobile-font-size: 20px;
     flex-direction: row;

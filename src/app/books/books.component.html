@@ -1,7 +1,7 @@
 <app-header-default [info]="apiService.latestBook | async"></app-header-default>
 <app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.booksFilter | async)?.items"></app-filter>
 <div class="books container">
-  <div *ngFor="let book of apiService.books | async; let i = index" class="book">
+  <div *ngFor="let book of apiService.books | async | filter:filterChange:filterData:filteredMeta; let i = index; let i = index" class="book">
     <img [src]="book?.image ? book.image : null" class="book-image" alt="" />
     <h2>{{book.title}}</h2>
      <h3 *ngIf="book.subTitle">{{book.subTitle}}</h3>
