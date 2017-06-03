@@ -9,10 +9,10 @@
       <div class="book-item">
         <!--<i class="ion-android-time"></i> {{book?.unix | amFromUnix | amDateFormat:'MMM YYYY'}}-->
       </div>
-      <div class="book-item about" [ngClass]="{'open': book.open}">
+      <div class="book-item about" [ngClass]="{'open': book.open || book.about.length < 601}">
         {{book.about}}
       </div>
-      <app-button-clear (click)="book.open = !book.open">Show {{book.open ? 'less' : 'more'}} <span [ngClass]="{'ion-chevron-down': !book.open, 'ion-chevron-up': book.open}"></span></app-button-clear>
+      <app-button-clear *ngIf="book.about.length > 600" (click)="book.open = !book.open">Show {{book.open ? 'less' : 'more'}} <span [ngClass]="{'ion-chevron-down': !book.open, 'ion-chevron-up': book.open}"></span></app-button-clear>
     </div>
   </div>
   <div *ngIf="(apiService.books | async) !== undefined && filteredMeta?.count === 0" class="no-results">
