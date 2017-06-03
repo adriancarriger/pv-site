@@ -11,7 +11,7 @@
         <i class="ion-android-time"></i> {{event?.unix | amFromUnix | amDateFormat:'h:mm A'}}
       </div>
       <div class="event-item" *ngIf="event.location?.title">
-        <i class="ion-location"></i> <a [href]="event.location.link" >{{event.location.title}}</a> <span *ngIf="event.location.area">{{event.location.area}}</span>
+        <i class="ion-location"></i> <a [href]="event.location.link" target="_blank">{{event.location.title}}</a> <span *ngIf="event.location.area">{{event.location.area}}</span>
       </div>
       <div class="event-item" *ngFor="let ministry of event.ministries">
         <i class="ion-android-star"></i> {{ministry}}'s ministry
