@@ -40,8 +40,15 @@ ul {
 
 // Global classes
 .container {
-  width: 75%;
+  width: 60%;
   @media(max-width: $mobile-break-point) {
     width: 90%;
+  }
+}
+
+// Inner Html
+.inner-html {
+  h2 {
+    font-size: 16px;
   }
 }

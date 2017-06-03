@@ -1,13 +1,16 @@
 <div *ngIf="page | async; else loading">
   <app-header-default [info]="(page | async).header"></app-header-default>
   <app-filter *ngIf="(page | async).filter" (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(page | async).filter?.items"></app-filter>
-  <div class="items">
+  <div class="items container">
     <div *ngFor="let item of (page | async).items | filter:filterChange:filterData:filteredMeta; let i = index; let i = index" class="item">
       <!-- Text template -->
-      <div *ngIf="item.template === 'default'" class="item-details">
-        <h2 *ngIf="item.title">{{item.title}}</h2>
-        <div *ngIf="item.text">{{item.text}}</div>
-        <div *ngIf="item.html" [innerHtml]="item.html"></div>
+      <div *ngIf="item.template === 'default'">
+        <img *ngIf="item.image" [src]="item.image" class="item-image" alt="" />
+        <h1 *ngIf="item.title">{{item.title}}</h1>
+        <div class="item-details" [ngClass]="{'has-image': item.image}">
+          <div *ngIf="item.text">{{item.text}}</div>
+          <div *ngIf="item.html" [innerHtml]="item.html" class="inner-html"></div>
+        </div>
       </div>
     </div>
     <div *ngIf="filteredMeta?.count === 0" class="no-results">
