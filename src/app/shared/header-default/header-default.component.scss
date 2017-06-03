@@ -4,14 +4,14 @@ $image-large: 300px;
 $image-medium: 250px;
 $image-small: 200px;
 
-.container-image {
-  // Large (default)
+:host {
+  display: block;
   height: $image-large;
   overflow: hidden;
   position: relative;
 
   img {
-    height: $image-large;
+    height: 100%;
     object-fit: cover;
     width: 100%;
   }
@@ -36,7 +36,10 @@ $image-small: 200px;
   h1,
   h2 {
     color: $white;
+    font-weight: 400;
+    height: 1em;
     left: 0;
+    margin: auto;
     position: absolute;
     right: 0;
     text-align: center;
@@ -44,14 +47,16 @@ $image-small: 200px;
   }
 
   h1 {
-    bottom: 40%;
+    bottom: 30px;
     font-family: $title-font;
     font-size: 35px;
+    top: 0;
   }
 
   h2 {
-    bottom: 30%;
+    bottom: -40px;
     font-size: 20px;
+    top: 0;
   }
 
   .overlay {
@@ -67,9 +72,4 @@ $image-small: 200px;
   @media (max-width: 510px) {
     height: 210px;
   }
-}
-
-:host {
-  display: block;
-  overflow: hidden;
 }
