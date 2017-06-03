@@ -3,6 +3,7 @@
 :host {
   display: inline-block;
   line-height: 1;
+  outline-color: $ui-black;
   padding: 10px;
 
   // Turn a button into a link - http://stackoverflow.com/a/12642009/5357459
@@ -20,7 +21,8 @@
     padding: inherit;
 
     &:focus {
-      outline: solid $ui-black 1px;
+      outline: solid 1px;
+      outline-color: inherit;
     }
   }
 

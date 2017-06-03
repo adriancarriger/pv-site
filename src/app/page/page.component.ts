@@ -12,7 +12,7 @@ import { Page } from './page.interface';
   styleUrls: ['./page.component.scss']
 })
 export class PageComponent implements OnDestroy, OnInit {
-  pageSlug: string;
+  slug: string;
   page: AfoObjectObservable<Page>;
 
 
@@ -60,8 +60,8 @@ export class PageComponent implements OnDestroy, OnInit {
   }
 
   onNewRoute() {
-    this.pageSlug = this.activatedRoute.snapshot.params.type;
-    this.page = this.apiService.page(this.pageSlug);
+    this.slug = this.activatedRoute.snapshot.params.type;
+    this.page = this.apiService.page(this.slug);
     // Update subscription
     this.ngOnDestroy();
     this.filterSubscription = this.page.subscribe((page: Page) => {

@@ -1,8 +1,8 @@
 <div *ngIf="page | async; else loading">
-  <app-header-default [info]="(page | async).header"></app-header-default>
+  <app-header-default [slug]="slug" [info]="(page | async).header"></app-header-default>
   <app-filter *ngIf="(page | async).filter" (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(page | async).filter?.items"></app-filter>
   <div class="items container">
-    <div *ngFor="let item of (page | async).items | filter:filterChange:filterData:filteredMeta; let i = index; let i = index" class="item">
+    <div *ngFor="let item of (page | async).items | filter:filterChange:filterData:filteredMeta; let i = index; let i = index" class="item" id="{{slug}}-{{i}}">
       <!-- Text template -->
       <div *ngIf="item.template === 'default'">
         <img *ngIf="item.image" [src]="item.image" class="item-image" alt="" />

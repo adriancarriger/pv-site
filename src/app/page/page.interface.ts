@@ -18,7 +18,13 @@ export interface Header {
   title: string;
   subtitle?: string;
   useOverlay: boolean;
+  links: HeaderLink[];
   [key: string]: any;
+}
+
+export interface HeaderLink {
+  title: string;
+  icon?: string;
 }
 
 export interface Image {
