@@ -10,6 +10,7 @@ export interface ContentItem {
   html?: string;
   title?: string;
   text?: string;
+  template: string;
 }
 
 export interface Header {
@@ -21,8 +22,8 @@ export interface Header {
 }
 
 export interface Image {
-  image_x_large: string;
-  image_large: string;
-  image_medium: string;
-  image_small: string;
+  xLarge: string;
+  large: string;
+  medium: string;
+  small: string;
 }

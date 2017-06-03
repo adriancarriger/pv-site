@@ -1,0 +1,82 @@
+// sass-lint:disable no-vendor-prefixes // TODO: add autoprefixer
+// sass-lint:disable nesting-depth
+@import '../../variables';
+
+app-filter {
+  background-color: $filter-background-color;
+}
+
+.items {
+
+  margin-top: 60px;
+  @media (max-width: 700px) {
+    font-size: 14px;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media (min-width: 701px) {
+    margin: 20px auto;
+
+    &.container {
+      font-family: inherit;
+      font-size: inherit;
+      padding-left: initial;
+      padding-right: initial;
+    }
+  }
+
+  .no-results {
+    font-size: 20px;
+    height: 300px;
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .item {
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+
+    img {
+      align-self: flex-start;
+      max-width: 150px;
+      padding: 20px 0;
+    }
+
+    .item-details {
+      width: 65%;
+
+      h2 {
+        color: $gray;
+        font-size: 18px;
+        margin-bottom: 5px;
+        margin-top: 20px;
+      }
+
+      .item-item {
+        font-size: 16px;
+        padding: 5px 0;
+
+        &.about {
+          max-height: 150px;
+          overflow: hidden;
+          text-align: justify;
+        }
+
+        &.open {
+          max-height: initial;
+        }
+      }
+    }
+
+    &.odd {
+      background-color: $list-background;
+    }
+
+  }
+}

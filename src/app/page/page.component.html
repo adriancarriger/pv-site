@@ -1,7 +1,19 @@
 <div *ngIf="page | async; else loading">
-  <h2>
-    {{pageSlug}} Page
-  </h2>
+  <app-header-default [info]="(page | async).header"></app-header-default>
+  <app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(page | async).filter?.items"></app-filter>
+  <div class="items">
+    <div *ngFor="let item of (page | async).items | filter:filterChange:filterData:filteredMeta; let i = index; let i = index" class="item">
+      <!-- Text template -->
+      <div *ngIf="item.template === 'default'" class="item-details">
+        <h2 *ngIf="item.title">{{item.title}}</h2>
+        <div *ngIf="item.text">{{item.text}}</div>
+        <div *ngIf="item.html">{{item.html}}</div>
+      </div>
+    </div>
+    <div *ngIf="filteredMeta?.count === 0" class="no-results">
+      No matches for {{filteredMeta.query}}
+    </div>
+  </div>
 </div>
 <ng-template #loading>
   loading...
