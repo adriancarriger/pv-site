@@ -18,7 +18,7 @@ export interface Header {
   title: string;
   subtitle?: string;
   useOverlay: boolean;
-  links: HeaderLink[];
+  links?: HeaderLink[];
   [key: string]: any;
 }
 

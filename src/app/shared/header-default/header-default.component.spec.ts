@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { HeaderDefaultComponent } from './header-default.component';
+import { UiModule } from '../../packages/ui/ui.module';
 
 describe('HeaderDefaultComponent', () => {
   let component: HeaderDefaultComponent;
@@ -11,7 +12,8 @@ describe('HeaderDefaultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderDefaultComponent ]
+      declarations: [ HeaderDefaultComponent ],
+      imports: [ UiModule ]
     })
     .compileComponents();
   }));
