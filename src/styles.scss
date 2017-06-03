@@ -1,3 +1,5 @@
+@import './variables';
+
 $black: #000;
 @font-face {
   font-family: BebasNeue;
@@ -38,5 +40,8 @@ ul {
 
 // Global classes
 .container {
-  width: 90%;
+  width: 75%;
+  @media(max-width: $mobile-break-point) {
+    width: 90%;
+  }
 }
