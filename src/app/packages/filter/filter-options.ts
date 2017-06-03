@@ -19,13 +19,15 @@ export type FilterType = 'search' | 'select';
  * - Type sepcifies what kind of input should be show for this filter item.
  */
 export interface FilterItems {
-  [index: number]: { // array index
-    name?: string; // used for labels and not required for search
-    options: Array<string>; // select boxes available options
-    order?: { // optional: if no order is given, the array order will be used
-      default: Number; // default order this item should appear on the filter
-      mobile?: Number; // optional different order for mobile break point
-    };
-    type: FilterType; // supported types: search, select
+  [index: number]: FilterItem;
+}
+
+export interface FilterItem {
+  name?: string; // used for labels and not required for search
+  options: Array<string>; // select boxes available options
+  order?: { // optional: if no order is given, the array order will be used
+    default: Number; // default order this item should appear on the filter
+    mobile?: Number; // optional different order for mobile break point
   };
+  type: FilterType; // supported types: search, select
 }

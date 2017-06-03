@@ -15,7 +15,7 @@ import {
 import { Subscription } from 'rxjs/Subscription';
 
 import { GlobalEventsService } from '../global-events/global-events.service';
-import { FilterItems } from './filter-options';
+import { FilterItem } from './filter-options';
 import { FilterUtilitiesService } from './filter-utilities.service';
 import { WindowRef } from '../window/window.service';
 /**
@@ -53,7 +53,7 @@ export class FilterComponent implements AfterViewInit, OnDestroy, OnInit {
    * - Filter by search
    * - Filter by select boxes (array)
    */
-  @Input() filterItems: FilterItems;
+  @Input() filterItems: FilterItem[];
   /**
    * Contains filter information usually sent to a pipe for filtering data.
    */
