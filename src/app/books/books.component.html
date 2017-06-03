@@ -15,4 +15,7 @@
       <app-button-clear (click)="book.open = !book.open">Show {{book.open ? 'less' : 'more'}} <span [ngClass]="{'ion-chevron-down': !book.open, 'ion-chevron-up': book.open}"></span></app-button-clear>
     </div>
   </div>
+  <div *ngIf="(apiService.BOOKS | async) !== undefined && filteredMeta?.count === 0" class="no-results">
+    No matches for {{filteredMeta.query}}
+  </div>
 </div>
