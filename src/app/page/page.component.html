@@ -7,7 +7,7 @@
       <div *ngIf="item.template === 'default'" class="item-details">
         <h2 *ngIf="item.title">{{item.title}}</h2>
         <div *ngIf="item.text">{{item.text}}</div>
-        <div *ngIf="item.html">{{item.html}}</div>
+        <div *ngIf="item.html" [innerHtml]="item.html"></div>
       </div>
     </div>
     <div *ngIf="filteredMeta?.count === 0" class="no-results">

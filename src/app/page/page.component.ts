@@ -46,8 +46,6 @@ export class PageComponent implements OnDestroy, OnInit {
     public apiService: ApiService) { }
 
   ngOnInit() {
-
-
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.onNewRoute();
@@ -64,10 +62,10 @@ export class PageComponent implements OnDestroy, OnInit {
   onNewRoute() {
     this.pageSlug = this.activatedRoute.snapshot.params.type;
     this.page = this.apiService.page(this.pageSlug);
-
+    // Update subscription
     this.ngOnDestroy();
-    this.filterSubscription = this.apiService.eventsFilter.subscribe(options => {
-      this.filteredMeta.searchFields = options['searchFields'];
+    this.filterSubscription = this.page.subscribe((page: Page) => {
+      this.filteredMeta.searchFields = page.filter.searchFields;
     });
     this.filterChange++;
   }
