@@ -13,6 +13,7 @@ import { Page } from './page.interface';
 })
 export class PageComponent implements OnDestroy, OnInit {
   slug: string;
+  resourceType: string;
   page: AfoObjectObservable<Page>;
 
 
@@ -61,7 +62,8 @@ export class PageComponent implements OnDestroy, OnInit {
 
   onNewRoute() {
     this.slug = this.activatedRoute.snapshot.params.type;
-    this.page = this.apiService.page(this.slug);
+    this.resourceType = this.activatedRoute.data['value'].resourceType;
+    this.page = this.apiService.resource(this.resourceType, this.slug);
     // Update subscription
     this.ngOnDestroy();
     this.filterSubscription = this.page.subscribe((page: Page) => {

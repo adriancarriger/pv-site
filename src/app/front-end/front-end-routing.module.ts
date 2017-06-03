@@ -31,15 +31,24 @@ const routes: Routes = [
       },
       {
         path: 'ministries/:type',
-        loadChildren: '../default/default.module#DefaultModule'
+        loadChildren: '../page/page.module#PageModule',
+        data: {
+          resourceType: 'ministries'
+        }
       },
       {
         path: 'outreaches/:type',
-        loadChildren: '../default/default.module#DefaultModule'
+        loadChildren: '../page/page.module#PageModule',
+        data: {
+          resourceType: 'outreaches'
+        }
       },
       {
         path: 'about/:type',
-        loadChildren: '../page/page.module#PageModule'
+        loadChildren: '../page/page.module#PageModule',
+        data: {
+          resourceType: 'pages'
+        }
       },
       {
         path: 'events',

@@ -59,7 +59,7 @@ export class ApiService {
     return this.sermons.pluck(sermonId);
   }
 
-  page(pageId): AfoObjectObservable<Page> {
-    return this.afoDatabase.object(`client/pages/${pageId}`);
+  resource(type, id: string): AfoObjectObservable<Page> {
+    return this.afoDatabase.object(`client/${type}/${id}`);
   }
 }
