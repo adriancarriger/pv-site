@@ -65,6 +65,7 @@ export class PageComponent implements OnDestroy, OnInit {
     // Update subscription
     this.ngOnDestroy();
     this.filterSubscription = this.page.subscribe((page: Page) => {
+      if (!page.filter) { return; }
       this.filteredMeta.searchFields = page.filter.searchFields;
     });
     this.filterChange++;
