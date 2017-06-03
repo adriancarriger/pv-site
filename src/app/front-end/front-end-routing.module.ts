@@ -39,7 +39,7 @@ const routes: Routes = [
       },
       {
         path: 'about/:type',
-        loadChildren: '../home/home.module#HomeModule'
+        loadChildren: '../page/page.module#PageModule'
       },
       {
         path: 'events',

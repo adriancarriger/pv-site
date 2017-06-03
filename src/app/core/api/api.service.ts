@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { AfoListObservable,
   AfoObjectObservable,
   AngularFireOfflineDatabase } from 'angularfire2-offline/database';
+import { Page } from '../../page/page.interface';
 /**
  * @whatItDoes Reponsible for returning data from an API.
  * @consumers {@link HomeComponent}, {@link RecipeComponent}, {@link RecipeAdComponent}
@@ -56,5 +57,9 @@ export class ApiService {
 
   getSermon(sermonId) {
     return this.sermons.pluck(sermonId);
+  }
+
+  page(pageId): AfoObjectObservable<Page> {
+    return this.afoDatabase.object(`client/pages/${pageId}`);
   }
 }

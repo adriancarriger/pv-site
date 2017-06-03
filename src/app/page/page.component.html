@@ -1,0 +1,8 @@
+<div *ngIf="page | async; else loading">
+  <h2>
+    {{pageSlug}} Page
+  </h2>
+</div>
+<ng-template #loading>
+  loading...
+</ng-template>
