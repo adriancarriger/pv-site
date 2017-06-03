@@ -40,6 +40,9 @@ ul {
 
 // Global classes
 .container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 60%;
   @media(max-width: $mobile-break-point) {
     width: 90%;

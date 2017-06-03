@@ -20,17 +20,11 @@ $spacing: 15px;
   margin: 0 auto;
   padding: $spacing 20px;
   @media(min-width: $desktop-break-point) {
-    width: 86%;
+    width: 75%;
   }
   @media (min-width: $mobile-break-point + 1) {
     .toggle {
       display: none;
-    }
-  }
-
-  .left {
-    &:last-of-type {
-      margin-right: auto;
     }
   }
 
@@ -52,7 +46,7 @@ $spacing: 15px;
 
   .search {
     padding: 0 20px;
-    width: 35%;
+    width: 41%;
 
     app-input {
       border-radius: 25px;
@@ -74,6 +68,7 @@ $spacing: 15px;
   &.center {
     .search {
       margin-left: auto;
+      margin-right: auto;
       width: 50%;
       @media (max-width: $mobile-break-point) {
         .item {
