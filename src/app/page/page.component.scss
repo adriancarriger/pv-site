@@ -2,12 +2,14 @@
 // sass-lint:disable nesting-depth
 @import '../../variables';
 
+$item-padding: 60px;
+
 app-filter {
   background-color: $filter-background-color;
 }
 
 .items {
-  margin-top: 60px;
+  margin-top: 0;
   text-align: justify;
 
   @media (max-width: 700px) {
@@ -17,7 +19,8 @@ app-filter {
     padding-right: 0;
   }
   @media (min-width: 701px) {
-    margin: 20px auto;
+    margin: 0 auto;
+    margin-bottom: 20px;
 
     &.container {
       font-family: inherit;
@@ -25,6 +28,18 @@ app-filter {
       padding-left: initial;
       padding-right: initial;
     }
+  }
+
+  .use-background {
+    background-color: $very-light-gray;
+  }
+
+  .first {
+    padding-top: $item-padding;
+  }
+
+  .last {
+    padding-bottom: $item-padding;
   }
 
   .no-results {
