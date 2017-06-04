@@ -10,7 +10,7 @@ export class HeaderDefaultComponent {
   @Input() slug;
 
   scrollTo(slug, index, linkTo) {
-    const element = document.querySelector(`#${slug}-${linkTo ? linkTo - 1 : index}`);
+    const element = document.querySelector(`#${slug}-${linkTo ? linkTo : index}`);
     if (element) { element.scrollIntoView(element); }
   }
 }
