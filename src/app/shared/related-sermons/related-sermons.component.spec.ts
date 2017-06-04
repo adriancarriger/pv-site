@@ -3,8 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RelatedSermonsComponent } from './related-sermons.component';
 
 describe('RelatedSermonsComponent', () => {
-  let component: RelatedSermonsComponent;
-  let fixture: ComponentFixture<RelatedSermonsComponent>;
+  // let component: RelatedSermonsComponent;
+  // let fixture: ComponentFixture<RelatedSermonsComponent>;
 
   // beforeEach(async(() => {
   //   TestBed.configureTestingModule({
