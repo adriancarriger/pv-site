@@ -17,7 +17,7 @@ export class RelatedSermonsComponent implements OnChanges {
     wholeWords: true
   };
   searchMap = {
-    college: 'decision plan',
+    'young-adults': 'decision plan',
     youth: 'children',
     awana: 'children serve service',
     vbs: 'children serve service',
