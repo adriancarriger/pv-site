@@ -8,6 +8,7 @@ import { HeaderDefaultComponent } from './header-default/header-default.componen
 import { PaginationComponent } from './pagination/pagination.component';
 import { SermonsListComponent } from './sermons-list/sermons-list.component';
 import { UiModule } from '../packages/ui/ui.module';
+import { SafeHtmlPipe } from './safe-html/safe-html.pipe';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { UiModule } from '../packages/ui/ui.module';
     HeaderDefaultComponent,
     LogoComponent,
     PaginationComponent,
+    SafeHtmlPipe,
     SermonsListComponent
   ],
   exports: [
@@ -27,7 +29,8 @@ import { UiModule } from '../packages/ui/ui.module';
     LogoComponent,
     SermonsListComponent,
     UiModule,
-    MomentModule
+    MomentModule,
+    SafeHtmlPipe
   ]
 })
 export class SharedModule { }
