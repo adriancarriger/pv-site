@@ -33,7 +33,6 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
 
     a {
       display: block;
-      padding: 10px;
     }
   }
 
@@ -164,6 +163,7 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     }
 
     img {
+      display: block;
       width: 100%;
     }
   }
