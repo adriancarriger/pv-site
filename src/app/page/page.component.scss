@@ -34,9 +34,16 @@ app-filter {
     text-align: center;
   }
 
+  app-related-sermons {
+    &.item {
+      padding-top: 50px;
+    }
+  }
+
   .item {
     border-radius: 5px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding-bottom: 10px;
     padding-left: 20px;

@@ -18,6 +18,10 @@
   src: url('/assets/fonts/LoveMoment.otf');
 }
 
+.container {
+  width: 70%;
+}
+
 .sermons {
   margin-top: 60px;
   @media (max-width: 700px) {

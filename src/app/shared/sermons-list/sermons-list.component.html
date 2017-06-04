@@ -1,4 +1,4 @@
-<div class="sermons">
+<div class="sermons container">
   <div *ngFor="let sermon of sermons | paginate: config; let i = index" class="sermon-container" [ngClass]="{'playing': ((mediaService.display | async)?.playing) && (mediaService.display | async)?.id == sermon?.key, 'current-sermon': (mediaService.display | async)?.id == sermon?.key, 'error': error(sermon.key)}">
     <div class="sermon-art" (click)="mediaService.toggle(sermon.key)">
       <img [src]="sermon?.art.image_small" srcset="{{sermon?.art.image_small}} 60w, {{sermon?.art.image_medium}} 100w, {{sermon?.art.image_large}} 300w" alt="">

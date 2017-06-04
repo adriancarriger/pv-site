@@ -9,10 +9,13 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { SermonsListComponent } from './sermons-list/sermons-list.component';
 import { UiModule } from '../packages/ui/ui.module';
 import { SafeHtmlPipe } from './safe-html/safe-html.pipe';
+import { RelatedSermonsComponent } from './related-sermons/related-sermons.component';
+import { FilterModule } from '../packages/filter/filter.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    FilterModule,
     MomentModule,
     Ng2PaginationModule,
     UiModule
@@ -22,7 +25,8 @@ import { SafeHtmlPipe } from './safe-html/safe-html.pipe';
     LogoComponent,
     PaginationComponent,
     SafeHtmlPipe,
-    SermonsListComponent
+    SermonsListComponent,
+    RelatedSermonsComponent
   ],
   exports: [
     HeaderDefaultComponent,
@@ -30,7 +34,8 @@ import { SafeHtmlPipe } from './safe-html/safe-html.pipe';
     SermonsListComponent,
     UiModule,
     MomentModule,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    RelatedSermonsComponent
   ]
 })
 export class SharedModule { }
