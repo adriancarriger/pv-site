@@ -43,6 +43,7 @@ ul {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-width: 680px;
   width: 60%;
   @media(max-width: $mobile-break-point) {
     width: 90%;
