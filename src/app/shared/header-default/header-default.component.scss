@@ -77,12 +77,13 @@ $image-small: 200px;
 // Page navigation
 .page-nav {
   bottom: 0;
+  display: flex;
+  justify-content: center;
   left: 0;
   margin: 0 auto;
   padding-bottom: 10px;
   position: absolute;
   right: 0;
-  width: 450px;
   z-index: 2;
 
   .icon-container {
