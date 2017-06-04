@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { AfoObjectObservable } from 'angularfire2-offline';
@@ -43,8 +43,9 @@ export class PageComponent implements OnDestroy, OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
-    public apiService: ApiService) { }
+    public apiService: ApiService,
+    private cd: ChangeDetectorRef,
+    private router: Router) { }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -64,6 +65,7 @@ export class PageComponent implements OnDestroy, OnInit {
     this.slug = this.activatedRoute.snapshot.params.type;
     this.resourceType = this.activatedRoute.data['value'].resourceType;
     this.page = this.apiService.resource(this.resourceType, this.slug);
+    this.cd.markForCheck();
     // Update subscription
     this.ngOnDestroy();
     this.filterSubscription = this.page.subscribe((page: Page) => {
