@@ -34,6 +34,10 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     a {
       display: block;
     }
+
+    > a {
+      padding: 10px;
+    }
   }
 
   .items {
