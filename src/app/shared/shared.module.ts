@@ -11,6 +11,7 @@ import { UiModule } from '../packages/ui/ui.module';
 import { SafeHtmlPipe } from './safe-html/safe-html.pipe';
 import { RelatedSermonsComponent } from './related-sermons/related-sermons.component';
 import { FilterModule } from '../packages/filter/filter.module';
+import { EventsListComponent } from './events-list/events-list.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { FilterModule } from '../packages/filter/filter.module';
     PaginationComponent,
     SafeHtmlPipe,
     SermonsListComponent,
-    RelatedSermonsComponent
+    RelatedSermonsComponent,
+    EventsListComponent
   ],
   exports: [
     HeaderDefaultComponent,
@@ -35,7 +37,8 @@ import { FilterModule } from '../packages/filter/filter.module';
     UiModule,
     MomentModule,
     SafeHtmlPipe,
-    RelatedSermonsComponent
+    RelatedSermonsComponent,
+    EventsListComponent
   ]
 })
 export class SharedModule { }

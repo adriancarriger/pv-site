@@ -1,24 +1,3 @@
 <app-header-default [info]="apiService.latestEvents | async"></app-header-default>
 <app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.eventsFilter | async)?.items"></app-filter>
-<div class="events container">
-  <div *ngFor="let eventGroup of apiService.events | async | filter:filterChange:filterData:filteredMeta; let i = index" class="event-group">
-    <h2>{{eventGroup.$key | amFromUnix | amDateFormat: 'dddd, MMMM D'}}</h2>
-    <div *ngFor="let event of eventGroup; let n = index" class="event" [ngClass]="{'odd': n === 0 || n % 2 === 0}">
-      <div class="event-item">
-        {{event.title}}
-      </div>
-      <div class="event-item">
-        <i class="ion-android-time"></i> {{event?.unix | amFromUnix | amDateFormat:'h:mm A'}}
-      </div>
-      <div class="event-item" *ngIf="event.location?.title">
-        <i class="ion-location"></i> <a [href]="event.location.link" target="_blank">{{event.location.title}}</a> <span *ngIf="event.location.area">{{event.location.area}}</span>
-      </div>
-      <div class="event-item" *ngFor="let ministry of event.ministries">
-        <i class="ion-android-star"></i> {{ministry}}'s ministry
-      </div>
-    </div>
-  </div>
-  <div *ngIf="(apiService.events | async) !== undefined && filteredMeta?.count === 0" class="no-results">
-    No matches for {{filteredMeta.query}}
-  </div>
-</div>
+<app-events-list [events]="apiService.events | async | filter:filterChange:filterData:filteredMeta"></app-events-list>
