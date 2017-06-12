@@ -6,7 +6,7 @@
 [![devDependency Status](https://img.shields.io/david/dev/adriancarriger/pv-site/master.svg?maxAge=60)](https://david-dm.org/adriancarriger/pv-site?type=dev)
 [![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
-## PV Bible Church Website
+# PV Bible Church Website
 
 - This project is a work in progress.
 - Repo for the future [pvbiblechurch.com](http://pvbiblechurch.com/) site. Built using [Angular 2](https://github.com/angular/angular) with the [Angular 2 CLI](https://github.com/angular/angular-cli)
@@ -18,15 +18,15 @@
 
 ## Links
 
-- https://pvbiblechurch.com/issues
-- https://pvbiblechurch.com/dev
-- https://pvbiblechurch.com/beta
+- [Issues](https://pvbiblechurch.com/issues)
+- [Repo](https://pvbiblechurch.com/dev)
+- [Demo](https://pvbiblechurch.com/beta)
 
 ## Tech Stack
 
-* Front end: [Angular 2](https://github.com/angular/angular) version 2.4.9
-* Database/hosting: [Firebase](https://firebase.google.com/)
-* Scaffolding: [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-rc.1
+- Front end: [Angular 2](https://github.com/angular/angular) version 2.4.9
+- Database/hosting: [Firebase](https://firebase.google.com/)
+- Scaffolding: [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-rc.1
 
 ## Development server
 
