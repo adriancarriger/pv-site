@@ -1,0 +1,2 @@
+<h2 *ngIf="filteredMeta?.count > 0">Related events</h2>
+<app-events-list [events]="apiService.events | async | filter:filterChange:filterData:filteredMeta | slice:0:4" [filteredMeta]="filteredMeta" [hideNoResults]="true"></app-events-list>

@@ -14,6 +14,8 @@
       </div>
       <!-- Related Sermons Template -->
       <app-related-sermons *ngIf="item.template === 'sermons'" [searchTerm]="slug" class="item"></app-related-sermons>
+      <!-- Related Events Template -->
+      <app-related-events *ngIf="item.template === 'events'" [searchTerm]="slug" class="item"></app-related-events>
     </div>
     <div *ngIf="filteredMeta?.count === 0" class="no-results">
       No matches for {{filteredMeta.query}}

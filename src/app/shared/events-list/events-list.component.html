@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="events !== undefined && filteredMeta?.count === 0" class="no-results">
+  <div *ngIf="!hideNoResults && events !== undefined && filteredMeta?.count === 0" class="no-results">
     No matches for {{filteredMeta.query}}
   </div>
 </div>
