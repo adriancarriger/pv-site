@@ -32,7 +32,12 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     padding: 10px;
 
     a {
-      display: block;
+      &,
+      &:hover,
+      &:active {
+        color: $black;
+        display: block;
+      }
     }
 
     > a {

@@ -23,7 +23,9 @@ a {
   &,
   &:hover,
   &:active {
-    color: $black;
+    color: $pv-green;
+    display: inline-block;
+    margin: 1px 2px;
     text-decoration: none;
   }
 

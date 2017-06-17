@@ -12,6 +12,7 @@ import { SliderComponent } from './slider/slider.component';
 import { ApiService } from '../core/api/api.service';
 import { MediaService } from '../core/media/media.service';
 import { SharedModule } from '../shared/shared.module';
+import { RefTaggerService } from '../core/ref-tagger/ref-tagger.service';
 
 describe('FrontEndComponent', () => {
   let component: FrontEndComponent;
@@ -33,6 +34,7 @@ describe('FrontEndComponent', () => {
       ],
       providers: [
         MediaService,
+        RefTaggerService,
         { provide: ApiService, useValue: mockApiService }
       ]
     })

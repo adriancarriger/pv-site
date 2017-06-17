@@ -13,6 +13,7 @@ import { ApiService } from './api/api.service';
 import { MediaService } from './media/media.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { GlobalEventsModule } from '../packages/global-events/global-events.module';
+import { RefTaggerService } from './ref-tagger/ref-tagger.service';
 import { FilterModule } from '../packages/filter/filter.module';
 import { WindowRef } from '../packages/window/window.service';
 import { environment } from '../../environments/environment';
@@ -50,6 +51,7 @@ export class CoreModule {
       providers: [
         ApiService,
         MediaService,
+        RefTaggerService,
         WindowRef
       ]
     };
