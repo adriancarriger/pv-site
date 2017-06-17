@@ -7,6 +7,7 @@
       <div *ngIf="item.template === 'default'" class="container item">
         <img *ngIf="item.image" [src]="item.image" class="item-image" alt="" />
         <h1 *ngIf="item.title">{{item.title}}</h1>
+        <h2 *ngIf="item.meta">{{item.meta}}</h2>
         <div class="item-details" [ngClass]="{'has-image': item.image}">
           <div *ngIf="item.text">{{item.text}}</div>
           <div *ngIf="item.html" [innerHtml]="item.html | safeHtml" class="inner-html"></div>
