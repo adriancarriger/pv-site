@@ -2,13 +2,18 @@
 // sass-lint:disable nesting-depth
 @import '../../variables';
 
-$input-font-size: 18px;
+// Contact variables
+$contact-background: $blue-grey;
+$contact-text-color: $white;
+$contact-font-size: 18px;
 
 .form-container {
+  background-color: $contact-background;
+  color: $contact-text-color;
   padding: 30px 0;
 
   .contact-message {
-    font-size: $input-font-size;
+    font-size: $contact-font-size;
     font-weight: normal;
     padding: 30px 0;
     text-align: center;
@@ -25,7 +30,7 @@ $input-font-size: 18px;
 
     label {
       flex-basis: 100%;
-      font-size: $input-font-size;
+      font-size: $contact-font-size;
       padding-bottom: 10px;
       padding-top: 20px;
     }
@@ -34,24 +39,77 @@ $input-font-size: 18px;
     textarea {
       border: 1px solid $light-gray;
       flex-basis: 100%;
-      font-size: $input-font-size;
+      font-size: $contact-font-size;
       padding: 10px;
       resize: none;
       width: 100%;
     }
 
     .submit-button {
-      border: solid 1px $pv-green;
+      border: solid 1px $contact-text-color;
       display: flex;
+      font-size: $contact-font-size;
       height: 40px;
       margin: 20px 0;
-      outline-color: $pv-green;
+      outline-color: $contact-text-color;
       padding: 0;
       width: 100%;
     }
 
     textarea {
       height: 200px;
+    }
+  }
+}
+
+.actions-container {
+  background-color: $light-gray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .action {
+    cursor: pointer;
+    flex-basis: 33.33%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 30%;
+    position: relative;
+
+    .action-text-container {
+      align-items: center;
+      bottom: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      left: 0;
+      margin: auto;
+      max-height: 320px;
+      padding: 20% 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 90%;
+      z-index: 1;
+
+      > div {
+        flex-basis: 100%;
+      }
+
+      .action-text-title {
+        margin-top: 0;
+      }
+
+      .action-text-content {
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .action-text-cta {
+        padding: 10px;
+        text-decoration: underline;
+      }
     }
   }
 }
