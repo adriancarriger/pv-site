@@ -13,6 +13,7 @@ import { NavComponent } from './nav/nav.component';
 import { PlayerComponent } from './player/player.component';
 import { SliderComponent } from './slider/slider.component';
 import { SharedModule } from '../shared/shared.module';
+import { FooterComponent } from './footer/footer.component';
 /**
  * @whatItDoes Lazy loaded feature module for front end routes.
  * @consumers {@link AppRoutingModule} (on demand)
@@ -29,7 +30,8 @@ import { SharedModule } from '../shared/shared.module';
     FrontEndComponent,
     NavComponent,
     PlayerComponent,
-    SliderComponent
+    SliderComponent,
+    FooterComponent
   ]
 })
 export class FrontEndModule { }

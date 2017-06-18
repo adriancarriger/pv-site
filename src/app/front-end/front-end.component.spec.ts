@@ -5,6 +5,7 @@ import { DebugElement, Injectable } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NouisliderModule } from 'ng2-nouislider';
 
+import { FooterComponent } from './footer/footer.component';
 import { FrontEndComponent } from './front-end.component';
 import { NavComponent } from './nav/nav.component';
 import { PlayerComponent } from './player/player.component';
@@ -27,6 +28,7 @@ describe('FrontEndComponent', () => {
         SharedModule
       ],
       declarations: [
+        FooterComponent,
         FrontEndComponent,
         NavComponent,
         PlayerComponent,
