@@ -72,24 +72,25 @@ $contact-font-size: 18px;
     cursor: pointer;
     flex-basis: 33.33%;
     height: 0;
+    margin: 0;
     overflow: hidden;
     padding-bottom: 30%;
-    position: relative;
+
+    a {
+      color: $black;
+      display: flex;
+      margin: 10%;
+    }
 
     .action-text-container {
       align-items: center;
-      bottom: 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      left: 0;
       margin: auto;
       max-height: 320px;
       padding: 20% 0;
-      position: absolute;
-      right: 0;
       text-align: center;
-      top: 0;
       width: 90%;
       z-index: 1;
 
