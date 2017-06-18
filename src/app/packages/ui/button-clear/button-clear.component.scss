@@ -13,12 +13,12 @@
     border: 0;
     color: inherit;
     cursor: pointer;
-    display: inline;
     font: inherit;
     line-height: inherit;
     margin: 0;
     outline-offset: 0;
     padding: inherit;
+    width: 100%;
 
     &:focus {
       outline: solid 1px;

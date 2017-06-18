@@ -1,0 +1,57 @@
+// sass-lint:disable no-vendor-prefixes // TODO: add autoprefixer
+// sass-lint:disable nesting-depth
+@import '../../variables';
+
+$input-font-size: 18px;
+
+.form-container {
+  padding: 30px 0;
+
+  .contact-message {
+    font-size: $input-font-size;
+    font-weight: normal;
+    padding: 30px 0;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 680px;
+    width: 60%;
+
+
+    label {
+      flex-basis: 100%;
+      font-size: $input-font-size;
+      padding-bottom: 10px;
+      padding-top: 20px;
+    }
+
+    input,
+    textarea {
+      border: 1px solid $light-gray;
+      flex-basis: 100%;
+      font-size: $input-font-size;
+      padding: 10px;
+      resize: none;
+      width: 100%;
+    }
+
+    .submit-button {
+      border: solid 1px $pv-green;
+      display: flex;
+      height: 40px;
+      margin: 20px 0;
+      outline-color: $pv-green;
+      padding: 0;
+      width: 100%;
+    }
+
+    textarea {
+      height: 200px;
+    }
+  }
+}

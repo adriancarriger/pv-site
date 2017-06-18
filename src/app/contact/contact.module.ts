@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 
 import { ContactComponent } from './contact.component';
 import { ContactRoutingModule } from './contact-routing.module';
+import { SharedModule } from '../shared/shared.module';
 /**
  * @whatItDoes Lazy loaded feature module for the contact page.
  * @consumers {@link FrontEndRoutingModule} (on demand)
@@ -14,8 +15,11 @@ import { ContactRoutingModule } from './contact-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    ContactRoutingModule
+    ContactRoutingModule,
+    SharedModule
   ],
-  declarations: [ContactComponent]
+  declarations: [
+    ContactComponent
+  ]
 })
 export class ContactModule { }
