@@ -56,7 +56,7 @@ const routes: Routes = [
       },
       {
         path: 'contact',
-        loadChildren: '../home/home.module#HomeModule'
+        loadChildren: '../contact/contact.module#ContactModule'
       }
     ]
   },
