@@ -10,7 +10,7 @@ $contact-font-size: 18px;
 .form-container {
   background-color: $contact-background;
   color: $contact-text-color;
-  padding: 30px 0;
+  padding: 30px 0 100px;
 
   .contact-message {
     font-size: $contact-font-size;
@@ -68,13 +68,19 @@ $contact-font-size: 18px;
   flex-wrap: wrap;
   justify-content: space-between;
 
+  @media (min-width: 1000px) {
+    padding: 0 10%;
+  }
+
   .action {
+    align-items: flex-start;
     cursor: pointer;
+    display: flex;
     flex-basis: 33.33%;
-    height: 0;
+    height: 300px;
+    justify-content: center;
     margin: 0;
     overflow: hidden;
-    padding-bottom: 30%;
 
     a {
       color: $black;
@@ -89,7 +95,7 @@ $contact-font-size: 18px;
       justify-content: center;
       margin: auto;
       max-height: 320px;
-      padding: 20% 0;
+      padding: 20px 0;
       text-align: center;
       width: 90%;
       z-index: 1;
@@ -100,6 +106,12 @@ $contact-font-size: 18px;
 
       .action-text-title {
         margin-top: 0;
+      }
+
+      .icon {
+        color: $pv-dark-green;
+        font-size: 50px;
+        padding-bottom: 10px;
       }
 
       .action-text-content {

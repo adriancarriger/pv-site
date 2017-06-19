@@ -17,7 +17,8 @@
   <div class="action">
     <a href="tel:805-987-5051">
       <div class="action-text-container">
-        <h3 class="action-text-title">call</h3>
+        <div class="icon ion-ios-telephone"></div>
+        <h3 class="action-text-title">Call</h3>
         <div class="action-text-content">(805) 987-5051</div>
         <div class="action-text-cta">Call</div>
       </div>
@@ -26,8 +27,12 @@
   <div class="action">
     <a href="https://www.google.com/maps/place/Pleasant+Valley+Bible+Church/@34.224582,-119.055738,17z/data=!3m1!4b1!4m2!3m1!1s0x80e849f9894174bf:0xdf0a111320edeccf" target="_blank">
       <div class="action-text-container">
-        <h3 class="action-text-title">address</h3>
-        <div class="action-text-content">1101 Ponderosa Drive, Camarillo, California 93010</div>
+        <div class="icon ion-ios-location"></div>
+        <h3 class="action-text-title">Address</h3>
+        <div class="action-text-content">
+          <div>1101 Ponderosa Drive</div>
+          <div>Camarillo, California 93010</div>
+        </div>
         <div class="action-text-cta">Get Directions</div>
       </div>
     </a>
@@ -35,7 +40,8 @@
   <div class="action">
     <a [routerLink]="['/ministries/sunday']">
       <div class="action-text-container">
-        <h3 class="action-text-title">worship time</h3>
+        <div class="icon ion-android-time"></div>
+        <h3 class="action-text-title">Worship time</h3>
         <div class="action-text-content">Sundays at 10:30 am</div>
         <div class="action-text-cta">Learn more</div>
       </div>
