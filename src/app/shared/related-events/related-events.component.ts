@@ -15,7 +15,8 @@ export class RelatedEventsComponent implements OnChanges {
   filteredMeta = {
     searchFields: ['ministries'],
     wholeWords: true,
-    flatten: true
+    flatten: true,
+    count: null
   };
   searchMap = {
     family: 'churchwide',
