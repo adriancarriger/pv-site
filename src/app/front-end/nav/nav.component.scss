@@ -147,7 +147,7 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     }
 
     .overlay {
-       @extend %overlay;
+      @extend %overlay;
     }
 
     .title {
