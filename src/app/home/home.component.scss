@@ -1,5 +1,57 @@
+@import '../../variables';
+
 :host {
   display: block;
-  height: 600px;
+  font-size: 20px;
 }
 
+.header {
+  height: 600px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.service-hours {
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+  width: 50%;
+
+  li {
+    padding-top: 30px;
+  }
+
+  h1,
+  h2 {
+    font-family: $title-font;
+    margin-bottom: 0;
+  }
+
+  h1 {
+    color: $pv-green;
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .learn-more {
+    padding: 50px 0;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  > div {
+    flex-basis: 33.33%;
+    height: 100px;
+    text-align: center;
+  }
+}
