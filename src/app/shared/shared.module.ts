@@ -13,6 +13,7 @@ import { RelatedSermonsComponent } from './related-sermons/related-sermons.compo
 import { FilterModule } from '../packages/filter/filter.module';
 import { EventsListComponent } from './events-list/events-list.component';
 import { RelatedEventsComponent } from './related-events/related-events.component';
+import { NavLinkComponent } from './nav-link/nav-link.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { RelatedEventsComponent } from './related-events/related-events.componen
     SermonsListComponent,
     RelatedSermonsComponent,
     EventsListComponent,
-    RelatedEventsComponent
+    RelatedEventsComponent,
+    NavLinkComponent
   ],
   exports: [
     HeaderDefaultComponent,
@@ -42,7 +44,8 @@ import { RelatedEventsComponent } from './related-events/related-events.componen
     SafeHtmlPipe,
     EventsListComponent,
     RelatedSermonsComponent,
-    RelatedEventsComponent
+    RelatedEventsComponent,
+    NavLinkComponent
   ]
 })
 export class SharedModule { }

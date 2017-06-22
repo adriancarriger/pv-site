@@ -145,32 +145,5 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     &:focus {
       outline: 4px solid $primary-color;
     }
-
-    .overlay {
-      @extend %overlay;
-    }
-
-    .title {
-      bottom: 0;
-      color: $white;
-      font-family: $title-font;
-      font-size: 32px;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      z-index: 1;
-      @media (min-width: 900px) {
-        font-size: 42px;
-      }
-      @media (min-width: 1200px) {
-        font-size: 58px;
-      }
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
   }
 }
