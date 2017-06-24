@@ -134,16 +134,4 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
   margin: 20px 2%;
   text-align: center;
   width: 29.33%;
-
-  a {
-    display: block;
-    height: 0;
-    overflow: hidden;
-    padding-bottom: 66.6667%;
-    position: relative;
-
-    &:focus {
-      outline: 4px solid $primary-color;
-    }
-  }
 }

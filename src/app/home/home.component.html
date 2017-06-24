@@ -23,6 +23,6 @@
 </div>
 <div class="grid" *ngIf="adItems.length > 0">
   <div *ngFor="let item of adItems">
-    <app-nav-link [title]="item.name" [src]="item.image_large"></app-nav-link>
+    <app-nav-link [title]="item.name" [src]="item.image_large" [link]="['/ministries/' + item.slug]" [innerOutline]="true"></app-nav-link>
   </div>
 </div>

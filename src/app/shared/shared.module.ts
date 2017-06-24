@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MomentModule } from 'angular2-moment';
 import { Ng2PaginationModule } from 'ng2-pagination';
 
@@ -22,6 +23,7 @@ import { ImageCoverComponent } from './image-cover/image-cover.component';
     FilterModule,
     MomentModule,
     Ng2PaginationModule,
+    RouterModule,
     UiModule
   ],
   declarations: [

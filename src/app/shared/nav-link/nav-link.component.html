@@ -1,3 +1,5 @@
-<app-image-cover [src]="src" [alt]="title"></app-image-cover>
-<div *ngIf="title" class="title">{{title}}</div>
-<div class="overlay"></div>
+<a [routerLink]="link" [tabindex]="tabindex ? tabindex : null" [ngClass]="{'inner-outline': innerOutline}">
+  <app-image-cover [src]="src" [alt]="title"></app-image-cover>
+  <div *ngIf="title" class="title">{{title}}</div>
+  <div class="overlay"></div>
+</a>

@@ -29,10 +29,37 @@
   position: relative;
 }
 
-app-image-cover {
+a {
   bottom: 0;
   left: 0;
+  margin: 0;
   position: absolute;
   right: 0;
   top: 0;
+
+  &:focus {
+    outline: 4px solid $primary-color;
+
+    .overlay {
+      outline: none;
+    }
+  }
+}
+
+.inner-outline {
+  &:focus {
+    outline: none;
+
+    &::after {
+      border: 4px solid $primary-color;
+      bottom: 0;
+      content: '';
+      left: 0;
+      margin: 0;
+      outline: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
 }
