@@ -27,6 +27,7 @@
   height: 92px;
   line-height: 1;
   margin: 0 23px;
+  outline: none;
   padding: 18px 16px;
   text-align: center;
   transition: background-color .5s ease, color .5s ease;
@@ -35,6 +36,12 @@
   &:hover {
     background-color: $white;
     color: $blue-grey;
+  }
+
+  &:focus {
+    background-color: $white;
+    color: $blue-grey;
+    transition: none;
   }
 
   &::before {
@@ -67,6 +74,8 @@ h2 {
 
 a {
   color: $white;
+  outline-color: $white;
+  padding: 5px;
   text-decoration: none;
 }
 
