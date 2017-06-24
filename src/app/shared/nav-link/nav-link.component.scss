@@ -22,7 +22,17 @@
   }
 }
 
-img {
-  display: block;
-  width: 100%;
+:host {
+  display: flex;
+  height: 0;
+  padding-bottom: 70%;
+  position: relative;
+}
+
+app-image-cover {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

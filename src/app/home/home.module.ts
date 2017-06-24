@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { SharedModule } from '../shared/shared.module';
 /**
  * @whatItDoes Lazy loaded feature module for the home page.
  * @consumers {@link FrontEndRoutingModule} (on demand)
@@ -14,7 +15,8 @@ import { HomeRoutingModule } from './home-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SharedModule
   ],
   declarations: [HomeComponent]
 })

@@ -11,4 +11,6 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent { }
+export class HomeComponent {
+  tempImage = 'https://pvbiblechurch.com/wp-content/uploads/mp/image-cache/site/0/childrens-church-23s.cf4d585d0a4c5ea87c649e01164cf12c.jpeg';
+}

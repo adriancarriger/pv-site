@@ -14,6 +14,7 @@ import { FilterModule } from '../packages/filter/filter.module';
 import { EventsListComponent } from './events-list/events-list.component';
 import { RelatedEventsComponent } from './related-events/related-events.component';
 import { NavLinkComponent } from './nav-link/nav-link.component';
+import { ImageCoverComponent } from './image-cover/image-cover.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { NavLinkComponent } from './nav-link/nav-link.component';
     RelatedSermonsComponent,
     EventsListComponent,
     RelatedEventsComponent,
-    NavLinkComponent
+    NavLinkComponent,
+    ImageCoverComponent,
   ],
   exports: [
     HeaderDefaultComponent,
@@ -45,7 +47,8 @@ import { NavLinkComponent } from './nav-link/nav-link.component';
     EventsListComponent,
     RelatedSermonsComponent,
     RelatedEventsComponent,
-    NavLinkComponent
+    NavLinkComponent,
+    ImageCoverComponent
   ]
 })
 export class SharedModule { }

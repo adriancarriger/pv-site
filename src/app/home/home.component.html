@@ -1,5 +1,5 @@
 <div class="header">
-  <img src="assets/sermons.jpeg">
+  <app-image-cover src="assets/sermons.jpeg"></app-image-cover>
 </div>
 <div class="service-hours">
   <h1>Service Hours</h1>
@@ -22,10 +22,22 @@
   </div>
 </div>
 <div class="grid">
-  <div>Children</div>
-  <div>Youth</div>
-  <div>Young Adults</div>
-  <div>Women</div>
-  <div>Men</div>
-  <div>Family</div>
+  <div>
+    <app-nav-link title="Children" [src]="tempImage"></app-nav-link>
+  </div>
+  <div>
+    <app-nav-link title="Youth" [src]="tempImage"></app-nav-link>
+  </div>
+  <div>
+    <app-nav-link title="Young Adults" [src]="tempImage"></app-nav-link>
+  </div>
+  <div>
+    <app-nav-link title="Women" [src]="tempImage"></app-nav-link>
+  </div>
+  <div>
+    <app-nav-link title="Men" [src]="tempImage"></app-nav-link>
+  </div>
+  <div>
+    <app-nav-link title="Family" [src]="tempImage"></app-nav-link>
+  </div>
 </div>

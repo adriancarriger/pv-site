@@ -6,11 +6,11 @@
 }
 
 .header {
-  height: 600px;
   overflow: hidden;
 
-  img {
-    width: 100%;
+  app-image-cover {
+    height: 0;
+    padding-bottom: 40%;
   }
 }
 
@@ -51,7 +51,6 @@
 
   > div {
     flex-basis: 33.33%;
-    height: 100px;
     text-align: center;
   }
 }
