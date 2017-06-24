@@ -29,7 +29,6 @@ export class RelatedEventsComponent implements OnChanges {
     public apiService: ApiService) { }
 
   ngOnChanges() {
-    console.log(this.searchTerm);
     if (this.searchTerm in this.searchMap) {
       this.filterData.search = this.searchMap[this.searchTerm];
     } else {

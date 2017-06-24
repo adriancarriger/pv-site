@@ -21,23 +21,8 @@
     <a [routerLink]="['/ministries/sunday/']">Learn More <span class="ion-ios-arrow-right"></span></a>
   </div>
 </div>
-<div class="grid">
-  <div>
-    <app-nav-link title="Children" [src]="tempImage"></app-nav-link>
-  </div>
-  <div>
-    <app-nav-link title="Youth" [src]="tempImage"></app-nav-link>
-  </div>
-  <div>
-    <app-nav-link title="Young Adults" [src]="tempImage"></app-nav-link>
-  </div>
-  <div>
-    <app-nav-link title="Women" [src]="tempImage"></app-nav-link>
-  </div>
-  <div>
-    <app-nav-link title="Men" [src]="tempImage"></app-nav-link>
-  </div>
-  <div>
-    <app-nav-link title="Family" [src]="tempImage"></app-nav-link>
+<div class="grid" *ngIf="adItems.length > 0">
+  <div *ngFor="let item of adItems">
+    <app-nav-link [title]="item.name" [src]="item.image_large"></app-nav-link>
   </div>
 </div>

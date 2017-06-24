@@ -1,7 +1,9 @@
 /**
  * @module HomeModule
  */ /** */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { ApiService } from '../core/api/api.service';
 /**
  * @whatItDoes Returns the {@link HomeComponent} view.
  * @consumers {@link HomeModule}, {@link HomeRoutingModule}
@@ -11,6 +13,20 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
-  tempImage = 'https://pvbiblechurch.com/wp-content/uploads/mp/image-cache/site/0/childrens-church-23s.cf4d585d0a4c5ea87c649e01164cf12c.jpeg';
+export class HomeComponent implements OnInit {
+  using = ['Children', 'Youth', 'Young Adults', 'Women', 'Men', 'Family'];
+  adItems = [];
+  constructor(private apiService: ApiService) { }
+  ngOnInit() {
+    this.apiService.menu.subscribe(menuItems => {
+      this.adItems = menuItems
+        .find(item => item.name === 'Ministries').sub
+        .reduce((previous, item) => {
+          if (this.using.includes(item.name)) {
+            previous.push(item);
+          }
+          return previous;
+      }, []);
+    });
+  }
 }
