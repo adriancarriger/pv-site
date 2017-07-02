@@ -16,7 +16,7 @@ import { ApiService } from '../core/api/api.service';
 export class HomeComponent implements OnInit {
   using = ['Children', 'Youth', 'Young Adults', 'Women', 'Men', 'Family'];
   adItems = [];
-  constructor(private apiService: ApiService) { }
+  constructor(public apiService: ApiService) { }
   ngOnInit() {
     this.apiService.menu.subscribe(menuItems => {
       this.adItems = menuItems
