@@ -3574,6 +3574,12 @@ ng2-pagination@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ng2-pagination/-/ng2-pagination-2.0.1.tgz#eb329c0020e19a5e7bd1a6e064792fad1d8ec80e"
 
+ngx-siema@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/ngx-siema/-/ngx-siema-1.2.1.tgz#5b229c79718363a8beb0a3a109ada0800f2096c4"
+  dependencies:
+    siema "^1.4.6"
+
 no-case@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.1.tgz#7aeba1c73a52184265554b7dc03baf720df80081"
@@ -4961,6 +4967,10 @@ sha.js@^2.3.6:
 shelljs@^0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.6.1.tgz#ec6211bed1920442088fe0f70b2837232ed2c8a8"
+
+siema@^1.4.6:
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/siema/-/siema-1.4.6.tgz#f13a60c80073e52ec3fde0e9bf642825b64f4608"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"

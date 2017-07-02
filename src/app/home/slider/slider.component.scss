@@ -1,0 +1,38 @@
+@import '../../../variables';
+
+:host {
+  display: block;
+  height: 0;
+  padding-bottom: 45%;
+  position: relative;
+}
+
+app-image-cover {
+  height: 0;
+  padding-bottom: 45%;
+}
+
+app-loading {
+  bottom: 0;
+  height: 80px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+ngx-siema-slide {
+  .slide-content {
+    color: $white;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 20%;
+
+    .title {
+      text-align: center;
+    }
+  }
+}

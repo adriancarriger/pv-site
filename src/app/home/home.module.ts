@@ -4,10 +4,12 @@
  */ /** */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxSiemaModule } from 'ngx-siema';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { SliderComponent } from './slider/slider.component';
 /**
  * @whatItDoes Lazy loaded feature module for the home page.
  * @consumers {@link FrontEndRoutingModule} (on demand)
@@ -16,8 +18,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxSiemaModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, SliderComponent]
 })
 export class HomeModule { }

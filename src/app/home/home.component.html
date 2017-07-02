@@ -1,5 +1,5 @@
 <div class="header">
-  <app-image-cover src="assets/sermons.jpeg"></app-image-cover>
+  <app-slider [slides]="apiService.slides | async"></app-slider>
 </div>
 <div class="service-hours">
   <h1>Service Hours</h1>

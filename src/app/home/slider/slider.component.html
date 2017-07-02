@@ -1,0 +1,10 @@
+<app-loading *ngIf="loading"></app-loading>
+<ngx-siema *ngIf="slides && !loading" [options]="options" (prev)="prev($event)" (next)="next($event)">
+  <ngx-siema-slide *ngFor="let slide of slides">
+    <app-image-cover src="assets/sermons.jpeg">
+      <div class="slide-content">
+        <h2 class="title">{{slide.title}}</h2>
+      </div>
+    </app-image-cover>
+  </ngx-siema-slide>
+</ngx-siema>

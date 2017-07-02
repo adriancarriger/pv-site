@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
-// import { MockApiService } from '../front-end/nav/nav.component.spec';
+import { HomeModule } from './home.module';
 import { ApiService } from '../core/api/api.service';
 
 describe('HomeComponent', () => {
@@ -17,8 +17,7 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     mockApiService = new MockApiService();
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, SharedModule ],
-      declarations: [ HomeComponent ],
+      imports: [ RouterTestingModule, SharedModule, HomeModule ],
       providers: [
         { provide: ApiService, useValue: mockApiService }
       ]
