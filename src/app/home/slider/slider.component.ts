@@ -20,7 +20,7 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   @Input('slides') slides: Object[];
   @ViewChild('siema') siema: NgxSiemaComponent;
   loading = false;
-  interval;
+  interval: NodeJS.Timer;
   currentSlide = 0;
   keyboardInput: Subscription;
   options: NgxSiemaOptions = {
@@ -45,7 +45,8 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
     this.setupTimer();
     const input = document.documentElement;
     this.keyboardInput = Observable.fromEvent(input, 'keydown')
-      .subscribe((event: KeyboardEvent) => this.onKeydown(event.code));
+      .map((event: KeyboardEvent) => event.code)
+      .subscribe(this.onKeydown.bind(this));
   }
 
   prev(numbers: number) {
