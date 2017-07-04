@@ -5,6 +5,7 @@ import {
   OnDestroy,
   OnInit,
   Input,
+  SimpleChanges,
   ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -30,8 +31,8 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   };
   constructor(private cd: ChangeDetectorRef) { }
 
-  ngOnChanges(change) {
-    if (change.slides.previousValue && change.slides.currentValue) {
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.slides.previousValue && changes.slides.currentValue) {
       this.reset();
     }
   }
