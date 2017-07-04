@@ -7,6 +7,7 @@ import { PaginationComponent } from '../pagination/pagination.component';
 import { ApiService } from '../../core/api/api.service';
 import { MediaService } from '../../core/media/media.service';
 import { MockApiService } from '../../core/media/media.service.spec';
+import { SharedModule } from '../shared.module';
 
 describe('SermonsListComponent', () => {
   let component: SermonsListComponent;
@@ -15,14 +16,7 @@ describe('SermonsListComponent', () => {
   beforeEach(async(() => {
     mockApiService =  new MockApiService();
     TestBed.configureTestingModule({
-      imports: [
-        MomentModule,
-        Ng2PaginationModule
-      ],
-      declarations: [
-        PaginationComponent,
-        SermonsListComponent
-      ],
+      imports: [ SharedModule ],
       providers: [
         MediaService,
         { provide: ApiService, useValue: mockApiService },

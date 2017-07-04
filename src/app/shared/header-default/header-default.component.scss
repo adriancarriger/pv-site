@@ -22,7 +22,7 @@ $image-small: 200px;
   }
 
   &.has-links {
-    height: $image-large * 1.2;
+    height: $image-large * 1.8;
   }
 
   // Medium
@@ -30,7 +30,7 @@ $image-small: 200px;
     height: $image-medium;
 
     &.has-links {
-      height: $image-medium * 1.2;
+      height: $image-medium * 1.8;
     }
   }
   // Small
@@ -38,7 +38,7 @@ $image-small: 200px;
     height: $image-small;
 
     &.has-links {
-      height: $image-small * 1.2;
+      height: $image-small * 1.8;
     }
   }
 
@@ -57,7 +57,7 @@ $image-small: 200px;
   }
 
   h1 {
-    bottom: 30px;
+    bottom: 30%;
     font-family: $title-font;
     font-size: 35px;
   }
@@ -84,12 +84,12 @@ $image-small: 200px;
 
 // Page navigation
 .page-nav {
-  bottom: 0;
+  bottom: 30%;
   display: flex;
   justify-content: center;
   left: 0;
   margin: 0 auto;
-  padding-bottom: 30px;
+  // padding-bottom: 30px;
   position: absolute;
   right: 0;
   z-index: 2;
