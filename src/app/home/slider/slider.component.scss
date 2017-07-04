@@ -56,3 +56,27 @@ ngx-siema-slide {
     }
   }
 }
+
+.slider-paging {
+  bottom: 5%;
+  display: flex;
+  height: 28px;
+  justify-content: center;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  z-index: 999;
+
+  .slider-paging-button {
+    $size: 10px;
+    background-color: $white;
+    border-radius: 50%;
+    cursor: pointer;
+    height: $size;
+    line-height: 1;
+    margin: 10px;
+    padding: 0;
+    width: $size;
+  }
+}

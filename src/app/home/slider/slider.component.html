@@ -10,3 +10,6 @@
 </ngx-siema>
 <app-button-clear (click)="onPrev(1)" class="left ion-ios-arrow-left"></app-button-clear>
 <app-button-clear (click)="onNext(1)" class="right ion-ios-arrow-right"></app-button-clear>
+<div class="slider-paging">
+  <app-button-clear class="slider-paging-button" (click)="onGoTo(i)" *ngFor="let slide of slides; let i = index"></app-button-clear>
+</div>
