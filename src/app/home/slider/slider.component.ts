@@ -23,12 +23,14 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   currentSlide = 0;
   interval: NodeJS.Timer;
   keyboardInput: Subscription;
-  loading = false;
+  loading = true;
   options: NgxSiemaOptions = {
     loop: true,
     duration: 500,
+    onInit: () => this.loading = false,
     onChange: () => this.onSlideChange()
   };
+  resetting = false;
   constructor(private cd: ChangeDetectorRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -78,9 +80,10 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
 
   private reset() {
     this.loading = true;
+    this.resetting = true;
     this.cd.markForCheck();
     setTimeout(() => {
-      this.loading = false;
+      this.resetting = false;
       this.cd.markForCheck();
     });
   }
