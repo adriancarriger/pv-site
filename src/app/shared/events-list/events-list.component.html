@@ -6,7 +6,7 @@
         {{event.title}}
       </div>
       <div class="event-item">
-        <i class="ion-android-time"></i> {{event?.unix | amFromUnix | amDateFormat:'h:mm A'}}
+        <i class="ion-android-time"></i> {{event?.all_day === 1 ? 'All day' : event?.unix | amFromUnix | amDateFormat:'h:mm A'}}
       </div>
       <div class="event-item" *ngIf="event.location?.title">
         <i class="ion-location"></i> <a [href]="event.location.link" target="_blank">{{event.location.title}}</a> <span *ngIf="event.location.area">{{event.location.area}}</span>
