@@ -13,7 +13,8 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   loading = false;
   interval;
   options: NgxSiemaOptions = {
-    loop: true
+    loop: true,
+    duration: 500,
   };
   constructor(private cd: ChangeDetectorRef) { }
 
@@ -53,7 +54,7 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   private setupTimer() {
     this.interval = setInterval(() => {
       this.onNext(1);
-    }, 3000);
+    }, 5000);
   }
 
   private reset() {
