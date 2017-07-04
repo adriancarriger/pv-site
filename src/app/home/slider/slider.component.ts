@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnChanges, Input, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, OnDestroy, OnInit, Input, ViewChild } from '@angular/core';
 
 import { NgxSiemaOptions, NgxSiemaComponent } from 'ngx-siema';
 
@@ -7,10 +7,11 @@ import { NgxSiemaOptions, NgxSiemaComponent } from 'ngx-siema';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements OnChanges {
+export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   @Input('slides') slides: Object[];
   @ViewChild('siema') siema: NgxSiemaComponent;
   loading = false;
+  interval;
   options: NgxSiemaOptions = {
     loop: true
   };
@@ -22,16 +23,37 @@ export class SliderComponent implements OnChanges {
     }
   }
 
+  ngOnDestroy() {
+    clearInterval(this.interval);
+  }
+
+  ngOnInit() {
+    this.setupTimer();
+  }
+
   onPrev(numbers: number) {
     this.siema.onPrev(numbers);
+    this.resetTimer();
   }
 
   onNext(numbers: number) {
     this.siema.onNext(numbers);
+    this.resetTimer();
   }
 
   onGoTo(slide: number) {
     this.siema.onGoTo(slide);
+  }
+
+  private resetTimer() {
+    clearInterval(this.interval);
+    this.setupTimer();
+  }
+
+  private setupTimer() {
+    this.interval = setInterval(() => {
+      this.onNext(1);
+    }, 3000);
   }
 
   private reset() {
