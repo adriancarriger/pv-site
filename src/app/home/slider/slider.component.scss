@@ -42,6 +42,17 @@ app-loading {
   top: 0;
 }
 
+ngx-siema {
+  background: $white;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .33s opacity ease-in;
+}
+
 ngx-siema-slide {
   .slide-content {
     color: $white;
