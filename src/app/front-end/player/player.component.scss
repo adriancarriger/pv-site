@@ -118,6 +118,10 @@ $art-size: 30px;
         white-space: nowrap;
         width: 120px;
       }
+
+      .info-title {
+        text-transform: capitalize;
+      }
     }
   }
 }
