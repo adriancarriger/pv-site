@@ -221,6 +221,10 @@
           color: $gray;
         }
       }
+
+      .sermon-title {
+        text-transform: capitalize;
+      }
     }
 
     .right-container {
