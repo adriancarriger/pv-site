@@ -15,6 +15,7 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   options: NgxSiemaOptions = {
     loop: true,
     duration: 500,
+    onChange: () => this.resetTimer()
   };
   constructor(private cd: ChangeDetectorRef) { }
 
@@ -34,12 +35,10 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
 
   onPrev(numbers: number) {
     this.siema.onPrev(numbers);
-    this.resetTimer();
   }
 
   onNext(numbers: number) {
     this.siema.onNext(numbers);
-    this.resetTimer();
   }
 
   onGoTo(slide: number) {
