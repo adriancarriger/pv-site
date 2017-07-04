@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { HeaderDefaultComponent } from './header-default.component';
+import { SharedModule } from '../shared.module';
 import { UiModule } from '../../packages/ui/ui.module';
 
 describe('HeaderDefaultComponent', () => {
@@ -12,8 +13,8 @@ describe('HeaderDefaultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderDefaultComponent ],
-      imports: [ UiModule ]
+      // declarations: [ HeaderDefaultComponent ],
+      imports: [ SharedModule ]
     })
     .compileComponents();
   }));
