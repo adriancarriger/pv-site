@@ -5,6 +5,26 @@
   height: 0;
   padding-bottom: 45%;
   position: relative;
+
+  .right,
+  .left {
+    bottom: 0;
+    color: $white;
+    cursor: pointer;
+    font-size: 60px;
+    height: 1em;
+    margin: auto;
+    position: absolute;
+    top: 0;
+  }
+
+  .left {
+    left: 2%;
+  }
+
+  .right {
+    right: 2%;
+  }
 }
 
 app-image-cover {

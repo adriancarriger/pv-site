@@ -1,6 +1,6 @@
-import { ChangeDetectorRef, Component, OnChanges, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, Input, ViewChild } from '@angular/core';
 
-import { NgxSiemaOptions } from 'ngx-siema';
+import { NgxSiemaOptions, NgxSiemaComponent } from 'ngx-siema';
 
 @Component({
   selector: 'app-slider',
@@ -9,6 +9,7 @@ import { NgxSiemaOptions } from 'ngx-siema';
 })
 export class SliderComponent implements OnChanges {
   @Input('slides') slides: Object[];
+  @ViewChild('siema') siema: NgxSiemaComponent;
   loading = false;
   options: NgxSiemaOptions = {
     loop: true
@@ -19,6 +20,18 @@ export class SliderComponent implements OnChanges {
     if (change.slides.previousValue && change.slides.currentValue) {
       this.reset();
     }
+  }
+
+  onPrev(numbers: number) {
+    this.siema.onPrev(numbers);
+  }
+
+  onNext(numbers: number) {
+    this.siema.onNext(numbers);
+  }
+
+  onGoTo(slide: number) {
+    this.siema.onGoTo(slide);
   }
 
   private reset() {
