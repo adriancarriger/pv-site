@@ -12,10 +12,11 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   @ViewChild('siema') siema: NgxSiemaComponent;
   loading = false;
   interval;
+  currentSlide = 0;
   options: NgxSiemaOptions = {
     loop: true,
     duration: 500,
-    onChange: () => this.resetTimer()
+    onChange: () => this.onSlideChange()
   };
   constructor(private cd: ChangeDetectorRef) { }
 
@@ -63,6 +64,12 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
       this.loading = false;
       this.cd.markForCheck();
     });
+  }
+
+  private onSlideChange() {
+    this.currentSlide = this.siema['instance'].currentSlide;
+    this.cd.markForCheck();
+    this.resetTimer();
   }
 
 }

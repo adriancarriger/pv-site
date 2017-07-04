@@ -70,7 +70,7 @@ ngx-siema-slide {
 
   .slider-paging-button {
     $size: 10px;
-    background-color: $white;
+    border: 1px solid $white;
     border-radius: 50%;
     cursor: pointer;
     height: $size;
@@ -78,5 +78,9 @@ ngx-siema-slide {
     margin: 10px;
     padding: 0;
     width: $size;
+
+    &.current {
+      background-color: $white;
+    }
   }
 }
