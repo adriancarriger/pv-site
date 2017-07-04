@@ -34,15 +34,15 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
     this.setupTimer();
   }
 
-  onPrev(numbers: number) {
+  prev(numbers: number) {
     this.siema.onPrev(numbers);
   }
 
-  onNext(numbers: number) {
+  next(numbers: number) {
     this.siema.onNext(numbers);
   }
 
-  onGoTo(slide: number) {
+  goTo(slide: number) {
     this.siema.onGoTo(slide);
   }
 
@@ -53,7 +53,7 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
 
   private setupTimer() {
     this.interval = setInterval(() => {
-      this.onNext(1);
+      this.next(1);
     }, 5000);
   }
 

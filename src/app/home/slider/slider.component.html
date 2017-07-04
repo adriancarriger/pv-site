@@ -4,8 +4,8 @@
     <app-header-default [info]="slide"></app-header-default>
   </ngx-siema-slide>
 </ngx-siema>
-<app-button-clear (click)="onPrev(1)" class="left ion-ios-arrow-left"></app-button-clear>
-<app-button-clear (click)="onNext(1)" class="right ion-ios-arrow-right"></app-button-clear>
+<app-button-clear (click)="prev(1)" class="left ion-ios-arrow-left"></app-button-clear>
+<app-button-clear (click)="next(1)" class="right ion-ios-arrow-right"></app-button-clear>
 <div class="slider-paging">
-  <app-button-clear [ngClass]="{'current': currentSlide === i}" class="slider-paging-button" (click)="onGoTo(i)" *ngFor="let slide of slides; let i = index"></app-button-clear>
+  <app-button-clear [ngClass]="{'current': currentSlide === i}" class="slider-paging-button" (click)="goTo(i)" *ngFor="let slide of slides; let i = index"></app-button-clear>
 </div>
