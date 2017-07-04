@@ -1,16 +1,16 @@
 import {
   ChangeDetectorRef,
   Component,
+  Input,
   OnChanges,
   OnDestroy,
   OnInit,
-  Input,
   SimpleChanges,
   ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
-import { NgxSiemaOptions, NgxSiemaComponent } from 'ngx-siema';
+import { NgxSiemaComponent, NgxSiemaOptions } from 'ngx-siema';
 
 @Component({
   selector: 'app-slider',
@@ -20,10 +20,10 @@ import { NgxSiemaOptions, NgxSiemaComponent } from 'ngx-siema';
 export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   @Input('slides') slides: Object[];
   @ViewChild('siema') siema: NgxSiemaComponent;
-  loading = false;
-  interval: NodeJS.Timer;
   currentSlide = 0;
+  interval: NodeJS.Timer;
   keyboardInput: Subscription;
+  loading = false;
   options: NgxSiemaOptions = {
     loop: true,
     duration: 500,
@@ -50,16 +50,39 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
       .subscribe(this.onKeydown.bind(this));
   }
 
-  prev(numbers: number) {
-    this.siema.onPrev(numbers);
+  goTo(slide: number) {
+    this.siema.onGoTo(slide);
   }
 
   next(numbers: number) {
     this.siema.onNext(numbers);
   }
 
-  goTo(slide: number) {
-    this.siema.onGoTo(slide);
+  prev(numbers: number) {
+    this.siema.onPrev(numbers);
+  }
+
+  private onKeydown(code: string) {
+    if (code === 'ArrowRight') {
+      this.next(1);
+    } else if (code === 'ArrowLeft') {
+      this.prev(1);
+    }
+  }
+
+  private onSlideChange() {
+    this.currentSlide = this.siema['instance'].currentSlide;
+    this.cd.markForCheck();
+    this.resetTimer();
+  }
+
+  private reset() {
+    this.loading = true;
+    this.cd.markForCheck();
+    setTimeout(() => {
+      this.loading = false;
+      this.cd.markForCheck();
+    });
   }
 
   private resetTimer() {
@@ -72,28 +95,4 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
       this.next(1);
     }, 5000);
   }
-
-  private reset() {
-    this.loading = true;
-    this.cd.markForCheck();
-    setTimeout(() => {
-      this.loading = false;
-      this.cd.markForCheck();
-    });
-  }
-
-  private onSlideChange() {
-    this.currentSlide = this.siema['instance'].currentSlide;
-    this.cd.markForCheck();
-    this.resetTimer();
-  }
-
-  private onKeydown(code: string) {
-    if (code === 'ArrowRight') {
-      this.next(1);
-    } else if (code === 'ArrowLeft') {
-      this.prev(1);
-    }
-  }
-
 }
