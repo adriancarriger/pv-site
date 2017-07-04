@@ -1,4 +1,13 @@
-import { ChangeDetectorRef, Component, OnChanges, OnDestroy, OnInit, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Input,
+  ViewChild } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 import { NgxSiemaOptions, NgxSiemaComponent } from 'ngx-siema';
 
@@ -13,6 +22,7 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   loading = false;
   interval;
   currentSlide = 0;
+  keyboardInput: Subscription;
   options: NgxSiemaOptions = {
     loop: true,
     duration: 500,
@@ -28,10 +38,14 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
 
   ngOnDestroy() {
     clearInterval(this.interval);
+    this.keyboardInput.unsubscribe();
   }
 
   ngOnInit() {
     this.setupTimer();
+    const input = document.documentElement;
+    this.keyboardInput = Observable.fromEvent(input, 'keydown')
+      .subscribe((event: KeyboardEvent) => this.onKeydown(event.code));
   }
 
   prev(numbers: number) {
@@ -70,6 +84,14 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
     this.currentSlide = this.siema['instance'].currentSlide;
     this.cd.markForCheck();
     this.resetTimer();
+  }
+
+  private onKeydown(code: string) {
+    if (code === 'ArrowRight') {
+      this.next(1);
+    } else if (code === 'ArrowLeft') {
+      this.prev(1);
+    }
   }
 
 }
