@@ -1,2 +1,2 @@
 <h2>Related sermons</h2>
-<app-sermons-list [sermons]="apiService.sermons | async | filter:filterChange:filterData:filteredMeta |  slice:0:4" [filteredMeta]="filteredMeta"></app-sermons-list>
+<app-sermons-list [sermons]="apiService.sermons | async | filter:filterChange:filterData:filteredMeta | slice:0:4" [filteredMeta]="filteredMeta"></app-sermons-list>
