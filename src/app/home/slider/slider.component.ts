@@ -53,14 +53,17 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   }
 
   goTo(slide: number) {
+    if (!this.siema) { return; }
     this.siema.onGoTo(slide);
   }
 
   next(numbers: number) {
+    if (!this.siema) { return; }
     this.siema.onNext(numbers);
   }
 
   prev(numbers: number) {
+    if (!this.siema) { return; }
     this.siema.onPrev(numbers);
   }
 
