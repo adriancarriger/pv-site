@@ -1,3 +1,4 @@
+// sass-lint:disable no-important
 @import './variables';
 
 $black: #000;
@@ -57,4 +58,20 @@ ul {
   h2 {
     font-size: 16px;
   }
+}
+
+
+$default-button-color: $white;
+$default-button-size: 18px;
+
+.outline-button {
+  border: solid 1px $default-button-color;
+  color: $default-button-color;
+  display: flex !important;
+  font-size: $default-button-size;
+  height: 40px;
+  margin: 20px 0;
+  outline-color: $default-button-color;
+  padding: 0 !important;
+  width: 100%;
 }

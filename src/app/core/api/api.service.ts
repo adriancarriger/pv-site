@@ -35,6 +35,7 @@ export class ApiService {
   filterOptions: AfoObjectObservable<any>;
   eventsFilter: AfoObjectObservable<any>;
   booksFilter: AfoObjectObservable<any>;
+  homeInfo: AfoObjectObservable<any>;
   constructor(
     private afoDatabase: AngularFireOfflineDatabase) {
     this.onInit();
@@ -55,6 +56,7 @@ export class ApiService {
     this.eventsFilter = this.afoDatabase.object('client/eventsFilter');
     this.booksFilter = this.afoDatabase.object('client/booksFilter');
     this.slides = this.afoDatabase.list('client/home/slider');
+    this.homeInfo = this.afoDatabase.object('client/home/info');
   }
 
   getSermon(sermonId) {

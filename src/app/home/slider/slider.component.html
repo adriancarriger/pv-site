@@ -1,11 +1,23 @@
 <app-loading *ngIf="loading"></app-loading>
 <ngx-siema #siema *ngIf="slides && !resetting" [style.opacity]="!loading? 1 : 0" [options]="options">
+  <ngx-siema-slide>
+    <app-header-default [info]="homeInfo?.homeSlide">
+      <app-button-clear class="cta outline-button">Get connected</app-button-clear>
+    </app-header-default>
+  </ngx-siema-slide>
+  <ngx-siema-slide>
+    <app-header-default [info]="latestSermonSlide">
+      <app-button-clear class="cta outline-button">Listen now</app-button-clear>
+    </app-header-default>
+  </ngx-siema-slide>
   <ngx-siema-slide *ngFor="let slide of slides">
-    <app-header-default [info]="slide"></app-header-default>
+    <app-header-default [info]="slide">
+      <app-button-clear class="cta outline-button">CTA</app-button-clear>
+    </app-header-default>
   </ngx-siema-slide>
 </ngx-siema>
 <app-button-clear (click)="prev(1)" class="left ion-ios-arrow-left"></app-button-clear>
 <app-button-clear (click)="next(1)" class="right ion-ios-arrow-right"></app-button-clear>
 <div class="slider-paging">
-  <app-button-clear [ngClass]="{'current': currentSlide === i}" class="slider-paging-button" (click)="goTo(i)" *ngFor="let slide of slides; let i = index"></app-button-clear>
+  <app-button-clear [ngClass]="{'current': currentSlide === i}" class="slider-paging-button" (click)="goTo(i)" *ngFor="let slide of slidePages; let i = index"></app-button-clear>
 </div>

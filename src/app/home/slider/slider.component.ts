@@ -19,8 +19,10 @@ import { NgxSiemaComponent, NgxSiemaOptions } from 'ngx-siema';
 })
 export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   @Input('slides') slides: Object[];
+  @Input('homeInfo') homeInfo;
   @ViewChild('siema') siema: NgxSiemaComponent;
-  currentSlide = 0;
+  slidePages = [];
+  currentSlide = 2;
   interval: NodeJS.Timer;
   keyboardInput: Subscription;
   loading = true;
@@ -31,12 +33,23 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
     onChange: () => this.onSlideChange()
   };
   resetting = false;
+  /**
+   * Slides
+   */
+  latestSermonSlide = {
+    image_small: 'assets/sermons.jpeg',
+    image_medium: 'assets/sermons.jpeg',
+    image_large: 'assets/sermons.jpeg',
+    title: 'Listen to the latest sermon',
+    subtitle: '"Sermon title"'
+  };
   constructor(private cd: ChangeDetectorRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.slides.previousValue && changes.slides.currentValue) {
+    if (changes.slides && changes.slides.previousValue && changes.slides.currentValue) {
       this.reset();
     }
+    this.slidePages = ['Home slide', 'Latest sermon slide', ...this.slides];
   }
 
   ngOnDestroy() {
