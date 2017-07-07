@@ -1,0 +1,1 @@
+<app-button-clear class="play-toggle btn ion-play ion-pause" [ngClass]="{'ion-pause': (mediaService.display | async)?.playing, 'ion-play': !(mediaService.display | async)?.playing}" (click)="mediaService.toggle()"></app-button-clear>

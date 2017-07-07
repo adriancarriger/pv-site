@@ -1,24 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement, Injectable } from '@angular/core';
-import { RouterTestingModule } from '@angular/router/testing';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import { SharedModule } from '../shared/shared.module';
-import { HomeComponent } from './home.component';
-import { HomeModule } from './home.module';
-import { ApiService } from '../core/api/api.service';
-import { MediaService } from '../core/media/media.service';
+import { PlayButtonComponent } from './play-button.component';
+import { MediaService } from '../../core/media/media.service';
+import { SharedModule } from '../shared.module';
+import { ApiService } from '../../core/api/api.service';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('PlayButtonComponent', () => {
+  let component: PlayButtonComponent;
   let mockApiService: MockApiService;
+  let fixture: ComponentFixture<PlayButtonComponent>;
 
   beforeEach(async(() => {
     mockApiService = new MockApiService();
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, SharedModule, HomeModule ],
+      imports: [ SharedModule ],
       providers: [
         MediaService,
         { provide: ApiService, useValue: mockApiService }
@@ -28,7 +25,7 @@ describe('HomeComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(PlayButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

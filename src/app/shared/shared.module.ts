@@ -16,6 +16,7 @@ import { EventsListComponent } from './events-list/events-list.component';
 import { RelatedEventsComponent } from './related-events/related-events.component';
 import { NavLinkComponent } from './nav-link/nav-link.component';
 import { ImageCoverComponent } from './image-cover/image-cover.component';
+import { PlayButtonComponent } from './play-button/play-button.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { ImageCoverComponent } from './image-cover/image-cover.component';
     RelatedEventsComponent,
     NavLinkComponent,
     ImageCoverComponent,
+    PlayButtonComponent,
   ],
   exports: [
     HeaderDefaultComponent,
@@ -45,6 +47,7 @@ import { ImageCoverComponent } from './image-cover/image-cover.component';
     FilterModule,
     UiModule,
     MomentModule,
+    PlayButtonComponent,
     SafeHtmlPipe,
     EventsListComponent,
     RelatedSermonsComponent,

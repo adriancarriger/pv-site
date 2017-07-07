@@ -2,7 +2,6 @@
 // sass-lint:disable nesting-depth
 @import '../../../variables';
 
-$player-height: 50px;
 $art-size: 30px;
 
 .player {
@@ -29,39 +28,11 @@ $art-size: 30px;
     min-width: 150px;
     width: 15%;
 
-    > app-button-clear {
-      background: none;
-      color: $dark-gray;
-      font-size: 25px;
-      height: $player-height;
-      margin: 0 2px;
-      outline: none;
-
-      &.control-disabled {
-        color: $gray;
-        cursor: default;
-      }
-
-      &:active {
-        box-shadow: none;
-      }
-
-      &.play-toggle {
-        width: 42px;
-      }
-    }
 
     &.no-playlist {
       margin-left: 60px;
       min-width: 60px;
       width: 60px;
-
-      > button {
-        &.play-toggle {
-          display: block;
-          margin: 0 auto;
-        }
-      }
     }
   }
 

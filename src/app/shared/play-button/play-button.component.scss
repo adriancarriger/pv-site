@@ -1,0 +1,23 @@
+@import '../../../variables';
+
+app-button-clear {
+  background: none;
+  color: $dark-gray;
+  font-size: 25px;
+  height: $player-height;
+  margin: 0 2px;
+  outline: none;
+
+  &.control-disabled {
+    color: $gray;
+    cursor: default;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &.play-toggle {
+    width: 42px;
+  }
+}

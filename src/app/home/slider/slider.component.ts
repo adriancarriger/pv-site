@@ -9,8 +9,9 @@ import {
   ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-
 import { NgxSiemaComponent, NgxSiemaOptions } from 'ngx-siema';
+
+import { MediaService } from '../../core/media/media.service';
 
 @Component({
   selector: 'app-slider',
@@ -43,7 +44,9 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
     title: 'Listen to the latest sermon',
     subtitle: '"Sermon title"'
   };
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(
+    public mediaService: MediaService,
+    private cd: ChangeDetectorRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.slides && changes.slides.previousValue && changes.slides.currentValue) {

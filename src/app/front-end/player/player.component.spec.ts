@@ -7,6 +7,8 @@ import { UiModule } from '../../packages/ui/ui.module';
 import { MediaService } from '../../core/media/media.service';
 import { MockApiService } from '../../core/media/media.service.spec';
 import { ApiService } from '../../core/api/api.service';
+import { SharedModule } from '../../shared/shared.module';
+
 
 describe('PlayerComponent', () => {
   let component: PlayerComponent;
@@ -16,7 +18,7 @@ describe('PlayerComponent', () => {
     mockApiService = new MockApiService();
     TestBed.configureTestingModule({
       imports: [
-        UiModule,
+        SharedModule,
         NouisliderModule
       ],
       declarations: [
