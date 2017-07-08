@@ -60,7 +60,7 @@ export class ApiService {
   }
 
   getSermon(sermonId) {
-    return this.sermons.pluck(sermonId);
+    return this.afoDatabase.object(`client/sermons/${sermonId}`);
   }
 
   resource(type, id: string): AfoObjectObservable<Page> {

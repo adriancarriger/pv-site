@@ -21,6 +21,7 @@ import { MediaService } from '../../core/media/media.service';
 export class SliderComponent implements OnChanges, OnDestroy, OnInit {
   @Input('slides') slides: Object[];
   @Input('homeInfo') homeInfo;
+  @Input('latestSermon') latestSermon;
   @ViewChild('siema') siema: NgxSiemaComponent;
   slidePages = [];
   currentSlide = 2;
@@ -34,17 +35,6 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
     onChange: () => this.onSlideChange()
   };
   resetting = false;
-  /**
-   * Slides
-   */
-  latestSermonSlide = {
-    image_small: 'assets/sermons.jpeg',
-    image_medium: 'assets/sermons.jpeg',
-    image_large: 'assets/sermons.jpeg',
-    title: 'Listen to the latest sermon',
-    subtitle: '"Sermon title"',
-    id: '2'
-  };
   constructor(
     public mediaService: MediaService,
     private cd: ChangeDetectorRef) { }

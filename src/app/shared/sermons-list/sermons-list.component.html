@@ -1,6 +1,6 @@
 <div class="sermons container">
-  <div *ngFor="let sermon of sermons | paginate: config; let i = index" class="sermon-container" [ngClass]="{'playing': ((mediaService.display | async)?.playing) && (mediaService.display | async)?.id == sermon?.key, 'current-sermon': (mediaService.display | async)?.id == sermon?.key, 'error': error(sermon.key)}">
-    <div class="sermon-art" (click)="mediaService.toggle(sermon.key)">
+  <div *ngFor="let sermon of sermons | paginate: config; let i = index" class="sermon-container" [ngClass]="{'playing': ((mediaService.display | async)?.playing) && (mediaService.display | async)?.id == sermon?.id, 'current-sermon': (mediaService.display | async)?.id == sermon?.id, 'error': error(sermon.id)}">
+    <div class="sermon-art" (click)="mediaService.toggle(sermon.id)">
       <app-image-cover [src]="sermon?.art.image_large" alt=""></app-image-cover>
       <div class="sermon-book {{sermon?.art?.color}}" [ngClass]="artClass(i)">{{sermon?.books[0]}}</div>
       <div class="sermon-play-container">
