@@ -96,6 +96,19 @@ ngx-siema-slide {
   }
 }
 
+.sermon-info {
+  bottom: 33%;
+  color: $white;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+
 .cta {
   bottom: -29%;
   left: 0;

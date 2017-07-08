@@ -7,7 +7,8 @@ export class RefTaggerService {
     settings: {
       bibleVersion: 'ESV',
       socialSharing: [],
-      noSearchTagNames: ['h1', 'h2']
+      noSearchTagNames: ['h1', 'h2'],
+      noSearchClassNames: ['no-ref']
     }
   };
   constructor() { }
