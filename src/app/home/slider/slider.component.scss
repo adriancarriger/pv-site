@@ -107,6 +107,19 @@ ngx-siema-slide {
   position: absolute;
   right: 0;
   z-index: 2;
+
+  $play-size: 40px;
+
+  app-play-button {
+    bottom: -50px;
+    color: $white;
+    font-size: $play-size;
+    height: $play-size;
+    left: 0;
+    margin: auto;
+    right: 0;
+    text-align: center;
+  }
 }
 
 .cta {

@@ -1,9 +1,14 @@
 @import '../../../variables';
 
-app-button-clear {
-  background: none;
+:host {
   color: $dark-gray;
   font-size: 25px;
+}
+
+app-button-clear {
+  background: none;
+  color: inherit;
+  font-size: inherit;
   height: $player-height;
   margin: 0 2px;
   outline: none;
