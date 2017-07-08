@@ -42,7 +42,8 @@ export class SliderComponent implements OnChanges, OnDestroy, OnInit {
     image_medium: 'assets/sermons.jpeg',
     image_large: 'assets/sermons.jpeg',
     title: 'Listen to the latest sermon',
-    subtitle: '"Sermon title"'
+    subtitle: '"Sermon title"',
+    id: '2'
   };
   constructor(
     public mediaService: MediaService,

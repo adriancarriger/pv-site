@@ -7,7 +7,7 @@
   </ngx-siema-slide>
   <ngx-siema-slide>
     <app-header-default [info]="latestSermonSlide">
-      <app-button-clear class="cta outline-button">Listen now</app-button-clear>
+      <app-play-button class="cta" [sermonId]="latestSermonSlide?.id"></app-play-button>
     </app-header-default>
   </ngx-siema-slide>
   <ngx-siema-slide *ngFor="let slide of slides">
