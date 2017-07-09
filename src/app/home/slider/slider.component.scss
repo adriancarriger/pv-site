@@ -96,39 +96,14 @@ ngx-siema-slide {
   }
 }
 
-.sermon-info {
-  bottom: 33%;
+app-play-button {
   color: $white;
   display: flex;
-  height: 50px;
+  font-size: 40px;
   justify-content: center;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  z-index: 2;
-
-  $play-size: 40px;
-
-  app-play-button {
-    bottom: -50px;
-    color: $white;
-    font-size: $play-size;
-    height: $play-size;
-    left: 0;
-    margin: auto;
-    right: 0;
-    text-align: center;
-  }
+  padding: 0;
 }
 
 .cta {
-  bottom: -29%;
-  left: 0;
-  margin: auto;
   max-width: 230px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
 }

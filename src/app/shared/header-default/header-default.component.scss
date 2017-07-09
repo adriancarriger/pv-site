@@ -21,6 +21,30 @@ $image-small: 200px;
     width: 100%;
   }
 
+  .content-container {
+    bottom: 0;
+    display: flex;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+    .content /deep/ {
+      color: $white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: auto;
+
+      > * {
+        flex-basis: 100%;
+        margin: 10px auto;
+        text-align: center;
+      }
+    }
+  }
+
   &.has-links {
     height: $image-large * 1.8;
   }
@@ -47,23 +71,17 @@ $image-small: 200px;
     color: $white;
     font-weight: 400;
     height: 1em;
-    left: 0;
     margin: auto;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
-    z-index: 2;
   }
 
   h1 {
-    bottom: 30%;
+    bottom: 100px;
     font-family: $title-font;
     font-size: 35px;
   }
 
   h2 {
-    bottom: 10%;
+    bottom: 20px;
     font-size: 20px;
   }
 
@@ -84,15 +102,10 @@ $image-small: 200px;
 
 // Page navigation
 .page-nav {
-  bottom: 30%;
   display: flex;
   justify-content: center;
-  left: 0;
   margin: 0 auto;
-  // padding-bottom: 30px;
-  position: absolute;
-  right: 0;
-  z-index: 2;
+  padding-top: 20px;
 
   .icon-container {
     border-right: 1px solid $white;

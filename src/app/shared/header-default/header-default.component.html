@@ -1,11 +1,16 @@
 <app-image-cover *ngIf="info?.image_small" [src]="info.image_large" alt="">
 <div *ngIf="info?.useOverlay === false ? false : true" class="overlay"></div>
-<h1>{{info?.title}}</h1>
-<h2 *ngIf="info?.subtitle">{{info?.subtitle}}</h2>
-<div *ngIf="info?.links" class="page-nav">
-  <app-button-clear *ngFor="let link of info.links; let i = index" (click)="scrollTo(slug, i, link.linkTo)" class="icon-container">
-    <div class="icon {{link.icon}}"></div>
-    {{link.title}}
-  </app-button-clear>
+<div class="content-container">
+  <div class="content">
+    <h1>{{info?.title}}</h1>
+    <h2 *ngIf="info?.subtitle">{{info?.subtitle}}</h2>
+    <div *ngIf="info?.links" class="page-nav">
+      <app-button-clear *ngFor="let link of info.links; let i = index" (click)="scrollTo(slug, i, link.linkTo)" class="icon-container">
+        <div class="icon {{link.icon}}"></div>
+        {{link.title}}
+      </app-button-clear>
+    </div>
+    <ng-content></ng-content>
+  </div>
 </div>
-<ng-content></ng-content>
+

@@ -3,15 +3,17 @@
 :host {
   color: $dark-gray;
   font-size: 25px;
+  height: 1em;
 }
 
 app-button-clear {
   background: none;
   color: inherit;
   font-size: inherit;
-  height: $player-height;
+  height: inherit;
   margin: 0 2px;
   outline: none;
+  padding: inherit;
 
   &.control-disabled {
     color: $gray;

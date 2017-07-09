@@ -7,10 +7,8 @@
   </ngx-siema-slide>
   <ngx-siema-slide>
     <app-header-default [info]="latestSermon?.info">
-      <div class="sermon-info no-ref">
-        {{ latestSermon?.verse }}
-        <app-play-button class="cta" [sermonId]="latestSermon?.id"></app-play-button>
-      </div>
+      <div class="no-ref">{{ latestSermon?.verse }}</div>
+      <app-play-button class="cta" [sermonId]="latestSermon?.id"></app-play-button>
     </app-header-default>
   </ngx-siema-slide>
   <ngx-siema-slide *ngFor="let slide of slides">
