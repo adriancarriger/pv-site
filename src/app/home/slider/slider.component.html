@@ -1,5 +1,5 @@
 <app-loading *ngIf="loading"></app-loading>
-<ngx-siema #siema *ngIf="slides && !resetting" [style.opacity]="!loading? 1 : 0" [options]="options">
+<ngx-siema #siema *ngIf="slides && !resetting" (mouseover)="resetTimer()" [style.opacity]="!loading? 1 : 0" [options]="options">
   <ngx-siema-slide>
     <app-header-default [info]="homeInfo?.homeSlide">
       <app-button-clear class="cta outline-button">Get connected</app-button-clear>
