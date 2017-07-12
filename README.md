@@ -24,9 +24,9 @@
 
 ## Tech Stack
 
-- Front end: [Angular 2](https://github.com/angular/angular) version 2.4.9
+- Front end: [Angular](https://github.com/angular/angular) version 4.0
 - Database/hosting: [Firebase](https://firebase.google.com/)
-- Scaffolding: [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-rc.1
+- Scaffolding: [angular-cli](https://github.com/angular/angular-cli) version 1.0
 
 ## Development server
 
