@@ -47,4 +47,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## License
 
- pv-site is licensed under the MIT Open Source license. For more information, see the LICENSE file in this repository.
+ pv-site is licensed under the MIT Open Source license. For more information, see the [LICENSE](LICENSE) file in this repository.
