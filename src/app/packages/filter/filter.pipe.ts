@@ -141,6 +141,10 @@ export class FilterPipe implements PipeTransform {
     // Treat each word as a query and normalize to lowercase
     let queries = searchQueries
       .toLowerCase()
+      .split('”')
+      .join('')
+      .split('“')
+      .join('')
       .split(' ');
     if (!wholeWords) {
       queries = queries.filter(item => this.stopWords().indexOf(item) === -1);
@@ -194,9 +198,16 @@ export class FilterPipe implements PipeTransform {
 
       if (meta.wholeWords) {
         const wholeWordFound = meta.searchQueries.find(x => {
-          const searchTerm = x.split('"').join('');
+          const searchTerm = x
+            .split('"')
+            .join('');
           // True if one whole word is found
-          return searchable.split(' ').find(y => searchTerm === y);
+          return searchable
+            .split('”')
+            .join('')
+            .split('“')
+            .join('')
+            .split(' ').find(y => searchTerm === y);
         });
         if (wholeWordFound) {
           item['key'] = key;

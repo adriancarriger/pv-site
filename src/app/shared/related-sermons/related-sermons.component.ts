@@ -24,6 +24,7 @@ export class RelatedSermonsComponent implements OnChanges {
     missions: 'evangelism witness',
     sunday: 'church',
     school: 'education',
+    men: 'men leadership leaders checklist',
     'rescue-mission': 'serve service evangelism witness',
     'operation-christmas-child': 'serve service evangelism witness',
     'christmas-tea': 'christmas serve service evangelism witness'
