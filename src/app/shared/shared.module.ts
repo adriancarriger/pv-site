@@ -17,6 +17,7 @@ import { RelatedEventsComponent } from './related-events/related-events.componen
 import { NavLinkComponent } from './nav-link/nav-link.component';
 import { ImageCoverComponent } from './image-cover/image-cover.component';
 import { PlayButtonComponent } from './play-button/play-button.component';
+import { SortPipe } from './sort.pipe';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { PlayButtonComponent } from './play-button/play-button.component';
     NavLinkComponent,
     ImageCoverComponent,
     PlayButtonComponent,
+    SortPipe,
   ],
   exports: [
     HeaderDefaultComponent,

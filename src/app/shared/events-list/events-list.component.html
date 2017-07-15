@@ -1,7 +1,7 @@
 <div class="events container">
   <div *ngFor="let eventGroup of events; let i = index" class="event-group">
     <h2>{{eventGroup.$key | amFromUnix | amDateFormat: 'dddd, MMMM D'}}</h2>
-    <div *ngFor="let event of eventGroup; let n = index" class="event" [ngClass]="{'odd': n === 0 || n % 2 === 0}">
+    <div *ngFor="let event of eventGroup | sort:'unix'; let n = index" class="event" [ngClass]="{'odd': n === 0 || n % 2 === 0}">
       <div class="event-item">
         {{event.title}}
       </div>
