@@ -2,7 +2,7 @@
 <ngx-siema #siema *ngIf="slides && !resetting" (mouseover)="resetTimer()" [style.opacity]="!loading? 1 : 0" [options]="options">
   <ngx-siema-slide>
     <app-header-default [info]="homeInfo?.homeSlide">
-      <app-button-clear class="cta outline-button">Get connected</app-button-clear>
+      <app-button-clear *ngIf="homeInfo?.homeSlide?.link" [routerLink]="['/' + homeInfo?.homeSlide.link]" class="cta outline-button">Get connected</app-button-clear>
     </app-header-default>
   </ngx-siema-slide>
   <ngx-siema-slide>
@@ -13,7 +13,9 @@
   </ngx-siema-slide>
   <ngx-siema-slide *ngFor="let slide of slides">
     <app-header-default [info]="slide">
-      <app-button-clear class="cta outline-button">CTA</app-button-clear>
+      <app-button-clear *ngIf="slide?.link" [routerLink]="['/' + slide.link]" class="cta outline-button">
+        {{slide.cta}}
+      </app-button-clear>
     </app-header-default>
   </ngx-siema-slide>
 </ngx-siema>
