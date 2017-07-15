@@ -75,3 +75,16 @@ $default-button-size: 18px;
   padding: 0 !important;
   width: 100%;
 }
+
+// Call to action buttons
+.cta {
+  max-width: 230px;
+
+  &.play-button {
+    color: $white;
+    display: flex;
+    font-size: 40px;
+    justify-content: center;
+    padding: 0;
+  }
+}

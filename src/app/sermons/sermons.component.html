@@ -1,4 +1,6 @@
 <app-header-default [info]="(apiService.latestSermon | async)?.info">
+  <div class="no-ref">{{ (apiService.latestSermon | async)?.verse }}</div>
+  <app-play-button class="cta play-button" [sermonId]="(apiService.latestSermon | async)?.id"></app-play-button>
 </app-header-default>
 <app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.filterOptions | async)?.items"></app-filter>
 <app-sermons-list [sermons]="apiService.sermons | async | filter:filterChange:filterData:filteredMeta" [filteredMeta]="filteredMeta"></app-sermons-list>
