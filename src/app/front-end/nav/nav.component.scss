@@ -88,6 +88,17 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
       }
     }
 
+    .top-container,
+    .item {
+      a {
+        &,
+        &:hover,
+        &:active {
+          display: flex;
+        }
+      }
+    }
+
     .items {
       border-top: 1px solid $light-gray;
       display: block;
@@ -109,6 +120,10 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
           padding-left: 0;
           padding-right: 0;
           text-align: center;
+
+          > a {
+            display: inline-block;
+          }
 
           &.active {
             padding-bottom: 0;
