@@ -4,12 +4,12 @@
 [![Codecov](https://img.shields.io/codecov/c/github/adriancarriger/pv-site/master.svg?maxAge=60)](https://codecov.io/gh/adriancarriger/pv-site)
 [![Dependency Status](https://img.shields.io/david/adriancarriger/pv-site/master.svg?maxAge=60)](https://david-dm.org/adriancarriger/pv-site)
 [![devDependency Status](https://img.shields.io/david/dev/adriancarriger/pv-site/master.svg?maxAge=60)](https://david-dm.org/adriancarriger/pv-site?type=dev)
-[![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
+[![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
 # PV Bible Church Website
 
 - This project is a work in progress.
-- Repo for the future [pvbiblechurch.com](http://pvbiblechurch.com/) site. Built using [Angular 2](https://github.com/angular/angular) with the [Angular 2 CLI](https://github.com/angular/angular-cli)
+- Repo for the future [pvbiblechurch.com](http://pvbiblechurch.com/) site. Built using [Angular 4](https://github.com/angular/angular) with the [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Demo
 
