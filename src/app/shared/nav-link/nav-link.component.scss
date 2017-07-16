@@ -63,3 +63,30 @@ a {
     }
   }
 }
+
+@media (max-width: $mobile-break-point) {
+  .menu {
+    padding: 10px;
+    position: initial;
+
+    &:focus {
+      outline-color: $black;
+      outline-width: 1px;
+    }
+
+    .title {
+      color: $black;
+      font-family: inherit;
+      font-size: 1em;
+      position: initial;
+    }
+
+    .overlay {
+      opacity: 0;
+    }
+
+    app-image-cover {
+      display: none;
+    }
+  }
+}

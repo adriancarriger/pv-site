@@ -12,4 +12,5 @@ export class NavLinkComponent {
   @Input() srcset: string;
   @Input() tabindex: string;
   @Input() title: string;
+  @Input() menu;
 }

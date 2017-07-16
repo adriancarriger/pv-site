@@ -88,16 +88,57 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     }
 
     .items {
-      display: initial;
+      border-top: 1px solid $light-gray;
+      display: block;
+      height: 0;
+      overflow: hidden;
+
+      &.open {
+        height: initial;
+      }
 
       .left,
       .right {
         display: initial;
 
         .item {
+          background-color: $white;
+          border-bottom: 1px solid $light-gray;
           display: block;
+          padding-left: 0;
+          padding-right: 0;
           text-align: center;
+
+          &.active {
+            padding-bottom: 0;
+          }
         }
+      }
+    }
+
+    .sub-items-container {
+      border-bottom: none;
+      box-shadow: none;
+      position: initial;
+
+      .sub-items {
+        padding-top: 10px;
+        width: 100%;
+      }
+    }
+
+    .sub-item {
+      background-color: $very-light-gray;
+      border-top: 1px solid $light-gray;
+      margin: 0;
+      padding: 10px 0;
+      width: 100%;
+
+      app-nav-link {
+        display: block;
+        height: initial;
+        padding-bottom: 0;
+        text-align: center;
       }
     }
   }

@@ -7,16 +7,16 @@
       <app-button-clear padding="10px" (click)="navOpen = !navOpen">Toggle nav</app-button-clear>
     </div>
   </div>
-  <ul class="items">
+  <ul class="items" [ngClass]="{'open': navOpen}">
     <div class="left">
       <li *ngFor="let item of apiService.menu | async" class="item" [ngClass]="{'active': item.slug === activeItem}">
-        <a *ngIf="item.url" [routerLink]="['/' + item.slug]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" (click)="activeItem = undefined">{{item.name}}</a>
+        <a *ngIf="item.url" [routerLink]="['/' + item.slug]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" (click)="navOpen = false; activeItem = undefined">{{item.name}}</a>
         <ng-template [ngIf]="item.sub">
           <app-button-clear padding="10px" (click)="activeItem !== item.slug ? activeItem = item.slug : activeItem = undefined">{{item.name}}</app-button-clear>
           <div class="sub-items-container" [ngClass]="{'active': item.slug === activeItem}">
             <ul class="sub-items">
               <li *ngFor="let sub of item.sub" class="sub-item">
-                <app-nav-link [title]="sub.name" [src]="sub.image_large" [link]="['/' + item.slug + '/' + sub.slug]" [tabindex]="item.slug !== activeItem ? '-1' : null" (click)="activeItem = undefined"></app-nav-link>
+                <app-nav-link [menu]="true" [title]="sub.name" [src]="sub.image_large" [link]="['/' + item.slug + '/' + sub.slug]" [tabindex]="item.slug !== activeItem ? '-1' : null" (click)="navOpen = false; activeItem = undefined"></app-nav-link>
               </li>
             </ul>
           </div>
