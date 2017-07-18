@@ -48,4 +48,14 @@
     flex-basis: 33.33%;
     text-align: center;
   }
+  @media (max-width: $mobile-break-point) {
+    > div {
+      flex-basis: 50%;
+    }
+  }
+  @media (max-width: $mobile-break-point-small) {
+    > div {
+      flex-basis: 100%;
+    }
+  }
 }

@@ -39,6 +39,7 @@ a {
 
   &:focus {
     outline: 4px solid $primary-color;
+    z-index: 1;
 
     .overlay {
       outline: none;
