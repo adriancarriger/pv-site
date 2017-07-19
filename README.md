@@ -30,8 +30,7 @@
 
 ## Development server
 
-- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-- `npm run hmr` is similar to `ng serve` with the added feature of push changes the DOM without a full page reload!
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
