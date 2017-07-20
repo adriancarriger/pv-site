@@ -239,9 +239,9 @@ angularfire2-offline@4.1.4:
     json-stringify-safe "^5.0.1"
     localforage "1.5.0"
 
-angularfire2@4.0.0-rc.0:
-  version "4.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-4.0.0-rc.0.tgz#bc911f6874fc9546b535ec8e308c8b374d0fbf0c"
+angularfire2@4.0.0-rc.1:
+  version "4.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-4.0.0-rc.1.tgz#d73014ac5431c0458ee953214f79953a06528c3f"
 
 ansi-align@^2.0.0:
   version "2.0.0"
