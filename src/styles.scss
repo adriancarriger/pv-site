@@ -80,6 +80,10 @@ $default-button-size: 18px;
 .cta {
   max-width: 230px;
 
+  @media (max-width: $mobile-break-point) {
+    max-width: 160px;
+  }
+
   &.play-button {
     color: $white;
     display: flex;
