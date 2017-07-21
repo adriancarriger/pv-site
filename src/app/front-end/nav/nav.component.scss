@@ -12,6 +12,7 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
   .top-container {
     display: flex;
     justify-content: space-between;
+    padding: 2px 10px;
 
     .home {
       align-items: center;
@@ -29,8 +30,6 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
 
   .top-container,
   .item {
-    padding: 10px;
-
     a {
       &,
       &:hover,
@@ -69,6 +68,7 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     .item {
       align-items: center;
       display: flex;
+      padding: 10px;
 
       app-button-clear {
         padding: 0;
