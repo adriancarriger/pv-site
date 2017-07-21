@@ -1,9 +1,19 @@
 @import '../../../variables';
 
+$slider-height: 45%;
+$slider-height-medium: 70%;
+$slider-height-small: 120%;
+
 :host {
   display: block;
   height: 0;
-  padding-bottom: 45%;
+  padding-bottom: $slider-height;
+  @media (max-width: $mobile-break-point) {
+    padding-bottom: $slider-height-medium;
+  }
+  @media (max-width: $mobile-break-point-small) {
+    padding-bottom: $slider-height-small;
+  }
   position: relative;
 
   .right,
@@ -29,7 +39,13 @@
 
 app-header-default {
   height: 0;
-  padding-bottom: 45%;
+  padding-bottom: $slider-height;
+  @media (max-width: $mobile-break-point) {
+    padding-bottom: $slider-height-medium;
+  }
+  @media (max-width: $mobile-break-point-small) {
+    padding-bottom: $slider-height-small;
+  }
 }
 
 app-loading {

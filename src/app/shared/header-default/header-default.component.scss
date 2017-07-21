@@ -50,8 +50,20 @@ $image-small: 200px;
   }
 
   // Medium
-  @media (min-width: 501px) and (max-width: 900px) {
+  @media (max-width: $mobile-break-point) {
     height: $image-medium;
+
+    .content {
+      width: 70%;
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+    }
 
     &.has-links {
       height: $image-medium * 1.8;
@@ -70,7 +82,7 @@ $image-small: 200px;
   h2 {
     color: $white;
     font-weight: 400;
-    height: 1em;
+    line-height: 1.5;
     margin: auto;
   }
 
