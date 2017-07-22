@@ -25,22 +25,6 @@
 
 .sermons {
   margin-top: 60px;
-  @media (max-width: 700px) {
-    font-size: 14px;
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  @media (min-width: 701px) {
-    margin: 20px auto;
-
-    &.container {
-      font-family: inherit;
-      font-size: inherit;
-      padding-left: initial;
-      padding-right: initial;
-    }
-  }
 
   .no-results {
     font-size: 20px;
@@ -141,7 +125,7 @@
         &.white {
           color: $white;
         }
-        @media (max-width: 500px) {
+        @media (max-width: $mobile-break-point-small) {
           &.adam {
             font-family: Adam;
             $adam: 9px;
@@ -247,7 +231,7 @@
       }
     }
     // Major Break Points
-    @media (max-width: 700px) {
+    @media (max-width: $mobile-break-point) {
       border-bottom: solid 1px $light-gray;
       border-radius: 0;
 
@@ -294,12 +278,12 @@
         }
       }
     }
-    @media (max-width: 500px) {
+    @media (max-width: $mobile-break-point-small) {
       height: 130px;
 
       .sermon-info {
         padding: 14px 0 7px 13px;
-        width: 79%;
+        width: 76%;
       }
 
       .sermon-art {
@@ -308,8 +292,8 @@
         width: 70px;
 
         .sermon-play-container {
-          bottom: 14px;
-          right: 4px;
+          bottom: 22px;
+          right: 2px;
         }
       }
     }
@@ -317,6 +301,37 @@
       .sermon-info {
         width: 70%;
       }
+    }
+  }
+
+  @media (max-width: $mobile-break-point) {
+    font-size: 14px;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+
+    .sermon-container {
+      .right-container {
+        .download {
+          display: block;
+          padding: 0;
+          position: absolute;
+          right: 3%;
+          text-align: initial;
+          top: 12%;
+        }
+      }
+    }
+  }
+  @media (min-width: $mobile-break-point + 1px) {
+    margin: 20px auto;
+
+    &.container {
+      font-family: inherit;
+      font-size: inherit;
+      padding-left: initial;
+      padding-right: initial;
     }
   }
 }
