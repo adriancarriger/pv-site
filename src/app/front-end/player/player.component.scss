@@ -12,12 +12,19 @@ $art-size: 30px;
   left: 0;
   position: fixed;
   right: 0;
+  transition: transform .2s;
   width: 100%;
   z-index: 3;
 
   &.started {
-    -webkit-animation: player .2s forwards;
-    animation: player .2s forwards;
+    @media (min-width: $mobile-break-point + 1) {
+      transform: translateY($player-height * -1);
+    }
+    @media (max-width: $mobile-break-point) {
+      &.mopen {
+        transform: translateY($player-height-mobile * -1);
+      }
+    }
   }
 
   .player-item {
@@ -97,40 +104,67 @@ $art-size: 30px;
   }
 }
 
-@-webkit-keyframes player {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    -webkit-transform: translate3d(0, ($player-height * -1), 0);
+@media (min-width: $mobile-break-point + 1) {
+  .player {
+    .nav {
+      display: none;
+    }
   }
 }
 
-@media (max-width: 767px) {
-  // Modal Design
-  .modal {
-    .modal-dialog {
-      background-color: $white;
-      height: 100%;
-      margin: 0;
+@media (max-width: $mobile-break-point) {
+  .player {
+    bottom: $player-height-mobile * -1;
+    display: flex;
+    flex-wrap: wrap;
+    height: $player-height-mobile;
 
-      .modal-content {
-        border: 0;
-        box-shadow: initial;
+    .nav {
+      text-align: right;
+      width: 100%;
+    }
 
-        .player {
-          -webkit-animation: initial;
-          animation: initial;
-          background-color: transparent;
-          border: 0;
-          position: initial;
+    .info-container {
+      flex-basis: 100%;
+      flex-wrap: wrap;
+      margin-top: auto;
+      order: 1;
 
-          .progress {
-            background-color: transparent;
-          }
+      .album-art {
+        flex-basis: 100%;
+
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 50%;
         }
       }
+
+      .info-text {
+        text-align: center;
+        width: 100%;
+
+        > div {
+          margin: auto;
+        }
+      }
+    }
+
+    .controls {
+      flex-basis: 100%;
+      margin-top: auto;
+      order: 2;
+      text-align: center;
+
+      &.no-playlist {
+        margin-left: 0;
+      }
+    }
+
+    .progress {
+      flex-basis: 100%;
+      margin-bottom: auto;
+      order: 3;
     }
   }
 }

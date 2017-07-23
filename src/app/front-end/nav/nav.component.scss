@@ -79,10 +79,28 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
       }
     }
   }
+  @media (min-width: $mobile-break-point + 1) {
+    .toggle-audio-details {
+      display: none;
+    }
+  }
   @media (max-width: $mobile-break-point) {
     display: initial;
 
     .top-container {
+      .toggle-audio-details {
+        font-size: 20px;
+      }
+
+      .home {
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 9px;
+        width: 44px;
+      }
+
       .mobile-nav {
         display: initial;
       }
