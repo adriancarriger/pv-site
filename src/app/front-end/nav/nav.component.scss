@@ -90,6 +90,10 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     .top-container {
       .toggle-audio-details {
         font-size: 20px;
+
+        .playing {
+          color: $pv-green;
+        }
       }
 
       .home {

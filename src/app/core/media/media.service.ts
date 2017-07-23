@@ -24,7 +24,8 @@ export class MediaService {
     title: undefined,
     speaker: undefined,
     duration: undefined,
-    art: undefined
+    art: undefined,
+    mobileOpen: false
   };
   private sub = {
     sermon: undefined,
@@ -100,6 +101,12 @@ export class MediaService {
       this.next.promise
         .then(() => this.implementToggle());
     }
+  }
+
+  mobileToggle() {
+    this.updateDisplay({
+      mobileOpen: !this.displayInternal.mobileOpen
+    });
   }
 
   private updateDisplay(newData) {
@@ -192,6 +199,7 @@ export interface Display {
   duration: string;
   playing: boolean;
   art: MediaArt;
+  mobileOpen: boolean;
   randomClass?: string;
 }
 

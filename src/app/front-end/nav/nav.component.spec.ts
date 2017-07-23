@@ -7,6 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { NavComponent } from './nav.component';
 import { ApiService } from '../../core/api/api.service';
 import { SharedModule } from '../../shared/shared.module';
+import { MediaService } from '../../core/media/media.service';
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -18,6 +19,7 @@ describe('NavComponent', () => {
       imports: [ RouterTestingModule, SharedModule ],
       declarations: [ NavComponent ],
       providers: [
+        MediaService,
         { provide: ApiService, useValue: mockApiService }
       ]
     })

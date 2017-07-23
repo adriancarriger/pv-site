@@ -1,6 +1,6 @@
-<div [ngClass]="{started: (mediaService.display | async)?.id, mopen: mobileOpen}" class="player">
+<div [ngClass]="{started: (mediaService.display | async)?.id, mopen: (mediaService.display | async)?.mobileOpen}" class="player">
   <div class="nav">
-    <app-button-clear (click)="mobileOpen = false">Done</app-button-clear>
+    <app-button-clear (click)="mediaService.mobileToggle()">Done</app-button-clear>
   </div>
   <div class="controls player-item no-playlist">
     <app-play-button></app-play-button>

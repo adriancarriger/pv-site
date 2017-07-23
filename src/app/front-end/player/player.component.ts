@@ -9,7 +9,6 @@ import { MediaService } from '../../core/media/media.service';
 })
 export class PlayerComponent implements OnInit {
   position = 0;
-  mobileOpen = false;
 
   constructor(public mediaService: MediaService) { }
 

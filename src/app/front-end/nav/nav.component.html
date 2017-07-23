@@ -1,7 +1,7 @@
 <nav class="nav">
   <div class="top-container">
-    <div class="toggle-audio-details">
-      <app-button-clear>
+    <div [ngClass]="{started: (mediaService.display | async)?.playing}" class="toggle-audio-details">
+      <app-button-clear [ngClass]="{playing: (mediaService.display | async)?.playing}" (click)="mediaService.mobileToggle()">
         <span class="ion-radio-waves"></span>
       </app-button-clear>
     </div>

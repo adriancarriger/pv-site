@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from '../../core/api/api.service';
+import { MediaService } from '../../core/media/media.service';
 /**
  * @whatItDoes Returns the {@link NavComponent} view
  * @consumers {@link AppComponent}
@@ -18,7 +19,9 @@ import { ApiService } from '../../core/api/api.service';
 export class NavComponent implements OnInit {
   activeItem: string;
   navOpen = false;
-  constructor(public apiService: ApiService) { }
+  constructor(
+    public apiService: ApiService,
+    public mediaService: MediaService) { }
 
   ngOnInit() {
   }
