@@ -3,7 +3,7 @@
 .footer {
   background-color: $blue-grey;
   color: $white;
-  height: 950px;
+  // height: 950px;
 }
 
 .social-media-container {
@@ -115,6 +115,8 @@ label {
 .more-info {
   @extend %contact-info;
   font-size: 16px;
+  margin-bottom: 0;
+  padding-bottom: 60px;
 
   li {
     padding: 5px;
