@@ -105,6 +105,10 @@ $art-size: 30px;
 }
 
 @media (min-width: $mobile-break-point + 1) {
+  app-play-button {
+    padding-top: 7px;
+  }
+
   .player {
     .nav {
       display: none;
@@ -145,6 +149,11 @@ $art-size: 30px;
         text-align: center;
         width: 100%;
 
+        .info-title {
+          overflow: initial;
+          width: 100%;
+        }
+
         > div {
           margin: auto;
         }
@@ -168,8 +177,4 @@ $art-size: 30px;
       order: 3;
     }
   }
-}
-
-app-play-button {
-  padding-top: 13px;
 }

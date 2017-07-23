@@ -4,6 +4,7 @@
   display: inline-block;
   line-height: 1;
   outline-color: $ui-black;
+  outline-width: 1px;
   padding: 10px;
 
   // Turn a button into a link - http://stackoverflow.com/a/12642009/5357459
@@ -23,6 +24,7 @@
     &:focus {
       outline: solid 1px;
       outline-color: inherit;
+      outline-width: inherit;
     }
   }
 
