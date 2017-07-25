@@ -17,7 +17,7 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
 
     .home {
       align-items: center;
-      display: flex;
+      display: block;
       font-size: 44px;
       padding: 2px;
     }
@@ -192,7 +192,7 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
   overflow: hidden;
   position: absolute;
   right: 0;
-  top: 68px;
+  top: 58px;
   z-index: 3;
 
   &.active {
