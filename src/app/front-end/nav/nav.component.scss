@@ -1,3 +1,4 @@
+// sass-lint:disable nesting-depth
 @import '../../../variables';
 $nav-gray: #e7e7e7;
 $nav-shaddow: rgba(0, 0, 0, .175);
@@ -25,6 +26,10 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
       display: none;
       font-size: 20px;
       margin-left: auto;
+    }
+
+    .toggle-audio-details {
+      display: none;
     }
   }
 
@@ -79,20 +84,18 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
       }
     }
   }
-  @media (min-width: $mobile-break-point + 1) {
-    .toggle-audio-details {
-      display: none;
-    }
-  }
   @media (max-width: $mobile-break-point) {
     display: initial;
 
     .top-container {
       .toggle-audio-details {
-        font-size: 20px;
+        &.started {
+          display: flex;
+          font-size: 20px;
 
-        .playing {
-          color: $pv-green;
+          .playing {
+            color: $pv-green;
+          }
         }
       }
 
