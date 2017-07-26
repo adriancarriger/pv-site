@@ -12,24 +12,6 @@ app-filter {
   margin-top: 0;
   text-align: justify;
 
-  @media (max-width: 700px) {
-    font-size: 14px;
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  @media (min-width: 701px) {
-    margin: 0 auto;
-    margin-bottom: 20px;
-
-    &.container {
-      font-family: inherit;
-      font-size: inherit;
-      padding-left: initial;
-      padding-right: initial;
-    }
-  }
-
   .use-background {
     background-color: $very-light-gray;
   }
@@ -107,6 +89,30 @@ app-filter {
     &.odd {
       background-color: $list-background;
     }
+  }
 
+  @media (max-width: $mobile-break-point) {
+    font-size: 14px;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    app-related-sermons {
+      &.item {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  @media (min-width: $mobile-break-point + 1px) {
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    &.container {
+      font-family: inherit;
+      font-size: inherit;
+      padding-left: initial;
+      padding-right: initial;
+    }
   }
 }
