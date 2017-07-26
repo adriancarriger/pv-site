@@ -46,6 +46,7 @@ $spacing: 15px;
   }
 
   .search {
+    margin: auto;
     padding: 0 20px;
     width: 41%;
 
@@ -55,6 +56,11 @@ $spacing: 15px;
       overflow: hidden;
       width: 100%;
     }
+  }
+
+  .toggle {
+    margin-left: auto;
+    margin-right: 5%;
   }
 
   .item {
@@ -69,7 +75,6 @@ $spacing: 15px;
   &.center {
     .search {
       margin-left: auto;
-      margin-right: auto;
       width: 50%;
       @media (max-width: $mobile-break-point) {
         .item {
@@ -92,6 +97,7 @@ $spacing: 15px;
       width: 90%;
 
       app-button-clear {
+        color: $white;
         padding: 5px;
       }
     }
