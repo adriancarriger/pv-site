@@ -50,6 +50,17 @@ $contact-font-size: 18px;
       height: 200px;
     }
   }
+
+  @media (max-width: $mobile-break-point) {
+    form {
+      width: 80%;
+    }
+
+    .contact-message {
+      margin: 0 auto;
+      width: 90%;
+    }
+  }
 }
 
 .actions-container {
@@ -58,18 +69,14 @@ $contact-font-size: 18px;
   flex-wrap: wrap;
   justify-content: space-between;
 
-  @media (min-width: 1000px) {
-    padding: 0 10%;
-  }
-
   .action {
     align-items: flex-start;
     cursor: pointer;
     display: flex;
     flex-basis: 33.33%;
-    height: 300px;
     justify-content: center;
     margin: 0;
+    max-height: 300px;
     overflow: hidden;
 
     a {
@@ -112,6 +119,23 @@ $contact-font-size: 18px;
       .action-text-cta {
         padding: 10px;
         text-decoration: underline;
+      }
+    }
+  }
+
+  @media (min-width: 1000px) {
+    padding: 0 10%;
+  }
+
+  @media (max-width: $mobile-break-point-small) {
+    padding: 80px 0;
+
+    .action {
+      flex-basis: 100%;
+
+      a {
+        margin: 1px;
+        max-width: 200px;
       }
     }
   }
