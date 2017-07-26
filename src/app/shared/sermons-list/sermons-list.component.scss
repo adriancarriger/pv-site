@@ -230,8 +230,16 @@
         }
       }
     }
-    // Major Break Points
-    @media (max-width: $mobile-break-point) {
+  }
+
+  @media (max-width: $mobile-break-point) {
+    font-size: 14px;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+
+    .sermon-container {
       border-bottom: solid 1px $light-gray;
       border-radius: 0;
 
@@ -250,6 +258,15 @@
 
       .right-container {
         position: static;
+
+        .download {
+          display: block;
+          padding: 0;
+          position: absolute;
+          right: 3%;
+          text-align: initial;
+          top: 12%;
+        }
       }
 
       .sermon-art {
@@ -278,7 +295,10 @@
         }
       }
     }
-    @media (max-width: $mobile-break-point-small) {
+  }
+
+  @media (max-width: $mobile-break-point-small) {
+    .sermon-container {
       height: 130px;
 
       .sermon-info {
@@ -297,33 +317,16 @@
         }
       }
     }
-    @media (max-width: 400px) {
+  }
+
+  @media (max-width: 400px) {
+    .sermon-container {
       .sermon-info {
         width: 70%;
       }
     }
   }
 
-  @media (max-width: $mobile-break-point) {
-    font-size: 14px;
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-
-    .sermon-container {
-      .right-container {
-        .download {
-          display: block;
-          padding: 0;
-          position: absolute;
-          right: 3%;
-          text-align: initial;
-          top: 12%;
-        }
-      }
-    }
-  }
   @media (min-width: $mobile-break-point + 1px) {
     margin: 20px auto;
 
