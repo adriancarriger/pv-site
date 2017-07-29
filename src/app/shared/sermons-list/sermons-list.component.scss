@@ -307,9 +307,11 @@
       }
 
       .sermon-art {
-        height: 100px;
-        padding: 20px 0;
-        width: 70px;
+        $art-padding: 20px;
+        $art-width: 70px;
+        height: $art-width + ($art-padding * 2);
+        padding: $art-padding 0;
+        width: $art-width;
 
         .sermon-play-container {
           bottom: 22px;
