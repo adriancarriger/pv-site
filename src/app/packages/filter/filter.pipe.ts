@@ -44,13 +44,16 @@ export class FilterPipe implements PipeTransform {
       filteredMeta.count = -1; // filter not active
       return value;
     }
+    filteredMeta.currentUnix = moment().unix();
     const filtering = this.filtering(filterInput, filteredMeta);
+    const currentUnix = moment().unix();
     if (!filtering.any) {
       filteredMeta.count = -1; // filter not active
       const prefilter = filteredMeta.prefilter !== undefined ? filteredMeta.prefilter : () => true;
       value = this.flatten(filteredMeta.flatten, value);
       value = value
         .filter((item, key) => {
+          if (filteredMeta.current && currentUnix > item[filteredMeta.current]) { return; }
           if (filteredMeta.flatten) { return item; }
           const useItem = prefilter(item);
           if (useItem) { item['key'] = key; } // Temp (ideally would be refactored)
@@ -68,7 +71,9 @@ export class FilterPipe implements PipeTransform {
       searchQueries: searchQueries,
       checkSearch: filtering.search,
       searchFields: filteredMeta.searchFields,
-      wholeWords: filteredMeta.wholeWords
+      wholeWords: filteredMeta.wholeWords,
+      current: filteredMeta.current,
+      currentUnix
     };
     value = this.flatten(filteredMeta.flatten, value);
     let filtered = value
@@ -159,6 +164,7 @@ export class FilterPipe implements PipeTransform {
    * any queries.
    */
   private filterItem(item: Object, key, meta) {
+    if (meta.current && meta.currentUnix > item[meta.current]) { return; }
     // Filter by select terms
     if (Object.keys(meta.input) // get filter items
       .filter(x => x !== 'search' && meta.input[x] !== 'all') // remove if not filtering or search

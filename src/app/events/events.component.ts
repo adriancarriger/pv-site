@@ -32,7 +32,8 @@ export class EventsComponent implements OnDestroy, OnInit {
   filteredMeta = {
     searchFields: [],
     flatten: true,
-    count: 0
+    count: 0,
+    current: 'unixEnd'
   };
   /**
    * Holds the subscription the to {@link apiService}'s filterOptions Observable
