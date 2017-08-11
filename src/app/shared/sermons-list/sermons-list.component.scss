@@ -307,14 +307,15 @@
       }
 
       .sermon-art {
-        $art-padding: 20px;
+        $art-margin: 20px;
         $art-width: 70px;
-        height: $art-width + ($art-padding * 2);
-        padding: $art-padding 0;
+        height: $art-width;
+        margin: $art-margin 0;
+        padding: 0;
         width: $art-width;
 
         .sermon-play-container {
-          bottom: 22px;
+          bottom: 2px;
           right: 2px;
         }
       }
