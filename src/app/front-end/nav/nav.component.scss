@@ -13,7 +13,10 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
   .top-container {
     display: flex;
     justify-content: space-between;
+    left: 0;
     padding: 2px 10px;
+    right: 0;
+    top: 0;
 
     .home {
       align-items: center;
@@ -88,6 +91,10 @@ $nav-shaddow-light: rgba(0, 0, 0, .15);
     display: initial;
 
     .top-container {
+      background: $white;
+      position: fixed;
+      z-index: 2;
+
       .toggle-audio-details {
         &.started {
           display: flex;

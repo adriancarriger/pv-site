@@ -26,4 +26,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
+  scrollUp() {
+    window.scroll(0, 0);
+  }
 }

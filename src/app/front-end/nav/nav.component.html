@@ -9,7 +9,7 @@
       <app-logo></app-logo>
     </a>
     <div class="mobile-nav">
-      <app-button-clear label="toggle navigartion" class="toggle" padding="10px" (click)="navOpen = !navOpen"><app-icon-nav></app-icon-nav></app-button-clear>
+      <app-button-clear label="toggle navigartion" class="toggle" padding="10px" (click)="navOpen = !navOpen; scrollUp()"><app-icon-nav></app-icon-nav></app-button-clear>
     </div>
   </div>
   <ul class="items" [ngClass]="{'open': navOpen}">
