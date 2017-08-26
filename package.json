@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run assets && ng serve",
     "hmr": "ng serve --hmr -e=hmr",
     "lint": "ng lint",
     "sass-lint": "sass-lint",
@@ -12,7 +12,8 @@
     "test": "ng lint && npm run sassLint && ng test --watch=false --code-coverage",
     "fireDeployPrep": "ng build --prod --aot",
     "e2e": "ng e2e",
-    "build": "ng build"
+    "build": "npm run assets && ng build",
+    "assets": "node build-assets.js"
   },
   "private": true,
   "dependencies": {
