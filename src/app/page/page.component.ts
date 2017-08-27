@@ -48,7 +48,7 @@ export class PageComponent implements OnDestroy, OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.onNewRoute();
+    setTimeout(() => this.onNewRoute());
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.onNewRoute();
