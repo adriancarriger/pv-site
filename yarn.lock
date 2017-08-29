@@ -271,15 +271,15 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular2-moment@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/angular2-moment/-/angular2-moment-1.2.0.tgz#6463afbec233b071788ba4f59d8c932986b7e4a9"
+angular2-moment@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/angular2-moment/-/angular2-moment-1.7.0.tgz#6e620430cc21efc65ed3a68b5c09f3f3ef7a8256"
   dependencies:
     moment "^2.16.0"
 
-angularfire2-offline@4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/angularfire2-offline/-/angularfire2-offline-4.1.4.tgz#87617ba1745f28a2f2b921acec105f785b2d0ee5"
+angularfire2-offline@4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/angularfire2-offline/-/angularfire2-offline-4.2.4.tgz#32436a9c3c8068f1c88b2bc0fc35a77149f3202c"
   dependencies:
     json-stringify-safe "^5.0.1"
     localforage "1.5.0"
