@@ -21,6 +21,8 @@ $art-size: 30px;
       transform: translateY($player-height * -1);
     }
     @media (max-width: $mobile-break-point) {
+      border-top: 0;
+
       &.mopen {
         transform: translateY($player-height-mobile * -1);
       }
