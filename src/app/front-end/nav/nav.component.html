@@ -5,7 +5,7 @@
         <span class="ion-radio-waves"></span>
       </app-button-clear>
     </div>
-    <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="home" (click)="activeItem = undefined">
+    <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="home" (click)="activeItem = undefined; navOpen = false; scrollUp()">
       <app-logo></app-logo>
     </a>
     <div class="mobile-nav">
