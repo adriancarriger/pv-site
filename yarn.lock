@@ -277,16 +277,16 @@ angular2-moment@1.7.0:
   dependencies:
     moment "^2.16.0"
 
-angularfire2-offline@4.2.4:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/angularfire2-offline/-/angularfire2-offline-4.2.4.tgz#32436a9c3c8068f1c88b2bc0fc35a77149f3202c"
+angularfire2-offline@4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/angularfire2-offline/-/angularfire2-offline-4.3.1.tgz#d3b7986e229e328dddd3406c2a239d215455a838"
   dependencies:
     json-stringify-safe "^5.0.1"
     localforage "1.5.0"
 
-angularfire2@4.0.0-rc.1:
-  version "4.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-4.0.0-rc.1.tgz#d73014ac5431c0458ee953214f79953a06528c3f"
+angularfire2@4.0.0-rc.2:
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-4.0.0-rc.2.tgz#4dd22b877d691a37c009b1fa503d5132cd9970ea"
 
 ansi-align@^2.0.0:
   version "2.0.0"
