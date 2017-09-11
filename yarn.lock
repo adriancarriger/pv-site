@@ -2274,9 +2274,9 @@ findup-sync@~0.3.0:
   dependencies:
     glob "~5.0.0"
 
-firebase@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.0.0.tgz#a128092910e44224babc33e19b562ae3716ec4d5"
+firebase@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.3.1.tgz#0e6132ee22af323b350d03b6eb1680bb1a6f9ee6"
   dependencies:
     dom-storage "^2.0.2"
     faye-websocket "0.9.3"
