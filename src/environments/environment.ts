@@ -5,7 +5,6 @@
 
 export const environment = {
   production: false,
-  hmr: false,
   firebase: {
     apiKey: 'AIzaSyCp4R72IRClKsqIyq0OlReOI1nmAOSWygc',
     authDomain: 'https://pv-site.firebaseio.com/',
