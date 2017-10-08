@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "hmr": "ng serve --hmr -e=hmr",
     "lint": "ng lint",
     "sass-lint": "sass-lint",
     "sassLint": "sass-lint 'src/**/*.scss' -v --max-warnings=0",
@@ -40,10 +41,11 @@
   "devDependencies": {
     "@angular/cli": "1.4.2",
     "@angular/compiler-cli": "^4.3.3",
+    "@angularclass/hmr": "1.2.2",
     "@types/jasmine": "2.5.38",
     "@types/node": "~8.0.28",
     "codelyzer": "~2.0.0",
-    "electron": "^1.8.1",
+    "electron": "1.7.6",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "jimp": "^0.2.28",
