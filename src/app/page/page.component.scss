@@ -60,12 +60,17 @@ app-filter {
       margin-top: 0;
     }
 
-    img {
-      align-self: flex-start;
-      display: block;
+    .image-container {
+      height: 10000px;
       margin: 0 auto;
-      max-width: 70%;
+      max-height: 350px;
+      max-width: 90%;
       padding: 20px 0;
+
+      img {
+        max-height: 100%;
+        max-width: 100%;
+      }
     }
 
     .item-details {

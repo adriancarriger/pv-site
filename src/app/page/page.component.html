@@ -5,7 +5,9 @@
     <div *ngFor="let item of (page | async).items | filter:filterChange:filterData:filteredMeta; let i = index; let i = index" id="{{slug}}-{{item.slug ? item.slug : i}}" [ngClass]="{'use-background': item.useBackground, 'first': item.first, 'last': item.last}">
       <!-- Text template -->
       <div *ngIf="item.template === 'default'" class="container item">
-        <img *ngIf="item.image" [src]="item.image" class="item-image" alt="" />
+        <div *ngIf="item.image" class="image-container">
+          <img [src]="item.image" class="item-image" alt="" />
+        </div>
         <h1 *ngIf="item.title">{{item.title}}</h1>
         <h2 *ngIf="item.meta">{{item.meta}}</h2>
         <div class="item-details" [ngClass]="{'has-image': item.image}">
