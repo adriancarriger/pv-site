@@ -12,6 +12,7 @@
     "test": "ng lint && npm run sassLint && ng test --watch=false --code-coverage",
     "fireDeployPrep": "ng build --prod --aot",
     "e2e": "ng e2e",
+    "e2e:watch": "watch 'ng e2e -s false' src e2e --wait=1",
     "build": "npm run assets && ng build",
     "assets": "node build-assets.js"
   },
@@ -60,6 +61,7 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.2.0",
-    "wallaby-webpack": "0.0.38"
+    "wallaby-webpack": "0.0.38",
+    "watch": "^1.0.2"
   }
 }
