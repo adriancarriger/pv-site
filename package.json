@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "sass-lint": "sass-lint",
     "sassLint": "sass-lint 'src/**/*.scss' -v --max-warnings=0",
-    "test": "ng lint && npm run sassLint && ng test --watch=false --code-coverage && npm run e2e",
+    "test": "ng lint && npm run sassLint && ng test --watch=false --code-coverage",
     "fireDeployPrep": "ng build --prod --aot",
     "e2e": "ng e2e",
     "e2e:watch": "watch 'ng e2e -s false' src e2e --wait=1",

@@ -9,6 +9,11 @@ describe('pv-site App', () => {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    const item = page.getParagraphText();
+    const result = item.takeScreenshot();
+
+    console.log(result);
+
+    // expect(page.getParagraphText()).toEqual('app works!');
   });
 });

@@ -19,7 +19,7 @@ describe('SermonsListComponent', () => {
       imports: [ SharedModule ],
       providers: [
         MediaService,
-        { provide: ApiService, useValue: mockApiService },
+        { provide: ApiService, useValue: mockApiService }
       ]
     })
     .compileComponents();
