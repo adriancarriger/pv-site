@@ -8,19 +8,17 @@
 
 # PV Bible Church Website
 
-- This project is a work in progress.
-- Repo for the future [pvbiblechurch.com](http://pvbiblechurch.com/) site. Built using [Angular 4](https://github.com/angular/angular) with the [Angular CLI](https://github.com/angular/angular-cli)
-
-## Demo
-
-- Check out the demo at [https://pvbiblechurch.com/beta](https://pvbiblechurch.com/beta)
-- Legacy demo available at [http://adriancarriger.github.io/pv-site/](http://adriancarriger.github.io/pv-site/)
+- Repo for [pvbiblechurch.com](http://pvbiblechurch.com/). Built using [Angular 4](https://github.com/angular/angular) with the [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Links
 
 - [Issues](https://pvbiblechurch.com/issues)
 - [Repo](https://pvbiblechurch.com/dev)
 - [Demo](https://pvbiblechurch.com/beta)
+
+## Want to help? 🎉🎉🎉
+
+* Checkout the [contributing guidlines](CONTRIBUTING.md)
 
 ## Tech Stack
 
