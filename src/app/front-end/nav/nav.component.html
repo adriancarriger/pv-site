@@ -21,7 +21,7 @@
           <div class="sub-items-container" [ngClass]="{'active': item.slug === activeItem}">
             <ul class="sub-items">
               <li *ngFor="let sub of item.sub" class="sub-item">
-                <app-nav-link [menu]="true" [title]="sub.name" [src]="sub.image_large" [link]="['/' + item.slug + '/' + sub.slug]" [tabindex]="item.slug !== activeItem ? '-1' : null" (click)="navOpen = false; activeItem = undefined"></app-nav-link>
+                <app-nav-link [menu]="true" [title]="sub.name" [src]="sub.image_large" [link]="['/' + item.slug + '/' + sub.slug]" [tabindex]="item.slug !== activeItem ? '-1' : null" (click)="navOpen = false; activeItem = undefined" class="small"></app-nav-link>
               </li>
             </ul>
           </div>

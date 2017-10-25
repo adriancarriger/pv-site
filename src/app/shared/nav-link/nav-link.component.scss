@@ -27,6 +27,12 @@
   height: 0;
   padding-bottom: 70%;
   position: relative;
+
+  &.small {
+    .title {
+      font-size: 26px;
+    }
+  }
 }
 
 a {
