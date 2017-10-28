@@ -8,8 +8,10 @@ import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireOfflineModule } from 'angularfire2-offline';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ApiService } from './api/api.service';
+import { LegacyApiService } from './legacy-api/legacy-api.service';
 import { MediaService } from './media/media.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { GlobalEventsModule } from '../packages/global-events/global-events.module';
@@ -32,6 +34,7 @@ import { environment } from '../../environments/environment';
     CommonModule,
     FilterModule.forRoot(),
     GlobalEventsModule.forRoot(),
+    HttpClientModule,
     RouterModule
   ],
   exports: [
@@ -50,6 +53,7 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         ApiService,
+        LegacyApiService,
         MediaService,
         RefTaggerService,
         WindowRef
