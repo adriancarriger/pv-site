@@ -39,6 +39,7 @@ export class EventsComponent implements OnDestroy, OnInit {
    * Holds the subscription the to {@link apiService}'s filterOptions Observable
    */
   filterSubscription: Subscription;
+  showCalendar = false;
   constructor(
     public apiService: ApiService) { }
   /**

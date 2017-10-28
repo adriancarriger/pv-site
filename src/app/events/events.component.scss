@@ -6,4 +6,20 @@ app-header-default  {
 
 app-filter {
   background-color: $filter-background-color;
+  color: $white
+}
+
+app-button-clear {
+  font-size: .8em;
+  outline-color: $white;
+  padding: 6px;
+}
+
+.hide {
+  display: none;
+}
+
+iframe {
+  display: block;
+  margin: 50px auto;
 }
