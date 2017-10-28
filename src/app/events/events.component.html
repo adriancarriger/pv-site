@@ -1,6 +1,6 @@
 <app-header-default [info]="apiService.latestEvents | async"></app-header-default>
 <app-filter (update)="filterData = $event" (change)="filterChange = $event" [filterItems]="(apiService.eventsFilter | async)?.items">
-    <app-button-clear (click)="showCalendar = !showCalendar">Show {{ showCalendar ? 'calendar' : 'event'}} view</app-button-clear>
+    <app-button-clear (click)="showCalendar = !showCalendar">Show {{ showCalendar ? 'event' : 'calendar'}} view</app-button-clear>
 </app-filter>
 <iframe [ngClass]="{'hide': !showCalendar}" src="https://www.google.com/calendar/embed?src=palycalendar@gmail.com&ctz=America/New_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 <app-events-list [ngClass]="{'hide': showCalendar}" [events]="apiService.events | async | filter:filterChange:filterData:filteredMeta"></app-events-list>
