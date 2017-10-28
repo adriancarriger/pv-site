@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ContactComponent } from './contact.component';
-import { ContactModule } from './contact.module'
+import { ContactModule } from './contact.module';
 import { SharedModule } from '../shared/shared.module';
 import { LegacyApiService } from '../core/legacy-api/legacy-api.service';
 
