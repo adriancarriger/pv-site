@@ -2,6 +2,8 @@
 
 .overlay {
   @extend %overlay;
+  left: -1px;
+  right: -1px;
 }
 
 .title {
