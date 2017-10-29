@@ -31,14 +31,16 @@ export class ContactComponent {
     event.preventDefault();
     this.submitAttempted = true;
     if (this.formInstance.valid) {
-      this.formInstance.reset();
       this.showForm = false;
       setTimeout(() => {
         this.submitAttempted = false;
         this.showForm = true;
         this.cd.markForCheck();
       }, 60000);
-      this.legacyApiService.submitContactMessage(this.formInstance.value);
+      this.legacyApiService.submitContactMessage(this.formInstance.value)
+        .then(data => {
+          this.formInstance.reset();
+        });
     }
   }
 }
