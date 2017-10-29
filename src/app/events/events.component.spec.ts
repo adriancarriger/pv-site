@@ -55,5 +55,6 @@ export class MockApiService extends ApiService {
   }
   onInit() {
     this.eventsFilter = <any>new Subject();
+    this.features = <any>new Subject();
   }
 }
