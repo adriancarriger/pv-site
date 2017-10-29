@@ -1,14 +1,15 @@
 <div class="form-container">
   <h1 class="contact-message">We look forward to hearing from you!</h1>
-  <form *ngIf="showForm" [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
+
+  <form *ngIf="showForm" [ngClass]="{'touched': submitAttempted}" [formGroup]="formInstance" (ngSubmit)="onSubmit($event)">
     <label for="contact-name">Name</label>
-    <input formControlName="name" id="contact-name" type="text" name="name">
+    <input [ngClass]="{'errors': formInstance.controls.name.errors}" formControlName="name" id="contact-name" type="text" name="name">
 
     <label for="contact-email">Email</label>
-    <input formControlName="email" id="contact-email" type="text" name="email">
+    <input [ngClass]="{'errors': formInstance.controls.email.errors}" formControlName="email" id="contact-email" type="text" name="email">
 
     <label for="contact-message">Message</label>
-    <textarea formControlName="message" id="contact-message" name="message"></textarea>
+    <textarea [ngClass]="{'errors': formInstance.controls.message.errors}" formControlName="message" id="contact-message" name="message"></textarea>
 
     <app-button-clear type="submit" class="outline-button">Submit</app-button-clear>
   </form>

@@ -27,6 +27,13 @@ $contact-font-size: 18px;
     max-width: 680px;
     width: 60%;
 
+    &.touched {
+      .errors {
+        border: 1px solid $pv-error;
+        outline-color: $pv-error;
+      }
+    }
+
 
     label {
       flex-basis: 100%;
@@ -139,4 +146,8 @@ $contact-font-size: 18px;
       }
     }
   }
+}
+
+app-button-clear {
+  outline-color: $white;
 }

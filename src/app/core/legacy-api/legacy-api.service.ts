@@ -12,8 +12,6 @@ export class LegacyApiService {
     postData.append('full-name', input.name);
     postData.append('contact-email', input.email);
     postData.append('contact-message', input.message);
-    this.httpClient.post(url, postData).subscribe(output => {
-      console.log('Done!', output);
-    });
+    return this.httpClient.post(url, postData).toPromise();
   }
 }

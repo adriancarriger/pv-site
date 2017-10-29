@@ -17,7 +17,8 @@ import { LegacyApiService } from '../core/legacy-api/legacy-api.service';
 })
 export class ContactComponent {
   showForm = true;
-  loginForm = this.fb.group({
+  submitAttempted = false;
+  formInstance = this.fb.group({
     name: ['', Validators.required],
     email: ['', Validators.required],
     message: ['', Validators.required]
@@ -26,15 +27,18 @@ export class ContactComponent {
     public fb: FormBuilder,
     private legacyApiService: LegacyApiService,
     private cd: ChangeDetectorRef) { }
-  onSubmit(event) {
+  onSubmit() {
     event.preventDefault();
-    if (this.loginForm.valid) {
+    this.submitAttempted = true;
+    if (this.formInstance.valid) {
+      this.formInstance.reset();
       this.showForm = false;
       setTimeout(() => {
+        this.submitAttempted = false;
         this.showForm = true;
         this.cd.markForCheck();
-      }, 10000);
-      this.legacyApiService.submitContactMessage(this.loginForm.value);
+      }, 60000);
+      this.legacyApiService.submitContactMessage(this.formInstance.value);
     }
   }
 }
