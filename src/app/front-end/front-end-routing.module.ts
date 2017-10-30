@@ -57,7 +57,9 @@ const routes: Routes = [
       {
         path: 'contact',
         loadChildren: '../contact/contact.module#ContactModule'
-      }
+      },
+      {path: 'wp-admin', redirectTo: '/about/admin', pathMatch: 'prefix'},
+      {path: 'wp-login.php', redirectTo: '/about/admin', pathMatch: 'prefix'}
     ]
   },
   {
