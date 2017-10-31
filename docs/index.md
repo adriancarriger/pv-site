@@ -24,7 +24,7 @@ If you need to change the content of the website please contact the church offic
 
 ### Site
 
-Visit: [http://pvbiblechurch.com/wp-admin/](http://pvbiblechurch.com/wp-admin/) to update website content.
+Visit: [http://api.pvbiblechurch.com/wp-admin/](http://api.pvbiblechurch.com/wp-admin/) to update website content.
 
 ### Access
 
@@ -32,4 +32,4 @@ To get access to update the website content, contact the church office by callin
 
 ### Passwords
 
-Please visit [http://pvbiblechurch.com/wp-login.php?action=lostpassword](http://pvbiblechurch.com/wp-login.php?action=lostpassword) and enter the email that you initially recieved when you were given access to update the website.
+Please visit [http://api.pvbiblechurch.com/wp-login.php?action=lostpassword](http://api.pvbiblechurch.com/wp-login.php?action=lostpassword) and enter the email that you initially recieved when you were given access to update the website.

@@ -8,7 +8,7 @@
 
 This tutorial shows how to add sermons to the PV Website.
 
-## 1. Go to: [http://pvbiblechurch.com/wp-admin](http://pvbiblechurch.com/wp-admin)
+## 1. Go to: [http://api.pvbiblechurch.com/wp-admin](http://api.pvbiblechurch.com/wp-admin)
 
 ## 2. Select ‘Sermons’ in the side bar
 
