@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # How to add sermons
 
 This tutorial shows how to add sermons to the PV Website.
