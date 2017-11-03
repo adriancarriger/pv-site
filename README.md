@@ -14,7 +14,7 @@
 
 - [Issues](https://pvbiblechurch.com/issues)
 - [Repo](https://pvbiblechurch.com/dev)
-- [Demo](https://pvbiblechurch.com/beta)
+- [Demo](https://pvbiblechurch.com)
 
 ## Want to help? 🎉🎉🎉
 
