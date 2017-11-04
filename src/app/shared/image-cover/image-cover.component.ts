@@ -105,8 +105,8 @@ export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
       {size: 'x_large', width: 3000}
     ].reduce((p, c) => {
       const url = this.srcList[`image_${c.size}`];
-      if (url) { p.push(`${url} ${c.width}w`) }
-      return p
+      if (url) { p.push(`${url} ${c.width}w`); }
+      return p;
     }, [])
     .join(', ');
   }
