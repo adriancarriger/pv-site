@@ -8,7 +8,8 @@ import {
   Input,
   OnChanges,
   OnInit,
-  Renderer } from '@angular/core';
+  Renderer,
+  ViewChild } from '@angular/core';
 /**
  * @whatItDoes Creates an image that covers the element.
  * @consumers {@link HomeModule}
@@ -27,6 +28,9 @@ import {
   styleUrls: ['./image-cover.component.scss']
 })
 export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
+  srcDist: string;
+  srcsetDist = '';
+  @ViewChild('image') private image: ElementRef;
   /**
    * Optional string to use for the `alt` attribute of the `img` element.
    */
@@ -47,6 +51,7 @@ export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
    * Image url to use for the `img` element and host element's `background-image` style.
    */
   @Input() src: string;
+  @Input() srcList: any;
   /**
    * Creates the {@link ImageCoverComponent}
    * @param renderer used to update the DOM
@@ -74,15 +79,45 @@ export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
   ngOnChanges() {
     this.updateImage();
   }
+
+  onLoad() {
+    this.imgLoad = true;
+    this.updateBackground();
+  }
   /**
    * Sets the host element's `background-image` style to the {@link src} Input
    *
    * this helped!: http://stackoverflow.com/a/22374423/5357459
    */
   private updateImage() {
-    if (this.src !== undefined && this.src !== null) {
-      this.renderer.setElementStyle(
-        this.element.nativeElement, 'backgroundImage', `url(${this.src})`);
+    if (this.srcList && this.srcList.image_small) {
+      this.srcDist = this.srcList.image_small;
+      this.createSrcset();
+    } else if (this.src !== undefined && this.src !== null) {
+      this.srcDist = this.src;
     }
+  }
+
+  private createSrcset() {
+    this.srcsetDist = [
+      {size: 'medium', width: 1000},
+      {size: 'large', width: 2000},
+      {size: 'x_large', width: 3000}
+    ].reduce((p, c) => {
+      const url = this.srcList[`image_${c.size}`];
+      if (url) { p.push(`${url} ${c.width}w`) }
+      return p
+    }, [])
+    .join(', ');
+  }
+  private updateBackground() {
+    const url = this.currentSrc();
+    this.renderer.setElementStyle(
+      this.element.nativeElement, 'backgroundImage', `url(${url})`);
+  }
+
+  private currentSrc() {
+    const image = this.image.nativeElement;
+    return image.currentSrc || image.currentSrc;
   }
 }

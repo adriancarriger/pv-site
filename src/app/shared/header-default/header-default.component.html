@@ -1,4 +1,4 @@
-<app-image-cover *ngIf="info?.image_small" [src]="info.image_large" alt="">
+<app-image-cover *ngIf="info?.image_large" [srcList]="info" [src]="info.image_large" alt="">
 <div *ngIf="info?.useOverlay === false ? false : true" class="overlay"></div>
 <div class="content-container">
   <div class="content">
