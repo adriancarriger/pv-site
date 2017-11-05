@@ -97,7 +97,7 @@ export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
       } else if (this.src !== undefined && this.src !== null) {
         this.srcDist = this.src;
       }
-    })
+    });
   }
 
   private createSrcset() {
