@@ -90,12 +90,14 @@ export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
    * this helped!: http://stackoverflow.com/a/22374423/5357459
    */
   private updateImage() {
-    if (this.srcList && this.srcList.image_small) {
-      this.srcDist = this.srcList.image_small;
-      this.createSrcset();
-    } else if (this.src !== undefined && this.src !== null) {
-      this.srcDist = this.src;
-    }
+    setTimeout(() => {
+      if (this.srcList && this.srcList.image_small) {
+        this.srcDist = this.srcList.image_small;
+        this.createSrcset();
+      } else if (this.src !== undefined && this.src !== null) {
+        this.srcDist = this.src;
+      }
+    })
   }
 
   private createSrcset() {
