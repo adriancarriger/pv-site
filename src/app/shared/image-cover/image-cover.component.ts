@@ -3,6 +3,7 @@
  */ /** */
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   Input,
@@ -28,6 +29,7 @@ import {
   styleUrls: ['./image-cover.component.scss']
 })
 export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
+  showImage = false;
   srcDist: string;
   srcsetDist = '';
   @ViewChild('image') private image: ElementRef;
@@ -60,29 +62,38 @@ export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
    */
   constructor(
     private renderer: Renderer,
-    private element: ElementRef) { }
-  /**
-   * Let image fade in if it takes more than 300 milliseconds to load.
-   */
+    private element: ElementRef,
+    private cd: ChangeDetectorRef) { }
   ngOnInit() {
-    setTimeout(() => this.fadeIn = true, 300);
+
   }
   /**
    * First call to {@link updateImage}.
    */
   ngAfterViewInit() {
-    this.updateImage();
+    if (this.element.nativeElement.offsetParent) {
+      this.initImage();
+    } else {
+      setTimeout(() => this.initImage(), 6000);
+    }
   }
   /**
    * Updates the image (via {@link updateImage}) if the {@link src} Input changes.
    */
   ngOnChanges() {
-    this.updateImage();
+    if (this.showImage || this.element.nativeElement.offsetParent) {
+      this.updateImage();
+    }
   }
 
   onLoad() {
     this.imgLoad = true;
     this.updateBackground();
+  }
+  private initImage() {
+    this.showImage = true;
+    setTimeout(() => this.fadeIn = true, 300);
+    this.updateImage();
   }
   /**
    * Sets the host element's `background-image` style to the {@link src} Input
@@ -97,6 +108,7 @@ export class ImageCoverComponent implements AfterViewInit, OnChanges, OnInit {
       } else if (this.src !== undefined && this.src !== null) {
         this.srcDist = this.src;
       }
+      this.cd.markForCheck();
     });
   }
 
