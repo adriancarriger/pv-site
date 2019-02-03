@@ -51,6 +51,10 @@ const routes: Routes = [
         }
       },
       {
+        path: 'calendar',
+        loadChildren: '../calendar/calendar.module#CalendarModule'
+      },
+      {
         path: 'events',
         loadChildren: '../events/events.module#EventsModule'
       },
@@ -58,8 +62,8 @@ const routes: Routes = [
         path: 'contact',
         loadChildren: '../contact/contact.module#ContactModule'
       },
-      {path: 'wp-admin', redirectTo: '/about/admin', pathMatch: 'prefix'},
-      {path: 'wp-login.php', redirectTo: '/about/admin', pathMatch: 'prefix'}
+      { path: 'wp-admin', redirectTo: '/about/admin', pathMatch: 'prefix' },
+      { path: 'wp-login.php', redirectTo: '/about/admin', pathMatch: 'prefix' }
     ]
   },
   {
@@ -76,4 +80,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FrontEndRoutingModule { }
+export class FrontEndRoutingModule {}
