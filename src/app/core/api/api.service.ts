@@ -4,9 +4,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { AfoListObservable,
+import {
+  AfoListObservable,
   AfoObjectObservable,
-  AngularFireOfflineDatabase } from 'angularfire2-offline/database';
+  AngularFireOfflineDatabase
+} from 'angularfire2-offline/database';
 import { Page } from '../../page/page.interface';
 /**
  * @whatItDoes Reponsible for returning data from an API.
@@ -28,6 +30,7 @@ export class ApiService {
   sermons: AfoListObservable<any[]>;
   events: AfoListObservable<any[]>;
   books: AfoListObservable<any[]>;
+  calendar: AfoObjectObservable<any>;
   slides: AfoListObservable<any>;
   latestEvents: AfoObjectObservable<any>;
   latestSermon: AfoObjectObservable<any>;
@@ -37,8 +40,7 @@ export class ApiService {
   booksFilter: AfoObjectObservable<any>;
   homeInfo: AfoObjectObservable<any>;
   features: AfoObjectObservable<any>;
-  constructor(
-    private afoDatabase: AngularFireOfflineDatabase) {
+  constructor(private afoDatabase: AngularFireOfflineDatabase) {
     this.onInit();
   }
   /**
@@ -50,6 +52,7 @@ export class ApiService {
     this.sermons = this.afoDatabase.list('client/sermons');
     this.events = this.afoDatabase.list('client/events');
     this.books = this.afoDatabase.list('client/books');
+    this.calendar = this.afoDatabase.object('client/calendar');
     this.latestEvents = this.afoDatabase.object('client/latestEvents');
     this.latestSermon = this.afoDatabase.object('client/latestSermon');
     this.latestBook = this.afoDatabase.object('client/latestBook');

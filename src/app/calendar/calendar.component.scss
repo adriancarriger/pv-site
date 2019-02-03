@@ -1,0 +1,15 @@
+@import '../../variables';
+
+.calendar-container {
+  margin: 0 auto;
+
+  app-image-cover {
+    margin: 2em 0;
+    padding-bottom: 82%;
+  }
+
+  @media (min-width: $mobile-break-point + 1) {
+    max-width: 80vw;
+    padding: 8em;
+  }
+}
